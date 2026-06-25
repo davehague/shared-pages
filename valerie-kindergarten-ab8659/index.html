@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex,nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valerie's Road to Kindergarten · Worthington Estates</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..700&family=Mulish:ital,wght@0,300..900;1,400..700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FBF5E9;
+    --paper-2:#F4 EAD7;
+    --paper-card:#FFFDF7;
+    --ink:#24322B;
+    --ink-soft:#4A5A50;
+    --forest:#1E5945;
+    --forest-deep:#143E30;
+    --amber:#E0A53B;
+    --amber-deep:#C8861E;
+    --rust:#C2553A;
+    --line:#E3D7BE;
+    --shadow:rgba(20,62,48,.14);
+    --radius:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Mulish",system-ui,sans-serif;
+    color:var(--ink);
+    background-color:#FBF5E9;
+    background-image:
+      radial-gradient(900px 420px at 88% -8%, rgba(224,165,59,.20), transparent 60%),
+      radial-gradient(720px 380px at -6% 12%, rgba(30,89,69,.14), transparent 58%),
+      radial-gradient(640px 520px at 50% 118%, rgba(194,85,58,.10), transparent 60%);
+    background-attachment:fixed;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  /* subtle grain */
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:9;opacity:.05;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .wrap{max-width:920px;margin:0 auto;padding:0 22px 90px}
+
+  /* ---------- HERO ---------- */
+  header.hero{
+    text-align:center;padding:64px 0 30px;position:relative;
+    animation:rise .8s cubic-bezier(.2,.7,.2,1) both;
+  }
+  .owl{font-size:54px;line-height:1;display:inline-block;filter:drop-shadow(0 6px 10px var(--shadow));
+    animation:bob 4s ease-in-out infinite}
+  .eyebrow{
+    font-family:"Mulish";font-weight:800;letter-spacing:.32em;text-transform:uppercase;
+    font-size:12px;color:var(--forest);margin:18px 0 8px;
+  }
+  h1{
+    font-family:"Fraunces";font-optical-sizing:auto;font-weight:600;
+    font-size:clamp(40px,8vw,76px);line-height:.98;letter-spacing:-.015em;color:var(--forest-deep);
+  }
+  h1 em{font-style:italic;color:var(--rust)}
+  .sub{margin-top:14px;color:var(--ink-soft);font-size:18px;font-weight:600}
+  .sub b{color:var(--ink)}
+
+  /* countdown */
+  .count{
+    margin:34px auto 6px;display:inline-flex;align-items:stretch;gap:0;
+    background:var(--forest-deep);color:#FBF5E9;border-radius:16px;overflow:hidden;
+    box-shadow:0 18px 40px -16px rgba(20,62,48,.6);
+  }
+  .count .big{
+    padding:18px 26px;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  }
+  .count .num{font-family:"Fraunces";font-weight:600;font-size:clamp(34px,7vw,52px);line-height:1}
+  .count .lab{font-size:11px;letter-spacing:.22em;text-transform:uppercase;opacity:.8;margin-top:4px}
+  .count .side{
+    background:var(--amber);color:var(--forest-deep);padding:0 22px;display:flex;flex-direction:column;
+    align-items:flex-start;justify-content:center;font-weight:800;min-width:150px;
+  }
+  .count .side small{font-size:11px;letter-spacing:.16em;text-transform:uppercase;opacity:.75;font-weight:800}
+  .count .side span{font-family:"Fraunces";font-size:21px;font-weight:600;line-height:1.05;margin-top:3px}
+
+  /* ---------- WATCH banner ---------- */
+  .watch{
+    margin:40px 0 8px;background:linear-gradient(100deg,var(--rust),#A8442C);
+    color:#FFF3EC;border-radius:var(--radius);padding:22px 26px;
+    display:flex;gap:18px;align-items:flex-start;
+    box-shadow:0 16px 36px -18px rgba(194,85,58,.8);position:relative;overflow:hidden;
+  }
+  .watch::after{content:"📨";position:absolute;right:-8px;bottom:-16px;font-size:96px;opacity:.16;transform:rotate(-12deg)}
+  .watch .k{font-size:30px;line-height:1}
+  .watch h3{font-family:"Fraunces";font-weight:600;font-size:21px;margin-bottom:3px}
+  .watch p{font-size:15px;opacity:.95;position:relative;z-index:2}
+
+  /* ---------- sections ---------- */
+  section{margin-top:46px;animation:rise .7s ease both}
+  .sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:18px;padding-bottom:12px;border-bottom:2px solid var(--line)}
+  .sec-head .ic{font-size:26px}
+  .sec-head h2{font-family:"Fraunces";font-weight:600;font-size:clamp(26px,4.5vw,34px);color:var(--forest-deep);letter-spacing:-.01em}
+  .sec-head .meta{margin-left:auto;font-size:13px;font-weight:800;color:var(--forest);background:rgba(30,89,69,.10);padding:5px 12px;border-radius:30px;white-space:nowrap}
+
+  /* ---------- TIMELINE ---------- */
+  .timeline{position:relative;margin-left:8px;padding-left:30px}
+  .timeline::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:3px;
+    background:linear-gradient(var(--amber),var(--forest))}
+  .tl{position:relative;margin-bottom:20px}
+  .tl::before{content:"";position:absolute;left:-30px;top:4px;width:15px;height:15px;border-radius:50%;
+    background:var(--paper-card);border:3px solid var(--forest);box-shadow:0 0 0 4px var(--paper)}
+  .tl.kday::before{background:var(--rust);border-color:var(--rust);animation:pulse 2s infinite}
+  .tl .date{font-weight:800;color:var(--rust);font-size:14px;letter-spacing:.02em}
+  .tl .ev{font-family:"Fraunces";font-weight:600;font-size:18px;color:var(--ink);margin:1px 0 2px}
+  .tl .det{font-size:14px;color:var(--ink-soft)}
+  .tl.kday .ev{color:var(--rust)}
+
+  /* ---------- CHECKLIST ---------- */
+  .card{background:var(--paper-card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:8px 6px;box-shadow:0 10px 30px -22px var(--shadow)}
+  label.item{
+    display:flex;gap:14px;align-items:flex-start;padding:14px 16px;border-radius:12px;cursor:pointer;
+    transition:background .15s;position:relative;
+  }
+  label.item:hover{background:rgba(224,165,59,.09)}
+  label.item + label.item{border-top:1px solid var(--line)}
+  label.item input{position:absolute;opacity:0;pointer-events:none}
+  .box{flex:0 0 24px;width:24px;height:24px;border-radius:7px;border:2.5px solid var(--forest);
+    background:var(--paper-card);display:grid;place-items:center;margin-top:2px;transition:all .18s}
+  .box::after{content:"✓";font-size:15px;font-weight:900;color:#fff;transform:scale(0);transition:transform .18s}
+  .item input:checked ~ .box{background:var(--forest);border-color:var(--forest)}
+  .item input:checked ~ .box::after{transform:scale(1)}
+  .txt .t{font-weight:700;color:var(--ink);transition:.18s}
+  .txt .d{font-size:14px;color:var(--ink-soft);margin-top:2px}
+  .item input:checked ~ .txt .t{color:var(--ink-soft);text-decoration:line-through;text-decoration-color:var(--amber);text-decoration-thickness:2px}
+  .txt a{color:var(--forest);font-weight:800;text-decoration:none;border-bottom:2px solid var(--amber)}
+  .txt a:hover{color:var(--rust)}
+
+  /* progress */
+  .prog{display:flex;align-items:center;gap:12px;margin:6px 4px 0;font-size:13px;font-weight:800;color:var(--forest)}
+  .bar{flex:1;height:9px;background:var(--line);border-radius:20px;overflow:hidden}
+  .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--amber),var(--forest));transition:width .4s ease}
+
+  /* ---------- RESOURCE CARDS ---------- */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+  a.res{display:block;text-decoration:none;color:inherit;background:var(--paper-card);border:1px solid var(--line);
+    border-radius:14px;padding:16px 16px 15px;transition:transform .16s,box-shadow .16s,border-color .16s}
+  a.res:hover{transform:translateY(-3px);box-shadow:0 16px 30px -20px var(--shadow);border-color:var(--amber)}
+  a.res .tag{font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--amber-deep)}
+  a.res .rt{font-family:"Fraunces";font-weight:600;font-size:18px;color:var(--forest-deep);margin:3px 0 5px;line-height:1.15}
+  a.res .rd{font-size:13.5px;color:var(--ink-soft)}
+  a.res .go{margin-top:9px;font-size:13px;font-weight:800;color:var(--forest)}
+
+  /* ---------- life skills + postcard ---------- */
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .panel{background:var(--paper-card);border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px;
+    box-shadow:0 10px 30px -24px var(--shadow)}
+  .panel h3{font-family:"Fraunces";font-weight:600;font-size:21px;color:var(--forest-deep);margin-bottom:6px}
+  .panel .emoji{font-size:24px}
+  .panel p{font-size:14.5px;color:var(--ink-soft);margin-top:8px}
+  .panel p b{color:var(--ink)}
+  .postcard{
+    background:repeating-linear-gradient(135deg,#FFFDF7,#FFFDF7 22px,#FBF3E2 22px,#FBF3E2 24px);
+    border:2px dashed var(--rust);
+  }
+  .addr{font-family:"Fraunces";font-size:15px;color:var(--ink);line-height:1.5;margin-top:8px;
+    background:var(--paper);display:inline-block;padding:10px 16px;border-radius:10px;border:1px solid var(--line)}
+
+  /* ---------- footer ---------- */
+  footer{margin-top:54px;background:var(--forest-deep);color:#EAF1EC;border-radius:22px;padding:30px 30px;
+    display:flex;flex-wrap:wrap;gap:22px;align-items:center;justify-content:space-between}
+  footer .who{font-family:"Fraunces";font-weight:600;font-size:22px}
+  footer .who small{display:block;font-family:"Mulish";font-weight:600;font-size:13px;opacity:.7;letter-spacing:.04em;margin-top:3px}
+  footer .links{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:14px;font-weight:700}
+  footer a{color:var(--amber);text-decoration:none;border-bottom:1px solid transparent}
+  footer a:hover{border-color:var(--amber)}
+  .stamp{text-align:center;margin-top:24px;font-size:12.5px;color:var(--ink-soft);font-weight:600}
+  .stamp button{font:inherit;font-weight:800;color:var(--rust);background:none;border:none;cursor:pointer;text-decoration:underline}
+
+  @keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+  @keyframes bob{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-9px) rotate(2deg)}}
+  @keyframes pulse{0%,100%{box-shadow:0 0 0 4px var(--paper),0 0 0 4px rgba(194,85,58,.4)}50%{box-shadow:0 0 0 4px var(--paper),0 0 0 11px rgba(194,85,58,0)}}
+  @media(max-width:640px){.two{grid-template-columns:1fr}.count{flex-direction:column}.count .side{padding:12px 22px}footer{flex-direction:column;align-items:flex-start}}
+  @media print{body::before,.count,.watch::after{display:none}body{background:#fff}a.res:hover{transform:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="owl">🦉</div>
+    <div class="eyebrow">Worthington Estates · WES Owls</div>
+    <h1>Valerie's Road to<br><em>Kindergarten</em></h1>
+    <p class="sub">A summer game plan for <b>Fall 2026</b> — pulled from Ms. Niskanen's June note, untangled into what to actually <i>do</i>.</p>
+
+    <div class="count">
+      <div class="big"><span class="num" id="days">—</span><span class="lab">days to go</span></div>
+      <div class="side"><small>First day of Kindergarten</small><span>Friday, Aug 21, 2026</span></div>
+    </div>
+  </header>
+
+  <div class="watch">
+    <div class="k">⭐</div>
+    <div>
+      <h3>The one thing to watch for</h3>
+      <p>A <b>Kindergarten-specific email lands in late July</b> with the real sign-up links — assessment-day slots, supply specifics, and first-week logistics — then emails come <b>weekly</b> once school starts. When it arrives, that's your action trigger. Everything below is what you can get ahead on now.</p>
+    </div>
+  </div>
+
+  <!-- KEY DATES -->
+  <section>
+    <div class="sec-head"><span class="ic">🗓️</span><h2>Dates to lock in</h2><span class="meta">All at WES unless noted</span></div>
+    <div class="timeline">
+      <div class="tl"><div class="date">Now → mid-July</div><div class="ev">Summer learning access stays open</div><div class="det">Lexia, ST Math &amp; Amplify Boost (Amplify open until <b>July 22</b>) via the Worthington HELLO ID portal.</div></div>
+      <div class="tl"><div class="date">Late July</div><div class="ev">Kinder-specific email arrives ⭐</div><div class="det">Sign-up links (incl. assessment slots) + WES details. Then emails come weekly once school starts. Watch your inbox.</div></div>
+      <div class="tl"><div class="date">Sat, Aug 8 · WES window ~12–1 PM (event 9–1)</div><div class="ev">First-Time Bus Rider Event</div><div class="det">Whole family. At the Worthington Education Center (WEC), 200 E Wilson Bridge Rd — bus tours, ride around the block, face painting, photos. Building-specific times coming soon.</div></div>
+      <div class="tl"><div class="date">Tue, Aug 11 · 5:00 PM</div><div class="ev">Kindergarten Parent Information Night</div><div class="det"><b>Adults/caregivers only</b> — the nitty-gritty K session for incoming families.</div></div>
+      <div class="tl"><div class="date">Mon, Aug 17 · 4:30–6:30 PM</div><div class="ev">Back-to-School Open House / PTA Event</div><div class="det">Rolling/drop-in for all WES families — drop off supplies, meet the PTA. Online-ordered supplies will be waiting here.</div></div>
+      <div class="tl"><div class="date">Wed, Aug 19</div><div class="ev">Kindergarten Assessment — Day 1</div><div class="det">(Grades 1–5 start school this day.) You + Valerie come just <b>30 minutes on ONE</b> of the two days — sign-ups arrive in the late-July email.</div></div>
+      <div class="tl"><div class="date">Thu, Aug 20</div><div class="ev">Kindergarten Assessment — Day 2</div><div class="det">The other 30-minute assessment option.</div></div>
+      <div class="tl kday"><div class="date">Fri, Aug 21</div><div class="ev">🎒 Valerie's first day of Kindergarten!</div><div class="det">All Worthington K students start this day (other grades began Wed Aug 19).</div></div>
+    </div>
+  </section>
+
+  <!-- SUMMER CHECKLIST -->
+  <section>
+    <div class="sec-head"><span class="ic">☀️</span><h2>This summer (do-now list)</h2></div>
+    <div class="prog"><span id="p1lab">0 / 0</span><span class="bar"><i id="p1bar"></i></span></div>
+    <div class="card" data-list="summer">
+      <label class="item"><input type="checkbox" data-id="s-healthforms"><span class="box"></span><span class="txt"><span class="t">🩺 Book the doctor visit for the Physician's Report</span><span class="d">The WES health office needs a <b>Physician's Report (doctor-completed)</b> + a <b>Health History Form (parent-completed)</b> before day one. The doctor one needs lead time — schedule early. Forms come via WES; check the <a href="https://www.worthington.k12.oh.us/back-to-school" target="_blank" rel="noopener">back-to-school hub</a>.</span></span></label>
+      <label class="item"><input type="checkbox" data-id="s-helloid"><span class="box"></span><span class="txt"><span class="t">Log into HELLO ID and bookmark Lexia + ST Math</span><span class="d">Worthington's single sign-on for kid learning apps. Short, frequent sessions keep skills sharp. → <a href="https://wscloud.helloid.com/" target="_blank" rel="noopener">HELLO ID portal</a></span></span></label>
+      <label class="item"><input type="checkbox" data-id="s-amplify"><span class="box"></span><span class="txt"><span class="t">Use Amplify Boost before it closes July 22</span><span class="d">Reading practice inside HELLO ID — it disappears after July 22, so front-load it.</span></span></label>
+      <label class="item"><input type="checkbox" data-id="s-readingclub"><span class="box"></span><span class="txt"><span class="t">Sign Valerie up for a library Summer Reading club</span><span class="d"><a href="https://www.worthingtonlibraries.org/visit/services/summer-reading-club" target="_blank" rel="noopener">Worthington Libraries</a> · <a href="https://columbuslibrary.beanstack.org/reader365" target="_blank" rel="noopener">Columbus Metro (Beanstack)</a> — earn prizes for reading together.</span></span></label>
+      <label class="item"><input type="checkbox" data-id="s-readguide"><span class="box"></span><span class="txt"><span class="t">Skim the Independent Reading Guide</span><span class="d">WES's at-home reading tips. → <a href="https://drive.google.com/file/d/1GkUfeeq8nB1bh5qum-noYDF6fDFDpmRZ/view" target="_blank" rel="noopener">Open the guide (PDF)</a></span></span></label>
+      <label class="item"><input type="checkbox" data-id="s-alphabet"><span class="box"></span><span class="txt"><span class="t">Do outdoor letter practice (chalk, scavenger hunts)</span><span class="d">Ms. Niskanen's tip for the youngest owls. → <a href="https://www.google.com/search?q=easy+outdoor+alphabet+activities+for+kids" target="_blank" rel="noopener">Easy outdoor alphabet ideas</a></span></span></label>
+      <label class="item"><input type="checkbox" data-id="s-stmath"><span class="box"></span><span class="txt"><span class="t">Try a few ST Math activities at home</span><span class="d"><a href="https://info.mindresearch.org/hubfs/pdfs/blog-school-activities/ST_Math_Family_Guide_Learning_at_Home_K.pdf" target="_blank" rel="noopener">K Family Guide</a> · <a href="https://play.stmath.com/raft/resources/help/01/112_Summer_Break_ST_Math_Challenge_2020_fillable.pdf" target="_blank" rel="noopener">Summer Challenge</a> · <a href="https://drive.google.com/file/d/1VXelMRDu1nyBU1X4iDwYlZbrSBjV6uEN/view" target="_blank" rel="noopener">16+ activities</a> · <a href="https://drive.google.com/file/d/11FndDdlEsjN_Y2NVBj8C9k-QBQVJgWsX/view" target="_blank" rel="noopener">Fundamental Games</a></span></span></label>
+      <label class="item"><input type="checkbox" data-id="s-postcard"><span class="box"></span><span class="txt"><span class="t">Mail Ms. Niskanen a postcard 🦉</span><span class="d">She writes back and displays it on her door — a sweet way for Valerie to "meet" her principal before day one (address below).</span></span></label>
+    </div>
+  </section>
+
+  <!-- LIFE SKILLS + POSTCARD -->
+  <section>
+    <div class="sec-head"><span class="ic">🌱</span><h2>Readiness, the non-academic kind</h2></div>
+    <div class="two">
+      <div class="panel">
+        <span class="emoji">⏳</span>
+        <h3>Practice waiting</h3>
+        <p>The principal's #1 Kindergarten-readiness skill. <b>Take turns as a family</b> — brushing teeth, getting in the car, picking the movie. Modeling patience builds the self-control school asks for all day.</p>
+      </div>
+      <div class="panel">
+        <span class="emoji">🧺</span>
+        <h3>Give one weekly job</h3>
+        <p>A small, real responsibility builds confidence. For Valerie's age: <b>get the mail, set the table, pick up toys when done, or get her own snack.</b></p>
+      </div>
+      <div class="panel postcard">
+        <span class="emoji">💌</span>
+        <h3>Owl mail address</h3>
+        <p>Send a postcard or letter from a summer adventure:</p>
+        <div class="addr">Ms. Beth Niskanen<br>c/o Worthington Estates<br>6760 Rieber Street<br>Worthington, OH 43085</div>
+      </div>
+      <div class="panel">
+        <span class="emoji">📱</span>
+        <h3>Get the Infinite Campus app</h3>
+        <p>New this year: report an absence or appointment <b>right in the app, 24/7</b>. Set it up now so it's ready. → <a href="https://www.worthington.k12.oh.us/back-to-school" target="_blank" rel="noopener" style="color:var(--forest);font-weight:800">Back-to-school hub</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUPPLIES CHECKLIST -->
+  <section>
+    <div class="sec-head"><span class="ic">✏️</span><h2>Supplies &amp; accounts</h2></div>
+    <div class="prog"><span id="p2lab">0 / 0</span><span class="bar"><i id="p2bar"></i></span></div>
+    <div class="card" data-list="supplies">
+      <label class="item"><input type="checkbox" data-id="u-list"><span class="box"></span><span class="txt"><span class="t">Pull up the 26–27 WES supply list</span><span class="d">Shop it yourself, or order &amp; ship via the PTA. → <a href="https://drive.google.com/file/d/1eARit4MQpBIA5yItCSK2NN8kh1lwcLzf/view" target="_blank" rel="noopener">Suggested supply list (PDF)</a></span></span></label>
+      <label class="item"><input type="checkbox" data-id="u-ebackpack"><span class="box"></span><span class="txt"><span class="t">Check the Worthington "e-Backpack" / back-to-school hub</span><span class="d">Central spot for forms, calendars &amp; district info. → <a href="https://www.worthington.k12.oh.us/back-to-school" target="_blank" rel="noopener">worthington.k12.oh.us/back-to-school</a></span></span></label>
+      <label class="item"><input type="checkbox" data-id="u-lunch"><span class="box"></span><span class="txt"><span class="t">Note: free/reduced lunch forms reset every year</span><span class="d">If you use them, new forms go out after <b>Aug 1</b> — watch for them, they don't carry over.</span></span></label>
+      <label class="item"><input type="checkbox" data-id="u-bus"><span class="box"></span><span class="txt"><span class="t">Decide on busing → Aug 8 First-Time Rider Event</span><span class="d">If Valerie will ride, the Aug 8 event (12–1 PM at WEC) is built for first-timers.</span></span></label>
+      <label class="item"><input type="checkbox" data-id="u-watch"><span class="box"></span><span class="txt"><span class="t">⭐ Flag the mid-July Kinder email when it lands</span><span class="d">That's where assessment-day sign-ups live — don't let it get buried.</span></span></label>
+    </div>
+  </section>
+
+  <!-- FIRST DAYS / RHYTHM -->
+  <section>
+    <div class="sec-head"><span class="ic">🚌</span><h2>How the first days work</h2></div>
+    <div class="two">
+      <div class="panel">
+        <span class="emoji">⏰</span>
+        <h3>Daily rhythm</h3>
+        <p><b>8:00 AM</b> — doors open<br><b>8:15 AM</b> — classes begin / late bell<br><b>2:50 PM</b> — dismissal</p>
+      </div>
+      <div class="panel">
+        <span class="emoji">🚗</span>
+        <h3>Car drop-off</h3>
+        <p>Use <b>door #15 (Hennessey side)</b> or <b>door #2 (Whitney side)</b>. Kids exit <b>passenger side only</b>, parents stay in the car, follow the path — don't park in drop-off lanes or staff lots.</p>
+      </div>
+      <div class="panel">
+        <span class="emoji">🔄</span>
+        <h3>First-week teacher cycling</h3>
+        <p>Kindergartners <b>rotate through every K teacher</b> the first week so staff can build balanced classes. You'll hear from the whole K team that week, then get assigned to <b>one teacher after the first full week.</b></p>
+      </div>
+      <div class="panel">
+        <span class="emoji">🦉</span>
+        <h3>Valerie's Kindergarten team</h3>
+        <p>Ms. Niskanen (principal), Ms. Packert (counselor), and teachers Ms. Martin, Ralston, Shaffer &amp; Hoffman — with intervention specialists Ms. Kress, Lewis &amp; Gupta, and Ms. Thompson in the office.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESOURCES -->
+  <section>
+    <div class="sec-head"><span class="ic">🔗</span><h2>Every link, in one place</h2></div>
+    <div class="grid">
+      <a class="res" href="https://wscloud.helloid.com/" target="_blank" rel="noopener"><div class="tag">Accounts</div><div class="rt">HELLO ID Portal</div><div class="rd">Single sign-on for Lexia, ST Math &amp; Amplify Boost.</div><div class="go">Open →</div></a>
+      <a class="res" href="https://www.worthington.k12.oh.us/back-to-school" target="_blank" rel="noopener"><div class="tag">District</div><div class="rt">Back-to-School Hub</div><div class="rd">Forms, calendars, Infinite Campus &amp; e-Backpack.</div><div class="go">Open →</div></a>
+      <a class="res" href="https://estates.worthington.k12.oh.us/" target="_blank" rel="noopener"><div class="tag">School</div><div class="rt">WES Website</div><div class="rd">Worthington Estates Elementary home base.</div><div class="go">Open →</div></a>
+      <a class="res" href="https://drive.google.com/file/d/1eARit4MQpBIA5yItCSK2NN8kh1lwcLzf/view" target="_blank" rel="noopener"><div class="tag">Supplies</div><div class="rt">26–27 Supply List</div><div class="rd">What to buy — or order &amp; ship through the PTA.</div><div class="go">Open →</div></a>
+      <a class="res" href="https://www.worthingtonlibraries.org/visit/services/summer-reading-club" target="_blank" rel="noopener"><div class="tag">Reading</div><div class="rt">Worthington Summer Reading</div><div class="rd">Reading club + prizes all summer.</div><div class="go">Open →</div></a>
+      <a class="res" href="https://columbuslibrary.beanstack.org/reader365" target="_blank" rel="noopener"><div class="tag">Reading</div><div class="rt">Columbus Metro Reading</div><div class="rd">Beanstack summer reading program.</div><div class="go">Open →</div></a>
+      <a class="res" href="https://drive.google.com/file/d/1GkUfeeq8nB1bh5qum-noYDF6fDFDpmRZ/view" target="_blank" rel="noopener"><div class="tag">Reading</div><div class="rt">Independent Reading Guide</div><div class="rd">WES tips for reading at home.</div><div class="go">Open →</div></a>
+      <a class="res" href="https://info.mindresearch.org/hubfs/pdfs/blog-school-activities/ST_Math_Family_Guide_Learning_at_Home_K.pdf" target="_blank" rel="noopener"><div class="tag">Math · K</div><div class="rt">ST Math Family Guide</div><div class="rd">Kindergarten learning-at-home guide.</div><div class="go">Open →</div></a>
+      <a class="res" href="https://play.stmath.com/raft/resources/help/01/112_Summer_Break_ST_Math_Challenge_2020_fillable.pdf" target="_blank" rel="noopener"><div class="tag">Math</div><div class="rt">ST Math Summer Challenge</div><div class="rd">Fillable summer math challenge.</div><div class="go">Open →</div></a>
+      <a class="res" href="https://drive.google.com/file/d/1VXelMRDu1nyBU1X4iDwYlZbrSBjV6uEN/view" target="_blank" rel="noopener"><div class="tag">Math</div><div class="rt">16+ ST Math Activities</div><div class="rd">Hands-on math to do at home.</div><div class="go">Open →</div></a>
+      <a class="res" href="https://drive.google.com/file/d/11FndDdlEsjN_Y2NVBj8C9k-QBQVJgWsX/view" target="_blank" rel="noopener"><div class="tag">Math</div><div class="rt">Fundamental Games</div><div class="rd">Number-sense games for young learners.</div><div class="go">Open →</div></a>
+      <a class="res" href="https://www.google.com/search?q=easy+outdoor+alphabet+activities+for+kids" target="_blank" rel="noopener"><div class="tag">Literacy</div><div class="rt">Outdoor Alphabet Ideas</div><div class="rd">Chalk &amp; scavenger-hunt letter practice.</div><div class="go">Open →</div></a>
+      <a class="res" href="https://1stplacespiritwear.com/schools/OH/Worthington/Worthington+Estates+Elementary+School/collection_detail.html" target="_blank" rel="noopener"><div class="tag">Fun</div><div class="rt">WES Spirit Wear</div><div class="rd">Owl-logo &amp; "You belong" shirts, year-round.</div><div class="go">Open →</div></a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="who">Worthington Estates Elementary<small>Ms. Beth Niskanen, Principal · 🦉 Go Owls</small></div>
+    <div class="links">
+      <a href="mailto:bniskanen@wscloud.org">bniskanen@wscloud.org</a>
+      <a href="tel:+16144504600">Office (614) 450-4600</a>
+      <a href="tel:+16144504610">Attendance (614) 450-4610</a>
+      <a href="https://estates.worthington.k12.oh.us/" target="_blank" rel="noopener">estates.worthington.k12.oh.us</a>
+    </div>
+  </footer>
+
+  <div class="stamp">Built for Valerie · drawn from the WES June newsletter · your checkmarks save automatically · <button onclick="resetAll()">reset checklist</button></div>
+
+</div>
+
+<script>
+  // Countdown to first day of Kindergarten
+  (function(){
+    const first = new Date(2026,7,21); // Aug 21, 2026
+    const now = new Date(); now.setHours(0,0,0,0);
+    const d = Math.round((first - now)/86400000);
+    document.getElementById('days').textContent = d > 0 ? d : (d === 0 ? '🎒' : 'Hi!');
+  })();
+
+  // Persisted checklists
+  const KEY = 'valerie-k-plan';
+  const state = JSON.parse(localStorage.getItem(KEY) || '{}');
+  function save(){ localStorage.setItem(KEY, JSON.stringify(state)); }
+  function refresh(list){
+    const wrap = document.querySelector('[data-list="'+list+'"]');
+    const boxes = wrap.querySelectorAll('input[type=checkbox]');
+    let done = 0; boxes.forEach(b=>{ if(b.checked) done++; });
+    const pct = boxes.length ? Math.round(done/boxes.length*100) : 0;
+    if(list==='summer'){ document.getElementById('p1bar').style.width=pct+'%'; document.getElementById('p1lab').textContent=done+' / '+boxes.length+' done'; }
+    else { document.getElementById('p2bar').style.width=pct+'%'; document.getElementById('p2lab').textContent=done+' / '+boxes.length+' done'; }
+  }
+  document.querySelectorAll('input[type=checkbox][data-id]').forEach(cb=>{
+    const id = cb.dataset.id;
+    if(state[id]) cb.checked = true;
+    cb.addEventListener('change',()=>{
+      state[id]=cb.checked; save();
+      refresh(cb.closest('[data-list]').dataset.list);
+    });
+  });
+  refresh('summer'); refresh('supplies');
+  function resetAll(){ if(confirm('Clear all checkmarks?')){ localStorage.removeItem(KEY); location.reload(); } }
+</script>
+</body>
+</html>
