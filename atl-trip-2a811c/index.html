@@ -4,7 +4,7 @@
 <meta name="robots" content="noindex,nofollow">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Atlanta Trip — Airbnb Options (Jul 17–19, 2026)</title>
+<title>Atlanta Weekend — The Plan + Where to Stay (Jul 17–19, 2026)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -13,8 +13,8 @@
     --bg:#f6f3ec; --card:#fffdf8; --ink:#23201b; --muted:#6f685c;
     --line:#e4ddcf; --accent:#c2541f; --accent-soft:#f3e2d4;
     --green:#2f7d54; --green-soft:#e3f0e6; --amber:#b07d12; --amber-soft:#f6ecd2;
-    --red:#b23b3b; --red-soft:#f6e0de; --shadow:0 1px 2px rgba(40,30,15,.06),0 8px 30px rgba(40,30,15,.07);
-    --o2:#7a4fa3; --o3:#2f8a63; --o4:#1f7a8c; --o5:#b5552b; --o6:#3a6ea5;
+    --red:#b23b3b; --shadow:0 1px 2px rgba(40,30,15,.06),0 8px 30px rgba(40,30,15,.07);
+    --o2:#7a4fa3; --o3:#2f8a63; --o4:#1f7a8c; --o5:#b5552b; --o6:#3a6ea5; --o7:#a8327a; --o8:#6f7a2a;
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
@@ -26,8 +26,8 @@
 
   header.hero{padding:46px 0 30px;border-bottom:1px solid var(--line)}
   .eyebrow{display:inline-flex;gap:8px;align-items:center;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:600;background:var(--accent-soft);padding:6px 12px;border-radius:100px}
-  header.hero h1{font-size:clamp(2rem,5vw,3.1rem);margin:16px 0 8px}
-  header.hero p.sub{font-size:1.06rem;color:var(--muted);max-width:60ch;margin:0}
+  header.hero h1{font-size:clamp(2rem,5vw,3rem);margin:16px 0 8px}
+  header.hero p.sub{font-size:1.06rem;color:var(--muted);max-width:62ch;margin:0}
   .triprow{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
   .chip{font-size:.82rem;background:var(--card);border:1px solid var(--line);border-radius:100px;padding:7px 14px;color:var(--ink);box-shadow:var(--shadow)}
   .chip b{color:var(--accent)}
@@ -35,70 +35,89 @@
   .changebar{margin:22px 0 6px;background:var(--amber-soft);border:1px solid #e6d4a3;border-radius:12px;padding:13px 16px;font-size:.88rem;color:#5c4a16}
   .changebar b{color:#8a6a10}
 
-  .rec{margin:22px 0 28px;background:linear-gradient(180deg,#fffdf8,#fbf6ec);border:1px solid var(--line);border-left:5px solid var(--green);border-radius:16px;padding:22px 24px;box-shadow:var(--shadow)}
-  .rec h2{margin:0 0 6px;font-size:1.35rem}
+  .rec{margin:22px 0 0;background:linear-gradient(180deg,#fffdf8,#fbf6ec);border:1px solid var(--line);border-left:5px solid var(--green);border-radius:16px;padding:22px 24px;box-shadow:var(--shadow)}
+  .rec h2{margin:0 0 6px;font-size:1.3rem}
   .rec .badge{display:inline-block;background:var(--green-soft);color:var(--green);font-weight:600;font-size:.78rem;padding:4px 10px;border-radius:8px;margin-bottom:8px}
   .rec p{margin:8px 0 0;color:#3c372e}
 
   section{padding:34px 0;border-bottom:1px solid var(--line)}
-  section h2.shead{font-size:1.55rem;margin:0 0 6px;display:flex;align-items:center;gap:10px}
-  section .lede{color:var(--muted);margin:0 0 22px;max-width:65ch}
+  section h2.shead{font-size:1.5rem;margin:0 0 6px;display:flex;align-items:center;gap:10px}
+  section .lede{color:var(--muted);margin:0 0 22px;max-width:66ch}
+
+  /* itinerary */
+  .days{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  @media(max-width:820px){.days{grid-template-columns:1fr}}
+  .day{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column}
+  .day .dh{padding:13px 16px;color:#fff;font-family:'Fraunces',serif}
+  .day .dh b{font-size:1.05rem;display:block}
+  .day .dh span{font-size:.78rem;opacity:.92}
+  .day.fri .dh{background:var(--o7)} .day.sat .dh{background:var(--accent)} .day.sun .dh{background:var(--o4)}
+  .day .tl{padding:14px 16px;font-size:.88rem}
+  .day .tl .row{display:flex;gap:10px;padding:6px 0;border-bottom:1px dashed var(--line)}
+  .day .tl .row:last-child{border-bottom:0}
+  .day .tl .t{font-weight:700;color:var(--muted);min-width:62px;font-variant-numeric:tabular-nums}
+  .day .note{margin:0;padding:11px 16px;background:#faf5ea;font-size:.8rem;color:#6a5e44;border-top:1px solid var(--line)}
+  .drivestrip{margin-top:16px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  @media(max-width:820px){.drivestrip{grid-template-columns:1fr}}
+  .drivecard{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;box-shadow:var(--shadow);font-size:.85rem}
+  .drivecard b{display:block;margin-bottom:4px;font-size:.82rem}
+  .drivecard .n{color:var(--muted)}
 
   .helper{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:var(--shadow)}
   .helper-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px}
   @media(max-width:760px){.helper-grid{grid-template-columns:1fr;gap:22px}}
-  .crit{margin-bottom:12px}
+  .crit{margin-bottom:11px}
   .crit-top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:6px}
-  .crit-name{font-weight:600;font-size:.92rem}
-  .seg{display:inline-flex;border:1px solid var(--line);border-radius:9px;overflow:hidden;background:#fff}
+  .crit-name{font-weight:600;font-size:.9rem}
+  .seg{display:inline-flex;border:1px solid var(--line);border-radius:9px;overflow:hidden;background:#fff;flex-shrink:0}
   .seg button{border:0;background:transparent;font:inherit;font-size:.72rem;font-weight:600;padding:5px 9px;cursor:pointer;color:var(--muted)}
   .seg button.on{background:var(--accent);color:#fff}
   .seg button:not(.on):hover{background:var(--accent-soft)}
-  .results .res{margin-bottom:14px}
-  .res-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:5px}
-  .res-name{font-weight:700;font-size:.92rem}
+  .results .res{margin-bottom:12px}
+  .res-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px}
+  .res-name{font-weight:700;font-size:.88rem}
   .res-name .dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:7px;vertical-align:middle}
-  .res-score{font-variant-numeric:tabular-nums;color:var(--muted);font-size:.85rem;font-weight:600}
-  .bar{height:12px;background:#ece5d7;border-radius:8px;overflow:hidden}
+  .res-score{font-variant-numeric:tabular-nums;color:var(--muted);font-size:.84rem;font-weight:600}
+  .bar{height:11px;background:#ece5d7;border-radius:8px;overflow:hidden}
   .bar > span{display:block;height:100%;border-radius:8px;transition:width .45s cubic-bezier(.2,.7,.2,1)}
-  .winner{display:flex;align-items:center;gap:8px;margin-top:14px;padding:12px 14px;background:var(--green-soft);border-radius:10px;color:var(--green);font-weight:600;font-size:.92rem}
+  .winner{display:flex;align-items:center;gap:8px;margin-top:12px;padding:12px 14px;background:var(--green-soft);border-radius:10px;color:var(--green);font-weight:600;font-size:.9rem}
   .reset{margin-top:8px;font-size:.8rem;background:none;border:0;color:var(--accent);cursor:pointer;text-decoration:underline}
 
   .tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);background:var(--card)}
-  table{border-collapse:collapse;width:100%;min-width:820px;font-size:.88rem}
-  th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
-  thead th{position:sticky;top:0;background:var(--card);font-family:'Fraunces',serif;font-size:.98rem;z-index:2}
-  thead th .opt{display:block;font-size:.7rem;font-weight:600;color:#fff;border-radius:6px;padding:2px 8px;width:fit-content;margin-top:4px}
-  tbody th{font-weight:600;color:var(--muted);font-family:'Inter',sans-serif;font-size:.8rem;width:120px}
+  table{border-collapse:collapse;width:100%;min-width:980px;font-size:.85rem}
+  th,td{text-align:left;padding:11px 13px;border-bottom:1px solid var(--line);vertical-align:top}
+  thead th{position:sticky;top:0;background:var(--card);font-family:'Fraunces',serif;font-size:.95rem;z-index:2}
+  thead th .opt{display:block;font-size:.68rem;font-weight:600;color:#fff;border-radius:6px;padding:2px 7px;width:fit-content;margin-top:4px}
+  tbody th{font-weight:600;color:var(--muted);font-family:'Inter',sans-serif;font-size:.78rem;width:112px}
   tbody tr:hover{background:#fbf7ee}
   td.best{background:var(--green-soft)}
   td.best::after{content:" ★";color:var(--green)}
   .toggle-best{display:inline-flex;gap:8px;align-items:center;font-size:.85rem;color:var(--muted);margin:0 0 12px;cursor:pointer;user-select:none}
   .toggle-best input{width:16px;height:16px;accent-color:var(--green)}
 
-  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));gap:18px}
+  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px}
   @media(max-width:880px){.cards{grid-template-columns:1fr}}
   .pcard{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column}
   .pcard .ribbon{height:5px}
-  .gallery{display:grid;grid-template-columns:2fr 1fr;grid-template-rows:1fr 1fr;gap:2px;height:172px;background:#ddd}
+  .gallery{display:grid;grid-template-columns:2fr 1fr;grid-template-rows:1fr 1fr;gap:2px;height:168px;background:#ddd}
   .gallery img{width:100%;height:100%;object-fit:cover;display:block}
   .gallery img:first-child{grid-row:1/3}
-  .pcard .body{padding:16px 17px 18px;display:flex;flex-direction:column;flex:1}
-  .pcard h3{font-size:1.12rem;margin:0 0 2px}
-  .pcard .loc{font-size:.8rem;color:var(--muted);margin-bottom:10px}
-  .pcard .price{font-size:1.45rem;font-weight:700;font-family:'Fraunces',serif}
-  .pcard .price small{font-size:.76rem;color:var(--muted);font-weight:500;font-family:'Inter',sans-serif}
-  .stars{font-size:.83rem;margin:6px 0 12px;color:var(--ink)}
+  .pcard .body{padding:15px 16px 17px;display:flex;flex-direction:column;flex:1}
+  .pcard h3{font-size:1.08rem;margin:0 0 2px}
+  .pcard .loc{font-size:.78rem;color:var(--muted);margin-bottom:9px}
+  .pcard .price{font-size:1.4rem;font-weight:700;font-family:'Fraunces',serif}
+  .pcard .price small{font-size:.74rem;color:var(--muted);font-weight:500;font-family:'Inter',sans-serif}
+  .stars{font-size:.82rem;margin:6px 0 11px;color:var(--ink)}
   .stars .new{color:var(--amber);font-weight:600}
-  .facts{list-style:none;padding:0;margin:0 0 12px;font-size:.84rem}
+  .facts{list-style:none;padding:0;margin:0 0 11px;font-size:.83rem}
   .facts li{padding:5px 0;border-bottom:1px dashed var(--line);display:flex;gap:8px}
-  .facts li span.k{color:var(--muted);min-width:70px}
-  .pros-cons{display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:.81rem;margin-top:auto}
-  .pros-cons ul{margin:4px 0 0;padding-left:16px}
+  .facts li span.k{color:var(--muted);min-width:64px}
+  .pros-cons{display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:.8rem;margin-top:auto}
+  .pros-cons ul{margin:4px 0 0;padding-left:15px}
   .pros-cons .p strong{color:var(--green)}
   .pros-cons .c strong{color:var(--red)}
   .pros-cons li{margin-bottom:4px}
-  .viewbtn{display:block;text-align:center;margin-top:14px;background:var(--accent);color:#fff;font-weight:600;padding:10px;border-radius:10px;font-size:.9rem}
+  .viewbtn{display:block;text-align:center;margin-top:13px;background:var(--accent);color:#fff;font-weight:600;padding:9px;border-radius:10px;font-size:.88rem}
   .viewbtn:hover{text-decoration:none;background:#a8451a}
 
   .blind{display:grid;grid-template-columns:1fr 1fr;gap:14px}
@@ -117,7 +136,7 @@
 
   footer{padding:30px 0 60px;color:var(--muted);font-size:.82rem}
   footer .note{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:14px}
-  .tagO2{background:var(--o2)}.tagO3{background:var(--o3)}.tagO4{background:var(--o4)}.tagO5{background:var(--o5)}.tagO6{background:var(--o6)}
+  .tagO2{background:var(--o2)}.tagO3{background:var(--o3)}.tagO4{background:var(--o4)}.tagO5{background:var(--o5)}.tagO6{background:var(--o6)}.tagO7{background:var(--o7)}.tagO8{background:var(--o8)}
 </style>
 </head>
 <body>
@@ -125,13 +144,13 @@
 <header class="hero">
   <div class="wrap">
     <span class="eyebrow">🍑 Family Trip Planning</span>
-    <h1>Atlanta Weekend: Five Airbnbs, Compared</h1>
-    <p class="sub">A side-by-side look at the places for Robb's baby shower — with an interactive helper to weigh what matters most to us.</p>
+    <h1>Atlanta Weekend: The Plan + Where to Stay</h1>
+    <p class="sub">Robb &amp; Paige's baby shower weekend — the schedule, a low-stress agenda, and seven rentals compared with an interactive helper.</p>
     <div class="triprow">
       <span class="chip">📅 <b>Fri Jul 17 – Sun Jul 19, 2026</b></span>
-      <span class="chip">👨‍👩‍👧 Us + Valerie + Grandpa <b>(3 adults, 1 kid)</b></span>
-      <span class="chip">🎉 Sat: <b>Robb's baby shower</b></span>
-      <span class="chip">📍 Acworth · Kennesaw · Cartersville, GA</span>
+      <span class="chip">👨‍👩‍👧 Us + Valerie + Grandpa Bob <b>(3 adults, 1 kid)</b></span>
+      <span class="chip">🎉 Sat 1–5pm: <b>shower, East Cobb</b></span>
+      <span class="chip">✈️ ATL: land <b>11:35am Fri</b> · fly home <b>2:25pm Sun</b></span>
     </div>
   </div>
 </header>
@@ -139,19 +158,61 @@
 <div class="wrap">
 
   <div class="changebar">
-    ✏️ <b>Updated:</b> the original Option 1 (Kennesaw / Evolve) is <b>no longer available</b>, so it's been removed. Two Acworth places are added — <b>Option 5 (Corner House)</b> and <b>Option 6 (Hummingbird Hideaway)</b>. And since a bathtub is now a <b>nice-to-have, not a must</b> (Valerie's happy in a shower), it's weighted lower in the helper below.
+    ✏️ <b>Updated with the latest details:</b> the shower is in <b>East Cobb (Marietta 30062)</b> and you fly in/out of ATL, so I added two more-central options — <b>Sandy Springs (7)</b> and <b>Marietta (8)</b>. <b>Grandpa Bob is staying with you</b>, so every option here is a true 3-bedroom. Bathtub is now a <b>nice-to-have</b>. (The original Option 1, Kennesaw/Evolve, was removed — no longer available.)
   </div>
 
   <div class="rec">
     <span class="badge">★ MY PICK</span>
-    <h2>Option 5 — the Corner House (Acworth)</h2>
-    <p>With Option 1 gone, this is the new best all-rounder. It checks the everyday boxes: <b>full kitchen</b> for breakfast, <b>soaking tubs in both bathrooms</b>, a <b>fully fenced backyard</b> (genuinely nice with a 5-year-old), and <b>in-unit laundry</b>. It's <b>proven</b> (4.8 ★ from 44 reviews) and <b>in Acworth — close to Robb</b>. The one real catch: it's a <b>split-level</b> — about 5 steps up to the door, then ~7 more up to the bedrooms — so it's not stair-free. Close runners-up: <b>Option 2</b> (the pool + closest to Robb + most flexible cancellation, but unproven) and <b>Option 4</b> (the Birch Nest — most reviews + Superhost + single-level, but no tub and furthest out). Now that baths are optional, Option 4 is back in real contention.</p>
+    <h2>Option 7 — Sandy Springs House</h2>
+    <p>With the shower in East Cobb and flights bookending the weekend, the <b>most central + most proven</b> place wins. It's a <b>Superhost Guest Favorite (4.98 ★, 45 reviews)</b> — easily the strongest track record of the bunch — with a <b>bathtub, full kitchen, in-unit laundry, a fully fenced backyard, free cancellation,</b> and <b>4 bedrooms</b> (room for Grandpa Bob). It's ~30 min to the airport, ~15–20 min to the shower, ~20 min to the aquarium — it cuts the most driving with a tired Val. <b>One thing to confirm:</b> a guest flagged wobbly front-entry rails and <b>no handrails on the inside stairs</b> — worth a look with Val + Grandpa. If you'd rather be up near Robb's actual house, <b>Corner House (Option 5)</b> is the Acworth pick (soaking tubs + fenced yard, but split-level and a longer haul to everything).</p>
   </div>
+
+  <!-- ITINERARY -->
+  <section>
+    <h2 class="shead">🗓️ Weekend at a glance</h2>
+    <p class="lede">Low-stress by design: one "can't-miss" on Friday (the aquarium, right on the drive in), the shower Saturday, and an easy travel Sunday. Saturday evening is wind-down / bath / bed — not an activity slot.</p>
+    <div class="days">
+      <div class="day fri">
+        <div class="dh"><b>Friday · Arrive + Aquarium</b><span>The only real activity window</span></div>
+        <div class="tl">
+          <div class="row"><span class="t">11:35</span><span>Land at ATL (DL 1479)</span></div>
+          <div class="row"><span class="t">~12:30</span><span>Bags + rental car</span></div>
+          <div class="row"><span class="t">1–4pm</span><span><b>Georgia Aquarium</b> — downtown, ~20 min north of the airport, on the way</span></div>
+          <div class="row"><span class="t">~4pm</span><span>Drive to the rental (watch PM traffic)</span></div>
+          <div class="row"><span class="t">eve</span><span>Check in · easy dinner</span></div>
+        </div>
+        <p class="note">Pre-book aquarium tickets online (cheaper); reserve the dolphin/sea-lion shows day-of. Keep it to highlights (~2 hrs) if Val fades after the flight.</p>
+      </div>
+      <div class="day sat">
+        <div class="dh"><b>Saturday · Shower day</b><span>3915 Forego Court, East Cobb</span></div>
+        <div class="tl">
+          <div class="row"><span class="t">AM</span><span>Slow morning — breakfast at the rental, maybe a nearby park</span></div>
+          <div class="row"><span class="t">1–5pm</span><span><b>Robb &amp; Paige's baby shower</b> (may be come-and-go)</span></div>
+          <div class="row"><span class="t">eve</span><span>Family dinner / wind-down · Val's bath ~7pm → bed</span></div>
+        </div>
+        <p class="note">If it runs to 5pm, there's realistically no evening outing — and that's fine. Keep the morning gentle so the shower is the main event.</p>
+      </div>
+      <div class="day sun">
+        <div class="dh"><b>Sunday · Fly home</b><span>Travel morning</span></div>
+        <div class="tl">
+          <div class="row"><span class="t">AM</span><span>Slow morning + checkout (most ~10–11am)</span></div>
+          <div class="row"><span class="t">~11:45</span><span>Drive to ATL + return rental</span></div>
+          <div class="row"><span class="t">2:25</span><span>Fly to CMH (DL 2200) → land 3:59pm</span></div>
+        </div>
+        <p class="note">Be at the airport ~12:30 for a 2:25 domestic flight. From Acworth, leave a bit earlier (~11am) for the longer drive.</p>
+      </div>
+    </div>
+    <div class="drivestrip">
+      <div class="drivecard"><b>From a central base (Sandy Springs / East Cobb)</b><span class="n">Airport ~30 min · Shower ~15–20 min · Aquarium ~20–25 min</span></div>
+      <div class="drivecard"><b>From Acworth (Options 2, 5, 6)</b><span class="n">Airport ~51 min · Shower ~25–30 min · Aquarium ~35–45 min</span></div>
+      <div class="drivecard"><b>From Cartersville (Option 4)</b><span class="n">Airport ~58 min · Shower ~40 min · Aquarium ~45 min</span></div>
+    </div>
+  </section>
 
   <!-- DECISION HELPER -->
   <section id="helper">
     <h2 class="shead">🎚️ Decision Helper</h2>
-    <p class="lede">Toggle how much each thing matters to us — the ranking updates live. Defaults: safety still High; bathtub now just Normal; kitchen counts (we cook breakfast).</p>
+    <p class="lede">Toggle how much each thing matters — the ranking updates live. Defaults: safety High; "central / less driving" now counts (the shower + both flights pull that way); bathtub just Normal.</p>
     <div class="helper">
       <div class="helper-grid">
         <div id="criteria"></div>
@@ -172,25 +233,24 @@
       <table id="ctable">
         <thead><tr>
           <th>&nbsp;</th>
-          <th>Option 2<span class="opt tagO2">Acworth · Jill</span></th>
-          <th>Option 3<span class="opt tagO3">Kennesaw · Gannel</span></th>
-          <th>Option 4<span class="opt tagO4">Cartersville · Kendall</span></th>
-          <th>Option 5<span class="opt tagO5">Acworth · Corner House</span></th>
-          <th>Option 6<span class="opt tagO6">Acworth · Hummingbird</span></th>
+          <th>Opt 2<span class="opt tagO2">Acworth · Jill</span></th>
+          <th>Opt 3<span class="opt tagO3">Kennesaw · Gannel</span></th>
+          <th>Opt 4<span class="opt tagO4">Cartersville · Kendall</span></th>
+          <th>Opt 5<span class="opt tagO5">Acworth · Corner House</span></th>
+          <th>Opt 6<span class="opt tagO6">Acworth · Hummingbird</span></th>
+          <th>Opt 7<span class="opt tagO7">Sandy Springs</span></th>
+          <th>Opt 8<span class="opt tagO8">Marietta</span></th>
         </tr></thead>
         <tbody>
-          <tr><th>Total (2 nights)</th><td>$799</td><td data-best>~$528 <small>(cheapest)</small></td><td>~$628</td><td>~$706 <small>($774 refundable)</small></td><td>$721</td></tr>
-          <tr><th>Reviews</th><td>None yet<br><small>new host</small></td><td>★5.0 × 1</td><td data-best>★4.9 × 103<br><small>Superhost</small></td><td>★4.8 × 44</td><td data-best>★4.85 × 125<br><small>Superhost, 7 yr</small></td></tr>
-          <tr><th>Bathtub</th><td>Two tubs</td><td>One tub</td><td>None — shower only</td><td data-best>Soaking tubs (both)</td><td>Clawfoot (small/old)</td></tr>
-          <tr><th>Kitchen</th><td data-best>Full</td><td data-best>Full</td><td data-best>Full</td><td data-best>Full</td><td>None — fridge/microwave ✕</td></tr>
-          <tr><th>Bedrooms</th><td>3 BR · sleeps 8</td><td data-best>4 BR · sleeps 5</td><td>3 BR · 4 beds</td><td>3 BR · 4 beds</td><td>3 BR · 3 queens</td></tr>
-          <tr><th>Bathrooms</th><td>2</td><td data-best>3</td><td>2</td><td>2</td><td>1 — shared ✕</td></tr>
-          <tr><th>Layout / stairs</th><td>Unknown</td><td>Multi-story ⚠️</td><td data-best>Single-level, no stairs</td><td>Split-level (stairs)</td><td>2nd-floor suite (stairs)</td></tr>
-          <tr><th>Cancellation</th><td data-best>Free until Jul 16</td><td>Free until Jul 3</td><td>Standard*</td><td>Cheap tier non-refundable</td><td>Free until Jul 12</td></tr>
-          <tr><th>Pool / yard</th><td data-best>Community pool</td><td>—</td><td>Shared yard</td><td>Fenced yard + BBQ</td><td>Porches, lake access</td></tr>
-          <tr><th>Safety</th><td>Cameras, smoke/CO</td><td>"Heights w/o rails" ⚠️</td><td>No CO alarm ⚠️</td><td data-best>Fenced yard, CO, extinguisher</td><td>Cameras, smoke/CO</td></tr>
-          <tr><th>Laundry</th><td>Not listed</td><td data-best>Washer</td><td>None (laundromat)</td><td data-best>In-unit</td><td>None</td></tr>
-          <tr><th>Closest to Robb</th><td data-best>Closest (per Amanda)</td><td>~ (Kennesaw)</td><td>Furthest (Bartow Co.)</td><td>Acworth — close</td><td>Downtown Acworth — close</td></tr>
+          <tr><th>Total (2 nights)</th><td>$799</td><td data-best>~$528</td><td>~$628</td><td>~$706</td><td>$721</td><td>~$754</td><td>~$628</td></tr>
+          <tr><th>Reviews</th><td>None yet</td><td>★5.0×1</td><td data-best>★4.9×103 SH</td><td>★4.8×44</td><td data-best>★4.85×125 SH</td><td data-best>★4.98×45 SH·GF</td><td>New ×1</td></tr>
+          <tr><th>Drive: ATL / shower</th><td>51 / 25</td><td>45 / 25</td><td>58 / 40</td><td>51 / 28</td><td>51 / 25</td><td data-best>32 / 18</td><td data-best>31 / 15</td></tr>
+          <tr><th>Bathtub</th><td>Two</td><td>One</td><td>None</td><td data-best>Soaking (both)</td><td>Clawfoot (small)</td><td>Yes</td><td>None</td></tr>
+          <tr><th>Kitchen</th><td data-best>Full</td><td data-best>Full</td><td data-best>Full</td><td data-best>Full</td><td>None ✕</td><td data-best>Full</td><td data-best>Full</td></tr>
+          <tr><th>Bedrooms / baths</th><td>3 BR / 2</td><td data-best>4 BR / 3</td><td>3 BR / 2</td><td>3 BR / 2</td><td>3 BR / 1 ✕</td><td data-best>4 BR / 3.5</td><td>3 BR / 2</td></tr>
+          <tr><th>Layout / stairs</th><td>Unknown</td><td>Multi-story ⚠️</td><td data-best>Single-level</td><td>Split-level</td><td>2nd-floor suite</td><td>Multi-level, no inside rails ⚠️</td><td>Not specified</td></tr>
+          <tr><th>Outdoor for kids</th><td>Community pool</td><td>—</td><td>Shared yard</td><td data-best>Fenced yard</td><td>Porches</td><td data-best>Fenced yard</td><td data-best>Big fenced yard</td></tr>
+          <tr><th>Cancellation</th><td data-best>Free to Jul 16</td><td>Free to Jul 3</td><td>Standard*</td><td>Cheap tier non-refund</td><td>Free to Jul 12</td><td data-best>Free to Jul 16</td><td>Standard*</td></tr>
         </tbody>
       </table>
     </div>
@@ -198,97 +258,37 @@
 
   <!-- PROPERTY CARDS -->
   <section>
-    <h2 class="shead">🏠 The five places</h2>
-    <p class="lede">Photos and details pulled from each listing. Tap "View listing" to open the real Airbnb page.</p>
+    <h2 class="shead">🏠 The seven places</h2>
+    <p class="lede">Options 2–6 are NW (near Robb's area); 7–8 are more central (near the shower + airport). Tap "View listing" for the real Airbnb page.</p>
     <div class="cards">
 
-      <!-- OPTION 2 -->
+      <!-- OPTION 7 (lead - my pick) -->
       <article class="pcard">
-        <div class="ribbon tagO2"></div>
+        <div class="ribbon tagO7"></div>
         <div class="gallery">
-          <img loading="lazy" src="https://a0.muscache.com/im/pictures/hosting/Hosting-1649487879781856709/original/f5fa2c03-8736-4dea-9937-afdba7243d9b.jpeg?im_w=720" alt="Option 2">
-          <img loading="lazy" src="https://a0.muscache.com/im/pictures/hosting/Hosting-1649487879781856709/original/5941576d-9112-4bfb-98b5-c72325a030fc.jpeg?im_w=480" alt="">
-          <img loading="lazy" src="https://a0.muscache.com/im/pictures/hosting/Hosting-1649487879781856709/original/3d38c59e-8949-4328-b2fc-bd8e7e28cf8f.jpeg?im_w=480" alt="">
+          <img loading="lazy" src="https://a0.muscache.com/im/pictures/miso/Hosting-1270590026184165135/original/49f5f8c5-28ab-4d2d-ab49-5fb951a8bd20.jpeg?im_w=720" alt="Option 7">
+          <img loading="lazy" src="https://a0.muscache.com/im/pictures/miso/Hosting-1270590026184165135/original/245de8b8-27f3-438d-93f7-9f585b95f12f.jpeg?im_w=480" alt="">
+          <img loading="lazy" src="https://a0.muscache.com/im/pictures/miso/Hosting-1270590026184165135/original/b76c0544-fed1-48e3-9969-712dfc43ddb4.jpeg?im_w=480" alt="">
         </div>
         <div class="body">
-          <h3>Easy Access to Food, Fun &amp; Family</h3>
-          <div class="loc">Acworth · Entire home · hosted by Jill</div>
-          <div class="price">$799 <small>/ 2 nights · $0 due today</small></div>
-          <div class="stars"><span class="new">New listing — no reviews yet</span></div>
+          <h3>Sandy Springs House ★</h3>
+          <div class="loc">Sandy Springs · Entire home · Superhost · most central</div>
+          <div class="price">~$754 <small>/ 2 nights · was $981 · free cancel</small></div>
+          <div class="stars">★ 4.98 · <b>45 reviews</b> · Superhost · Guest Favorite</div>
           <ul class="facts">
-            <li><span class="k">Sleeps</span> up to 8 — King + 2 Queen</li>
-            <li><span class="k">Bath</span> Two full baths, both with bathtubs</li>
-            <li><span class="k">Pool</span> Community swim/tennis + BBQ area</li>
-            <li><span class="k">Kitchen</span> Full</li>
-            <li><span class="k">Safety</span> Exterior cameras, smoke/CO</li>
-            <li><span class="k">Nearby</span> Central Acworth, I-75, Lake Acworth / Cauble Park beach</li>
-            <li><span class="k">Check-in</span> 2:00 PM · self check-in (lockbox)</li>
+            <li><span class="k">Sleeps</span> up to 10 — 4 BR / 3.5 baths</li>
+            <li><span class="k">Bath</span> Bathtub (upstairs full bath)</li>
+            <li><span class="k">Layout</span> ⚠️ Multi-level — review notes no handrails on inside stairs</li>
+            <li><span class="k">Kitchen</span> Full · in-unit laundry</li>
+            <li><span class="k">Yard</span> Private, fully fenced backyard</li>
+            <li><span class="k">Drive</span> ~30 min airport · ~15–20 min shower · ~20 min aquarium</li>
+            <li><span class="k">Check-in</span> Self check-in (keypad) · free cancel to Jul 16</li>
           </ul>
           <div class="pros-cons">
-            <div class="p"><strong>For ✓</strong><ul><li>Closest to Robb</li><li>Pool for summer</li><li>Most flexible cancel</li></ul></div>
-            <div class="c"><strong>Watch ✕</strong><ul><li>Priciest; no reviews</li><li>First-time host</li><li>Pool = supervision</li></ul></div>
+            <div class="p"><strong>For ✓</strong><ul><li>Most proven (4.98×45 SH)</li><li>Most central — least driving</li><li>Tub, fenced yard, flexible</li></ul></div>
+            <div class="c"><strong>Watch ✕</strong><ul><li>No inside-stair handrails</li><li>Priciest-ish ($754)</li></ul></div>
           </div>
-          <a class="viewbtn" href="https://www.airbnb.com/rooms/1649487879781856709?adults=3&check_in=2026-07-17&check_out=2026-07-19&children=1" target="_blank" rel="noopener">View listing →</a>
-        </div>
-      </article>
-
-      <!-- OPTION 3 -->
-      <article class="pcard">
-        <div class="ribbon tagO3"></div>
-        <div class="gallery">
-          <img loading="lazy" src="https://a0.muscache.com/im/pictures/hosting/Hosting-1445965990829152613/original/03a64f65-c64e-45d7-b499-413fd1a8f2b5.jpeg?im_w=720" alt="Option 3">
-          <img loading="lazy" src="https://a0.muscache.com/im/pictures/hosting/Hosting-1445965990829152613/original/46b270bf-42e8-455c-8a47-3350b90d42d9.jpeg?im_w=480" alt="">
-          <img loading="lazy" src="https://a0.muscache.com/im/pictures/hosting/Hosting-1445965990829152613/original/c8113c24-e4e5-45c3-8c43-bd198d9be59b.jpeg?im_w=480" alt="">
-        </div>
-        <div class="body">
-          <h3>4 BR / 3 BA Family Home</h3>
-          <div class="loc">Kennesaw · Entire home · hosted by Gannel</div>
-          <div class="price">~$528 <small>/ 2 nights · cheapest</small></div>
-          <div class="stars">★ 5.0 · 1 review · lived-in family home</div>
-          <ul class="facts">
-            <li><span class="k">Sleeps</span> 5 — Queen + 3 Full (everyone own room)</li>
-            <li><span class="k">Bath</span> One bathtub (3 full baths)</li>
-            <li><span class="k">Kitchen</span> Full — gas stove, Maytag, Keurig</li>
-            <li><span class="k">Access</span> Whole house except garage + office</li>
-            <li><span class="k">Safety</span> Cameras + Ring; ⚠️ "heights without rails"</li>
-            <li><span class="k">Nearby</span> 3 mi downtown Kennesaw &amp; Acworth; near sports complexes</li>
-            <li><span class="k">Check-in</span> 3:00 PM · self check-in (keypad)</li>
-          </ul>
-          <div class="pros-cons">
-            <div class="p"><strong>For ✓</strong><ul><li>Cheapest by ~$100+</li><li>4 BR — most space</li><li>Homey, real house</li></ul></div>
-            <div class="c"><strong>Watch ✕</strong><ul><li>Only 1 review</li><li>Railing hazard</li><li>Locks free-cancel Jul 3</li></ul></div>
-          </div>
-          <a class="viewbtn" href="https://www.airbnb.com/rooms/1445965990829152613?adults=3&check_in=2026-07-17&check_out=2026-07-19&children=1" target="_blank" rel="noopener">View listing →</a>
-        </div>
-      </article>
-
-      <!-- OPTION 4 -->
-      <article class="pcard">
-        <div class="ribbon tagO4"></div>
-        <div class="gallery">
-          <img loading="lazy" src="https://a0.muscache.com/im/pictures/miso/Hosting-946586603054728042/original/66072ba7-d3de-4279-9724-34ccaf95b043.jpeg?im_w=720" alt="Option 4">
-          <img loading="lazy" src="https://a0.muscache.com/im/pictures/7d117851-5297-44af-9dd4-9d96db21a15c.jpg?im_w=480" alt="">
-          <img loading="lazy" src="https://a0.muscache.com/im/pictures/miso/Hosting-946586603054728042/original/136b29a7-a4ff-403d-bcff-f14d450e5a82.jpeg?im_w=480" alt="">
-        </div>
-        <div class="body">
-          <h3>The Cartersville Birch Nest</h3>
-          <div class="loc">Emerson / Cartersville · upstairs unit · Superhost Kendall</div>
-          <div class="price">~$628 <small>/ 2 nights</small></div>
-          <div class="stars">★ 4.9 · <b>103 reviews</b> · Guest Favorite · Superhost</div>
-          <ul class="facts">
-            <li><span class="k">Sleeps</span> up to 7 — 3 BR / 4 beds</li>
-            <li><span class="k">Bath</span> No bathtub — shower only</li>
-            <li><span class="k">Layout</span> Single-level, no stairs (upstairs unit above a separate, empty apartment)</li>
-            <li><span class="k">Kitchen</span> Full · no in-unit laundry</li>
-            <li><span class="k">Safety</span> Ring + cameras; ⚠️ no CO alarm; shared, not-fully-fenced yard</li>
-            <li><span class="k">Nearby</span> 1.1 mi downtown Cartersville; 4.5 mi LakePoint; ~40 mi to Atlanta</li>
-            <li><span class="k">Check-in</span> 3:00 PM · keypad · checkout 10 AM</li>
-          </ul>
-          <div class="pros-cons">
-            <div class="p"><strong>For ✓</strong><ul><li>Most proven — 103 rev, Superhost</li><li>Single-level, no stairs</li><li>Spacious, sleeps 7</li></ul></div>
-            <div class="c"><strong>Watch ✕</strong><ul><li>No bathtub</li><li>No CO alarm; shared yard</li><li>Furthest from Robb</li></ul></div>
-          </div>
-          <a class="viewbtn" href="https://www.airbnb.com/rooms/946586603054728042?adults=3&check_in=2026-07-17&check_out=2026-07-19&children=1" target="_blank" rel="noopener">View listing →</a>
+          <a class="viewbtn" href="https://www.airbnb.com/rooms/1270590026184165135?adults=3&check_in=2026-07-17&check_out=2026-07-19&children=1" target="_blank" rel="noopener">View listing →</a>
         </div>
       </article>
 
@@ -302,24 +302,112 @@
         </div>
         <div class="body">
           <h3>The Corner White House</h3>
-          <div class="loc">Acworth · Entire home · near Lake Allatoona / KSU</div>
+          <div class="loc">Acworth · Entire home · the NW / near-Robb pick</div>
           <div class="price">~$706 <small>/ 2 nights · $774 refundable</small></div>
           <div class="stars">★ 4.8 · 44 reviews</div>
           <ul class="facts">
-            <li><span class="k">Sleeps</span> 6 — 3 BR / 4 beds</li>
+            <li><span class="k">Sleeps</span> 6 — 3 BR / 2 baths</li>
             <li><span class="k">Bath</span> Soaking tubs in both bathrooms</li>
-            <li><span class="k">Layout</span> ⚠️ Split-level — 5 steps to door, ~7 more up to bedrooms</li>
-            <li><span class="k">Kitchen</span> Full · in-unit laundry · BBQ grill</li>
-            <li><span class="k">Yard</span> Private, fully fenced backyard + patio</li>
-            <li><span class="k">Safety</span> 2 exterior cameras, smoke/CO, fire extinguisher</li>
-            <li><span class="k">Nearby</span> Acworth, near Lake Allatoona, KSU, I-75/I-575</li>
-            <li><span class="k">Check-in</span> 3:00 PM · self check-in (keypad)</li>
+            <li><span class="k">Layout</span> ⚠️ Split-level — 5 steps to door, ~7 up to bedrooms</li>
+            <li><span class="k">Kitchen</span> Full · in-unit laundry · BBQ</li>
+            <li><span class="k">Yard</span> Private, fully fenced backyard</li>
+            <li><span class="k">Drive</span> ~51 min airport · ~28 min shower</li>
+            <li><span class="k">Check-in</span> Self check-in (keypad)</li>
           </ul>
           <div class="pros-cons">
-            <div class="p"><strong>For ✓</strong><ul><li>Soaking tubs + full kitchen</li><li>Fully fenced yard</li><li>Proven, in-unit laundry</li></ul></div>
-            <div class="c"><strong>Watch ✕</strong><ul><li>Split-level stairs</li><li>Cheap tier non-refundable</li></ul></div>
+            <div class="p"><strong>For ✓</strong><ul><li>Soaking tubs + fenced yard</li><li>Near Robb's area</li><li>Proven, in-unit laundry</li></ul></div>
+            <div class="c"><strong>Watch ✕</strong><ul><li>Split-level stairs</li><li>Longer drives everywhere</li></ul></div>
           </div>
           <a class="viewbtn" href="https://www.airbnb.com/rooms/894068580343870759?adults=3&check_in=2026-07-17&check_out=2026-07-19&children=1" target="_blank" rel="noopener">View listing →</a>
+        </div>
+      </article>
+
+      <!-- OPTION 8 -->
+      <article class="pcard">
+        <div class="ribbon tagO8"></div>
+        <div class="gallery">
+          <img loading="lazy" src="https://a0.muscache.com/im/pictures/hosting/Hosting-1697957980654596666/original/a0b4a495-e32f-4cb5-92c0-3fec8922e861.jpeg?im_w=720" alt="Option 8">
+          <img loading="lazy" src="https://a0.muscache.com/im/pictures/hosting/Hosting-1697957980654596666/original/c2276cfa-59c2-4afe-98a3-3cb68ee69dae.jpeg?im_w=480" alt="">
+          <img loading="lazy" src="https://a0.muscache.com/im/pictures/hosting/Hosting-1697957980654596666/original/121fec71-de5d-441f-9519-704cde827360.jpeg?im_w=480" alt="">
+        </div>
+        <div class="body">
+          <h3>Marietta Family Retreat</h3>
+          <div class="loc">Marietta · Entire home · closest to the shower</div>
+          <div class="price">~$628 <small>/ 2 nights</small></div>
+          <div class="stars"><span class="new">New · 1 review</span> (host 4.75 ×4)</div>
+          <ul class="facts">
+            <li><span class="k">Sleeps</span> 6 — 3 BR / 2 baths</li>
+            <li><span class="k">Bath</span> No bathtub — shower only</li>
+            <li><span class="k">Kitchen</span> Full · washer/dryer · gas fireplace</li>
+            <li><span class="k">Yard</span> Large fenced backyard (kids/pets)</li>
+            <li><span class="k">Safety</span> Cameras (driveway + backyard), CO alarm</li>
+            <li><span class="k">Drive</span> ~31 min airport · ~15 min shower</li>
+            <li><span class="k">Check-in</span> Self check-in · quiet neighborhood</li>
+          </ul>
+          <div class="pros-cons">
+            <div class="p"><strong>For ✓</strong><ul><li>Closest to the shower</li><li>Big fenced yard</li><li>Cheapest of the central ones</li></ul></div>
+            <div class="c"><strong>Watch ✕</strong><ul><li>Basically unproven (1 review)</li><li>No bathtub</li></ul></div>
+          </div>
+          <a class="viewbtn" href="https://www.airbnb.com/rooms/1697957980654596666?adults=3&check_in=2026-07-17&check_out=2026-07-19&children=1" target="_blank" rel="noopener">View listing →</a>
+        </div>
+      </article>
+
+      <!-- OPTION 2 -->
+      <article class="pcard">
+        <div class="ribbon tagO2"></div>
+        <div class="gallery">
+          <img loading="lazy" src="https://a0.muscache.com/im/pictures/hosting/Hosting-1649487879781856709/original/f5fa2c03-8736-4dea-9937-afdba7243d9b.jpeg?im_w=720" alt="Option 2">
+          <img loading="lazy" src="https://a0.muscache.com/im/pictures/hosting/Hosting-1649487879781856709/original/5941576d-9112-4bfb-98b5-c72325a030fc.jpeg?im_w=480" alt="">
+          <img loading="lazy" src="https://a0.muscache.com/im/pictures/hosting/Hosting-1649487879781856709/original/3d38c59e-8949-4328-b2fc-bd8e7e28cf8f.jpeg?im_w=480" alt="">
+        </div>
+        <div class="body">
+          <h3>Easy Access to Food, Fun &amp; Family</h3>
+          <div class="loc">Acworth · Entire home · hosted by Jill · has a pool</div>
+          <div class="price">$799 <small>/ 2 nights · $0 due today</small></div>
+          <div class="stars"><span class="new">New listing — no reviews yet</span></div>
+          <ul class="facts">
+            <li><span class="k">Sleeps</span> up to 8 — 3 BR / 2 baths</li>
+            <li><span class="k">Bath</span> Two full baths, both with tubs</li>
+            <li><span class="k">Pool</span> Community swim/tennis + BBQ</li>
+            <li><span class="k">Kitchen</span> Full</li>
+            <li><span class="k">Drive</span> ~51 min airport · ~25 min shower</li>
+            <li><span class="k">Check-in</span> Self check-in (lockbox) · free cancel to Jul 16</li>
+          </ul>
+          <div class="pros-cons">
+            <div class="p"><strong>For ✓</strong><ul><li>Pool for summer</li><li>Most flexible cancel</li><li>Two bathtubs</li></ul></div>
+            <div class="c"><strong>Watch ✕</strong><ul><li>Priciest; no reviews</li><li>First-time host</li></ul></div>
+          </div>
+          <a class="viewbtn" href="https://www.airbnb.com/rooms/1649487879781856709?adults=3&check_in=2026-07-17&check_out=2026-07-19&children=1" target="_blank" rel="noopener">View listing →</a>
+        </div>
+      </article>
+
+      <!-- OPTION 4 -->
+      <article class="pcard">
+        <div class="ribbon tagO4"></div>
+        <div class="gallery">
+          <img loading="lazy" src="https://a0.muscache.com/im/pictures/miso/Hosting-946586603054728042/original/66072ba7-d3de-4279-9724-34ccaf95b043.jpeg?im_w=720" alt="Option 4">
+          <img loading="lazy" src="https://a0.muscache.com/im/pictures/7d117851-5297-44af-9dd4-9d96db21a15c.jpg?im_w=480" alt="">
+          <img loading="lazy" src="https://a0.muscache.com/im/pictures/miso/Hosting-946586603054728042/original/136b29a7-a4ff-403d-bcff-f14d450e5a82.jpeg?im_w=480" alt="">
+        </div>
+        <div class="body">
+          <h3>The Cartersville Birch Nest</h3>
+          <div class="loc">Cartersville · upstairs unit · Superhost · furthest out</div>
+          <div class="price">~$628 <small>/ 2 nights</small></div>
+          <div class="stars">★ 4.9 · <b>103 reviews</b> · Guest Favorite · Superhost</div>
+          <ul class="facts">
+            <li><span class="k">Sleeps</span> up to 7 — 3 BR / 2 baths</li>
+            <li><span class="k">Bath</span> No bathtub — shower only</li>
+            <li><span class="k">Layout</span> Single-level, no stairs</li>
+            <li><span class="k">Kitchen</span> Full · no laundry</li>
+            <li><span class="k">Safety</span> ⚠️ No CO alarm · shared unfenced yard</li>
+            <li><span class="k">Drive</span> ~58 min airport · ~40 min shower (furthest)</li>
+            <li><span class="k">Check-in</span> Keypad · checkout 10 AM</li>
+          </ul>
+          <div class="pros-cons">
+            <div class="p"><strong>For ✓</strong><ul><li>Most reviews; Superhost</li><li>Single-level, no stairs</li></ul></div>
+            <div class="c"><strong>Watch ✕</strong><ul><li>Furthest from everything</li><li>No CO alarm / no tub</li></ul></div>
+          </div>
+          <a class="viewbtn" href="https://www.airbnb.com/rooms/946586603054728042?adults=3&check_in=2026-07-17&check_out=2026-07-19&children=1" target="_blank" rel="noopener">View listing →</a>
         </div>
       </article>
 
@@ -333,106 +421,132 @@
         </div>
         <div class="body">
           <h3>Hummingbird Hideaway</h3>
-          <div class="loc">Downtown Acworth · 1879 Victorian suite · Superhost Abbie &amp; John</div>
-          <div class="price">$721 <small>/ 2 nights · $0 due today</small></div>
+          <div class="loc">Downtown Acworth · 1879 Victorian suite · Superhost</div>
+          <div class="price">$721 <small>/ 2 nights · $0 today</small></div>
           <div class="stars">★ 4.85 · <b>125 reviews</b> · Superhost (7 yrs)</div>
           <ul class="facts">
-            <li><span class="k">Sleeps</span> 6 — 3 BR, each a Queen</li>
-            <li><span class="k">Bath</span> 1 bathroom — c.1906 clawfoot tub (small)</li>
-            <li><span class="k">Kitchen</span> ⚠️ None — only fridge, microwave, coffee</li>
-            <li><span class="k">Layout</span> Private 2nd-floor suite of a historic home (stairs)</li>
-            <li><span class="k">Charm</span> Private balcony, parlor, 2 wooded acres</li>
-            <li><span class="k">Safety</span> Porch camera, smoke/CO, extinguisher, first-aid</li>
-            <li><span class="k">Nearby</span> 5-min walk to Main St dining; near Lake Acworth/Cauble Park</li>
-            <li><span class="k">Check-in</span> 3:00 PM · self check-in (keypad)</li>
+            <li><span class="k">Sleeps</span> 6 — 3 BR (queens) / 1 bath ✕</li>
+            <li><span class="k">Bath</span> c.1906 clawfoot tub (small)</li>
+            <li><span class="k">Kitchen</span> ⚠️ None — fridge/microwave only</li>
+            <li><span class="k">Layout</span> 2nd-floor suite of a historic home (stairs)</li>
+            <li><span class="k">Charm</span> Walk to Main St; 2 wooded acres</li>
+            <li><span class="k">Drive</span> ~51 min airport · ~25 min shower</li>
+            <li><span class="k">Check-in</span> Keypad · free cancel to Jul 12</li>
           </ul>
           <div class="pros-cons">
-            <div class="p"><strong>For ✓</strong><ul><li>Most established — 125 rev</li><li>Walk to downtown Acworth</li><li>Tons of character</li></ul></div>
-            <div class="c"><strong>Watch ✕</strong><ul><li>No kitchen for breakfast</li><li>Only 1 bathroom</li><li>Stairs; creaky/historic</li></ul></div>
+            <div class="p"><strong>For ✓</strong><ul><li>Most established (125 rev)</li><li>Walk to downtown Acworth</li><li>Loads of character</li></ul></div>
+            <div class="c"><strong>Watch ✕</strong><ul><li>No kitchen for breakfast</li><li>Only 1 bathroom; stairs</li></ul></div>
           </div>
           <a class="viewbtn" href="https://www.airbnb.com/rooms/29123768?adults=3&check_in=2026-07-17&check_out=2026-07-19&children=1" target="_blank" rel="noopener">View listing →</a>
+        </div>
+      </article>
+
+      <!-- OPTION 3 -->
+      <article class="pcard">
+        <div class="ribbon tagO3"></div>
+        <div class="gallery">
+          <img loading="lazy" src="https://a0.muscache.com/im/pictures/hosting/Hosting-1445965990829152613/original/03a64f65-c64e-45d7-b499-413fd1a8f2b5.jpeg?im_w=720" alt="Option 3">
+          <img loading="lazy" src="https://a0.muscache.com/im/pictures/hosting/Hosting-1445965990829152613/original/46b270bf-42e8-455c-8a47-3350b90d42d9.jpeg?im_w=480" alt="">
+          <img loading="lazy" src="https://a0.muscache.com/im/pictures/hosting/Hosting-1445965990829152613/original/c8113c24-e4e5-45c3-8c43-bd198d9be59b.jpeg?im_w=480" alt="">
+        </div>
+        <div class="body">
+          <h3>4 BR / 3 BA Family Home</h3>
+          <div class="loc">Kennesaw · Entire home · cheapest + roomiest</div>
+          <div class="price">~$528 <small>/ 2 nights · cheapest</small></div>
+          <div class="stars">★ 5.0 · 1 review · lived-in family home</div>
+          <ul class="facts">
+            <li><span class="k">Sleeps</span> 5 — 4 BR / 3 baths</li>
+            <li><span class="k">Bath</span> One bathtub</li>
+            <li><span class="k">Kitchen</span> Full — gas stove, Keurig</li>
+            <li><span class="k">Safety</span> ⚠️ "Heights without rails" flag</li>
+            <li><span class="k">Drive</span> ~45 min airport · ~25 min shower</li>
+            <li><span class="k">Check-in</span> Keypad · free cancel to Jul 3</li>
+          </ul>
+          <div class="pros-cons">
+            <div class="p"><strong>For ✓</strong><ul><li>Cheapest by ~$100</li><li>4 BR — most space</li></ul></div>
+            <div class="c"><strong>Watch ✕</strong><ul><li>Only 1 review</li><li>Railing hazard flag</li></ul></div>
+          </div>
+          <a class="viewbtn" href="https://www.airbnb.com/rooms/1445965990829152613?adults=3&check_in=2026-07-17&check_out=2026-07-19&children=1" target="_blank" rel="noopener">View listing →</a>
         </div>
       </article>
 
     </div>
   </section>
 
-  <!-- SAFETY (independent research) -->
+  <!-- SAFETY -->
   <section>
     <h2 class="shead">🛡️ Neighborhood safety <span style="font-size:.62em;font-weight:500;color:var(--muted);font-family:'Inter',sans-serif">· independent data, not just Airbnb</span></h2>
-    <p class="lede">Outside crime data for the three towns. Exact addresses aren't shown until booking, so this is town-level — safety still varies block to block.</p>
+    <p class="lede">Town-level crime data (exact addresses come after booking). All are solidly safe family areas — here's the nuance.</p>
     <div class="blind">
-      <div class="bcard"><h4><span class="ico">🌳</span>Acworth <span style="font-size:.72rem;color:var(--muted);font-weight:500">— Options 2, 5 &amp; 6</span></h4><p>The safest of the three — about <b>16 incidents per 1,000</b> residents vs ~33 nationally; <b>safer than ~80% of Georgia cities</b> and ~68% of U.S. cities. Violent crime ~70% below the national rate. Property crime is its relatively higher category but still below the U.S. per-capita average. Three of our five are here.</p></div>
-      <div class="bcard"><h4><span class="ico">🏙️</span>Kennesaw <span style="font-size:.72rem;color:var(--muted);font-weight:500">— Option 3</span></h4><p>Overall crime <b>~32% below</b> the U.S. average; safety grade <b>B</b>. Violent crime ~34% below average. The one elevated category is <b>burglary (~21% above average)</b> — typical of a suburb. Welcoming, family-friendly town.</p></div>
-      <div class="bcard"><h4><span class="ico">🏞️</span>Cartersville <span style="font-size:.72rem;color:var(--muted);font-weight:500">— Option 4 (Bartow Co.)</span></h4><p>Safety score <b>71/100</b>; overall crime ~15% below national. <b>Violent crime is very low</b> (about a third of the national rate), but <b>property crime runs slightly above</b> the national average — which pairs awkwardly with Option 4's missing CO alarm and shared, unfenced yard.</p></div>
+      <div class="bcard"><h4><span class="ico">🌆</span>Sandy Springs <span style="font-size:.72rem;color:var(--muted);font-weight:500">— Option 7</span></h4><p>Very safe — overall crime ~16.5 vs ~33 nationally, with <b>very low violent crime (1.44)</b>. Safer than most communities its size. The most central base, and a strong safety profile.</p></div>
+      <div class="bcard"><h4><span class="ico">🏡</span>East Cobb / Marietta <span style="font-size:.72rem;color:var(--muted);font-weight:500">— Option 8 + the shower</span></h4><p>City-wide Marietta reads ~43% above national, but that's driven by <b>retail-corridor theft</b> — the residential <b>East Cobb</b> neighborhoods (incl. 30062, where the shower is) earn <b>high family safety grades</b>. The specific area you'll be in is the safe part.</p></div>
+      <div class="bcard"><h4><span class="ico">🌳</span>Acworth <span style="font-size:.72rem;color:var(--muted);font-weight:500">— Options 2, 5 &amp; 6</span></h4><p>Safest of the NW towns — ~16 incidents per 1,000 vs ~33 nationally, safer than ~80% of GA cities; violent crime ~70% below the national rate.</p></div>
+      <div class="bcard"><h4><span class="ico">🏞️</span>Kennesaw (Opt 3) &amp; Cartersville (Opt 4)</h4><p>Both solidly safe — Kennesaw ~32% below national (grade B); Cartersville score 71/100 with very low violent crime. Property/burglary is the relatively higher category in each, as in any suburb.</p></div>
     </div>
     <div style="margin-top:14px;background:var(--green-soft);border:1px solid #cfe6d6;border-radius:12px;padding:14px 16px;font-size:.9rem;color:#274f38">
-      <b>Bottom line:</b> all three towns are solidly safe family areas — Acworth scores highest (and is where most of our options sit). Across the board the relatively higher category is <b>property crime / burglary</b> (normal for car-dependent suburbs), so the exterior cameras on every listing are a genuine plus; just lock up and don't leave valuables visible in the car. Once we have the booked address, a 2-minute check on the local crime map for that exact street is worth it.
-      <div style="margin-top:8px;font-size:.78rem;color:var(--muted)">Sources: AreaVibes, Niche, BestPlaces, DoorProfit, NeighborhoodScout, CrimeGrade, CrimeSafe (2026 figures).</div>
+      <b>Bottom line:</b> none of these are safety concerns. The common thread is property crime (normal for car-dependent metro suburbs), so the exterior cameras on every listing are a plus — lock up and don't leave valuables in the car. Once you have the booked street address, a 2-minute crime-map check for that block is worth it.
+      <div style="margin-top:8px;font-size:.78rem;color:var(--muted)">Sources: NeighborhoodScout, AreaVibes, Niche, DoorProfit, BestPlaces, CrimeGrade (2026 figures).</div>
     </div>
   </section>
 
   <!-- BLINDSPOTS -->
   <section>
     <h2 class="shead">🔎 Blindspots worth a thought</h2>
-    <p class="lede">Things easy to miss when all five look nice in photos.</p>
+    <p class="lede">Things easy to miss when they all look nice in photos.</p>
     <div class="blind">
-      <div class="bcard"><h4><span class="ico">🍳</span>Option 6 has no kitchen + one bath</h4><p>The Hummingbird is a gorgeous historic <b>suite</b> — but only a fridge/microwave (<b>no real kitchen</b> to cook breakfast) and <b>one bathroom</b> for all four of us, including Saturday-morning getting-ready for the shower. Charm, but awkward logistics for this trip.</p></div>
-      <div class="bcard"><h4><span class="ico">🪜</span>Option 5 is split-level</h4><p>The Corner House isn't stair-free: ~5 steps up to the front door, then ~7 more up to all the bedrooms and baths. Manageable, but worth picturing with Valerie and Grandpa. Upside: a <b>fully fenced backyard</b>, which none of the others have.</p></div>
-      <div class="bcard"><h4><span class="ico">📍</span>None are "in Atlanta"</h4><p>All five are NW suburbs — Options 2/3/5/6 are ~25–30 mi from downtown (35–45 min); Option 4 (Cartersville) is further, ~40 mi. Great for a shower-centered weekend; budget drive time for downtown sights.</p></div>
-      <div class="bcard"><h4><span class="ico">🔄</span>Refund windows differ a lot</h4><p>Kids get sick. Opt 2 cancels free until Jul 16, Opt 6 until Jul 12, Opt 3 locks Jul 3, Opt 4 is standard, and <b>Opt 5's cheaper rate is non-refundable</b> (pay ~$68 more to make it refundable).</p></div>
-      <div class="bcard"><h4><span class="ico">🚨</span>Option 4: no CO alarm + furthest</h4><p>The Birch Nest is the most-reviewed and single-level, but it has <b>no carbon-monoxide alarm</b> (host says not required), no in-unit laundry, a shared unfenced yard, and it's the furthest drive from Robb.</p></div>
-      <div class="bcard"><h4><span class="ico">🏚️</span>Option 6: charming but old</h4><p>An 1879 Victorian is "charmingly creaky" (the host provides a white-noise machine), and a guest noted the <b>shower-inside-the-antique-clawfoot-tub feels small/unsafe</b> — fine for bathing little Valerie, awkward for adults.</p></div>
-      <div class="bcard"><h4><span class="ico">🆕</span>Option 2 is unproven</h4><p>Zero reviews + first-time host = trusting the photos, and a small chance the Friday-evening lockbox check-in hiccups with a tired kid in tow. The pool is also a constant-supervision job for a 5-year-old.</p></div>
-      <div class="bcard"><h4><span class="ico">🏡</span>Option 3 is a lived-in home</h4><p>Garage + office locked off, drawers may hold the owner's stuff, only 1 review on cleanliness, plus the "heights without rails" flag. Cheapest and roomiest, but the least-known quantity.</p></div>
+      <div class="bcard"><h4><span class="ico">🧭</span>Central beats near-Robb on driving</h4><p>The shower's in East Cobb and you fly in/out of ATL, so a central base (Sandy Springs / Marietta) saves <b>~1.5 hrs of total driving</b> across the weekend vs an Acworth base — with shorter hops for a tired Val. Acworth's only real edge is being closest to Robb's actual house.</p></div>
+      <div class="bcard"><h4><span class="ico">🪜</span>Stairs are the recurring catch</h4><p>Most of these aren't stair-free: Option 7 has <b>no inside-stair handrails</b> (per a review), Option 5 is split-level, Option 6 is a 2nd-floor suite, Option 3 has the railing flag. Only Option 4 is truly single-level. Worth picturing with Val + Grandpa Bob.</p></div>
+      <div class="bcard"><h4><span class="ico">🍳</span>Option 6 has no kitchen + one bath</h4><p>Gorgeous historic suite, but only a fridge/microwave (no cooking breakfast) and <b>one bathroom</b> for all four — awkward for Saturday-morning getting-ready. More a couples' getaway than a family base.</p></div>
+      <div class="bcard"><h4><span class="ico">🆕</span>Two are basically unproven</h4><p>Option 2 (first-time host, 0 reviews) and Option 8 (1 review) are gambles on the photos. Free/standard cancellation softens it, but with a tired kid arriving Friday, a proven host (7, 4, 6) is one less thing to worry about.</p></div>
+      <div class="bcard"><h4><span class="ico">🔄</span>Refund windows differ</h4><p>Free-cancel: Opt 2 &amp; 7 to Jul 16, Opt 6 to Jul 12, Opt 3 to Jul 3. Opt 5's cheaper rate is non-refundable (pay ~$68 more to make it refundable). Kids get sick — flexibility has value.</p></div>
+      <div class="bcard"><h4><span class="ico">🎟️</span>Friday aquarium = book ahead</h4><p>Pre-booked tickets are cheaper than same-day, and it's the one outing that fits the schedule. With an 11:35 landing you've got time; keep it to ~2 hrs of highlights so Val isn't fried before Saturday.</p></div>
     </div>
   </section>
 
   <!-- CHECKLIST -->
   <section>
-    <h2 class="shead">✅ Before we book — ask the host</h2>
+    <h2 class="shead">✅ Before we book</h2>
     <p class="lede">Tap to check off. Saves on this device so you can come back to it.</p>
     <div class="checklist" id="checklist">
-      <label><input type="checkbox"><span class="txt">Confirm <b>Robb's address</b> and check real drive time to all five <span class="who tagO2">all</span></span></label>
-      <label><input type="checkbox"><span class="txt">Option 5: OK with the <b>split-level stairs</b> for Valerie &amp; Grandpa? <span class="who tagO5">Opt 5</span></span></label>
-      <label><input type="checkbox"><span class="txt">Option 6: <b>no kitchen + one bathroom</b> — workable for breakfast &amp; Saturday getting-ready? <span class="who tagO6">Opt 6</span></span></label>
-      <label><input type="checkbox"><span class="txt">Option 4: note <b>no CO alarm</b> — bring a plug-in detector if booked <span class="who tagO4">Opt 4</span></span></label>
-      <label><input type="checkbox"><span class="txt">Option 3: ask host about the <b>"heights without rails"</b> hazard <span class="who tagO3">Opt 3</span></span></label>
-      <label><input type="checkbox"><span class="txt">Option 2: get the <b>exact street</b> (only after booking) + confirm pool is fenced/hours <span class="who tagO2">Opt 2</span></span></label>
-      <label><input type="checkbox"><span class="txt">Option 2: comfortable with an <b>unreviewed, first-time host</b>? <span class="who tagO2">Opt 2</span></span></label>
-      <label><input type="checkbox"><span class="txt">Confirm <b>AC in all bedrooms</b> (Georgia July heat) <span class="who tagO3">all</span></span></label>
-      <label><input type="checkbox"><span class="txt">Double-check <b>check-in time</b> works with Friday arrival &amp; the shower <span class="who tagO2">all</span></span></label>
+      <label><input type="checkbox"><span class="txt">Decide the trade-off: <b>central (Sandy Springs / Marietta)</b> vs <b>near Robb (Acworth)</b> <span class="who tagO7">all</span></span></label>
+      <label><input type="checkbox"><span class="txt">Option 7: ask host about the <b>inside-stair handrails</b> / front steps (Val + Grandpa) <span class="who tagO7">Opt 7</span></span></label>
+      <label><input type="checkbox"><span class="txt">Confirm exact address &amp; <b>real drive time to 3915 Forego Court</b> for your pick <span class="who tagO8">all</span></span></label>
+      <label><input type="checkbox"><span class="txt"><b>Pre-book Georgia Aquarium</b> tickets for Friday afternoon (cheaper online) <span class="who tagO4">Fri</span></span></label>
+      <label><input type="checkbox"><span class="txt">Book the <b>rental car</b> at ATL (you'll want it for all the driving) <span class="who tagO2">all</span></span></label>
+      <label><input type="checkbox"><span class="txt">Option 5: OK with the <b>split-level stairs</b>? · Option 4: bring a <b>plug-in CO detector</b> <span class="who tagO5">Opt 4/5</span></span></label>
+      <label><input type="checkbox"><span class="txt">Confirm <b>AC + check-in time</b> work with the Friday 11:35 landing &amp; the shower <span class="who tagO3">all</span></span></label>
     </div>
   </section>
 
   <footer>
-    <div class="note">📊 <b>Data note:</b> Prices, reviews, amenities and safety flags pulled directly from each Airbnb listing for the Jul 17–19, 2026 dates (3 adults + 1 child). Prices shift with demand — verify at booking. The original Option 1 (rooms/1541499937775760827) was removed — no longer available. Option 2 = <i>1649487879781856709</i>, Option 3 = <i>1445965990829152613</i>, Option 4 = <i>946586603054728042</i>, Option 5 = <i>894068580343870759</i>, Option 6 = <i>29123768</i>. *Option 4 cancellation = standard policy; verify exact free-cancel date at booking.</div>
+    <div class="note">📊 <b>Data note:</b> Prices, reviews, amenities, drive times and safety flags pulled from each Airbnb listing + public crime/maps data for Jul 17–19, 2026 (3 adults + 1 child). Prices &amp; drive times are approximate — verify at booking. Removed: original Option 1 (no longer available). Options: 2 = <i>1649487879781856709</i>, 3 = <i>1445965990829152613</i>, 4 = <i>946586603054728042</i>, 5 = <i>894068580343870759</i>, 6 = <i>29123768</i>, 7 = <i>1270590026184165135</i>, 8 = <i>1697957980654596666</i>. *Standard cancellation — verify exact date at booking.</div>
     <div>Put together for our Atlanta weekend · unlisted page, just for us 🍑</div>
   </footer>
 
 </div>
 
 <script>
-// ---------- Decision Helper ----------
 const OPTS = [
-  {key:'o2', name:'Option 2 — Acworth / Jill',          color:'#7a4fa3'},
-  {key:'o3', name:'Option 3 — Kennesaw / Gannel',        color:'#2f8a63'},
-  {key:'o4', name:'Option 4 — Cartersville / Kendall',   color:'#1f7a8c'},
-  {key:'o5', name:'Option 5 — Acworth / Corner House',   color:'#b5552b'},
-  {key:'o6', name:'Option 6 — Acworth / Hummingbird',    color:'#3a6ea5'},
+  {key:'o2', name:'Option 2 — Acworth / Jill',         color:'#7a4fa3'},
+  {key:'o3', name:'Option 3 — Kennesaw / Gannel',       color:'#2f8a63'},
+  {key:'o4', name:'Option 4 — Cartersville / Kendall',  color:'#1f7a8c'},
+  {key:'o5', name:'Option 5 — Acworth / Corner House',  color:'#b5552b'},
+  {key:'o6', name:'Option 6 — Acworth / Hummingbird',   color:'#3a6ea5'},
+  {key:'o7', name:'Option 7 — Sandy Springs',           color:'#a8327a'},
+  {key:'o8', name:'Option 8 — Marietta',                color:'#6f7a2a'},
 ];
-// raw scores 0-5 in order [o2,o3,o4,o5,o6]
+// scores 0-5 in order [o2,o3,o4,o5,o6,o7,o8]
 const CRITERIA = [
-  {id:'price',   label:'Lower price',                  def:1, s:[1.5,5.0,3.3,2.5,2.2]},
-  {id:'trust',   label:'Proven reviews / low risk',    def:1, s:[1.0,2.5,5.0,4.0,5.0]},
-  {id:'safety',  label:'Kid safety (stairs / rails)',  def:2, s:[3.0,2.0,4.0,3.5,2.5]},
-  {id:'kitchen', label:'Kitchen to cook breakfast',    def:1, s:[5.0,5.0,5.0,5.0,1.0]},
-  {id:'tub',     label:'Bathtub (nice-to-have)',       def:1, s:[4.0,3.0,1.0,4.5,3.0]},
-  {id:'flex',    label:'Cancellation flexibility',     def:1, s:[5.0,2.0,3.0,2.5,4.5]},
-  {id:'robb',    label:"Close to Robb's",              def:1, s:[5.0,3.5,2.0,4.5,4.5]},
-  {id:'space',   label:'Space (own room each)',        def:1, s:[4.0,5.0,4.0,4.0,4.0]},
-  {id:'walk',    label:'Walkable / things to do',      def:1, s:[4.0,3.0,3.5,3.5,5.0]},
-  {id:'pool',    label:'Pool & extras',                def:0, s:[5.0,2.0,2.0,3.0,3.0]},
+  {id:'price',   label:'Lower price',                       def:1, s:[1.5,5.0,3.3,2.5,2.2,2.0,3.3]},
+  {id:'trust',   label:'Proven reviews / low risk',         def:1, s:[1.0,2.5,5.0,4.0,5.0,5.0,2.5]},
+  {id:'safety',  label:'Kid + Grandpa safety (stairs)',     def:2, s:[3.0,2.0,4.0,3.5,2.5,2.5,3.5]},
+  {id:'central', label:'Central — less driving',            def:1, s:[3.0,3.0,1.5,3.0,3.0,5.0,4.5]},
+  {id:'kitchen', label:'Kitchen to cook breakfast',         def:1, s:[5.0,5.0,5.0,5.0,1.0,5.0,5.0]},
+  {id:'tub',     label:'Bathtub (nice-to-have)',            def:1, s:[4.0,3.0,1.0,4.5,3.0,4.0,1.0]},
+  {id:'flex',    label:'Cancellation flexibility',          def:1, s:[5.0,2.0,3.0,2.5,4.5,5.0,3.0]},
+  {id:'space',   label:'Space (bedrooms/baths)',            def:1, s:[4.0,5.0,4.0,4.0,4.0,5.0,4.0]},
+  {id:'walk',    label:'Walkable / things to do',           def:1, s:[4.0,3.0,3.5,3.5,5.0,4.0,3.0]},
+  {id:'pool',    label:'Pool & extras',                     def:0, s:[5.0,2.0,2.0,3.0,3.0,2.5,2.5]},
 ];
 const WEIGHTS = {0:'Off',1:'Normal',2:'High'};
 let state = {};
@@ -475,13 +589,11 @@ function compute(){
 document.getElementById('reset').onclick=()=>{ setDefaults(); renderCriteria(); compute(); };
 renderCriteria(); compute();
 
-// ---------- Table highlight toggle ----------
 const hl = document.getElementById('hl');
 function applyHL(){ document.querySelectorAll('#ctable td').forEach(td=>{ td.classList.toggle('best', hl.checked && td.hasAttribute('data-best')); }); }
 hl.onchange = applyHL; applyHL();
 
-// ---------- Checklist persistence ----------
-const KEY='atl-trip-checklist-v2';
+const KEY='atl-trip-checklist-v3';
 const boxes=[...document.querySelectorAll('#checklist input')];
 const saved=JSON.parse(localStorage.getItem(KEY)||'[]');
 boxes.forEach((b,i)=>{ b.checked=!!saved[i]; b.closest('label').classList.toggle('done',b.checked);
