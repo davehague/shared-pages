@@ -14,7 +14,7 @@
     --line:#e4ddcf; --accent:#c2541f; --accent-soft:#f3e2d4;
     --green:#2f7d54; --green-soft:#e3f0e6; --amber:#b07d12; --amber-soft:#f6ecd2;
     --red:#b23b3b; --red-soft:#f6e0de; --blue:#2f5d8a; --shadow:0 1px 2px rgba(40,30,15,.06),0 8px 30px rgba(40,30,15,.07);
-    --o1:#2f6f9e; --o2:#7a4fa3; --o3:#2f8a63;
+    --o1:#2f6f9e; --o2:#7a4fa3; --o3:#2f8a63; --o4:#1f7a8c;
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
@@ -78,7 +78,7 @@
   .toggle-best input{width:16px;height:16px;accent-color:var(--green)}
 
   /* cards */
-  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(225px,1fr));gap:18px}
   @media(max-width:880px){.cards{grid-template-columns:1fr}}
   .pcard{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column}
   .pcard .ribbon{height:5px}
@@ -121,7 +121,7 @@
 
   footer{padding:30px 0 60px;color:var(--muted);font-size:.82rem}
   footer .note{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:14px}
-  .tagO1{background:var(--o1)}.tagO2{background:var(--o2)}.tagO3{background:var(--o3)}
+  .tagO1{background:var(--o1)}.tagO2{background:var(--o2)}.tagO3{background:var(--o3)}.tagO4{background:var(--o4)}
 </style>
 </head>
 <body>
@@ -129,13 +129,13 @@
 <header class="hero">
   <div class="wrap">
     <span class="eyebrow">🍑 Family Trip Planning</span>
-    <h1>Atlanta Weekend: Three Airbnbs, Compared</h1>
-    <p class="sub">A side-by-side look at the three places for Robb's baby shower — with an interactive helper to weigh what matters most to us.</p>
+    <h1>Atlanta Weekend: Four Airbnbs, Compared</h1>
+    <p class="sub">A side-by-side look at the four places for Robb's baby shower — with an interactive helper to weigh what matters most to us.</p>
     <div class="triprow">
       <span class="chip">📅 <b>Fri Jul 17 – Sun Jul 19, 2026</b></span>
       <span class="chip">👨‍👩‍👧 Us + Valerie + Grandpa <b>(3 adults, 1 kid)</b></span>
       <span class="chip">🎉 Sat: <b>Robb's baby shower</b></span>
-      <span class="chip">📍 Kennesaw / Acworth, GA</span>
+      <span class="chip">📍 Kennesaw · Acworth · Cartersville, GA</span>
     </div>
   </div>
 </header>
@@ -145,7 +145,7 @@
   <div class="rec">
     <span class="badge">★ MY PICK</span>
     <h2>Option 1 — the lowest-risk all-rounder</h2>
-    <p>It hits every box we named: a real <b>soaking tub</b> for Valerie's baths, full kitchen, and — uniquely — it's <b>single-story and step-free</b>, which keeps stairs out of the picture for a curious 5-year-old. It's the only one with a proven track record (<b>15 reviews, Guest Favorite</b>, professionally managed), and a guest literally wrote <i>"very safe neighborhood that we walked nightly."</i> It's mid-priced. I'd book the <b>refundable</b> rate (~$662) for ~$48 of peace of mind. Pick Option 2 only if being closest to Robb + the pool seals it; pick Option 3 if saving ~$130 outweighs the thin reviews and the railing question.</p>
+    <p>It hits every box we named: a real <b>soaking tub</b> for Valerie's baths, full kitchen, and — uniquely — it's <b>single-story and step-free</b>, which keeps stairs out of the picture for a curious 5-year-old. It's the only one with a proven track record (<b>15 reviews, Guest Favorite</b>, professionally managed), and a guest literally wrote <i>"very safe neighborhood that we walked nightly."</i> It's mid-priced. I'd book the <b>refundable</b> rate (~$662) for ~$48 of peace of mind. Pick Option 2 only if being closest to Robb + the pool seals it; pick Option 3 if saving ~$130 outweighs the thin reviews and the railing question. <b>Option 4</b> (the Birch Nest) is the most-reviewed of the bunch and a Superhost — but it has <b>no bathtub</b> and sits furthest from Robb, so it's the call only if baths stop being a must-have.</p>
   </div>
 
   <!-- DECISION HELPER -->
@@ -175,20 +175,22 @@
           <th>Option 1<span class="opt tagO1">Kennesaw · Evolve</span></th>
           <th>Option 2<span class="opt tagO2">Acworth · Jill</span></th>
           <th>Option 3<span class="opt tagO3">Kennesaw · Gannel</span></th>
+          <th>Option 4<span class="opt tagO4">Cartersville · Kendall</span></th>
         </tr></thead>
         <tbody>
-          <tr><th>Total (2 nights)</th><td>~$614<br><small>($662 refundable)</small></td><td>$799</td><td data-best>~$528 <small>(cheapest)</small></td></tr>
-          <tr><th>Reviews</th><td data-best>★5.0 × 15<br><small>Guest Favorite</small></td><td>None yet<br><small>new host</small></td><td>★5.0 × 1</td></tr>
-          <tr><th>Bathtub</th><td data-best>Soaking tub + combo</td><td>Two tubs</td><td>One tub</td></tr>
-          <tr><th>Kitchen</th><td data-best>Full</td><td data-best>Full</td><td data-best>Full</td></tr>
-          <tr><th>Bedrooms / beds</th><td>3BR · King+Queen+Full</td><td>3BR · King+2&nbsp;Queen</td><td data-best>4BR · Queen+3&nbsp;Full</td></tr>
-          <tr><th>Layout</th><td data-best>Single-story, step-free</td><td>Unknown</td><td>Multi-story ⚠️</td></tr>
-          <tr><th>Parking</th><td data-best>Garage (2)+driveway (4)</td><td>Free on premises</td><td>Free on premises</td></tr>
-          <tr><th>Pool</th><td>—</td><td data-best>Community pool</td><td>—</td></tr>
-          <tr><th>Cancellation</th><td>Cheap tier non-refundable</td><td data-best>Free until Jul 16</td><td>Free until Jul 3</td></tr>
-          <tr><th>Family extras</th><td data-best>Crib, high chair, first-aid, extinguisher</td><td>Not listed</td><td>Not listed</td></tr>
-          <tr><th>Safety flag</th><td data-best>None</td><td>None listed</td><td>"Heights w/o rails" ⚠️</td></tr>
-          <tr><th>Closest to Robb</th><td>~</td><td data-best>Closest (per you)</td><td>~</td></tr>
+          <tr><th>Total (2 nights)</th><td>~$614<br><small>($662 refundable)</small></td><td>$799</td><td data-best>~$528 <small>(cheapest)</small></td><td>~$628</td></tr>
+          <tr><th>Reviews</th><td data-best>★5.0 × 15<br><small>Guest Favorite</small></td><td>None yet<br><small>new host</small></td><td>★5.0 × 1</td><td data-best>★4.9 × 103<br><small>Superhost</small></td></tr>
+          <tr><th>Bathtub</th><td data-best>Soaking tub + combo</td><td>Two tubs</td><td>One tub</td><td>None — shower only ✕</td></tr>
+          <tr><th>Kitchen</th><td data-best>Full</td><td data-best>Full</td><td data-best>Full</td><td data-best>Full</td></tr>
+          <tr><th>Bedrooms / beds</th><td>3BR · King+Queen+Full</td><td>3BR · King+2&nbsp;Queen</td><td data-best>4BR · Queen+3&nbsp;Full</td><td>3BR · 4 beds (sleeps 7)</td></tr>
+          <tr><th>Layout</th><td data-best>Single-story, step-free</td><td>Unknown</td><td>Multi-story ⚠️</td><td data-best>Single-level, no stairs</td></tr>
+          <tr><th>Parking</th><td data-best>Garage (2)+driveway (4)</td><td>Free on premises</td><td>Free on premises</td><td>Free driveway + street</td></tr>
+          <tr><th>Pool</th><td>—</td><td data-best>Community pool</td><td>—</td><td>—</td></tr>
+          <tr><th>Cancellation</th><td>Cheap tier non-refundable</td><td data-best>Free until Jul 16</td><td>Free until Jul 3</td><td>Standard*</td></tr>
+          <tr><th>Family extras</th><td data-best>Crib, high chair, first-aid, extinguisher</td><td>Not listed</td><td>Not listed</td><td>Board games, extinguisher</td></tr>
+          <tr><th>Safety flag</th><td data-best>None</td><td>None listed</td><td>"Heights w/o rails" ⚠️</td><td>No CO alarm ⚠️</td></tr>
+          <tr><th>Laundry</th><td data-best>In-unit washer/dryer</td><td data-best>In-unit</td><td data-best>In-unit</td><td>None (laundromat nearby)</td></tr>
+          <tr><th>Closest to Robb</th><td>~</td><td data-best>Closest (per you)</td><td>~</td><td>Furthest (Bartow Co)</td></tr>
         </tbody>
       </table>
     </div>
@@ -196,7 +198,7 @@
 
   <!-- PROPERTY CARDS -->
   <section>
-    <h2 class="shead">🏠 The three places</h2>
+    <h2 class="shead">🏠 The four places</h2>
     <p class="lede">Photos and details pulled from each listing. Tap "View listing" to open the real Airbnb page.</p>
     <div class="cards">
 
@@ -292,29 +294,62 @@
         </div>
       </article>
 
+      <!-- OPTION 4 -->
+      <article class="pcard">
+        <div class="ribbon tagO4"></div>
+        <div class="gallery">
+          <img loading="lazy" src="https://a0.muscache.com/im/pictures/miso/Hosting-946586603054728042/original/66072ba7-d3de-4279-9724-34ccaf95b043.jpeg?im_w=720" alt="Option 4">
+          <img loading="lazy" src="https://a0.muscache.com/im/pictures/7d117851-5297-44af-9dd4-9d96db21a15c.jpg?im_w=480" alt="">
+          <img loading="lazy" src="https://a0.muscache.com/im/pictures/miso/Hosting-946586603054728042/original/136b29a7-a4ff-403d-bcff-f14d450e5a82.jpeg?im_w=480" alt="">
+        </div>
+        <div class="body">
+          <h3>The Cartersville Birch Nest</h3>
+          <div class="loc">Emerson / Cartersville · upstairs unit · Superhost Kendall</div>
+          <div class="price">~$628 <small>/ 2 nights</small></div>
+          <div class="stars">★ 4.9 · <b>103 reviews</b> · Guest Favorite · Superhost</div>
+          <ul class="facts">
+            <li><span class="k">Sleeps</span> up to 7 — 3 BR / 4 beds</li>
+            <li><span class="k">Bath</span> ⚠️ No bathtub — shower only</li>
+            <li><span class="k">Layout</span> Single-level, no stairs (upstairs unit above a separate, empty apartment)</li>
+            <li><span class="k">Kitchen</span> Full · no in-unit washer/dryer</li>
+            <li><span class="k">Parking</span> Free driveway + street</li>
+            <li><span class="k">Safety</span> Ring + cameras; ⚠️ no CO alarm; backyard shared, not fully fenced</li>
+            <li><span class="k">Nearby</span> 1.1 mi downtown Cartersville; 4.5 mi LakePoint Sports; ~40 mi to Atlanta</li>
+            <li><span class="k">Check-in</span> 3:00 PM · keypad · checkout 10 AM</li>
+          </ul>
+          <div class="pros-cons">
+            <div class="p"><strong>For ✓</strong><ul><li>Most proven — 103 reviews, Superhost</li><li>Single-level, no stairs</li><li>Spacious, sleeps 7</li></ul></div>
+            <div class="c"><strong>Watch ✕</strong><ul><li>No bathtub for Valerie</li><li>No CO alarm; shared yard</li><li>Furthest from Robb</li></ul></div>
+          </div>
+          <a class="viewbtn" href="https://www.airbnb.com/rooms/946586603054728042?adults=3&check_in=2026-07-17&check_out=2026-07-19&children=1" target="_blank" rel="noopener">View listing →</a>
+        </div>
+      </article>
+
     </div>
   </section>
 
   <!-- SAFETY (independent research) -->
   <section>
     <h2 class="shead">🛡️ Neighborhood safety <span style="font-size:.62em;font-weight:500;color:var(--muted);font-family:'Inter',sans-serif">· independent data, not just Airbnb</span></h2>
-    <p class="lede">Outside crime data for the two towns. Exact addresses aren't shown until booking, so this is town-level — safety still varies block to block.</p>
+    <p class="lede">Outside crime data for the three towns. Exact addresses aren't shown until booking, so this is town-level — safety still varies block to block.</p>
     <div class="blind">
       <div class="bcard"><h4><span class="ico">🏙️</span>Kennesaw <span style="font-size:.72rem;color:var(--muted);font-weight:500">— Options 1 &amp; 3</span></h4><p>Overall crime <b>~32% below</b> the U.S. average; safety grade <b>B</b>. Violent crime ~34% below average. The one elevated category is <b>burglary (~21% above average)</b> — typical of a suburb. Widely described as a welcoming, family-friendly town.</p></div>
       <div class="bcard"><h4><span class="ico">🌳</span>Acworth <span style="font-size:.72rem;color:var(--muted);font-weight:500">— Option 2</span></h4><p>Even safer overall — about <b>16 incidents per 1,000</b> residents vs ~33 nationally; <b>safer than ~80% of Georgia cities</b> and ~68% of U.S. cities. Violent crime ~70% below the national rate. Property crime is its relatively higher category but still below the U.S. per-capita average.</p></div>
+      <div class="bcard"><h4><span class="ico">🏞️</span>Cartersville <span style="font-size:.72rem;color:var(--muted);font-weight:500">— Option 4 (Bartow Co.)</span></h4><p>Safety score <b>71/100</b>; overall crime ~15% below national. <b>Violent crime is very low</b> (about a third of the national rate), but <b>property crime runs slightly above</b> the national average — which pairs awkwardly with Option 4's missing CO alarm and shared, unfenced yard.</p></div>
     </div>
     <div style="margin-top:14px;background:var(--green-soft);border:1px solid #cfe6d6;border-radius:12px;padding:14px 16px;font-size:.9rem;color:#274f38">
-      <b>Bottom line:</b> both are solidly safe family suburbs, with Acworth scoring a touch higher. In both, the relatively higher category is <b>property crime / burglary</b> (normal for car-dependent suburbs) — so the exterior cameras on all three listings are a genuine plus; just lock up and don't leave valuables visible in the car. Once we have the booked address, a 2-minute check on the local crime map for that exact street is worth it.
-      <div style="margin-top:8px;font-size:.78rem;color:var(--muted)">Sources: AreaVibes, Niche, BestPlaces, DoorProfit, NeighborhoodScout (2026 figures).</div>
+      <b>Bottom line:</b> all three towns are solidly safe family areas — Acworth scores highest, Cartersville is fine but a touch more property-crime-prone. Across the board the relatively higher category is <b>property crime / burglary</b> (normal for car-dependent suburbs), so the exterior cameras on every listing are a genuine plus; just lock up and don't leave valuables visible in the car. Once we have the booked address, a 2-minute check on the local crime map for that exact street is worth it.
+      <div style="margin-top:8px;font-size:.78rem;color:var(--muted)">Sources: AreaVibes, Niche, BestPlaces, DoorProfit, NeighborhoodScout, CrimeGrade, CrimeSafe (2026 figures).</div>
     </div>
   </section>
 
   <!-- BLINDSPOTS -->
   <section>
     <h2 class="shead">🔎 Blindspots worth a thought</h2>
-    <p class="lede">Things easy to miss when all three look nice in photos.</p>
+    <p class="lede">Things easy to miss when all four look nice in photos.</p>
     <div class="blind">
-      <div class="bcard"><h4><span class="ico">📍</span>None are "in Atlanta"</h4><p>All three are NW suburbs ~25–30 mi from downtown (35–45 min). Perfect for a shower-centered weekend; budget drive time if you want the Aquarium or downtown sights.</p></div>
+      <div class="bcard"><h4><span class="ico">📍</span>None are "in Atlanta"</h4><p>All four are NW suburbs — Options 1–3 are ~25–30 mi from downtown (35–45 min); Option 4 (Cartersville) is further, ~40 mi. Perfect for a shower-centered weekend; budget drive time if you want the Aquarium or downtown sights.</p></div>
+      <div class="bcard"><h4><span class="ico">🚨</span>Option 4's trade-offs</h4><p>The Birch Nest is the most-reviewed, but it has <b>no bathtub</b> (shower only — a miss for Valerie), <b>no carbon-monoxide alarm</b>, no in-unit laundry, and it's the <b>upstairs unit above a separate (empty) apartment</b> with a shared, not-fully-fenced backyard.</p></div>
       <div class="bcard"><h4><span class="ico">🔄</span>Refund windows differ a lot</h4><p>Kids get sick. Opt 2 cancels free until the day before; Opt 3 locks Jul 3; Opt 1's cheap rate is non-refundable. Flexibility has real value here.</p></div>
       <div class="bcard"><h4><span class="ico">🪜</span>Option 3's railing flag</h4><p>Airbnb's own listing flags <b>"heights without rails or protection"</b> on Option 3 — could be a loft, open stairwell, or unrailed deck. Worth asking the host about with Valerie around. Option 1 is single-story and step-free.</p></div>
       <div class="bcard"><h4><span class="ico">🏊</span>A pool is a supervision job</h4><p>With a 5-year-old, an unfenced community pool means eyes-on every second — and on a brand-new listing you don't know the hours, rules, or upkeep.</p></div>
@@ -329,7 +364,9 @@
     <h2 class="shead">✅ Before we book — ask the host</h2>
     <p class="lede">Tap to check off. Saves on this device so you can come back to it.</p>
     <div class="checklist" id="checklist">
-      <label><input type="checkbox"><span class="txt">Confirm <b>Robb's address</b> and check the real drive time to all three <span class="who tagO2" style="color:#fff">all</span></span></label>
+      <label><input type="checkbox"><span class="txt">Confirm <b>Robb's address</b> and check the real drive time to all four <span class="who tagO2" style="color:#fff">all</span></span></label>
+      <label><input type="checkbox"><span class="txt">Option 4: decide if <b>no bathtub</b> (shower only) is OK for Valerie <span class="who tagO4" style="color:#fff">Opt 4</span></span></label>
+      <label><input type="checkbox"><span class="txt">Option 4: note <b>no CO alarm</b> — consider a plug-in/portable detector if booked <span class="who tagO4" style="color:#fff">Opt 4</span></span></label>
       <label><input type="checkbox"><span class="txt">Ask Option 3 host about the <b>"heights without rails"</b> hazard (loft? deck? open stairs?) <span class="who tagO3" style="color:#fff">Opt 3</span></span></label>
       <label><input type="checkbox"><span class="txt">Ask Option 2 host for the <b>exact location / street</b> (only given after booking) <span class="who tagO2" style="color:#fff">Opt 2</span></span></label>
       <label><input type="checkbox"><span class="txt">Confirm <b>cameras are outdoor-only</b> on Options 2 & 3 <span class="who tagO2" style="color:#fff">Opt 2/3</span></span></label>
@@ -341,7 +378,7 @@
   </section>
 
   <footer>
-    <div class="note">📊 <b>Data note:</b> Prices, reviews, amenities and safety flags pulled directly from each Airbnb listing for the Jul 17–19, 2026 dates (3 adults + 1 child). Prices shift with demand — verify at booking. Option 1 = <i>rooms/1541499937775760827</i>, Option 2 = <i>1649487879781856709</i>, Option 3 = <i>1445965990829152613</i>.</div>
+    <div class="note">📊 <b>Data note:</b> Prices, reviews, amenities and safety flags pulled directly from each Airbnb listing for the Jul 17–19, 2026 dates (3 adults + 1 child). Prices shift with demand — verify at booking. Option 1 = <i>rooms/1541499937775760827</i>, Option 2 = <i>1649487879781856709</i>, Option 3 = <i>1445965990829152613</i>, Option 4 = <i>946586603054728042</i>. *Option 4 cancellation = standard policy; verify exact free-cancel date at booking.</div>
     <div>Put together for our Atlanta weekend · unlisted page, just for us 🍑</div>
   </footer>
 
@@ -353,18 +390,19 @@ const OPTS = [
   {key:'o1', name:'Option 1 — Kennesaw / Evolve', color:'#2f6f9e'},
   {key:'o2', name:'Option 2 — Acworth / Jill',    color:'#7a4fa3'},
   {key:'o3', name:'Option 3 — Kennesaw / Gannel',  color:'#2f8a63'},
+  {key:'o4', name:'Option 4 — Cartersville / Kendall', color:'#1f7a8c'},
 ];
-// raw scores 0-5 in order [o1,o2,o3]
+// raw scores 0-5 in order [o1,o2,o3,o4]
 const CRITERIA = [
-  {id:'price',  label:'Lower price',                 def:1, s:[3.5,1.5,5.0]},
-  {id:'trust',  label:'Proven reviews / low risk',   def:1, s:[5.0,1.0,2.5]},
-  {id:'safety', label:'Kid safety (stairs / rails)',  def:2, s:[5.0,3.0,2.0]},
-  {id:'tub',    label:'Bathtub for Valerie',         def:2, s:[5.0,4.0,3.0]},
-  {id:'flex',   label:'Cancellation flexibility',    def:1, s:[3.0,5.0,2.0]},
-  {id:'robb',   label:"Close to Robb's",             def:1, s:[3.0,5.0,3.5]},
-  {id:'space',  label:'Space (own room each)',       def:1, s:[4.0,4.0,5.0]},
-  {id:'pool',   label:'Pool & extras',               def:0, s:[3.0,5.0,2.0]},
-  {id:'walk',   label:'Walkable / things to do',     def:1, s:[5.0,4.0,3.0]},
+  {id:'price',  label:'Lower price',                 def:1, s:[3.5,1.5,5.0,3.3]},
+  {id:'trust',  label:'Proven reviews / low risk',   def:1, s:[5.0,1.0,2.5,5.0]},
+  {id:'safety', label:'Kid safety (stairs / rails)',  def:2, s:[5.0,3.0,2.0,4.0]},
+  {id:'tub',    label:'Bathtub for Valerie',         def:2, s:[5.0,4.0,3.0,1.0]},
+  {id:'flex',   label:'Cancellation flexibility',    def:1, s:[3.0,5.0,2.0,3.0]},
+  {id:'robb',   label:"Close to Robb's",             def:1, s:[3.0,5.0,3.5,2.0]},
+  {id:'space',  label:'Space (own room each)',       def:1, s:[4.0,4.0,5.0,4.0]},
+  {id:'pool',   label:'Pool & extras',               def:0, s:[3.0,5.0,2.0,2.0]},
+  {id:'walk',   label:'Walkable / things to do',     def:1, s:[5.0,4.0,3.0,3.5]},
 ];
 const WEIGHTS = {0:'Off',1:'Normal',2:'High'};
 let state = {};
