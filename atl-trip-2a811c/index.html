@@ -14,7 +14,7 @@
     --line:#e4ddcf; --accent:#c2541f; --accent-soft:#f3e2d4;
     --green:#2f7d54; --green-soft:#e3f0e6; --amber:#b07d12; --amber-soft:#f6ecd2;
     --red:#b23b3b; --shadow:0 1px 2px rgba(40,30,15,.06),0 8px 30px rgba(40,30,15,.07);
-    --o2:#7a4fa3; --o3:#2f8a63; --o4:#1f7a8c; --o5:#b5552b; --o6:#3a6ea5; --o7:#a8327a; --o8:#6f7a2a;
+    --c1:#0e8a7d; --c2:#b8862b; --c3:#4a5fb5; --c4:#b5552b; --c5:#2f8a63;
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
@@ -35,10 +35,12 @@
   .changebar{margin:22px 0 6px;background:var(--amber-soft);border:1px solid #e6d4a3;border-radius:12px;padding:13px 16px;font-size:.88rem;color:#5c4a16}
   .changebar b{color:#8a6a10}
 
-  .rec{margin:22px 0 0;background:linear-gradient(180deg,#fffdf8,#fbf6ec);border:1px solid var(--line);border-left:5px solid var(--green);border-radius:16px;padding:22px 24px;box-shadow:var(--shadow)}
+  .rec{margin:22px 0 0;background:linear-gradient(180deg,#fffdf8,#fbf6ec);border:1px solid var(--line);border-left:5px solid var(--c1);border-radius:16px;padding:22px 24px;box-shadow:var(--shadow)}
   .rec h2{margin:0 0 6px;font-size:1.3rem}
-  .rec .badge{display:inline-block;background:var(--green-soft);color:var(--green);font-weight:600;font-size:.78rem;padding:4px 10px;border-radius:8px;margin-bottom:8px}
+  .rec .badge{display:inline-block;background:#d6efe8;color:#0e6f64;font-weight:600;font-size:.78rem;padding:4px 10px;border-radius:8px;margin-bottom:8px}
   .rec p{margin:8px 0 0;color:#3c372e}
+  .rec .alts{margin:12px 0 0;font-size:.9rem;color:#4a4338}
+  .rec .alts b{color:var(--ink)}
 
   section{padding:34px 0;border-bottom:1px solid var(--line)}
   section h2.shead{font-size:1.5rem;margin:0 0 6px;display:flex;align-items:center;gap:10px}
@@ -51,7 +53,7 @@
   .day .dh{padding:13px 16px;color:#fff;font-family:'Fraunces',serif}
   .day .dh b{font-size:1.05rem;display:block}
   .day .dh span{font-size:.78rem;opacity:.92}
-  .day.fri .dh{background:var(--o7)} .day.sat .dh{background:var(--accent)} .day.sun .dh{background:var(--o4)}
+  .day.fri .dh{background:#a8327a} .day.sat .dh{background:var(--accent)} .day.sun .dh{background:#1f7a8c}
   .day .tl{padding:14px 16px;font-size:.88rem}
   .day .tl .row{display:flex;gap:10px;padding:6px 0;border-bottom:1px dashed var(--line)}
   .day .tl .row:last-child{border-bottom:0}
@@ -84,11 +86,11 @@
   .reset{margin-top:8px;font-size:.8rem;background:none;border:0;color:var(--accent);cursor:pointer;text-decoration:underline}
 
   .tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);background:var(--card)}
-  table{border-collapse:collapse;width:100%;min-width:980px;font-size:.85rem}
+  table{border-collapse:collapse;width:100%;min-width:760px;font-size:.85rem}
   th,td{text-align:left;padding:11px 13px;border-bottom:1px solid var(--line);vertical-align:top}
   thead th{position:sticky;top:0;background:var(--card);font-family:'Fraunces',serif;font-size:.95rem;z-index:2}
   thead th .opt{display:block;font-size:.68rem;font-weight:600;color:#fff;border-radius:6px;padding:2px 7px;width:fit-content;margin-top:4px}
-  tbody th{font-weight:600;color:var(--muted);font-family:'Inter',sans-serif;font-size:.78rem;width:112px}
+  tbody th{font-weight:600;color:var(--muted);font-family:'Inter',sans-serif;font-size:.78rem;width:120px}
   tbody tr:hover{background:#fbf7ee}
   td.best{background:var(--green-soft)}
   td.best::after{content:" ★";color:var(--green)}
@@ -102,8 +104,11 @@
   .gallery{display:grid;grid-template-columns:2fr 1fr;grid-template-rows:1fr 1fr;gap:2px;height:168px;background:#ddd}
   .gallery img{width:100%;height:100%;object-fit:cover;display:block}
   .gallery img:first-child{grid-row:1/3}
+  .gallery.one{grid-template-columns:1fr;grid-template-rows:1fr}
+  .gallery.one img:first-child{grid-row:auto}
   .pcard .body{padding:15px 16px 17px;display:flex;flex-direction:column;flex:1}
-  .pcard h3{font-size:1.08rem;margin:0 0 2px}
+  .pcard h3{font-size:1.08rem;margin:0 0 2px;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+  .mbadge{font-size:.6rem;letter-spacing:.06em;font-weight:700;text-transform:uppercase;color:#fff;background:#0e8a7d;border-radius:5px;padding:2px 6px;font-family:'Inter',sans-serif}
   .pcard .loc{font-size:.78rem;color:var(--muted);margin-bottom:9px}
   .pcard .price{font-size:1.4rem;font-weight:700;font-family:'Fraunces',serif}
   .pcard .price small{font-size:.74rem;color:var(--muted);font-weight:500;font-family:'Inter',sans-serif}
@@ -145,7 +150,7 @@
 
   footer{padding:30px 0 60px;color:var(--muted);font-size:.82rem}
   footer .note{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:14px}
-  .tagO2{background:var(--o2)}.tagO3{background:var(--o3)}.tagO4{background:var(--o4)}.tagO5{background:var(--o5)}.tagO6{background:var(--o6)}.tagO7{background:var(--o7)}.tagO8{background:var(--o8)}
+  .tagC1{background:var(--c1)}.tagC2{background:var(--c2)}.tagC3{background:var(--c3)}.tagC4{background:var(--c4)}.tagC5{background:var(--c5)}
 </style>
 </head>
 <body>
@@ -154,12 +159,12 @@
   <div class="wrap">
     <span class="eyebrow">🍑 Family Trip Planning</span>
     <h1>Atlanta Weekend: The Plan + Where to Stay</h1>
-    <p class="sub">Robb &amp; Paige's baby shower weekend — the schedule, a low-stress agenda, and seven rentals compared with an interactive helper.</p>
+    <p class="sub">Robb &amp; Paige's baby shower weekend — the schedule, a low-stress agenda, and a tight shortlist of five rentals (three professionally-managed) compared with an interactive helper.</p>
     <div class="triprow">
       <span class="chip">📅 <b>Fri Jul 17 – Sun Jul 19, 2026</b></span>
       <span class="chip">👨‍👩‍👧 Us + Valerie + Grandpa Bob <b>(3 adults, 1 kid)</b></span>
       <span class="chip">🎉 Sat 1–5pm: <b>shower, East Cobb</b></span>
-      <span class="chip">✈️ ATL: land <b>11:35am Fri</b> · fly home <b>2:25pm Sun</b></span>
+      <span class="chip">🏡 Rob's house: <b>Acworth</b></span>
     </div>
   </div>
 </header>
@@ -167,13 +172,14 @@
 <div class="wrap">
 
   <div class="changebar">
-    ✏️ <b>Updated with the latest details:</b> the shower is in <b>East Cobb (Marietta 30062)</b> and you fly in/out of ATL, so I added two more-central options — <b>Sandy Springs (7)</b> and <b>Marietta (8)</b>. <b>Grandpa Bob is staying with you</b>, so every option here is a true 3-bedroom. Bathtub is now a <b>nice-to-have</b>. (The original Option 1, Kennesaw/Evolve, was removed — no longer available.)
+    ✏️ <b>New direction:</b> you're prioritizing being near <b>both</b> Rob's house (Acworth) <b>and</b> the shower (East Cobb), and accepting the longer airport drive (ATL traffic). Amanda cancelled Sandy Springs, so <b>nothing's booked.</b> I trimmed the long list to <b>five</b> and added three <b>professionally-managed (Evolve) homes</b> — the Airbnb/hotel middle-ground you like — that sit between Rob and the shower. They're ranked alongside two strong holdovers below.
   </div>
 
   <div class="rec">
-    <span class="badge">✅ BOOKED</span>
-    <h2>Option 7 — Sandy Springs House</h2>
-    <p><b>Done — Amanda booked it.</b> It's the most-proven place of the bunch (<b>4.98 ★, 45 reviews, Superhost Guest Favorite</b>), with a bathtub, full kitchen, in-unit laundry, a fully fenced backyard, and 4 bedrooms for Grandpa Bob — and it's the most central: <b>~30 min to the airport, ~15–20 min to the shower, ~20 min to the aquarium.</b> The "stairs" are a normal split-foyer half-flight — fine for Val and Bob; just give them the upstairs/main-level rooms. The other six options stay below for reference.</p>
+    <span class="badge">★ MY TOP PICK · nothing booked yet</span>
+    <h2>① Kennesaw — "Family Home w/ Games" <span style="font-size:.72rem;color:#0e6f64;font-weight:700;background:#d6efe8;border-radius:5px;padding:2px 7px;vertical-align:middle">EVOLVE-MANAGED</span></h2>
+    <p>Best fit for the new priority: it's genuinely close to <b>both</b> — roughly <b>~10 min to Rob's</b> and <b>~15 min to the shower</b> — it's the <b>cheapest</b> of the bunch (~$160/night), the <b>most family-equipped</b> (full kitchen, high chair, fenced backyard, fire-table patio, board games, near Kennesaw Mtn park), and it actually <b>has reviews</b> (4.0★ ×4). Professionally managed, like the cabin/condo setups you've liked before.</p>
+    <p class="alts"><b>The other two managed picks are right behind it:</b> ② <b>Woodstock</b> — walkable to a charming historic Main Street, the best reviews (5.0★ ×7); ③ <b>East Cobb</b> — literally <b>~6 min</b> from the shower (but unproven, 0 reviews). And two holdovers: ④ <b>Acworth / Corner House</b> (proven, soaking tubs, closest to Rob) and ⑤ <b>Marietta</b> (near the shower, big fenced yard, budget). Use the helper to weigh it your way — you &amp; Amanda decide.</p>
   </div>
 
   <!-- ITINERARY -->
@@ -186,8 +192,8 @@
         <div class="tl">
           <div class="row"><span class="t">11:35</span><span>Land at ATL (DL 1479)</span></div>
           <div class="row"><span class="t">~12:30</span><span>Bags + rental car</span></div>
-          <div class="row"><span class="t">1–4pm</span><span><b><a href="https://www.georgiaaquarium.org/" target="_blank" rel="noopener">Georgia Aquarium</a></b> — downtown, ~20 min north of the airport, on the way</span></div>
-          <div class="row"><span class="t">~4pm</span><span>Drive to the rental (watch PM traffic)</span></div>
+          <div class="row"><span class="t">1–4pm</span><span><b><a href="https://www.georgiaaquarium.org/" target="_blank" rel="noopener">Georgia Aquarium</a></b> — downtown, ~20 min north of the airport, on the way up</span></div>
+          <div class="row"><span class="t">~4pm</span><span>Drive up to the rental (watch PM traffic)</span></div>
           <div class="row"><span class="t">eve</span><span>Check in · easy dinner</span></div>
         </div>
         <p class="note">Pre-book aquarium tickets online (cheaper); reserve the dolphin/sea-lion shows day-of. Keep it to highlights (~2 hrs) if Val fades after the flight.</p>
@@ -195,7 +201,7 @@
       <div class="day sat">
         <div class="dh"><b>Saturday · Shower day</b><span>3915 Forego Court, East Cobb</span></div>
         <div class="tl">
-          <div class="row"><span class="t">AM</span><span>Slow morning — coffee + the <b>Sandy Springs Farmers Market</b> at City Springs (8:30–12), walkable from the house</span></div>
+          <div class="row"><span class="t">AM</span><span>Slow morning — coffee + a nearby <b>Saturday farmers market</b> (Marietta Square or Woodstock, both ~10–15 min)</span></div>
           <div class="row"><span class="t">1–5pm</span><span><b>Robb &amp; Paige's baby shower</b> (may be come-and-go)</span></div>
           <div class="row"><span class="t">eve</span><span>Family dinner / wind-down · Val's bath ~7pm → bed</span></div>
         </div>
@@ -205,91 +211,23 @@
         <div class="dh"><b>Sunday · Fly home</b><span>Travel morning</span></div>
         <div class="tl">
           <div class="row"><span class="t">AM</span><span>Slow morning + checkout (most ~10–11am)</span></div>
-          <div class="row"><span class="t">~11:45</span><span>Drive to ATL + return rental</span></div>
+          <div class="row"><span class="t">~11:00</span><span>Drive to ATL + return rental (leave early — NW suburbs are ~45–55 min out)</span></div>
           <div class="row"><span class="t">2:25</span><span>Fly to CMH (DL 2200) → land 3:59pm</span></div>
         </div>
-        <p class="note">Be at the airport ~12:30 for a 2:25 domestic flight. From Acworth, leave a bit earlier (~11am) for the longer drive.</p>
+        <p class="note">From Kennesaw/Woodstock/Acworth, give yourself ~55–65 min to the airport plus rental return — aim to leave by ~11am. This is the trade-off you chose for being near Rob + the shower.</p>
       </div>
     </div>
     <div class="drivestrip">
-      <div class="drivecard"><b>From a central base (Sandy Springs / East Cobb)</b><span class="n">Airport ~30 min · Shower ~15–20 min · Aquarium ~20–25 min</span></div>
-      <div class="drivecard"><b>From Acworth (Options 2, 5, 6)</b><span class="n">Airport ~51 min · Shower ~25–30 min · Aquarium ~35–45 min</span></div>
-      <div class="drivecard"><b>From Cartersville (Option 4)</b><span class="n">Airport ~58 min · Shower ~40 min · Aquarium ~45 min</span></div>
-    </div>
-  </section>
-
-  <!-- EATS -->
-  <section>
-    <h2 class="shead">🍴 Eat &amp; drink near home base</h2>
-    <p class="lede">Local gems, casual, kid-friendly — nothing fancy or late, no reservations needed. Most are a short hop along the Roswell Rd corridor near the Sandy Springs house. (Double-check hours before you go.)</p>
-    <div class="eatgrid">
-      <div class="eatcard"><h4>☕ Coffee houses</h4><ul>
-        <li><a href="https://www.google.com/maps/search/?api=1&query=Cafe+I+AM+Sandy+Springs+GA" target="_blank" rel="noopener">Cafe I AM</a> — Portuguese/South-African espresso bar on Roswell Rd; local 4.7★ favorite.</li>
-        <li><a href="https://www.justlovecoffee.com/ga-sandy-springs/" target="_blank" rel="noopener">Just Love Coffee Cafe</a> — local roaster since '09; does savory breakfast too.</li>
-        <li><a href="https://www.google.com/maps/search/?api=1&query=Valor+Coffee+Sandy+Springs+GA" target="_blank" rel="noopener">Valor Coffee</a> — polished, well-loved neighborhood spot.</li>
-        <li><a href="https://www.google.com/maps/search/?api=1&query=Cupanions+Kitchen+and+Coffee+Sandy+Springs+GA" target="_blank" rel="noopener">Cupanion's Kitchen + Coffee</a> — house-roasted coffee + breakfast in one.</li>
-      </ul></div>
-      <div class="eatcard"><h4>🥞 Breakfast &amp; brunch</h4><ul>
-        <li><a href="https://www.google.com/maps/search/?api=1&query=Egg+Harbor+Cafe+Sandy+Springs+GA" target="_blank" rel="noopener">Egg Harbor Café</a> — biggest kids' menu (coloring contests!), pancakes &amp; waffles.</li>
-        <li><a href="https://www.google.com/maps/search/?api=1&query=Flying+Biscuit+Cafe+Sandy+Springs+GA" target="_blank" rel="noopener">Flying Biscuit Cafe</a> — Southern comfort, all-day breakfast; Atlanta staple.</li>
-        <li><a href="https://www.google.com/maps/search/?api=1&query=Cupanions+Kitchen+and+Coffee+Sandy+Springs+GA" target="_blank" rel="noopener">Cupanion's</a> — sweet-potato biscuits, avocado toast, easy &amp; casual.</li>
-        <li><a href="https://www.google.com/maps/search/?api=1&query=Buttermilk+Kitchen+Atlanta+GA" target="_blank" rel="noopener">Buttermilk Kitchen</a> — beloved but popular; expect a wait.</li>
-      </ul></div>
-      <div class="eatcard"><h4>🍦 Sweet shops <span style="font-weight:500;color:var(--muted);font-size:.8rem">— Val's pick</span></h4><ul>
-        <li><a href="https://www.google.com/maps/search/?api=1&query=Jenis+Splendid+Ice+Creams+Sandy+Springs+GA" target="_blank" rel="noopener">Jeni's Splendid Ice Creams</a> — inventive flavors, outdoor seating; a must.</li>
-        <li><a href="https://www.google.com/maps/search/?api=1&query=Sugar+Shanes+Sandy+Springs+GA" target="_blank" rel="noopener">Sugar Shane's</a> — handcrafted gourmet cookies, rotating flavors.</li>
-        <li><a href="https://www.google.com/maps/search/?api=1&query=Froyo+Bliss+Sandy+Springs+GA" target="_blank" rel="noopener">Froyo Bliss</a> — build-your-own frozen yogurt; kids love it.</li>
-        <li><a href="https://www.google.com/maps/search/?api=1&query=Beard+Papas+Sandy+Springs+GA" target="_blank" rel="noopener">Beard Papa's</a> — fresh cream puffs (fun novelty).</li>
-      </ul></div>
-      <div class="eatcard"><h4>🍽️ Casual dinner <span style="font-weight:500;color:var(--muted);font-size:.8rem">— no reservations</span></h4><ul>
-        <li><a href="https://www.google.com/maps/search/?api=1&query=Sandy+Springs+Diner+8612+Roswell+Rd" target="_blank" rel="noopener">Sandy Springs Diner</a> — classic American diner, counter seating, first-come, hometown portions (8612 Roswell Rd). Nails your brief.</li>
-        <li><a href="https://www.google.com/maps/search/?api=1&query=Kid+Cashew+Sandy+Springs+GA" target="_blank" rel="noopener">Kid Cashew</a> — Mediterranean "hidden gem," casual &amp; family-friendly.</li>
-        <li><a href="https://www.google.com/maps/search/?api=1&query=Flying+Biscuit+Cafe+Sandy+Springs+GA" target="_blank" rel="noopener">Flying Biscuit</a> — also an easy all-day dinner.</li>
-      </ul></div>
-      <div class="eatcard"><h4>⚡ Quick / counter / takeaway</h4><ul>
-        <li><a href="https://www.justlovecoffee.com/ga-sandy-springs/" target="_blank" rel="noopener">Just Love Coffee</a> — order at the counter, savory eats to go.</li>
-        <li><a href="https://www.google.com/maps/search/?api=1&query=Sandy+Springs+Diner+8612+Roswell+Rd" target="_blank" rel="noopener">Sandy Springs Diner</a> counter — first-come, quick.</li>
-        <li><a href="https://citysprings.com/" target="_blank" rel="noopener">City Springs district</a> — fast-casual burritos &amp; pizza-by-the-slice for grab-and-go.</li>
-      </ul></div>
-      <div class="eatcard"><h4>🍔 Friday near the aquarium</h4><ul>
-        <li><a href="https://www.google.com/maps/search/?api=1&query=Googie+Burger+Centennial+Olympic+Park+Atlanta" target="_blank" rel="noopener">Googie Burger</a> — walk-up burger joint right in Centennial Olympic Park; easy with a kid.</li>
-        <li>Counter-service tacos &amp; pizza along Baker / Luckie St.</li>
-        <li><i>Tip:</i> eat off-peak (11–11:30 or after 2pm) to skip the downtown lunch lines.</li>
-      </ul></div>
-    </div>
-  </section>
-
-  <!-- MARKETS & TOWNS -->
-  <section>
-    <h2 class="shead">🧺 Saturday morning + small-town goodness</h2>
-    <p class="lede">Saturday morning is your one free window before the 1pm shower — and you lucked out: every nearby town runs a Saturday farmers market that's in full swing in mid-July. The easiest is right in your own downtown.</p>
-    <div class="eatgrid">
-      <div class="eatcard"><h4>⭐ The easy plan</h4><ul>
-        <li><a href="https://citysprings.com/farmersmarket/" target="_blank" rel="noopener">Sandy Springs Farmers Market @ City Springs</a> — <b>Sat 8:30am–12pm</b>, 1 Galambos Way. Produce, baked goods, artisans, live music — walkable from the house and easy to wrap by noon for the shower.</li>
-        <li><a href="https://citysprings.com/" target="_blank" rel="noopener">City Springs district</a> — Sandy Springs' walkable downtown (plaza, shops, cafes). Pair the market with a coffee/pastry run.</li>
-      </ul></div>
-      <div class="eatcard"><h4>🏘️ Cute towns to wander</h4><ul>
-        <li><a href="https://www.downtownroswell.com/" target="_blank" rel="noopener">Historic Roswell / Canton Street</a> (~15–20 min) — antiques, boutiques &amp; cafes in a charming historic district.</li>
-        <li><a href="https://www.marietta.com/" target="_blank" rel="noopener">Marietta Square</a> (~20 min, toward the shower side) — a classic town square ringed with shops &amp; restaurants.</li>
-        <li><a href="https://www.google.com/maps/search/?api=1&query=Vinings+Jubilee+Vinings+GA" target="_blank" rel="noopener">Vinings Village / Jubilee</a> (~15 min) — a small, pretty historic village with shops &amp; eateries.</li>
-      </ul></div>
-      <div class="eatcard"><h4>🧺 Other Saturday markets</h4><ul>
-        <li><a href="https://www.roswellfarmersmarket.com/" target="_blank" rel="noopener">Roswell Farmers Market</a> — Sat 8:30am–noon, behind City Hall (38 Hill St); live music, dogs welcome.</li>
-        <li><a href="https://www.mariettasquarefarmersmarket.com/" target="_blank" rel="noopener">Marietta Square Farmers Market</a> — Sat 9am–noon, Mill St lot. Handy if you'd rather be near East Cobb before the shower.</li>
-      </ul></div>
-      <div class="eatcard"><h4>🎨 Free kid stop in Sandy Springs</h4><ul>
-        <li><a href="https://www.google.com/maps/search/?api=1&query=Abernathy+Greenway+Playable+Art+Park+Sandy+Springs+GA" target="_blank" rel="noopener">Abernathy Greenway — Playable Art Park</a> — climbable art sculptures + a short paved trail Val will love. Minutes from the house, and free.</li>
-      </ul></div>
-    </div>
-    <div style="margin-top:14px;background:var(--amber-soft);border:1px solid #e6d4a3;border-radius:12px;padding:13px 16px;font-size:.86rem;color:#5c4a16">
-      <b>Note:</b> these markets run weekly and are all in-season in mid-July, but a single Saturday can shift for weather or a holiday — worth a 30-second check of each market's site the week before. I didn't find any special one-off festival listed for that exact weekend (it's still ~3 weeks out); happy to re-check closer to the date.
+      <div class="drivecard"><b>Near both — Kennesaw / Woodstock (managed ①②)</b><span class="n">Shower ~12–15 min · Rob ~10–15 min · Airport ~48–50 min</span></div>
+      <div class="drivecard"><b>Right by the shower — East Cobb (③) / Marietta (⑤)</b><span class="n">Shower ~6–15 min · Rob ~17–25 min · Airport ~31–37 min</span></div>
+      <div class="drivecard"><b>Closest to Rob — Acworth / Corner House (④)</b><span class="n">Rob ~8–10 min · Shower ~28–32 min · Airport ~50 min</span></div>
     </div>
   </section>
 
   <!-- DECISION HELPER -->
   <section id="helper">
     <h2 class="shead">🎚️ Decision Helper</h2>
-    <p class="lede">Toggle how much each thing matters — the ranking updates live. Defaults: safety High; "central / less driving" now counts (the shower + both flights pull that way); bathtub just Normal.</p>
+    <p class="lede">Toggle how much each thing matters — the ranking updates live. New defaults: <b>"Near both (Rob + shower)"</b> and <b>safety</b> are High; <b>"Professionally managed"</b> now counts; the airport is de-emphasized (you chose the longer drive); bathtub stays Normal.</p>
     <div class="helper">
       <div class="helper-grid">
         <div id="criteria"></div>
@@ -310,240 +248,169 @@
       <table id="ctable">
         <thead><tr>
           <th>&nbsp;</th>
-          <th>Opt 2<span class="opt tagO2">Acworth · Jill</span></th>
-          <th>Opt 3<span class="opt tagO3">Kennesaw · Gannel</span></th>
-          <th>Opt 4<span class="opt tagO4">Cartersville · Kendall</span></th>
-          <th>Opt 5<span class="opt tagO5">Acworth · Corner House</span></th>
-          <th>Opt 6<span class="opt tagO6">Acworth · Hummingbird</span></th>
-          <th>Opt 7<span class="opt tagO7">Sandy Springs</span></th>
-          <th>Opt 8<span class="opt tagO8">Marietta</span></th>
+          <th>① Kennesaw<span class="opt tagC1">Managed</span></th>
+          <th>② Woodstock<span class="opt tagC2">Managed</span></th>
+          <th>③ East Cobb<span class="opt tagC3">Managed</span></th>
+          <th>④ Acworth<span class="opt tagC4">Corner House</span></th>
+          <th>⑤ Marietta<span class="opt tagC5">Family Retreat</span></th>
         </tr></thead>
         <tbody>
-          <tr><th>Total (2 nights)</th><td>$799</td><td data-best>~$528</td><td>~$628</td><td>~$706</td><td>$721</td><td>~$754</td><td>~$628</td></tr>
-          <tr><th>Reviews</th><td>None yet</td><td>★5.0×1</td><td data-best>★4.9×103 SH</td><td>★4.8×44</td><td data-best>★4.85×125 SH</td><td data-best>★4.98×45 SH·GF</td><td>New ×1</td></tr>
-          <tr><th>Drive: ATL / shower</th><td>51 / 25</td><td>45 / 25</td><td>58 / 40</td><td>51 / 28</td><td>51 / 25</td><td data-best>32 / 18</td><td data-best>31 / 15</td></tr>
-          <tr><th>Bathtub</th><td>Two</td><td>One</td><td>None</td><td data-best>Soaking (both)</td><td>Clawfoot (small)</td><td>Yes</td><td>None</td></tr>
-          <tr><th>Kitchen</th><td data-best>Full</td><td data-best>Full</td><td data-best>Full</td><td data-best>Full</td><td>None ✕</td><td data-best>Full</td><td data-best>Full</td></tr>
-          <tr><th>Bedrooms / baths</th><td>3 BR / 2</td><td data-best>4 BR / 3</td><td>3 BR / 2</td><td>3 BR / 2</td><td>3 BR / 1 ✕</td><td data-best>4 BR / 3.5</td><td>3 BR / 2</td></tr>
-          <tr><th>Layout / stairs</th><td>Unknown</td><td>Multi-story ⚠️</td><td data-best>Single-level</td><td>Split-level</td><td>2nd-floor suite</td><td>Multi-level, no inside rails ⚠️</td><td>Not specified</td></tr>
-          <tr><th>Outdoor for kids</th><td>Community pool</td><td>—</td><td>Shared yard</td><td data-best>Fenced yard</td><td>Porches</td><td data-best>Fenced yard</td><td data-best>Big fenced yard</td></tr>
-          <tr><th>Cancellation</th><td data-best>Free to Jul 16</td><td>Free to Jul 3</td><td>Standard*</td><td>Cheap tier non-refund</td><td>Free to Jul 12</td><td data-best>Free to Jul 16</td><td>Standard*</td></tr>
+          <tr><th>Professionally managed</th><td data-best>Yes — Evolve</td><td data-best>Yes — Evolve</td><td data-best>Yes — Evolve</td><td>No (Airbnb host)</td><td>No (Airbnb host)</td></tr>
+          <tr><th>Near both (shower / Rob)</th><td data-best>~15 / ~10 min</td><td data-best>~12 / ~15 min</td><td>~6 / ~17 min</td><td>~30 / ~10 min</td><td>~15 / ~25 min</td></tr>
+          <tr><th>Drive to airport</th><td>~48 min</td><td>~50 min</td><td>~37 min</td><td>~50 min</td><td data-best>~31 min</td></tr>
+          <tr><th>Est. total (2 nights)*</th><td data-best>~$500</td><td>~$630</td><td>~$630</td><td>~$706</td><td>~$628</td></tr>
+          <tr><th>Reviews</th><td>★4.0 ×4</td><td data-best>★5.0 ×7</td><td>None yet</td><td data-best>★4.8 ×44</td><td>New ×1</td></tr>
+          <tr><th>Bathtub</th><td>No (shower)</td><td>No (shower)</td><td>No (shower)</td><td data-best>Soaking tubs ×2</td><td>No (shower)</td></tr>
+          <tr><th>Kitchen</th><td data-best>Full</td><td data-best>Full</td><td data-best>Full</td><td data-best>Full</td><td data-best>Full</td></tr>
+          <tr><th>Bedrooms / beds</th><td>3 BR · K/Q/Full</td><td>3 BR · K/Q/Q</td><td>3 BR · Q/F/F+T</td><td>3 BR / 2 ba</td><td>3 BR / 2 ba</td></tr>
+          <tr><th>Yard for kids</th><td data-best>Fenced yard + patio</td><td>Near downtown</td><td>Deck</td><td data-best>Fenced yard</td><td data-best>Big fenced yard</td></tr>
+          <tr><th>Layout / stairs</th><td>Ask host</td><td>Ask host</td><td>Ask host</td><td>Split-level ⚠️</td><td>Not specified</td></tr>
+          <tr><th>Cancellation</th><td>Evolve policy*</td><td>Evolve policy*</td><td>Evolve policy*</td><td>Cheap tier non-refund</td><td>Standard*</td></tr>
         </tbody>
       </table>
     </div>
+    <p style="font-size:.78rem;color:var(--muted);margin:10px 2px 0">*Managed totals are estimates (live nightly rate + cleaning fee + GA lodging tax) — confirm the exact total &amp; cancellation terms on the Evolve listing. Holdover totals are from the Airbnb listings.</p>
   </section>
 
   <!-- PROPERTY CARDS -->
   <section>
-    <h2 class="shead">🏠 The seven places</h2>
-    <p class="lede">Options 2–6 are NW (near Robb's area); 7–8 are more central (near the shower + airport). Tap "View listing" for the real Airbnb page.</p>
+    <h2 class="shead">🏠 The five places</h2>
+    <p class="lede">Three professionally-managed homes (①②③) that sit between Rob and the shower, plus two strong holdovers — ④ closest to Rob, ⑤ near the shower. Tap "View listing" for the real page.</p>
     <div class="cards">
 
-      <!-- OPTION 7 (lead - my pick) -->
+      <!-- ① KENNESAW MANAGED (lead pick) -->
       <article class="pcard">
-        <div class="ribbon tagO7"></div>
-        <div class="gallery">
-          <img loading="lazy" src="https://a0.muscache.com/im/pictures/miso/Hosting-1270590026184165135/original/49f5f8c5-28ab-4d2d-ab49-5fb951a8bd20.jpeg?im_w=720" alt="Option 7">
-          <img loading="lazy" src="https://a0.muscache.com/im/pictures/miso/Hosting-1270590026184165135/original/245de8b8-27f3-438d-93f7-9f585b95f12f.jpeg?im_w=480" alt="">
-          <img loading="lazy" src="https://a0.muscache.com/im/pictures/miso/Hosting-1270590026184165135/original/b76c0544-fed1-48e3-9969-712dfc43ddb4.jpeg?im_w=480" alt="">
+        <div class="ribbon tagC1"></div>
+        <div class="gallery one">
+          <img loading="lazy" src="https://res.cloudinary.com/evolve-vacation-rental-network/image/upload/f_auto,dpr_auto/w_1200,c_fit/listings_s3/listings/537960/images/main/a0FPl00000Y3R06MAF" alt="Kennesaw managed home">
         </div>
         <div class="body">
-          <h3>Sandy Springs House ★</h3>
-          <div class="loc">Sandy Springs · Entire home · Superhost · most central</div>
-          <div class="price">~$754 <small>/ 2 nights · was $981 · free cancel</small></div>
-          <div class="stars">★ 4.98 · <b>45 reviews</b> · Superhost · Guest Favorite</div>
+          <h3>① Kennesaw Family Home ★ <span class="mbadge">Managed</span></h3>
+          <div class="loc">Kennesaw · Evolve-managed · near both Rob &amp; the shower</div>
+          <div class="price">~$500 <small>/ 2 nights est. · ~$160/night</small></div>
+          <div class="stars">★ 4.0 · 4 reviews · pro-managed (Evolve)</div>
           <ul class="facts">
-            <li><span class="k">Sleeps</span> up to 10 — 4 BR / 3.5 baths</li>
-            <li><span class="k">Bath</span> Bathtub (upstairs full bath)</li>
-            <li><span class="k">Layout</span> ⚠️ Multi-level — review notes no handrails on inside stairs</li>
-            <li><span class="k">Kitchen</span> Full · in-unit laundry</li>
-            <li><span class="k">Yard</span> Private, fully fenced backyard</li>
-            <li><span class="k">Drive</span> ~30 min airport · ~15–20 min shower · ~20 min aquarium</li>
-            <li><span class="k">Check-in</span> Self check-in (keypad) · free cancel to Jul 16</li>
+            <li><span class="k">Sleeps</span> 6 — 3 BR / 2 baths · King + Queen + Full</li>
+            <li><span class="k">Kitchen</span> Full · washer · central A/C</li>
+            <li><span class="k">Kids</span> High chair · fenced backyard · fire-table patio · board games</li>
+            <li><span class="k">Bath</span> Shower (no tub listed)</li>
+            <li><span class="k">Nearby</span> 1 mi to historic downtown Kennesaw · Kennesaw Mtn park</li>
+            <li><span class="k">Drive</span> ~10 min Rob · ~15 min shower · ~48 min airport</li>
           </ul>
           <div class="pros-cons">
-            <div class="p"><strong>For ✓</strong><ul><li>Most proven (4.98×45 SH)</li><li>Most central — least driving</li><li>Tub, fenced yard, flexible</li></ul></div>
-            <div class="c"><strong>Watch ✕</strong><ul><li>No inside-stair handrails</li><li>Priciest-ish ($754)</li></ul></div>
+            <div class="p"><strong>For ✓</strong><ul><li>Closest to <b>both</b></li><li>Cheapest + family gear</li><li>Managed + has reviews</li></ul></div>
+            <div class="c"><strong>Watch ✕</strong><ul><li>No bathtub</li><li>Ask about stairs</li></ul></div>
           </div>
-          <a class="viewbtn" href="https://www.airbnb.com/rooms/1270590026184165135?adults=3&check_in=2026-07-17&check_out=2026-07-19&children=1" target="_blank" rel="noopener">View listing →</a>
+          <a class="viewbtn" href="https://evolve.com/vacation-rentals/us/ga/kennesaw/537960?startDate=2026-07-17&endDate=2026-07-19&adults=3&children=1" target="_blank" rel="noopener">View listing →</a>
         </div>
       </article>
 
-      <!-- OPTION 5 -->
+      <!-- ② WOODSTOCK MANAGED -->
       <article class="pcard">
-        <div class="ribbon tagO5"></div>
+        <div class="ribbon tagC2"></div>
+        <div class="gallery one">
+          <img loading="lazy" src="https://res.cloudinary.com/evolve-vacation-rental-network/image/upload/f_auto,dpr_auto/w_1200,c_fit/listings_s3/listings/529171/images/main/a0FPl00000K8zcHMAR" alt="Woodstock managed home">
+        </div>
+        <div class="body">
+          <h3>② Woodstock — Walk to Main St <span class="mbadge" style="background:var(--c2)">Managed</span></h3>
+          <div class="loc">Woodstock · Evolve-managed · cute walkable town</div>
+          <div class="price">~$630 <small>/ 2 nights est. · ~$212/night</small></div>
+          <div class="stars">★ 5.0 · <b>7 reviews</b> · best-rated · pro-managed</div>
+          <ul class="facts">
+            <li><span class="k">Sleeps</span> 6 — 3 BR / 2 baths · King + Queen + Queen</li>
+            <li><span class="k">Kitchen</span> Full · washer · central A/C</li>
+            <li><span class="k">Charm</span> &lt;1 mi to historic Main St — shops, dining, amphitheater</li>
+            <li><span class="k">Bath</span> Shower (no tub listed)</li>
+            <li><span class="k">Nearby</span> Outlet Shoppes at Atlanta · Saturday farmers market in town</li>
+            <li><span class="k">Drive</span> ~12 min shower · ~15 min Rob · ~50 min airport</li>
+          </ul>
+          <div class="pros-cons">
+            <div class="p"><strong>For ✓</strong><ul><li>Best reviews (5.0★)</li><li>Walkable cute downtown</li><li>Roomy beds (K+Q+Q)</li></ul></div>
+            <div class="c"><strong>Watch ✕</strong><ul><li>No bathtub</li><li>Pricier than ①</li></ul></div>
+          </div>
+          <a class="viewbtn" href="https://evolve.com/vacation-rentals/us/ga/woodstock/529171?startDate=2026-07-17&endDate=2026-07-19&adults=3&children=1" target="_blank" rel="noopener">View listing →</a>
+        </div>
+      </article>
+
+      <!-- ③ EAST COBB MANAGED -->
+      <article class="pcard">
+        <div class="ribbon tagC3"></div>
+        <div class="gallery one">
+          <img loading="lazy" src="https://res.cloudinary.com/evolve-vacation-rental-network/image/upload/f_auto,dpr_auto/w_1200,c_fit/listings_s3/listings/575775/images/main/a0FPl00000eyA77MAE" alt="East Cobb managed home">
+        </div>
+        <div class="body">
+          <h3>③ East Cobb — Extended Base <span class="mbadge" style="background:var(--c3)">Managed</span></h3>
+          <div class="loc">East Cobb / Marietta · Evolve-managed · steps from the shower</div>
+          <div class="price">~$630 <small>/ 2 nights est. · ~$209/night</small></div>
+          <div class="stars"><span class="new">No reviews yet</span> · pro-managed (Evolve)</div>
+          <ul class="facts">
+            <li><span class="k">Sleeps</span> 7 — 3 BR / 2 baths · Queen + Full + (Full&amp;Twin)</li>
+            <li><span class="k">Kitchen</span> Full · washer · central A/C · deck</li>
+            <li><span class="k">Style</span> Work-friendly extended-stay (gym, office, sunroom)</li>
+            <li><span class="k">Bath</span> Shower (no tub listed)</li>
+            <li><span class="k">Drive</span> <b>~6 min shower</b> · ~17 min Rob · ~37 min airport</li>
+          </ul>
+          <div class="pros-cons">
+            <div class="p"><strong>For ✓</strong><ul><li>Right by the shower</li><li>Closest airport of the three</li><li>Managed</li></ul></div>
+            <div class="c"><strong>Watch ✕</strong><ul><li>0 reviews (unproven)</li><li>Corporate-stay vibe</li></ul></div>
+          </div>
+          <a class="viewbtn" href="https://evolve.com/vacation-rentals/us/ga/marietta/575775?startDate=2026-07-17&endDate=2026-07-19&adults=3&children=1" target="_blank" rel="noopener">View listing →</a>
+        </div>
+      </article>
+
+      <!-- ④ ACWORTH CORNER HOUSE (holdover) -->
+      <article class="pcard">
+        <div class="ribbon tagC4"></div>
         <div class="gallery">
-          <img loading="lazy" src="https://a0.muscache.com/im/pictures/miso/Hosting-894068580343870759/original/49bec7df-a453-41bc-bf1c-d034435be2f0.jpeg?im_w=720" alt="Option 5">
+          <img loading="lazy" src="https://a0.muscache.com/im/pictures/miso/Hosting-894068580343870759/original/49bec7df-a453-41bc-bf1c-d034435be2f0.jpeg?im_w=720" alt="Corner House">
           <img loading="lazy" src="https://a0.muscache.com/im/pictures/miso/Hosting-894068580343870759/original/75965969-e8da-4643-a03b-30e26a705a43.jpeg?im_w=480" alt="">
           <img loading="lazy" src="https://a0.muscache.com/im/pictures/miso/Hosting-894068580343870759/original/8c9eaf33-9385-44a5-bfd3-d98e10afd8e1.jpeg?im_w=480" alt="">
         </div>
         <div class="body">
-          <h3>The Corner White House</h3>
-          <div class="loc">Acworth · Entire home · the NW / near-Robb pick</div>
+          <h3>④ The Corner White House</h3>
+          <div class="loc">Acworth · Airbnb · closest to Rob · the proven one</div>
           <div class="price">~$706 <small>/ 2 nights · $774 refundable</small></div>
-          <div class="stars">★ 4.8 · 44 reviews</div>
+          <div class="stars">★ 4.8 · <b>44 reviews</b></div>
           <ul class="facts">
             <li><span class="k">Sleeps</span> 6 — 3 BR / 2 baths</li>
-            <li><span class="k">Bath</span> Soaking tubs in both bathrooms</li>
-            <li><span class="k">Layout</span> ⚠️ Split-level — 5 steps to door, ~7 up to bedrooms</li>
-            <li><span class="k">Kitchen</span> Full · in-unit laundry · BBQ</li>
-            <li><span class="k">Yard</span> Private, fully fenced backyard</li>
-            <li><span class="k">Drive</span> ~51 min airport · ~28 min shower</li>
-            <li><span class="k">Check-in</span> Self check-in (keypad)</li>
+            <li><span class="k">Bath</span> Soaking tubs in <b>both</b> bathrooms (only tub option here)</li>
+            <li><span class="k">Layout</span> ⚠️ Split-level — 5 steps to door, ~7 to bedrooms</li>
+            <li><span class="k">Kitchen</span> Full · in-unit laundry · BBQ · fenced yard</li>
+            <li><span class="k">Drive</span> ~10 min Rob · ~30 min shower · ~50 min airport</li>
           </ul>
           <div class="pros-cons">
-            <div class="p"><strong>For ✓</strong><ul><li>Soaking tubs + fenced yard</li><li>Near Robb's area</li><li>Proven, in-unit laundry</li></ul></div>
-            <div class="c"><strong>Watch ✕</strong><ul><li>Split-level stairs</li><li>Longer drives everywhere</li></ul></div>
+            <div class="p"><strong>For ✓</strong><ul><li>Closest to Rob</li><li>Soaking tubs + fenced yard</li><li>Proven (4.8 ×44)</li></ul></div>
+            <div class="c"><strong>Watch ✕</strong><ul><li>Split-level stairs</li><li>Farther from shower</li></ul></div>
           </div>
           <a class="viewbtn" href="https://www.airbnb.com/rooms/894068580343870759?adults=3&check_in=2026-07-17&check_out=2026-07-19&children=1" target="_blank" rel="noopener">View listing →</a>
         </div>
       </article>
 
-      <!-- OPTION 8 -->
+      <!-- ⑤ MARIETTA FAMILY RETREAT (holdover) -->
       <article class="pcard">
-        <div class="ribbon tagO8"></div>
+        <div class="ribbon tagC5"></div>
         <div class="gallery">
-          <img loading="lazy" src="https://a0.muscache.com/im/pictures/hosting/Hosting-1697957980654596666/original/a0b4a495-e32f-4cb5-92c0-3fec8922e861.jpeg?im_w=720" alt="Option 8">
+          <img loading="lazy" src="https://a0.muscache.com/im/pictures/hosting/Hosting-1697957980654596666/original/a0b4a495-e32f-4cb5-92c0-3fec8922e861.jpeg?im_w=720" alt="Marietta Family Retreat">
           <img loading="lazy" src="https://a0.muscache.com/im/pictures/hosting/Hosting-1697957980654596666/original/c2276cfa-59c2-4afe-98a3-3cb68ee69dae.jpeg?im_w=480" alt="">
           <img loading="lazy" src="https://a0.muscache.com/im/pictures/hosting/Hosting-1697957980654596666/original/121fec71-de5d-441f-9519-704cde827360.jpeg?im_w=480" alt="">
         </div>
         <div class="body">
-          <h3>Marietta Family Retreat</h3>
-          <div class="loc">Marietta · Entire home · closest to the shower</div>
+          <h3>⑤ Marietta Family Retreat</h3>
+          <div class="loc">Marietta · Airbnb · near the shower · budget</div>
           <div class="price">~$628 <small>/ 2 nights</small></div>
           <div class="stars"><span class="new">New · 1 review</span> (host 4.75 ×4)</div>
           <ul class="facts">
             <li><span class="k">Sleeps</span> 6 — 3 BR / 2 baths</li>
-            <li><span class="k">Bath</span> No bathtub — shower only</li>
             <li><span class="k">Kitchen</span> Full · washer/dryer · gas fireplace</li>
-            <li><span class="k">Yard</span> Large fenced backyard (kids/pets)</li>
-            <li><span class="k">Safety</span> Cameras (driveway + backyard), CO alarm</li>
-            <li><span class="k">Drive</span> ~31 min airport · ~15 min shower</li>
-            <li><span class="k">Check-in</span> Self check-in · quiet neighborhood</li>
+            <li><span class="k">Yard</span> Large fenced backyard (kids)</li>
+            <li><span class="k">Safety</span> Cameras (driveway + backyard) · CO alarm</li>
+            <li><span class="k">Drive</span> ~15 min shower · ~25 min Rob · ~31 min airport</li>
           </ul>
           <div class="pros-cons">
-            <div class="p"><strong>For ✓</strong><ul><li>Closest to the shower</li><li>Big fenced yard</li><li>Cheapest of the central ones</li></ul></div>
-            <div class="c"><strong>Watch ✕</strong><ul><li>Basically unproven (1 review)</li><li>No bathtub</li></ul></div>
+            <div class="p"><strong>For ✓</strong><ul><li>Near the shower</li><li>Big fenced yard</li><li>Shortest airport drive</li></ul></div>
+            <div class="c"><strong>Watch ✕</strong><ul><li>Basically unproven (1 review)</li><li>No bathtub · not managed</li></ul></div>
           </div>
           <a class="viewbtn" href="https://www.airbnb.com/rooms/1697957980654596666?adults=3&check_in=2026-07-17&check_out=2026-07-19&children=1" target="_blank" rel="noopener">View listing →</a>
-        </div>
-      </article>
-
-      <!-- OPTION 2 -->
-      <article class="pcard">
-        <div class="ribbon tagO2"></div>
-        <div class="gallery">
-          <img loading="lazy" src="https://a0.muscache.com/im/pictures/hosting/Hosting-1649487879781856709/original/f5fa2c03-8736-4dea-9937-afdba7243d9b.jpeg?im_w=720" alt="Option 2">
-          <img loading="lazy" src="https://a0.muscache.com/im/pictures/hosting/Hosting-1649487879781856709/original/5941576d-9112-4bfb-98b5-c72325a030fc.jpeg?im_w=480" alt="">
-          <img loading="lazy" src="https://a0.muscache.com/im/pictures/hosting/Hosting-1649487879781856709/original/3d38c59e-8949-4328-b2fc-bd8e7e28cf8f.jpeg?im_w=480" alt="">
-        </div>
-        <div class="body">
-          <h3>Easy Access to Food, Fun &amp; Family</h3>
-          <div class="loc">Acworth · Entire home · hosted by Jill · has a pool</div>
-          <div class="price">$799 <small>/ 2 nights · $0 due today</small></div>
-          <div class="stars"><span class="new">New listing — no reviews yet</span></div>
-          <ul class="facts">
-            <li><span class="k">Sleeps</span> up to 8 — 3 BR / 2 baths</li>
-            <li><span class="k">Bath</span> Two full baths, both with tubs</li>
-            <li><span class="k">Pool</span> Community swim/tennis + BBQ</li>
-            <li><span class="k">Kitchen</span> Full</li>
-            <li><span class="k">Drive</span> ~51 min airport · ~25 min shower</li>
-            <li><span class="k">Check-in</span> Self check-in (lockbox) · free cancel to Jul 16</li>
-          </ul>
-          <div class="pros-cons">
-            <div class="p"><strong>For ✓</strong><ul><li>Pool for summer</li><li>Most flexible cancel</li><li>Two bathtubs</li></ul></div>
-            <div class="c"><strong>Watch ✕</strong><ul><li>Priciest; no reviews</li><li>First-time host</li></ul></div>
-          </div>
-          <a class="viewbtn" href="https://www.airbnb.com/rooms/1649487879781856709?adults=3&check_in=2026-07-17&check_out=2026-07-19&children=1" target="_blank" rel="noopener">View listing →</a>
-        </div>
-      </article>
-
-      <!-- OPTION 4 -->
-      <article class="pcard">
-        <div class="ribbon tagO4"></div>
-        <div class="gallery">
-          <img loading="lazy" src="https://a0.muscache.com/im/pictures/miso/Hosting-946586603054728042/original/66072ba7-d3de-4279-9724-34ccaf95b043.jpeg?im_w=720" alt="Option 4">
-          <img loading="lazy" src="https://a0.muscache.com/im/pictures/7d117851-5297-44af-9dd4-9d96db21a15c.jpg?im_w=480" alt="">
-          <img loading="lazy" src="https://a0.muscache.com/im/pictures/miso/Hosting-946586603054728042/original/136b29a7-a4ff-403d-bcff-f14d450e5a82.jpeg?im_w=480" alt="">
-        </div>
-        <div class="body">
-          <h3>The Cartersville Birch Nest</h3>
-          <div class="loc">Cartersville · upstairs unit · Superhost · furthest out</div>
-          <div class="price">~$628 <small>/ 2 nights</small></div>
-          <div class="stars">★ 4.9 · <b>103 reviews</b> · Guest Favorite · Superhost</div>
-          <ul class="facts">
-            <li><span class="k">Sleeps</span> up to 7 — 3 BR / 2 baths</li>
-            <li><span class="k">Bath</span> No bathtub — shower only</li>
-            <li><span class="k">Layout</span> Single-level, no stairs</li>
-            <li><span class="k">Kitchen</span> Full · no laundry</li>
-            <li><span class="k">Safety</span> ⚠️ No CO alarm · shared unfenced yard</li>
-            <li><span class="k">Drive</span> ~58 min airport · ~40 min shower (furthest)</li>
-            <li><span class="k">Check-in</span> Keypad · checkout 10 AM</li>
-          </ul>
-          <div class="pros-cons">
-            <div class="p"><strong>For ✓</strong><ul><li>Most reviews; Superhost</li><li>Single-level, no stairs</li></ul></div>
-            <div class="c"><strong>Watch ✕</strong><ul><li>Furthest from everything</li><li>No CO alarm / no tub</li></ul></div>
-          </div>
-          <a class="viewbtn" href="https://www.airbnb.com/rooms/946586603054728042?adults=3&check_in=2026-07-17&check_out=2026-07-19&children=1" target="_blank" rel="noopener">View listing →</a>
-        </div>
-      </article>
-
-      <!-- OPTION 6 -->
-      <article class="pcard">
-        <div class="ribbon tagO6"></div>
-        <div class="gallery">
-          <img loading="lazy" src="https://a0.muscache.com/im/pictures/9cf5103e-1f7a-4ebf-85a6-8a7f4df01172.jpg?im_w=720" alt="Option 6">
-          <img loading="lazy" src="https://a0.muscache.com/im/pictures/98034cf7-3cc7-40ba-8d69-82dd1b9818b0.jpg?im_w=480" alt="">
-          <img loading="lazy" src="https://a0.muscache.com/im/pictures/e6231fec-6277-4da8-93ce-df96c603da0f.jpg?im_w=480" alt="">
-        </div>
-        <div class="body">
-          <h3>Hummingbird Hideaway</h3>
-          <div class="loc">Downtown Acworth · 1879 Victorian suite · Superhost</div>
-          <div class="price">$721 <small>/ 2 nights · $0 today</small></div>
-          <div class="stars">★ 4.85 · <b>125 reviews</b> · Superhost (7 yrs)</div>
-          <ul class="facts">
-            <li><span class="k">Sleeps</span> 6 — 3 BR (queens) / 1 bath ✕</li>
-            <li><span class="k">Bath</span> c.1906 clawfoot tub (small)</li>
-            <li><span class="k">Kitchen</span> ⚠️ None — fridge/microwave only</li>
-            <li><span class="k">Layout</span> 2nd-floor suite of a historic home (stairs)</li>
-            <li><span class="k">Charm</span> Walk to Main St; 2 wooded acres</li>
-            <li><span class="k">Drive</span> ~51 min airport · ~25 min shower</li>
-            <li><span class="k">Check-in</span> Keypad · free cancel to Jul 12</li>
-          </ul>
-          <div class="pros-cons">
-            <div class="p"><strong>For ✓</strong><ul><li>Most established (125 rev)</li><li>Walk to downtown Acworth</li><li>Loads of character</li></ul></div>
-            <div class="c"><strong>Watch ✕</strong><ul><li>No kitchen for breakfast</li><li>Only 1 bathroom; stairs</li></ul></div>
-          </div>
-          <a class="viewbtn" href="https://www.airbnb.com/rooms/29123768?adults=3&check_in=2026-07-17&check_out=2026-07-19&children=1" target="_blank" rel="noopener">View listing →</a>
-        </div>
-      </article>
-
-      <!-- OPTION 3 -->
-      <article class="pcard">
-        <div class="ribbon tagO3"></div>
-        <div class="gallery">
-          <img loading="lazy" src="https://a0.muscache.com/im/pictures/hosting/Hosting-1445965990829152613/original/03a64f65-c64e-45d7-b499-413fd1a8f2b5.jpeg?im_w=720" alt="Option 3">
-          <img loading="lazy" src="https://a0.muscache.com/im/pictures/hosting/Hosting-1445965990829152613/original/46b270bf-42e8-455c-8a47-3350b90d42d9.jpeg?im_w=480" alt="">
-          <img loading="lazy" src="https://a0.muscache.com/im/pictures/hosting/Hosting-1445965990829152613/original/c8113c24-e4e5-45c3-8c43-bd198d9be59b.jpeg?im_w=480" alt="">
-        </div>
-        <div class="body">
-          <h3>4 BR / 3 BA Family Home</h3>
-          <div class="loc">Kennesaw · Entire home · cheapest + roomiest</div>
-          <div class="price">~$528 <small>/ 2 nights · cheapest</small></div>
-          <div class="stars">★ 5.0 · 1 review · lived-in family home</div>
-          <ul class="facts">
-            <li><span class="k">Sleeps</span> 5 — 4 BR / 3 baths</li>
-            <li><span class="k">Bath</span> One bathtub</li>
-            <li><span class="k">Kitchen</span> Full — gas stove, Keurig</li>
-            <li><span class="k">Safety</span> ⚠️ "Heights without rails" flag</li>
-            <li><span class="k">Drive</span> ~45 min airport · ~25 min shower</li>
-            <li><span class="k">Check-in</span> Keypad · free cancel to Jul 3</li>
-          </ul>
-          <div class="pros-cons">
-            <div class="p"><strong>For ✓</strong><ul><li>Cheapest by ~$100</li><li>4 BR — most space</li></ul></div>
-            <div class="c"><strong>Watch ✕</strong><ul><li>Only 1 review</li><li>Railing hazard flag</li></ul></div>
-          </div>
-          <a class="viewbtn" href="https://www.airbnb.com/rooms/1445965990829152613?adults=3&check_in=2026-07-17&check_out=2026-07-19&children=1" target="_blank" rel="noopener">View listing →</a>
         </div>
       </article>
 
@@ -552,17 +419,17 @@
 
   <!-- SAFETY -->
   <section>
-    <h2 class="shead">🛡️ Neighborhood safety <span style="font-size:.62em;font-weight:500;color:var(--muted);font-family:'Inter',sans-serif">· independent data, not just Airbnb</span></h2>
-    <p class="lede">Town-level crime data (exact addresses come after booking). All are solidly safe family areas — here's the nuance.</p>
+    <h2 class="shead">🛡️ Neighborhood safety <span style="font-size:.62em;font-weight:500;color:var(--muted);font-family:'Inter',sans-serif">· independent data, not just the listings</span></h2>
+    <p class="lede">Town-level crime data (exact addresses come after booking). All five sit in solidly safe family areas — here's the nuance.</p>
     <div class="blind">
-      <div class="bcard"><h4><span class="ico">🌆</span>Sandy Springs <span style="font-size:.72rem;color:var(--muted);font-weight:500">— Option 7</span></h4><p>Very safe — overall crime ~16.5 vs ~33 nationally, with <b>very low violent crime (1.44)</b>. Safer than most communities its size. The most central base, and a strong safety profile.</p></div>
-      <div class="bcard"><h4><span class="ico">🏡</span>East Cobb / Marietta <span style="font-size:.72rem;color:var(--muted);font-weight:500">— Option 8 + the shower</span></h4><p>City-wide Marietta reads ~43% above national, but that's driven by <b>retail-corridor theft</b> — the residential <b>East Cobb</b> neighborhoods (incl. 30062, where the shower is) earn <b>high family safety grades</b>. The specific area you'll be in is the safe part.</p></div>
-      <div class="bcard"><h4><span class="ico">🌳</span>Acworth <span style="font-size:.72rem;color:var(--muted);font-weight:500">— Options 2, 5 &amp; 6</span></h4><p>Safest of the NW towns — ~16 incidents per 1,000 vs ~33 nationally, safer than ~80% of GA cities; violent crime ~70% below the national rate.</p></div>
-      <div class="bcard"><h4><span class="ico">🏞️</span>Kennesaw (Opt 3) &amp; Cartersville (Opt 4)</h4><p>Both solidly safe — Kennesaw ~32% below national (grade B); Cartersville score 71/100 with very low violent crime. Property/burglary is the relatively higher category in each, as in any suburb.</p></div>
+      <div class="bcard"><h4><span class="ico">🏞️</span>Kennesaw <span style="font-size:.72rem;color:var(--muted);font-weight:500">— Option ①</span></h4><p>Solidly safe — roughly <b>32% below the national rate</b> (around a B grade), a classic family suburb anchored by Kennesaw State and the national battlefield park. Property crime is the higher category, as in any suburb.</p></div>
+      <div class="bcard"><h4><span class="ico">🌳</span>Woodstock <span style="font-size:.72rem;color:var(--muted);font-weight:500">— Option ②</span></h4><p>One of metro Atlanta's most popular family towns (Cherokee County) — consistently rated <b>very safe</b> with low violent crime and a thriving, walkable downtown. The kind of place people move <i>to</i> for the schools and Main Street.</p></div>
+      <div class="bcard"><h4><span class="ico">🏡</span>East Cobb / Marietta <span style="font-size:.72rem;color:var(--muted);font-weight:500">— Options ③, ⑤ + the shower</span></h4><p>City-wide Marietta reads above national, but that's driven by <b>retail-corridor theft</b> — the residential <b>East Cobb</b> neighborhoods (incl. 30062, where the shower is) earn <b>high family-safety grades</b>. The specific area you'll be in is the safe part.</p></div>
+      <div class="bcard"><h4><span class="ico">🌲</span>Acworth <span style="font-size:.72rem;color:var(--muted);font-weight:500">— Option ④ (near Rob)</span></h4><p>Safest of the NW towns — ~16 incidents per 1,000 vs ~33 nationally, safer than ~80% of GA cities; violent crime ~70% below the national rate.</p></div>
     </div>
     <div style="margin-top:14px;background:var(--green-soft);border:1px solid #cfe6d6;border-radius:12px;padding:14px 16px;font-size:.9rem;color:#274f38">
-      <b>Bottom line:</b> none of these are safety concerns. The common thread is property crime (normal for car-dependent metro suburbs), so the exterior cameras on every listing are a plus — lock up and don't leave valuables in the car. Once you have the booked street address, a 2-minute crime-map check for that block is worth it.
-      <div style="margin-top:8px;font-size:.78rem;color:var(--muted)">Sources: NeighborhoodScout, AreaVibes, Niche, DoorProfit, BestPlaces, CrimeGrade (2026 figures).</div>
+      <b>Bottom line:</b> none of these are safety concerns. The common thread is property crime (normal for car-dependent metro suburbs) — lock up and don't leave valuables in the car. Once you have the booked street address, a 2-minute crime-map check for that block is worth it.
+      <div style="margin-top:8px;font-size:.78rem;color:var(--muted)">Sources: NeighborhoodScout, AreaVibes, Niche, BestPlaces, CrimeGrade (2026 figures).</div>
     </div>
   </section>
 
@@ -571,32 +438,63 @@
     <h2 class="shead">🔎 Blindspots worth a thought</h2>
     <p class="lede">Things easy to miss when they all look nice in photos.</p>
     <div class="blind">
-      <div class="bcard"><h4><span class="ico">🧭</span>Central beats near-Robb on driving</h4><p>The shower's in East Cobb and you fly in/out of ATL, so a central base (Sandy Springs / Marietta) saves <b>~1.5 hrs of total driving</b> across the weekend vs an Acworth base — with shorter hops for a tired Val. Acworth's only real edge is being closest to Robb's actual house.</p></div>
-      <div class="bcard"><h4><span class="ico">🪜</span>Stairs are the recurring catch</h4><p>Most of these aren't stair-free: Option 7 has <b>no inside-stair handrails</b> (per a review), Option 5 is split-level, Option 6 is a 2nd-floor suite, Option 3 has the railing flag. Only Option 4 is truly single-level. Worth picturing with Val + Grandpa Bob.</p></div>
-      <div class="bcard"><h4><span class="ico">🍳</span>Option 6 has no kitchen + one bath</h4><p>Gorgeous historic suite, but only a fridge/microwave (no cooking breakfast) and <b>one bathroom</b> for all four — awkward for Saturday-morning getting-ready. More a couples' getaway than a family base.</p></div>
-      <div class="bcard"><h4><span class="ico">🆕</span>Two are basically unproven</h4><p>Option 2 (first-time host, 0 reviews) and Option 8 (1 review) are gambles on the photos. Free/standard cancellation softens it, but with a tired kid arriving Friday, a proven host (7, 4, 6) is one less thing to worry about.</p></div>
-      <div class="bcard"><h4><span class="ico">🔄</span>Refund windows differ</h4><p>Free-cancel: Opt 2 &amp; 7 to Jul 16, Opt 6 to Jul 12, Opt 3 to Jul 3. Opt 5's cheaper rate is non-refundable (pay ~$68 more to make it refundable). Kids get sick — flexibility has value.</p></div>
+      <div class="bcard"><h4><span class="ico">🧭</span>Rob and the shower are 34 min apart</h4><p>Acworth and East Cobb are ~18 mi / ~34 min from each other, so <b>nothing is right next to both.</b> The managed Kennesaw (①) and Woodstock (②) homes are the true middle — ≤15 min each way. East Cobb (③) is best if the shower wins; Acworth (④) if Rob's house wins.</p></div>
+      <div class="bcard"><h4><span class="ico">🏢</span>"Managed" is the middle ground you like</h4><p>①②③ are run by <b>Evolve</b> (a property-management company), not an individual host — the same model as the managed beach condo / cabin you've enjoyed. More consistent than a hit-or-miss Airbnb, more home-like than a hotel. But unit-level reviews still matter: ③ has <b>zero</b> yet.</p></div>
+      <div class="bcard"><h4><span class="ico">🛁</span>None of the managed homes list a bathtub</h4><p>Val can shower (it's now a nice-to-have), but if a bath matters for one night, <b>Corner House (④)</b> is the only one with tubs — soaking tubs in both baths. Worth a quick message to Evolve to confirm whether ①②③ have a tub anywhere.</p></div>
+      <div class="bcard"><h4><span class="ico">🪜</span>Ask about stairs for Grandpa Bob</h4><p>The managed listings didn't spell out the layout, and Corner House (④) is split-level. If single-level / few stairs matters, ask each host before booking and assign Val + Grandpa the easiest rooms.</p></div>
+      <div class="bcard"><h4><span class="ico">✈️</span>You're trading airport time for closeness</h4><p>By basing near Rob + the shower, the Sunday airport run is ~45–55 min from the NW suburbs (vs ~30 from a central base). That's the deliberate trade — just leave by ~11am Sunday for the 2:25 flight + rental return.</p></div>
       <div class="bcard"><h4><span class="ico">🎟️</span>Friday aquarium = book ahead</h4><p>Pre-booked tickets are cheaper than same-day, and it's the one outing that fits the schedule. With an 11:35 landing you've got time; keep it to ~2 hrs of highlights so Val isn't fried before Saturday.</p></div>
+    </div>
+  </section>
+
+  <!-- EATS -->
+  <section>
+    <h2 class="shead">🍴 Eat, drink &amp; Saturday markets</h2>
+    <p class="lede">A starter set near the shower &amp; your candidate bases (East Cobb / Kennesaw / Woodstock). Once you lock a base I'll build this out properly for that exact neighborhood — for now, the can't-miss is the Saturday-morning market before the 1pm shower.</p>
+    <div class="eatgrid">
+      <div class="eatcard"><h4>🧺 Saturday farmers markets <span style="font-weight:500;color:var(--muted);font-size:.8rem">— the morning plan</span></h4><ul>
+        <li><a href="https://www.mariettasquarefarmersmarket.com/" target="_blank" rel="noopener">Marietta Square Farmers Market</a> — <b>Sat 9am–noon</b>, Mill St lot. Closest to the shower side; pair with the historic square's shops.</li>
+        <li><a href="https://www.google.com/maps/search/?api=1&query=Woodstock+Farmers+Market+Woodstock+GA" target="_blank" rel="noopener">Woodstock Farmers Market</a> — Sat mornings on the green; right by Main St if you base in Woodstock (②).</li>
+        <li><a href="https://www.roswellfarmersmarket.com/" target="_blank" rel="noopener">Roswell Farmers Market</a> — Sat 8:30am–noon (38 Hill St); a pretty alternative ~15–20 min east.</li>
+      </ul></div>
+      <div class="eatcard"><h4>🏘️ Cute towns to wander</h4><ul>
+        <li><a href="https://www.marietta.com/" target="_blank" rel="noopener">Marietta Square</a> — classic town square ringed with shops &amp; restaurants, right on the shower side.</li>
+        <li><a href="https://www.google.com/maps/search/?api=1&query=Downtown+Woodstock+GA" target="_blank" rel="noopener">Downtown Woodstock</a> — walkable Main St, amphitheater, breweries &amp; cafes (Option ② is steps away).</li>
+        <li><a href="https://www.google.com/maps/search/?api=1&query=Downtown+Kennesaw+GA" target="_blank" rel="noopener">Downtown Kennesaw</a> — small historic strip ~1 mi from Option ①; trains, shops, casual eats.</li>
+      </ul></div>
+      <div class="eatcard"><h4>🍦 Coffee &amp; sweets <span style="font-weight:500;color:var(--muted);font-size:.8rem">— Val's pick</span></h4><ul>
+        <li><a href="https://www.google.com/maps/search/?api=1&query=coffee+shop+downtown+Woodstock+GA" target="_blank" rel="noopener">Downtown Woodstock coffee + dessert</a> — several local cafes &amp; sweet shops along Main St.</li>
+        <li><a href="https://www.google.com/maps/search/?api=1&query=ice+cream+Marietta+Square+GA" target="_blank" rel="noopener">Marietta Square ice cream / treats</a> — easy stop after the market.</li>
+        <li><a href="https://www.google.com/maps/search/?api=1&query=Cool+Beans+Coffee+Roasters+Kennesaw+GA" target="_blank" rel="noopener">Kennesaw coffee roasters</a> — near Option ① if you base there.</li>
+      </ul></div>
+      <div class="eatcard"><h4>🍔 Friday near the aquarium</h4><ul>
+        <li><a href="https://www.google.com/maps/search/?api=1&query=Googie+Burger+Centennial+Olympic+Park+Atlanta" target="_blank" rel="noopener">Googie Burger</a> — walk-up burger joint right in Centennial Olympic Park; easy with a kid.</li>
+        <li>Counter-service tacos &amp; pizza along Baker / Luckie St.</li>
+        <li><i>Tip:</i> eat off-peak (11–11:30 or after 2pm) to skip the downtown lunch lines.</li>
+      </ul></div>
+    </div>
+    <div style="margin-top:14px;background:var(--amber-soft);border:1px solid #e6d4a3;border-radius:12px;padding:13px 16px;font-size:.86rem;color:#5c4a16">
+      <b>Note:</b> these markets run weekly and are in-season in mid-July, but a single Saturday can shift for weather — worth a 30-second check the week before. Once you pick a base, tell me and I'll swap this for a tight, walkable list (coffee, breakfast, casual dinner, a sweet stop) for that exact spot. Happy to re-check that-weekend events closer to the date, too.
     </div>
   </section>
 
   <!-- CHECKLIST -->
   <section>
     <h2 class="shead">✅ To-do before we go</h2>
-    <p class="lede">Sandy Springs is locked — here's what's left. Tap to check off; saves on this device.</p>
+    <p class="lede">Nothing's booked yet — step one is picking the base. Tap to check off; saves on this device.</p>
     <div class="checklist" id="checklist">
-      <label><input type="checkbox"><span class="txt"><b>Sandy Springs booked ✓</b> — note the Sunday checkout time <span class="who tagO7">stay</span></span></label>
-      <label><input type="checkbox"><span class="txt"><b>Reserve the rental car</b> at ATL (you'll lean on it all weekend) <span class="who tagO2">car</span></span></label>
-      <label><input type="checkbox"><span class="txt"><b>Pre-book Georgia Aquarium</b> tickets for Friday afternoon (cheaper online) <span class="who tagO4">Fri</span></span></label>
-      <label><input type="checkbox"><span class="txt">Plan room assignments — <b>Val + Grandpa Bob on the upstairs/main level</b> <span class="who tagO7">stay</span></span></label>
-      <label><input type="checkbox"><span class="txt">Confirm shower details with Robb &amp; Paige — <b>gift/registry, come-and-go timing</b> <span class="who tagO5">Sat</span></span></label>
-      <label><input type="checkbox"><span class="txt">Pick a <b>Friday dinner</b> + a <b>sweet-shop stop for Val</b> (see Eat &amp; Drink) <span class="who tagO3">food</span></span></label>
-      <label><input type="checkbox"><span class="txt">Confirm <b>AC + check-in</b> work with the 11:35 landing &amp; the shower <span class="who tagO6">all</span></span></label>
+      <label><input type="checkbox"><span class="txt"><b>Pick the base &amp; book</b> — Kennesaw ①, Woodstock ②, East Cobb ③, Corner House ④, or Marietta ⑤ <span class="who tagC1">stay</span></span></label>
+      <label><input type="checkbox"><span class="txt"><b>Message the host</b> about <b>stairs/layout</b> (Grandpa Bob) and whether there's a <b>bathtub</b> <span class="who tagC4">ask</span></span></label>
+      <label><input type="checkbox"><span class="txt"><b>Reserve the rental car</b> at ATL (you'll lean on it all weekend) <span class="who tagC2">car</span></span></label>
+      <label><input type="checkbox"><span class="txt"><b>Pre-book Georgia Aquarium</b> tickets for Friday afternoon (cheaper online) <span class="who tagC3">Fri</span></span></label>
+      <label><input type="checkbox"><span class="txt">Confirm shower details with Robb &amp; Paige — <b>gift/registry, come-and-go timing</b> <span class="who tagC5">Sat</span></span></label>
+      <label><input type="checkbox"><span class="txt">Once base is set, <b>pick a Saturday market</b> + a Friday dinner + a sweet stop for Val <span class="who tagC2">food</span></span></label>
+      <label><input type="checkbox"><span class="txt">Plan the <b>Sunday airport run</b> — leave ~11am for the longer NW-suburb drive <span class="who tagC3">Sun</span></span></label>
     </div>
   </section>
 
   <footer>
-    <div class="note">📊 <b>Data note:</b> Prices, reviews, amenities, drive times and safety flags pulled from each Airbnb listing + public crime/maps data for Jul 17–19, 2026 (3 adults + 1 child). Prices &amp; drive times are approximate — verify at booking. Removed: original Option 1 (no longer available). Options: 2 = <i>1649487879781856709</i>, 3 = <i>1445965990829152613</i>, 4 = <i>946586603054728042</i>, 5 = <i>894068580343870759</i>, 6 = <i>29123768</i>, 7 = <i>1270590026184165135</i>, 8 = <i>1697957980654596666</i>. *Standard cancellation — verify exact date at booking.</div>
+    <div class="note">📊 <b>Data note:</b> Prices, reviews, amenities &amp; drive times pulled from each listing + public crime/maps data for Jul 17–19, 2026 (3 adults + 1 child). Drive times are approximate (straight-line + Google Maps); managed totals are estimates (nightly rate + fees/tax) — verify on the listing. <b>Shortlist:</b> ① Kennesaw <i>Evolve 537960</i>, ② Woodstock <i>Evolve 529171</i>, ③ East Cobb <i>Evolve 575775</i>, ④ Acworth Corner House <i>Airbnb 894068580343870759</i>, ⑤ Marietta <i>Airbnb 1697957980654596666</i>. Trimmed this round: Sandy Springs (cancelled), Acworth/Jill, Kennesaw/Gannel, Hummingbird, Cartersville — say the word to bring any back.</div>
     <div>Put together for our Atlanta weekend · unlisted page, just for us 🍑</div>
   </footer>
 
@@ -604,26 +502,25 @@
 
 <script>
 const OPTS = [
-  {key:'o2', name:'Option 2 — Acworth / Jill',         color:'#7a4fa3'},
-  {key:'o3', name:'Option 3 — Kennesaw / Gannel',       color:'#2f8a63'},
-  {key:'o4', name:'Option 4 — Cartersville / Kendall',  color:'#1f7a8c'},
-  {key:'o5', name:'Option 5 — Acworth / Corner House',  color:'#b5552b'},
-  {key:'o6', name:'Option 6 — Acworth / Hummingbird',   color:'#3a6ea5'},
-  {key:'o7', name:'Option 7 — Sandy Springs',           color:'#a8327a'},
-  {key:'o8', name:'Option 8 — Marietta',                color:'#6f7a2a'},
+  {key:'k', name:'① Kennesaw — Family Home (managed)',  color:'#0e8a7d'},
+  {key:'w', name:'② Woodstock — Walk to Main St (managed)', color:'#b8862b'},
+  {key:'e', name:'③ East Cobb — Extended Base (managed)', color:'#4a5fb5'},
+  {key:'c', name:'④ Acworth — Corner House',            color:'#b5552b'},
+  {key:'m', name:'⑤ Marietta — Family Retreat',         color:'#2f8a63'},
 ];
-// scores 0-5 in order [o2,o3,o4,o5,o6,o7,o8]
+// scores 0-5 in order [k,w,e,c,m]
 const CRITERIA = [
-  {id:'price',   label:'Lower price',                       def:1, s:[1.5,5.0,3.3,2.5,2.2,2.0,3.3]},
-  {id:'trust',   label:'Proven reviews / low risk',         def:1, s:[1.0,2.5,5.0,4.0,5.0,5.0,2.5]},
-  {id:'safety',  label:'Kid + Grandpa safety (stairs)',     def:2, s:[3.0,2.0,4.0,3.5,2.5,2.5,3.5]},
-  {id:'central', label:'Central — less driving',            def:1, s:[3.0,3.0,1.5,3.0,3.0,5.0,4.5]},
-  {id:'kitchen', label:'Kitchen to cook breakfast',         def:1, s:[5.0,5.0,5.0,5.0,1.0,5.0,5.0]},
-  {id:'tub',     label:'Bathtub (nice-to-have)',            def:1, s:[4.0,3.0,1.0,4.5,3.0,4.0,1.0]},
-  {id:'flex',    label:'Cancellation flexibility',          def:1, s:[5.0,2.0,3.0,2.5,4.5,5.0,3.0]},
-  {id:'space',   label:'Space (bedrooms/baths)',            def:1, s:[4.0,5.0,4.0,4.0,4.0,5.0,4.0]},
-  {id:'walk',    label:'Walkable / things to do',           def:1, s:[4.0,3.0,3.5,3.5,5.0,4.0,3.0]},
-  {id:'pool',    label:'Pool & extras',                     def:0, s:[5.0,2.0,2.0,3.0,3.0,2.5,2.5]},
+  {id:'nearboth', label:'Near BOTH Rob + shower',          def:2, s:[5.0,4.6,4.5,3.0,4.0]},
+  {id:'safety',   label:'Kid + Grandpa safety',            def:2, s:[4.0,4.0,3.5,3.5,3.5]},
+  {id:'managed',  label:'Professionally managed',          def:1, s:[5.0,5.0,5.0,2.0,1.5]},
+  {id:'price',    label:'Lower price',                     def:1, s:[5.0,3.4,3.4,2.5,3.3]},
+  {id:'trust',    label:'Proven reviews / low risk',       def:1, s:[3.2,4.2,1.5,4.0,2.5]},
+  {id:'kitchen',  label:'Kitchen to cook breakfast',       def:1, s:[5.0,5.0,5.0,5.0,5.0]},
+  {id:'tub',      label:'Bathtub (nice-to-have)',          def:1, s:[1.5,1.5,1.5,4.5,1.0]},
+  {id:'flex',     label:'Cancellation flexibility',        def:1, s:[3.5,3.5,3.5,2.5,3.0]},
+  {id:'space',    label:'Space (bedrooms/beds)',           def:1, s:[4.0,4.0,4.2,4.0,4.0]},
+  {id:'walk',     label:'Walkable / things to do',         def:1, s:[3.8,5.0,2.5,3.5,3.0]},
+  {id:'airport',  label:'Short airport drive',             def:0, s:[2.0,1.8,3.5,2.0,4.0]},
 ];
 const WEIGHTS = {0:'Off',1:'Normal',2:'High'};
 let state = {};
@@ -670,7 +567,7 @@ const hl = document.getElementById('hl');
 function applyHL(){ document.querySelectorAll('#ctable td').forEach(td=>{ td.classList.toggle('best', hl.checked && td.hasAttribute('data-best')); }); }
 hl.onchange = applyHL; applyHL();
 
-const KEY='atl-trip-checklist-v4';
+const KEY='atl-trip-checklist-v5';
 const boxes=[...document.querySelectorAll('#checklist input')];
 const saved=JSON.parse(localStorage.getItem(KEY)||'[]');
 boxes.forEach((b,i)=>{ b.checked=!!saved[i]; b.closest('label').classList.toggle('done',b.checked);
