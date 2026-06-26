@@ -127,6 +127,15 @@
   .bcard p{margin:0;font-size:.88rem;color:#433d33}
   .ico{font-size:1.05rem}
 
+  /* eats */
+  .eatgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(258px,1fr));gap:14px}
+  .eatcard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:15px 17px;box-shadow:var(--shadow)}
+  .eatcard h4{margin:0 0 8px;font-size:1rem;font-family:'Inter',sans-serif;font-weight:700}
+  .eatcard ul{margin:0;padding:0;list-style:none;font-size:.86rem}
+  .eatcard li{padding:6px 0;border-bottom:1px dashed var(--line);color:#4a4338}
+  .eatcard li:last-child{border-bottom:0}
+  .eatcard li b{color:var(--ink)}
+
   .checklist{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 6px;box-shadow:var(--shadow)}
   .checklist label{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;border-bottom:1px solid var(--line);cursor:pointer;font-size:.92rem}
   .checklist label:last-child{border-bottom:0}
@@ -162,9 +171,9 @@
   </div>
 
   <div class="rec">
-    <span class="badge">★ MY PICK</span>
+    <span class="badge">✅ LOCKED IN</span>
     <h2>Option 7 — Sandy Springs House</h2>
-    <p>With the shower in East Cobb and flights bookending the weekend, the <b>most central + most proven</b> place wins. It's a <b>Superhost Guest Favorite (4.98 ★, 45 reviews)</b> — easily the strongest track record of the bunch — with a <b>bathtub, full kitchen, in-unit laundry, a fully fenced backyard, free cancellation,</b> and <b>4 bedrooms</b> (room for Grandpa Bob). It's ~30 min to the airport, ~15–20 min to the shower, ~20 min to the aquarium — it cuts the most driving with a tired Val. <b>One thing to confirm:</b> a guest flagged wobbly front-entry rails and <b>no handrails on the inside stairs</b> — worth a look with Val + Grandpa. If you'd rather be up near Robb's actual house, <b>Corner House (Option 5)</b> is the Acworth pick (soaking tubs + fenced yard, but split-level and a longer haul to everything).</p>
+    <p><b>This is the one we're booking.</b> It's the most-proven place of the bunch (<b>4.98 ★, 45 reviews, Superhost Guest Favorite</b>), with a bathtub, full kitchen, in-unit laundry, a fully fenced backyard, free cancellation, and 4 bedrooms for Grandpa Bob — and it's the most central: <b>~30 min to the airport, ~15–20 min to the shower, ~20 min to the aquarium.</b> The "stairs" turned out to be a normal split-foyer half-flight (we checked the photos) — fine for Val and Bob; just give them the upstairs/main-level rooms. The other six options stay below for reference.</p>
   </div>
 
   <!-- ITINERARY -->
@@ -206,6 +215,47 @@
       <div class="drivecard"><b>From a central base (Sandy Springs / East Cobb)</b><span class="n">Airport ~30 min · Shower ~15–20 min · Aquarium ~20–25 min</span></div>
       <div class="drivecard"><b>From Acworth (Options 2, 5, 6)</b><span class="n">Airport ~51 min · Shower ~25–30 min · Aquarium ~35–45 min</span></div>
       <div class="drivecard"><b>From Cartersville (Option 4)</b><span class="n">Airport ~58 min · Shower ~40 min · Aquarium ~45 min</span></div>
+    </div>
+  </section>
+
+  <!-- EATS -->
+  <section>
+    <h2 class="shead">🍴 Eat &amp; drink near home base</h2>
+    <p class="lede">Local gems, casual, kid-friendly — nothing fancy or late, no reservations needed. Most are a short hop along the Roswell Rd corridor near the Sandy Springs house. (Double-check hours before you go.)</p>
+    <div class="eatgrid">
+      <div class="eatcard"><h4>☕ Coffee houses</h4><ul>
+        <li><b>Cafe I AM</b> — Portuguese/South-African espresso bar on Roswell Rd; local 4.7★ favorite.</li>
+        <li><b>Just Love Coffee Cafe</b> — local roaster since '09; does savory breakfast too.</li>
+        <li><b>Valor Coffee</b> — polished, well-loved neighborhood spot.</li>
+        <li><b>Cupanion's Kitchen + Coffee</b> — house-roasted coffee + breakfast in one.</li>
+      </ul></div>
+      <div class="eatcard"><h4>🥞 Breakfast &amp; brunch</h4><ul>
+        <li><b>Egg Harbor Café</b> — biggest kids' menu (coloring contests!), pancakes &amp; waffles.</li>
+        <li><b>Flying Biscuit Cafe</b> — Southern comfort, all-day breakfast; Atlanta staple.</li>
+        <li><b>Cupanion's</b> — sweet-potato biscuits, avocado toast, easy &amp; casual.</li>
+        <li><i>Buttermilk Kitchen</i> — beloved but popular; expect a wait.</li>
+      </ul></div>
+      <div class="eatcard"><h4>🍦 Sweet shops <span style="font-weight:500;color:var(--muted);font-size:.8rem">— Val's pick</span></h4><ul>
+        <li><b>Jeni's Splendid Ice Creams</b> — inventive flavors, outdoor seating; a must.</li>
+        <li><b>Sugar Shane's</b> — handcrafted gourmet cookies, rotating flavors.</li>
+        <li><b>Froyo Bliss</b> — build-your-own frozen yogurt; kids love it.</li>
+        <li><b>Beard Papa's</b> — fresh cream puffs (fun novelty).</li>
+      </ul></div>
+      <div class="eatcard"><h4>🍽️ Casual dinner <span style="font-weight:500;color:var(--muted);font-size:.8rem">— no reservations</span></h4><ul>
+        <li><b>Sandy Springs Diner</b> — classic American diner, counter seating, first-come, hometown portions (8612 Roswell Rd). Nails your brief.</li>
+        <li><b>Kid Cashew</b> — Mediterranean "hidden gem," casual &amp; family-friendly.</li>
+        <li><b>Flying Biscuit</b> — also an easy all-day dinner.</li>
+      </ul></div>
+      <div class="eatcard"><h4>⚡ Quick / counter / takeaway</h4><ul>
+        <li><b>Just Love Coffee</b> — order at the counter, savory eats to go.</li>
+        <li><b>Sandy Springs Diner</b> counter — first-come, quick.</li>
+        <li><b>City Springs district</b> — fast-casual burritos &amp; pizza-by-the-slice for grab-and-go.</li>
+      </ul></div>
+      <div class="eatcard"><h4>🍔 Friday near the aquarium</h4><ul>
+        <li><b>Googie Burger</b> — walk-up burger joint right in Centennial Olympic Park; easy with a kid.</li>
+        <li>Counter-service tacos &amp; pizza along Baker / Luckie St.</li>
+        <li><i>Tip:</i> eat off-peak (11–11:30 or after 2pm) to skip the downtown lunch lines.</li>
+      </ul></div>
     </div>
   </section>
 
@@ -505,16 +555,16 @@
 
   <!-- CHECKLIST -->
   <section>
-    <h2 class="shead">✅ Before we book</h2>
-    <p class="lede">Tap to check off. Saves on this device so you can come back to it.</p>
+    <h2 class="shead">✅ To-do before we go</h2>
+    <p class="lede">Sandy Springs is locked — here's what's left. Tap to check off; saves on this device.</p>
     <div class="checklist" id="checklist">
-      <label><input type="checkbox"><span class="txt">Decide the trade-off: <b>central (Sandy Springs / Marietta)</b> vs <b>near Robb (Acworth)</b> <span class="who tagO7">all</span></span></label>
-      <label><input type="checkbox"><span class="txt">Option 7: ask host about the <b>inside-stair handrails</b> / front steps (Val + Grandpa) <span class="who tagO7">Opt 7</span></span></label>
-      <label><input type="checkbox"><span class="txt">Confirm exact address &amp; <b>real drive time to 3915 Forego Court</b> for your pick <span class="who tagO8">all</span></span></label>
+      <label><input type="checkbox"><span class="txt"><b>Book the Sandy Springs House</b> (free-cancel to Jul 16) + confirm checkout time <span class="who tagO7">stay</span></span></label>
+      <label><input type="checkbox"><span class="txt"><b>Reserve the rental car</b> at ATL (you'll lean on it all weekend) <span class="who tagO2">car</span></span></label>
       <label><input type="checkbox"><span class="txt"><b>Pre-book Georgia Aquarium</b> tickets for Friday afternoon (cheaper online) <span class="who tagO4">Fri</span></span></label>
-      <label><input type="checkbox"><span class="txt">Book the <b>rental car</b> at ATL (you'll want it for all the driving) <span class="who tagO2">all</span></span></label>
-      <label><input type="checkbox"><span class="txt">Option 5: OK with the <b>split-level stairs</b>? · Option 4: bring a <b>plug-in CO detector</b> <span class="who tagO5">Opt 4/5</span></span></label>
-      <label><input type="checkbox"><span class="txt">Confirm <b>AC + check-in time</b> work with the Friday 11:35 landing &amp; the shower <span class="who tagO3">all</span></span></label>
+      <label><input type="checkbox"><span class="txt">Plan room assignments — <b>Val + Grandpa Bob on the upstairs/main level</b> <span class="who tagO7">stay</span></span></label>
+      <label><input type="checkbox"><span class="txt">Confirm shower details with Robb &amp; Paige — <b>gift/registry, come-and-go timing</b> <span class="who tagO5">Sat</span></span></label>
+      <label><input type="checkbox"><span class="txt">Pick a <b>Friday dinner</b> + a <b>sweet-shop stop for Val</b> (see Eat &amp; Drink) <span class="who tagO3">food</span></span></label>
+      <label><input type="checkbox"><span class="txt">Confirm <b>AC + check-in</b> work with the 11:35 landing &amp; the shower <span class="who tagO6">all</span></span></label>
     </div>
   </section>
 
@@ -593,7 +643,7 @@ const hl = document.getElementById('hl');
 function applyHL(){ document.querySelectorAll('#ctable td').forEach(td=>{ td.classList.toggle('best', hl.checked && td.hasAttribute('data-best')); }); }
 hl.onchange = applyHL; applyHL();
 
-const KEY='atl-trip-checklist-v3';
+const KEY='atl-trip-checklist-v4';
 const boxes=[...document.querySelectorAll('#checklist input')];
 const saved=JSON.parse(localStorage.getItem(KEY)||'[]');
 boxes.forEach((b,i)=>{ b.checked=!!saved[i]; b.closest('label').classList.toggle('done',b.checked);
