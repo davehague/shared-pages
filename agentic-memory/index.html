@@ -33,6 +33,7 @@ header.nav a{color:var(--muted);font-size:14px}
 section{padding:48px 0;border-bottom:1px solid var(--border)}
 h1{font-size:34px;line-height:1.2;margin:0 0 10px}
 h2{font-size:24px;margin:0 0 8px}
+.kicker{display:block;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
 .lede{color:var(--muted);font-size:18px;max-width:70ch}
 .updated{color:var(--muted);font-size:13px;margin-top:8px}
 table{width:100%;border-collapse:collapse;font-size:14px}
@@ -75,6 +76,17 @@ tr.detail td{background:var(--panel)}
 .gridtable th,.gridtable td{border:1px solid var(--border);padding:8px 10px;text-align:left;vertical-align:top}
 .gridtable th{background:var(--panel)}
 
+/* journey steps + narrative */
+h3{font-size:18px;margin:30px 0 6px}
+.steps{display:flex;gap:12px;flex-wrap:wrap;margin:22px 0 6px}
+.steps a{flex:1;min-width:210px;border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;color:var(--text)}
+.steps a:hover{border-color:var(--accent);background:var(--accent-soft);text-decoration:none}
+.steps .n{display:block;font-size:12px;color:var(--accent);font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.steps .h{display:block;font-weight:600;margin:3px 0}
+.steps .d{display:block;font-size:13px;color:var(--muted)}
+.bridge{margin-top:16px;font-size:15px;max-width:70ch}
+.note{color:var(--muted);font-size:13px;margin:0 0 6px}
+
 /* responsive cards */
 @media (max-width:640px){
   thead{display:none}
@@ -90,26 +102,82 @@ tr.detail td{background:var(--panel)}
 <body>
 <header class="nav"><div class="wrap">
   <strong>Agentic Memory · 2026</strong>
-  <a href="#compare">Compare</a>
-  <a href="#usecases">Use cases</a>
-  <a href="#simpler">vs RAG/KG</a>
-  <a href="#desktop">Ship local</a>
-  <a href="#sources">Sources</a>
+  <a href="#need">1 · Need one?</a>
+  <a href="#usecases">2 · By use case</a>
+  <a href="#compare">3 · Compare all</a>
 </div></header>
 <main>
   <section id="overview"><div class="wrap">
     <h1>Agentic &amp; LLM Memory: the 2026 landscape</h1>
-    <p class="lede">A vendor-neutral comparison of 14 memory systems for LLM agents — architecture, pricing, self-hosting, licenses — plus which to pick by use case, and how they stack up against a plain wiki, RAG, or a knowledge graph.</p>
+    <p class="lede">There are at least 14 products now promising to give an AI agent a memory, and most of them are quietly solving different problems. That makes them hard to line up head to head. I built this page to fix that. Work through it in three steps.</p>
+    <div class="steps">
+      <a href="#need"><span class="n">Step 1</span><span class="h">Do you even need one?</span><span class="d">Often the honest answer is no. Decide before you shop.</span></a>
+      <a href="#usecases"><span class="n">Step 2</span><span class="h">Pick by use case</span><span class="d">Match your problem to the shapes these tools are good at.</span></a>
+      <a href="#compare"><span class="n">Step 3</span><span class="h">Compare all 14</span><span class="d">Filter and sort the whole field on architecture, price, license.</span></a>
+    </div>
     <div class="spectrum">
-      <b>One axis explains the field:</b> how much curation the system does for you, and where it runs.
+      <b>One axis explains most of the field:</b> how much of the curation work the system does for you, and where it runs.
       <div class="ends"><span>raw files · manual · transparent</span><span>reasoning / user-model · automatic · costs inference</span></div>
     </div>
     <p class="updated">Last updated 2026-06-28 · 14 systems</p>
   </div></section>
 
+  <section id="need"><div class="wrap">
+    <span class="kicker">Step 1</span>
+    <h2>Do you even need a memory solution?</h2>
+    <p class="lede">Start here, because the answer is often no. A memory product earns its keep when you need facts captured, deduplicated, kept current, and retrieved automatically with nobody tending it. If you're happy to curate by hand, or your retrieval needs are simple, a plainer setup is cheaper and far easier to debug. Here's what you trade away at each step up in automation.</p>
+    <table class="gridtable">
+      <thead><tr><th>Approach</th><th>You get</th><th>You give up</th><th>Wins when</th></tr></thead>
+      <tbody>
+        <tr><td>LLM wiki (curated markdown)</td><td>Total transparency, you own/edit it, links form a graph, zero infra</td><td>No auto extraction or ranked retrieval; doesn't scale to thousands of auto-captured facts</td><td>Knowledge you want to control by hand</td></tr>
+        <tr><td>Simple RAG (chunk &rarr; embed &rarr; top-k)</td><td>Cheap, predictable retrieval</td><td>No extraction, dedup, updating, forgetting, or temporal sense</td><td>Static document Q&amp;A</td></tr>
+        <tr><td>Knowledge graph (no RAG)</td><td>Precise multi-hop traversal</td><td>Brittle extraction; costly to maintain; weak fuzzy recall</td><td>Relationship-heavy domains</td></tr>
+        <tr><td>GraphRAG (KG + vectors)</td><td>Traversal and semantic recall together</td><td>Most infra, highest cost, slowest writes</td><td>Relationships and fuzzy recall both matter</td></tr>
+        <tr><td>A memory product</td><td>The above plus auto extraction, maintenance, identity scoping, served as agent tools</td><td>Black-box behavior, per-write inference cost, lock-in</td><td>Hands-off memory that improves itself</td></tr>
+      </tbody>
+    </table>
+    <p class="bridge">Decided you want managed memory? Then the real question is what shape your problem is. That's Step 2.</p>
+  </div></section>
+
+  <section id="usecases"><div class="wrap">
+    <span class="kicker">Step 2</span>
+    <h2>Pick by use case</h2>
+    <p class="lede">Memory needs come in a handful of recognizable shapes. Find the row that sounds like your problem. The pick is where I'd start, not the only defensible answer.</p>
+    <table class="gridtable">
+      <thead><tr><th>Use case</th><th>Where I'd start</th><th>Because</th></tr></thead>
+      <tbody>
+        <tr><td>Personal assistant that knows you</td><td>Honcho</td><td>models the person, not just facts</td></tr>
+        <tr><td>Project tracking, always-current</td><td>Curated wiki, or Zep to automate it</td><td>bi-temporal supersession keeps "current state" honest</td></tr>
+        <tr><td>Deep research toward a decision</td><td>Cognee (+ Hindsight reflect)</td><td>corpus ingestion, multi-hop, cross-memory synthesis</td></tr>
+        <tr><td>Coding agent</td><td>ByteRover</td><td>captures decisions before context compaction; git-native markdown</td></tr>
+        <tr><td>Multi-agent perspectives</td><td>Honcho</td><td>peers can be an agent or an idea, not only a person</td></tr>
+        <tr><td>Compliant B2B support</td><td>Supermemory</td><td>SOC2/HIPAA, multi-tenant, context fencing</td></tr>
+        <tr><td>Self-improving / procedural</td><td>LangMem</td><td>learns how to do tasks and rewrites the agent's own behavior</td></tr>
+        <tr><td>Offline / air-gapped</td><td>Holographic</td><td>zero-dependency, no network, no LLM</td></tr>
+        <tr><td>Voice / low-latency</td><td>ByteRover or Holographic</td><td>no LLM in the read path</td></tr>
+        <tr><td>High-volume, low-cost</td><td>Memori or OpenViking</td><td>no vector DB / tiered token savings</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Shipping it inside a desktop app</h3>
+    <p class="lede">One case deserves its own note, because the constraints flip. If you're embedding memory in an installed app, with everything stored on the user's machine and no server to run, the deciding factor is usually language fit, not features. Match the memory layer to your app's stack so you don't end up bundling a second runtime.</p>
+    <table class="gridtable">
+      <thead><tr><th>Your app stack</th><th>Ship this for memory</th></tr></thead>
+      <tbody>
+        <tr><td>Electron (Node)</td><td><code>better-sqlite3 + sqlite-vec</code>, or LanceDB (npm) — pure JS, no sidecar</td></tr>
+        <tr><td>Tauri (Rust)</td><td>LanceDB (Rust-native) or sqlite-vec via rusqlite</td></tr>
+        <tr><td>Python (Flet / pywebview / PySide6)</td><td>Memori on SQLite (simple) or Mem0 + LanceDB (semantic)</td></tr>
+        <tr><td>Any stack, minimal deps</td><td>sqlite-vec or LanceDB plus your own ~50-line layer</td></tr>
+        <tr><td>Offline, no embeddings or LLM</td><td>Holographic (SQLite, no network)</td></tr>
+      </tbody>
+    </table>
+    <p class="bridge">Have a rough shortlist? The full comparison is below.</p>
+  </div></section>
+
   <section id="compare"><div class="wrap">
+    <span class="kicker">Step 3</span>
     <h2>Compare all 14 systems</h2>
-    <p class="lede">Filter, search, and sort. Click any row for the detail.</p>
+    <p class="lede">The whole field in one place. Two things help you read it. The <em>family</em> column groups tools that work the same way under the hood, and the manual-to-smart axis from the top still applies: systems toward the left hand you raw, inspectable files, while systems toward the right reason in the background and bill an LLM to do it. Filter, sort any column, and click a row for its one superpower, the strengths, and what to watch out for.</p>
     <div id="controls"></div>
     <table id="cmp">
       <thead><tr>
@@ -125,68 +193,9 @@ tr.detail td{background:var(--panel)}
     </table>
     <p id="count" class="updated"></p>
   </div></section>
-
-  <section id="usecases"><div class="wrap">
-    <h2>Pick by use case</h2>
-    <table class="gridtable">
-      <thead><tr><th>Use case</th><th>Pick</th><th>Because</th></tr></thead>
-      <tbody>
-        <tr><td>Personal assistant that knows you</td><td>Honcho</td><td>models the person, not just facts</td></tr>
-        <tr><td>Project tracking, always-current</td><td>Curated wiki, or Zep to automate</td><td>bi-temporal supersession</td></tr>
-        <tr><td>Deep research to a decision</td><td>Cognee (+ Hindsight reflect)</td><td>corpus ingestion + multi-hop + synthesis</td></tr>
-        <tr><td>Coding agent</td><td>ByteRover</td><td>pre-compression capture, git-native markdown</td></tr>
-        <tr><td>Multi-agent perspectives</td><td>Honcho</td><td>peer model (agent/idea as peers)</td></tr>
-        <tr><td>Compliant B2B support</td><td>Supermemory</td><td>SOC2/HIPAA + multi-tenant + fencing</td></tr>
-        <tr><td>Self-improving / procedural</td><td>LangMem</td><td>learns how, rewrites behavior</td></tr>
-        <tr><td>Offline / air-gapped</td><td>Holographic</td><td>zero-dep, no network, no LLM</td></tr>
-        <tr><td>Voice / low-latency</td><td>ByteRover / Holographic</td><td>no LLM in read path</td></tr>
-        <tr><td>High-volume, low-cost</td><td>Memori / OpenViking</td><td>no vector DB / tiered token savings</td></tr>
-      </tbody>
-    </table>
-  </div></section>
-
-  <section id="simpler"><div class="wrap">
-    <h2>Do you even need a memory product?</h2>
-    <p class="lede">A memory product is worth it only when you need the <em>automatic curation</em>. Otherwise simpler options win on transparency and cost.</p>
-    <table class="gridtable">
-      <thead><tr><th>Approach</th><th>You get</th><th>You give up</th><th>Wins when</th></tr></thead>
-      <tbody>
-        <tr><td>LLM wiki (curated markdown)</td><td>Total transparency, you own/edit it, links form a graph, zero infra</td><td>No auto extraction or ranked retrieval; doesn't scale to thousands of auto-captured facts</td><td>Knowledge you want to control by hand</td></tr>
-        <tr><td>Simple RAG (chunk &rarr; embed &rarr; top-k)</td><td>Cheap, predictable retrieval</td><td>No extraction, dedup, updating, forgetting, or temporal sense</td><td>Static document Q&amp;A</td></tr>
-        <tr><td>Knowledge graph (no RAG)</td><td>Precise multi-hop traversal</td><td>Brittle extraction; costly to maintain; weak fuzzy recall</td><td>Relationship-heavy domains</td></tr>
-        <tr><td>GraphRAG (KG + vectors)</td><td>Traversal and semantic recall together</td><td>Most infra, highest cost, slowest writes</td><td>Relationships and fuzzy recall both matter</td></tr>
-        <tr><td>A memory product</td><td>The above plus auto extraction, maintenance, identity scoping, as agent tools</td><td>Black-box behavior, per-write inference cost, lock-in</td><td>Hands-off memory that improves itself</td></tr>
-      </tbody>
-    </table>
-  </div></section>
-
-  <section id="desktop"><div class="wrap">
-    <h2>Shipping memory inside a desktop app</h2>
-    <p class="lede">Local storage, cloud inference, no ops. Rule of thumb: match the memory layer's language to your app's.</p>
-    <table class="gridtable">
-      <thead><tr><th>Your app stack</th><th>Ship this for memory</th></tr></thead>
-      <tbody>
-        <tr><td>Electron (Node)</td><td><code>better-sqlite3 + sqlite-vec</code>, or LanceDB (npm) — pure JS, no sidecar</td></tr>
-        <tr><td>Tauri (Rust)</td><td>LanceDB (Rust-native) or sqlite-vec via rusqlite</td></tr>
-        <tr><td>Python (Flet / pywebview / PySide6)</td><td>Memori on SQLite (simple) or Mem0 + LanceDB (semantic)</td></tr>
-        <tr><td>Any stack, min deps</td><td>sqlite-vec or LanceDB + your own ~50-line layer</td></tr>
-        <tr><td>Offline, no embeddings/LLM</td><td>Holographic (SQLite, no network)</td></tr>
-      </tbody>
-    </table>
-  </div></section>
-
-  <section id="sources"><div class="wrap">
-    <h2>Sources &amp; method</h2>
-    <p class="lede">Vendor-neutral synthesis from project docs, vendor docs, and third-party benchmark harnesses. Benchmark caveat: vendor self-reported scores are not comparable across vendors — trust single-harness, multi-provider tests.</p>
-    <ul>
-      <li><a href="https://vectorize.io/articles/best-ai-agent-memory-systems" target="_blank" rel="noopener">Best AI Agent Memory Systems 2026 (Vectorize)</a></li>
-      <li><a href="https://mem0.ai/blog/state-of-ai-agent-memory-2026" target="_blank" rel="noopener">State of AI Agent Memory 2026 (Mem0)</a></li>
-      <li><a href="https://atlan.com/know/best-ai-agent-memory-frameworks-2026/" target="_blank" rel="noopener">Best AI Agent Memory Frameworks 2026 (Atlan)</a></li>
-      <li><a href="https://github.com/TeleAI-UAGI/Awesome-Agent-Memory" target="_blank" rel="noopener">Awesome-Agent-Memory (curated list)</a></li>
-    </ul>
-  </div></section>
 </main>
 <footer><div class="wrap">
+  <p class="note">Synthesized from vendor docs, independent benchmark harnesses, and hands-on notes building agent memory. Vendor self-reported benchmark scores aren't comparable across vendors, so I weight neutral, single-harness tests.</p>
   By <a href="https://www.linkedin.com/in/davidhague/">David Hague</a> ·
   Content licensed <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
 </div></footer>
