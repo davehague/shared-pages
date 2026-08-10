@@ -1,0 +1,90 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>AI × Science &middot; August 10, 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4efe4; --panel:#faf6ec; --ink:#1a1813; --muted:#6d6656;
+  --accent:#155e46; --accent2:#b34a22; --rule:#ded6c4;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:"Newsreader",Georgia,serif; font-size:19px; line-height:1.62;
+  font-weight:400;
+  background-image:radial-gradient(circle at 1px 1px, rgba(26,24,19,.035) 1px, transparent 0);
+  background-size:22px 22px;
+}
+.topbar{height:6px;background:linear-gradient(90deg,var(--accent) 0%,var(--accent) 78%,var(--accent2) 78%,var(--accent2) 100%)}
+.wrap{max-width:720px;margin:0 auto;padding:0 26px 96px}
+header.mast{padding:54px 0 30px;border-bottom:2px solid var(--ink);margin-bottom:8px}
+.kick-top{font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.32em;text-transform:uppercase;color:var(--accent);font-weight:500}
+h1.title{
+  font-family:"Fraunces",Georgia,serif; font-weight:900; font-optical-sizing:auto;
+  font-size:clamp(52px,11vw,86px); line-height:.94; letter-spacing:-.02em;
+  margin:.18em 0 .12em; font-variation-settings:"SOFT" 0,"WONK" 1;
+}
+h1.title .x{color:var(--accent2);font-style:italic;font-variation-settings:"WONK" 1;padding:0 .04em}
+.meta{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:14px}
+.dek{font-size:22px;line-height:1.5;color:#38342a;margin:30px 0 8px;font-weight:400}
+.dek .lead{font-family:"Fraunces",serif;font-weight:600;font-style:italic}
+article{padding:40px 0;border-top:1px solid var(--rule)}
+article:first-of-type{border-top:none}
+.head{display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:start}
+.num{font-family:"Fraunces",serif;font-weight:900;font-size:46px;line-height:.8;color:var(--accent);opacity:.9;font-variation-settings:"SOFT" 40,"WONK" 1}
+.kick{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--accent2);font-weight:500;margin-bottom:9px}
+h2{font-family:"Fraunces",serif;font-weight:600;font-size:26px;line-height:1.18;letter-spacing:-.01em;margin:0}
+.body{margin:16px 0 0}
+.body p{margin:0}
+.sources{margin-top:22px;padding:16px 18px;background:var(--panel);border:1px solid var(--rule);border-left:3px solid var(--accent)}
+.srow{display:grid;grid-template-columns:64px 1fr;gap:12px;align-items:baseline;font-size:15px}
+.srow+.srow{margin-top:9px;padding-top:9px;border-top:1px dashed var(--rule)}
+.slabel{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);padding-top:2px}
+.sval a{color:var(--ink);text-decoration:none;background-image:linear-gradient(var(--accent),var(--accent));background-size:100% 1px;background-position:0 92%;background-repeat:no-repeat;transition:background-size .18s,color .18s;word-break:break-word}
+.sval a:hover{color:var(--accent);background-size:100% 100%;background-image:linear-gradient(rgba(21,94,70,.12),rgba(21,94,70,.12))}
+.sval .more a+a{margin-left:0}
+.sval .sep{color:var(--rule);padding:0 8px}
+.host{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--muted)}
+footer{margin-top:56px;padding-top:26px;border-top:2px solid var(--ink);font-family:"IBM Plex Mono",monospace;font-size:12px;line-height:1.7;letter-spacing:.04em;color:var(--muted)}
+footer .tt{color:var(--ink)}
+footer a{color:var(--accent);text-decoration:none}
+@media(max-width:520px){
+  body{font-size:18px}
+  .head{grid-template-columns:1fr;gap:6px}
+  .num{font-size:34px}
+  .srow{grid-template-columns:1fr;gap:3px}
+  .wrap{padding:0 18px 72px}
+}
+@media(prefers-reduced-motion:no-preference){
+  article,.dek{opacity:0;transform:translateY(14px);animation:rise .7s cubic-bezier(.2,.7,.2,1) forwards}
+  .dek{animation-delay:.05s}
+  article:nth-of-type(1){animation-delay:.12s}
+  article:nth-of-type(2){animation-delay:.19s}
+  article:nth-of-type(3){animation-delay:.26s}
+  article:nth-of-type(4){animation-delay:.33s}
+  article:nth-of-type(5){animation-delay:.40s}
+  article:nth-of-type(6){animation-delay:.47s}
+  @keyframes rise{to{opacity:1;transform:none}}
+}
+</style></head>
+<body><div class="topbar"></div><div class="wrap">
+<header class="mast">
+<div class="kick-top">A weekly digest of AI in the sciences</div>
+<h1 class="title">AI <span class="x">×</span> Science</h1>
+<div class="meta"><span>August 10, 2026</span><span>Practical &middot; Current &middot; Cited</span></div>
+</header>
+<div class="dek"><span class="lead">This week,</span> This week the story is less about AI talking about science and more about AI running parts of it directly: designing working viruses and proteins, driving a robotic enzyme lab through five rounds of improvement on its own, and forcing mathematicians to reckon, in public, with how much of their own field a model can now do.</div>
+<article><div class="head"><div class="num">1</div><div><div class="kick">Synthetic Biology</div><h2>A genome-generation model designed 16 working bacteriophages, and one cocktail beat drug-resistant E. coli</h2></div></div><div class="body"><p>A team at Stanford and the Arc Institute trained an AI model called Evo on 9.3 trillion nucleotides, the individual letters of DNA, pulled from more than 128,000 organisms. They then had it design brand new genomes for bacteriophages, viruses that infect bacteria, starting from a small natural phage called ΦX174. Researchers built and tested 285 of the AI&#x27;s designs in the lab, and 16 turned into fully working viruses. Mixed together as a cocktail, those 16 killed E. coli strains that a comparable cocktail of natural phages could not. The catch: ΦX174 is one of the easiest phage genomes to redesign, everything stayed in secure lab conditions with non-pathogenic bacteria, and biosecurity researchers say the rules for this kind of AI genome design have not caught up with what the model can already do.</p></div><div class="sources"><div class="srow"><div class="slabel">Source</div><div class="sval"><a href="https://www.science.org/doi/10.1126/science.aec2657">science.org</a> <span class="host"></span></div></div><div class="srow"><div class="slabel">Via</div><div class="sval"><a href="https://reddit.com/r/technology/comments/1vj98g5/ai_creates_16_new_viruses_that_never_existed_in/">reddit.com</a> <span class="host">(reddit)</span></div></div><div class="srow"><div class="slabel">More</div><div class="sval"><span class="more"><a href="https://www.asimov.press/p/ai-phages">Asimov Press explainer: AI-Designed Phages</a><span class="sep">/</span><a href="https://www.implicator.ai/stanford-and-arc-institute-build-16-ai-designed-viruses-that-kill-e-coli/">Coverage with resistance-cocktail details (Implicator.ai)</a></span></div></div></div></article>
+<article><div class="head"><div class="num">2</div><div><div class="kick">Protein Design</div><h2>RFdiffusion+LigandMPNN designed a novel protein that binds a chemo drug, and the crystal structure matched the design</h2></div></div><div class="body"><p>Researchers at UCSF used AI protein-design tools, RFdiffusion and LigandMPNN, to build a brand new protein from scratch that grabs onto doxorubicin, a common chemotherapy drug. Instead of starting from a known protein shape, they anchored the design on a small chemical trick: two tryptophan amino acids sandwiching the drug molecule like a pair of bookends. After a few rounds of redesign, their best version, called DoxSand2, is just 85 amino acids long and binds doxorubicin tightly enough that very little of the drug stays free in solution. An X-ray crystal structure confirmed the protein folds almost exactly as designed, and in cancer cells grown in a dish it cut doxorubicin&#x27;s toxic effect by roughly 140-fold. It is still a preprint, not yet peer reviewed, and so far only tested in cultured cells rather than in an animal or a person.</p></div><div class="sources"><div class="srow"><div class="slabel">Source</div><div class="sval"><a href="https://www.biorxiv.org/content/10.64898/2026.08.06.743053">biorxiv.org</a> <span class="host"></span></div></div><div class="srow"><div class="slabel">Via</div><div class="sval"><a href="https://x.com/BiologyAIDaily/status/2086299936329777459">x.com</a> <span class="host">(x)</span></div></div><div class="srow"><div class="slabel">More</div><div class="sval"><span class="more"><a href="https://rcsb.org/structure/36IQ">Crystal structure (PDB 36IQ)</a></span></div></div></div></article>
+<article><div class="head"><div class="num">3</div><div><div class="kick">Autonomous Labs</div><h2>A closed-loop AI and robotic lab in Tianjin evolved enzymes 57x and 104x with almost no human in the loop</h2></div></div><div class="body"><p>Researchers at Tianjin University built a closed loop between a machine learning model and a robotic lab bench. The model predicts which mutations might make an enzyme work better, then robots synthesize those variants, test them, and hand the results straight back to the model for its next round of guesses. Called REAP, the system pushed one enzyme, a cytochrome P450 used in industrial chemistry, to 57 times its starting activity in just five rounds, and boosted a second enzyme, a bacterial sortase that helps bacteria attach proteins to their cell wall, by up to 104 times. That speed matters because enzyme engineering has traditionally meant slow, manual trial and error, one mutation at a time. So far the system has only been proven on these two well-characterized enzymes, so it is unclear how it would perform starting from one nobody understands yet, and the inventors hold pending patents on the platform.</p></div><div class="sources"><div class="srow"><div class="slabel">Source</div><div class="sval"><a href="https://www.nature.com/articles/s41467-026-76264-2">nature.com</a> <span class="host"></span></div></div><div class="srow"><div class="slabel">Via</div><div class="sval"><a href="https://x.com/IterIntellectus/status/2084605224262480058">x.com</a> <span class="host">(x)</span></div></div></div></article>
+<article><div class="head"><div class="num">4</div><div><div class="kick">AI &amp; Mathematics</div><h2>Mathematicians are starting to reckon, on the record, with AI encroaching on their field</h2></div></div><div class="body"><p>At the International Congress of Mathematicians in Philadelphia this July, Fields Medalist Jacob Tsimerman announced he was joining OpenAI&#x27;s safety team, right after winning math&#x27;s most prestigious prize. In interviews with more than 20 working mathematicians, he explained why: he expects AI to become better than professional mathematicians at their own work within a couple of years, and he has already stopped taking on new PhD students. Recent months back his urgency. An OpenAI model disproved a decades-old Erdos conjecture about points on a plane, and a separate system found counterexamples to another long-standing conjecture. Other mathematicians interviewed pushed back, arguing AI will end up helping them rather than replacing them, and the piece itself is really one journalist&#x27;s snapshot of a field still arguing about what any of this means.</p></div><div class="sources"><div class="srow"><div class="slabel">Source</div><div class="sval"><a href="https://www.understandingai.org/p/mathematicians-are-grappling-with">understandingai.org</a> <span class="host"></span></div></div><div class="srow"><div class="slabel">Via</div><div class="sval"><a href="https://reddit.com/r/Futurology/comments/1vjma76/mathematicians_are_grappling_with_the_possibility/">reddit.com</a> <span class="host">(reddit)</span></div></div><div class="srow"><div class="slabel">More</div><div class="sval"><span class="more"><a href="https://openai.com/index/ten-advances-in-mathematics/">OpenAI: Ten advances in mathematics and theoretical computer science</a><span class="sep">/</span><a href="https://www.quantamagazine.org/jacob-tsimerman-wins-2026-fields-medal-for-andre-oort-conjecture-proof-20260723/">Quanta: Tsimerman wins 2026 Fields Medal</a></span></div></div></div></article>
+<article><div class="head"><div class="num">5</div><div><div class="kick">Research Tools</div><h2>TheoremDB launches as a shared workspace for AI agents and mathematicians to pool open problems and Lean-verified proofs</h2></div></div><div class="body"><p>Anthropic launched TheoremDB, a shared workspace where AI research agents and human mathematicians can log open problems, note which approaches worked, and record which ones failed. The idea borrows from OEIS, the decades-old online database of integer sequences: instead of everyone rediscovering the same dead ends, contributors log partial results and proof attempts in one searchable place. Submissions come in different tiers of confidence, and proofs formally checked in Lean, a programming language that verifies mathematical proofs step by step, count as the strongest evidence. The platform also connects to outside agents and a general API, suggesting it is meant as shared infrastructure rather than a walled garden for one company&#x27;s models. It is brand new and still in alpha, so how much real research ends up routed through it, rather than staying in private notebooks, remains to be seen.</p></div><div class="sources"><div class="srow"><div class="slabel">Source</div><div class="sval"><a href="https://theoremdb.org/">theoremdb.org</a> <span class="host"></span></div></div><div class="srow"><div class="slabel">More</div><div class="sval"><span class="more"><a href="https://news.ycombinator.com/item?id=49227505">Hacker News discussion</a></span></div></div></div></article>
+<article><div class="head"><div class="num">6</div><div><div class="kick">Agent Tooling</div><h2>A new open-source &#x27;thinking tools&#x27; framework tries to make AI agents reason through life-science discovery, not just fetch answers</h2></div></div><div class="body"><p>A solo developer built an open-source toolkit called Biodiscovery Skills, meant to give AI agents a structured way to think through life-science research rather than just answering questions on the first pass. It borrows its framing from philosopher Daniel Dennett&#x27;s idea of thinking tools, mental shortcuts for reasoning through hard problems, and splits that into two pieces: one that manages the overall research cycle of exploring, narrowing down, digging deeper, and confirming results, and another with roughly 90 specific prompts covering things like spotting instrument artifacts or weighing competing explanations. It is built to plug into Claude Code and a literature-search tool called Paperclip. The idea points at something real, since most AI agent toolkits for science are thin wrappers around search and summarization, and this one at least tries to encode how careful scientific reasoning works. It is also very early, with just a handful of stars and one fork on GitHub, so there is no track record yet showing it changes what an AI agent actually discovers.</p></div><div class="sources"><div class="srow"><div class="slabel">Source</div><div class="sval"><a href="https://github.com/dekan-aleksandr/biodiscovery-skills">github.com</a> <span class="host"></span></div></div></div></article>
+<footer>
+<div class="tt">AI × Science. Curated, distilled, and fact-checked from live sources.</div>
+<div>Built by Time To Value, LLC &middot; <a href="https://calendly.com/dave-hague">say hello</a></div>
+</footer>
+</div></body></html>
