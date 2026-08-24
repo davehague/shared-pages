@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex,nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Deep-Dive Question Bank</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;1,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+  :root{
+    --ground:#FBFAF7;
+    --surface:#FFFFFF;
+    --ink:#1D232B;
+    --muted:#5A6472;
+    --faint:#8A93A0;
+    --accent:#0F6E6A;
+    --accent-soft:#0F6E6A14;
+    --hairline:#E7E3DA;
+    --hairline-strong:#D8D3C7;
+    --shadow:0 1px 2px rgba(29,35,43,.04), 0 8px 28px rgba(29,35,43,.05);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --ground:#13171C;
+      --surface:#1A1F26;
+      --ink:#E9ECF1;
+      --muted:#9BA5B1;
+      --faint:#6E7885;
+      --accent:#63BAB2;
+      --accent-soft:#63BAB21F;
+      --hairline:#28303A;
+      --hairline-strong:#333C48;
+      --shadow:0 1px 2px rgba(0,0,0,.3), 0 10px 30px rgba(0,0,0,.35);
+    }
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    background:var(--ground);
+    color:var(--ink);
+    font-family:"IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size:17px;
+    line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  .wrap{max-width:44rem;margin:0 auto;padding:clamp(1.75rem,4vw,4rem) clamp(1.1rem,4vw,2rem) 5rem;}
+
+  .eyebrow{
+    font-family:"IBM Plex Mono", ui-monospace, monospace;
+    font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--accent);font-weight:600;margin:0 0 .9rem;
+  }
+  h1{
+    font-family:"Spectral", Georgia, "Times New Roman", serif;
+    font-weight:600;font-size:clamp(2rem,5.5vw,2.9rem);line-height:1.08;
+    letter-spacing:-.01em;margin:0 0 .55rem;text-wrap:balance;
+  }
+  .lede{color:var(--muted);font-size:1.06rem;margin:0 0 1.6rem;max-width:38rem;}
+
+  .status{
+    display:flex;gap:.7rem;align-items:flex-start;
+    background:var(--accent-soft);border:1px solid var(--hairline);
+    border-left:3px solid var(--accent);border-radius:8px;
+    padding:.75rem .95rem;margin:0 0 2.4rem;
+    font-size:.92rem;color:var(--muted);
+  }
+  .status b{color:var(--ink);font-weight:600}
+  .status .tag{
+    font-family:"IBM Plex Mono", monospace;font-size:.68rem;font-weight:600;
+    letter-spacing:.1em;text-transform:uppercase;color:var(--accent);
+    border:1px solid var(--accent);border-radius:5px;padding:.12rem .4rem;white-space:nowrap;margin-top:.1rem;
+  }
+
+  section{margin-top:2.9rem}
+  .sec-head{display:flex;align-items:baseline;gap:.85rem;margin:0 0 .3rem}
+  .num{
+    font-family:"IBM Plex Mono", monospace;font-weight:600;font-size:.95rem;
+    color:var(--accent);border:1px solid var(--hairline-strong);border-radius:6px;
+    padding:.15rem .5rem;line-height:1.2;flex:none;
+  }
+  h2{
+    font-family:"Spectral", Georgia, serif;font-weight:600;
+    font-size:clamp(1.35rem,3.4vw,1.7rem);letter-spacing:-.005em;
+    margin:0;line-height:1.15;text-wrap:balance;
+  }
+  .sec-note{color:var(--muted);font-size:.96rem;margin:.35rem 0 1rem;}
+
+  h3{
+    font-family:"IBM Plex Sans", sans-serif;font-weight:600;font-size:.82rem;
+    letter-spacing:.09em;text-transform:uppercase;color:var(--faint);
+    margin:1.5rem 0 .6rem;
+  }
+
+  ul{margin:.2rem 0 0;padding:0;list-style:none;}
+  li{
+    position:relative;padding:.34rem 0 .34rem 1.3rem;
+    border-bottom:1px solid var(--hairline);
+  }
+  li:last-child{border-bottom:0}
+  li::before{
+    content:"";position:absolute;left:.15rem;top:1.05em;
+    width:5px;height:5px;border-radius:50%;background:var(--accent);opacity:.7;
+  }
+  li .q{color:var(--ink)}
+  li .hint{display:block;color:var(--faint);font-size:.9rem;margin-top:.12rem}
+
+  .callout{
+    background:var(--surface);border:1px solid var(--hairline);
+    border-radius:10px;padding:1.05rem 1.2rem;box-shadow:var(--shadow);
+  }
+  .callout ul li{border-bottom:1px solid var(--hairline)}
+  .callout h3:first-child{margin-top:.1rem}
+
+  .card{
+    background:var(--surface);border:1px solid var(--hairline);border-radius:10px;
+    padding:1.1rem 1.25rem;margin-top:1rem;box-shadow:var(--shadow);
+  }
+  .card.qa{border-left:3px solid var(--accent)}
+  .card .kicker{
+    font-family:"IBM Plex Mono", monospace;font-size:.7rem;font-weight:600;
+    letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:0 0 .3rem;
+  }
+  .card .role{font-weight:600;color:var(--ink);font-size:.98rem}
+  .card .role .sub{display:block;font-weight:400;color:var(--muted);font-size:.92rem;margin-top:.25rem}
+  .card + .card{margin-top:.7rem}
+
+  em{font-style:italic;color:var(--ink)}
+  strong{font-weight:600}
+  .blank{color:var(--faint);font-style:italic}
+
+  footer{
+    margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--hairline);
+    color:var(--faint);font-size:.86rem;
+  }
+  footer a{color:var(--accent);text-decoration:none}
+  footer a:hover{text-decoration:underline}
+  a:focus-visible,li:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+  @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <p class="eyebrow">Stage 2 · Résumé Deep Dive</p>
+  <h1>Deep-Dive Question Bank</h1>
+  <p class="lede">The running order I use for a résumé deep dive — plus a build-your-own template for spinning up a brand-new role from a blank page.</p>
+
+  <div class="status">
+    <span class="tag">Draft</span>
+    <span><b>Working outline.</b> QA scenarios populated from real material. Companion to the interview playbooks. Two uses in one doc: the <b>Roles</b> block is a ready-to-run universal bank for any role; the <b>Scenarios</b> section carries a template plus a QA worked example.</span>
+  </div>
+
+  <div class="callout">
+    <h3>How I use this in the room</h3>
+    <ul>
+      <li><span class="q">The <strong>Roles</strong> questions are the guardrails: I walk roles oldest → newest and steer to these as the conversation opens up.</span></li>
+      <li><span class="q">I won't hit every question on every job — but across all jobs I aim to cover <strong>each at least once</strong>.</span></li>
+      <li><span class="q">Ask "How?" relentlessly; interrupt gracefully; stop and drill at any inconsistency.</span></li>
+    </ul>
+  </div>
+
+  <section>
+    <div class="sec-head"><span class="num">1</span><h2>Scratchpad</h2></div>
+    <p class="sec-note">Opener / warm-up.</p>
+    <ul>
+      <li><span class="q">Once onboarded and understanding the context here, what are the first places you'll want to explore from a [role] perspective?</span></li>
+      <li><span class="q">(Show our process flow — e.g., the Miro board.)</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="num">2</span><h2>Roles</h2></div>
+    <p class="sec-note">The per-job bank — ask across each job, oldest → newest. Ready to use as-is for any role; this is the starting point when you have nothing.</p>
+    <ul>
+      <li><span class="q">Why did you choose to join the company?</span></li>
+      <li><span class="q">What did you inherit coming into this role?</span></li>
+      <li><span class="q">What was the organizational context? Who were your peers, your manager? Were you part of a big team, small team?</span></li>
+      <li><span class="q">What were your quantifiable accomplishments in this role?</span></li>
+      <li><span class="q">How did you achieve those results?</span></li>
+      <li><span class="q">What was your biggest failure in the role?</span></li>
+      <li><span class="q">What challenges did you face and how did you overcome them?</span></li>
+      <li><span class="q">What was your manager's style and how did you work together?</span></li>
+      <li><span class="q">What did you enjoy most and least about the role?</span></li>
+      <li><span class="q">If we get to the reference stage, what should I expect to hear when I speak with your manager?</span></li>
+      <li><span class="q">Why did you choose to move on from this role?</span></li>
+    </ul>
+
+    <h3>Probes to layer under the above — my style, steer to these as needed</h3>
+    <ul>
+      <li><span class="q">(Charter) What were you hired to do — how was success measured in this role?</span></li>
+      <li><span class="q">How much were <em>you</em> the driver of the results vs. the team?</span></li>
+      <li><span class="q">How were you measured?</span></li>
+      <li><span class="q">Three P's: vs. last year? vs. the plan? vs. your peers?</span></li>
+      <li><span class="q">(Light technical depth) Not just "did you <em>do</em> X" — "did you <em>understand</em> X?"</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="num">3</span><h2>Scenarios</h2></div>
+    <p class="sec-note">Role-specific — the only part you rebuild per role. The Roles block above is universal; this is where the role's real depth goes.</p>
+
+    <div class="card">
+      <p class="kicker">Build-your-own template · brand-new role</p>
+      <p class="sec-note" style="margin:.1rem 0 .5rem">Draft 1–2 scenarios plus a few questions in each bucket:</p>
+      <ul>
+        <li><span class="q"><strong>Core convictions</strong> — "What strong convictions do you hold about [domain]?" Reveals depth and taste.</span></li>
+        <li><span class="q"><strong>Scenario / judgment</strong> — a real situation from <em>our</em> world: "here's how our process works today; where does [role] fit and what value would that bring?"</span></li>
+        <li><span class="q"><strong>Technical judgment</strong> — "when is X worth doing / how do you know it's working?" Tests understanding, not trivia.</span></li>
+        <li><span class="q"><strong>Working style &amp; beliefs</strong> — process improvements that worked / didn't; an impossible-deadline story; how they'd approach a concrete piece of work.</span></li>
+        <li><span class="q"><strong>Passion signal</strong> — "if you gave a conference talk, what would it be about?"</span></li>
+      </ul>
+    </div>
+
+    <div class="card qa">
+      <p class="kicker">QA worked example · a filled-in instance</p>
+      <p class="role">Convictions
+        <span class="sub">What strong convictions do you have about quality and QA testing? · How do you gauge your contribution — what makes you feel valuable? · Describe your ideal QA role.</span>
+      </p>
+    </div>
+    <div class="card qa">
+      <p class="role">Scenario 1 — SDLC fit
+        <span class="sub">Here's our process flow and where QA sits today (walk the Miro board) — where do you see QA fitting, and what value would that bring? · How would QA fit an anytime-deployment paradigm? · What about testing in production? · Closing loops: how do you find where bugs come from and feed that back?</span>
+      </p>
+    </div>
+    <div class="card qa">
+      <p class="role">Scenario 2 — automation &amp; test judgment
+        <span class="sub">When is it worth writing an automated test, and how do you know you're getting value? · What do you do about a flaky/intermittent test — and what are the dangers of flaky automation? · We have 78 e2e smoke tests that take 12 minutes to run — thoughts? · Given a ticket with acceptance criteria, how would you test it, and what do you want to know before you start?</span>
+      </p>
+    </div>
+    <div class="card qa">
+      <p class="role">Working style
+        <span class="sub">What workflow/process improvements have you had success with — and which haven't worked? · Ever had a project with an impossible deadline?</span>
+      </p>
+    </div>
+    <div class="card qa">
+      <p class="role">Passion
+        <span class="sub">If you gave a conference talk, what would it be about?</span>
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="num">4</span><h2>Closing Questions</h2></div>
+    <ul>
+      <li><span class="q">What are you looking for — the environment you want, how you want to be empowered, what decisions you want to make?</span></li>
+      <li><span class="q">Where are you at in your job search? Do you have other offers on the table? If you had multiple offers in front of you, what 3 criteria are you using to decide which one you take?</span></li>
+    </ul>
+  </section>
+
+  <footer>
+    Deep-Dive Question Bank · working draft. Part of a hiring operating manual (books → strategy → candidate experience → interview playbooks → pipeline → question banks).
+  </footer>
+
+</main>
+</body>
+</html>
