@@ -665,6 +665,17 @@ function el(tag, attrs = {}, text) {
   return n;
 }
 
+/** A caption backed by paper, so it stays readable over a filled silhouette. */
+function labelOnPaper(x, y, text, fill) {
+  const g = el('g');
+  g.appendChild(el('rect', {
+    x: x - text.length * 4.4, y: y - 12, width: text.length * 8.8, height: 16,
+    fill: '#fbf8f2', rx: 2,
+  }));
+  g.appendChild(label(x, y, text, fill));
+  return g;
+}
+
 function label(x, y, text, fill) {
   return el('text', {
     x, y, fill, 'text-anchor': 'middle', 'font-size': 11, 'letter-spacing': '.14em',
@@ -708,13 +719,7 @@ function bracket(item, x, box, text, color) {
     g.appendChild(line(x, y, x + box.w, y));
     g.appendChild(line(x, y - 5, x, y + 5));
     g.appendChild(line(x + box.w, y - 5, x + box.w, y + 5));
-    if (text) {
-      g.appendChild(el('rect', {
-        x: x + box.w / 2 - text.length * 5, y: y - 8, width: text.length * 10,
-        height: 16, fill: '#fbf8f2',
-      }));
-      g.appendChild(label(x + box.w / 2, y + 4, text, color));
-    }
+    if (text) g.appendChild(labelOnPaper(x + box.w / 2, y + 8, text, color));
   } else {
     const xl = x - 18;
     g.appendChild(line(xl, GROUND, xl, GROUND - box.h));
@@ -847,7 +852,14 @@ function render() {
   // Mark the span the reference's known size actually refers to. Without it,
   // "Moose (nose to tail)" leaves you guessing whether you are judging against
   // the animal's length or its height.
-  root.appendChild(bracket(reference, REF_X, ref, '', C.reference));
+  //
+  // Its measurement only appears once the guess is locked in -- showing it
+  // while you are still dragging would turn the round into counting multiples.
+  root.appendChild(bracket(
+    reference, REF_X, ref,
+    S.phase === 'reveal' ? formatLength(reference.trueSize) : '',
+    C.reference,
+  ));
   const nameY = reference.dimension === 'length' ? GROUND + 46 : GROUND + 18;
   root.appendChild(label(REF_X + ref.w / 2, nameY, reference.name, C.soft));
   root.appendChild(el('line', {
@@ -863,8 +875,10 @@ function render() {
     const guess = silhouette(item, S.guessM, S.ppm, S.targetX, C.guess, '.62');
     root.appendChild(guess.g);
     root.appendChild(bracket(item, S.targetX, truth, formatLength(item.trueSize), C.crimson));
-    root.appendChild(label(
-      S.targetX + guess.w / 2, GROUND - guess.h - 12, 'Your guess', C.guess,
+    // Backed, because when the guess is smaller than the truth this caption
+    // lands on top of the solid silhouette behind it.
+    root.appendChild(labelOnPaper(
+      S.targetX + guess.w / 2, GROUND - guess.h - 8, 'Your guess', C.guess,
     ));
   } else {
     const guess = silhouette(item, S.guessM, S.ppm, S.targetX, C.crimson);
