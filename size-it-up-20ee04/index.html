@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="robots" content="noindex,nofollow">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Size It Up</title>
@@ -211,10 +210,11 @@ h1 .q:hover{color:var(--crimson);border-color:var(--crimson)}
   <h3>How to play</h3>
   <p class="sub" style="margin-bottom:16px">Five rounds. One hundred points each.</p>
   <ol>
-    <li>A <b>reference object</b> sits on the left, drawn at its true size. You know how big it is.</li>
+    <li>A <b>reference object</b> sits on the left, drawn at its true size. You know how big it is, and the bracket marks the dimension its size refers to.</li>
     <li>Drag the <b>corner handle</b> on the crimson silhouette until it looks like the right size next to that reference. The label tells you which dimension counts.</li>
     <li>Hit <b>Lock In</b>. You score on how close your ratio was &mdash; guessing half the true size costs exactly as much as guessing double.</li>
   </ol>
+  <p>The two are always measured on the same axis &mdash; a length against a length, a height against a height &mdash; so you are never asked to judge one against the other.</p>
   <p>Use <b style="color:var(--ink)">+</b> and <b style="color:var(--ink)">&minus;</b> to zoom when something runs off the canvas, and drag the background to pan. Arrow keys nudge the handle once it has focus.</p>
 </div></div>
 
@@ -254,7 +254,7 @@ const CATALOG = [
   // --- tier 0: hand scale ---
   ['honey-bee',           'Honey Bee',                          0.015, 'length',  0],
   ['golf-ball',           'Golf Ball',                         0.0427, 'length',  0],
-  ['spider',              'Garden Spider (legspan)',            0.045, 'height',  0],
+  ['spider',              'Garden Spider (legspan)',            0.045, 'length',  0],
   ['aa-battery',          'AA Battery',                        0.0505, 'height',  0],
   ['egg',                 'Chicken Egg',                        0.057, 'height',  0],
   ['key',                 'House Key',                          0.058, 'length',  0],
@@ -546,15 +546,21 @@ function shuffled(list, rng) {
 }
 
 /**
- * Every item that can sensibly sit beside `item` as a yardstick.
- * Prefers references smaller than the target, the way the original does
- * (an A4 sheet next to a bear, a bear next to a whale).
+ * Every item that can sensibly sit beside `item` as a yardstick: same measured
+ * axis, within one scale tier, and no more than MAX_REF_RATIO away. Prefers
+ * references smaller than the target, the way the original does (an A4 sheet
+ * next to a bear, a bear next to a whale).
  */
 function referencesFor(items, item) {
   const smaller = [];
   const larger = [];
   for (const r of items) {
     if (r.id === item.id) continue;
+    // Compare like with like. The canvas is one consistent metric space, so a
+    // height could legitimately be judged against a length -- but asking
+    // someone to size a lamp's HEIGHT against a leopard's LENGTH is a mental
+    // step too far, and 42% of rounds used to do exactly that.
+    if (r.dimension !== item.dimension) continue;
     if (Math.abs(r.tier - item.tier) > 1) continue;
     // Astronomical sizes only make sense against other astronomical sizes.
     if ((r.tier === 4) !== (item.tier === 4)) continue;
@@ -699,17 +705,19 @@ function bracket(item, x, box, text, color) {
     g.appendChild(line(x, y, x + box.w, y));
     g.appendChild(line(x, y - 5, x, y + 5));
     g.appendChild(line(x + box.w, y - 5, x + box.w, y + 5));
-    g.appendChild(el('rect', {
-      x: x + box.w / 2 - text.length * 5, y: y - 8, width: text.length * 10,
-      height: 16, fill: '#fbf8f2',
-    }));
-    g.appendChild(label(x + box.w / 2, y + 4, text, color));
+    if (text) {
+      g.appendChild(el('rect', {
+        x: x + box.w / 2 - text.length * 5, y: y - 8, width: text.length * 10,
+        height: 16, fill: '#fbf8f2',
+      }));
+      g.appendChild(label(x + box.w / 2, y + 4, text, color));
+    }
   } else {
     const xl = x - 18;
     g.appendChild(line(xl, GROUND, xl, GROUND - box.h));
     g.appendChild(line(xl - 5, GROUND, xl + 5, GROUND));
     g.appendChild(line(xl - 5, GROUND - box.h, xl + 5, GROUND - box.h));
-    g.appendChild(label(x + box.w / 2, GROUND - box.h - 12, text, color));
+    if (text) g.appendChild(label(x + box.w / 2, GROUND - box.h - 12, text, color));
   }
   return g;
 }
@@ -833,7 +841,12 @@ function render() {
   // The reference, always drawn at true scale.
   const ref = silhouette(reference, reference.trueSize, S.ppm, REF_X, C.reference);
   root.appendChild(ref.g);
-  root.appendChild(label(REF_X + ref.w / 2, GROUND + 18, reference.name, C.soft));
+  // Mark the span the reference's known size actually refers to. Without it,
+  // "Moose (nose to tail)" leaves you guessing whether you are judging against
+  // the animal's length or its height.
+  root.appendChild(bracket(reference, REF_X, ref, '', C.reference));
+  const nameY = reference.dimension === 'length' ? GROUND + 46 : GROUND + 18;
+  root.appendChild(label(REF_X + ref.w / 2, nameY, reference.name, C.soft));
   root.appendChild(el('line', {
     x1: REF_X + ref.w + 20, y1: GROUND, x2: REF_X + ref.w + 20, y2: GROUND - ref.h,
     stroke: C.rule, 'stroke-width': 1, 'stroke-dasharray': '3 4',
