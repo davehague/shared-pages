@@ -167,6 +167,8 @@ h1 .q:hover{color:var(--crimson);border-color:var(--crimson)}
       <span>Round <b id="m-round">1</b> / <b>5</b></span>
       <i class="sep"></i>
       <span>Score <b id="m-score">0</b></span>
+      <i class="sep"></i>
+      <span id="m-mode"></span>
     </div>
   </header>
 
@@ -197,8 +199,8 @@ h1 .q:hover{color:var(--crimson);border-color:var(--crimson)}
 
 <div class="scrim" id="scrim-over"><div class="card">
   <button class="close" data-close aria-label="Close">&times;</button>
-  <h3>Game Over</h3>
-  <p class="sub">Your final score</p>
+  <h3 id="final-title">Game Over</h3>
+  <p class="sub" id="final-sub">Your final score</p>
   <div class="final" id="final-score">0</div>
   <div class="bars" id="final-bars"></div>
   <p class="quip" id="final-quip"></p>
@@ -211,7 +213,7 @@ h1 .q:hover{color:var(--crimson);border-color:var(--crimson)}
 <div class="scrim" id="scrim-help"><div class="card wide">
   <button class="close" data-close aria-label="Close">&times;</button>
   <h3>How to play</h3>
-  <p class="sub" style="margin-bottom:16px">Five rounds. One hundred points each.</p>
+  <p class="sub" style="margin-bottom:16px">Five rounds. One hundred points each. Everyone gets the same five rounds each day, so scores are worth comparing &mdash; and there is unlimited practice once you have played today's.</p>
   <ol>
     <li>A <b>reference object</b> sits on the left, drawn at its true size. You know how big it is, and the bracket marks the dimension its size refers to.</li>
     <li>Drag the <b>corner handle</b> on the crimson silhouette until it looks like the right size next to that reference. The label tells you which dimension counts.</li>
@@ -548,6 +550,34 @@ function tierOf(metres) {
   return 4;
 }
 
+// --- the daily puzzle ---------------------------------------------------
+//
+// Everyone playing on the same calendar day gets the same five rounds, which
+// is the only thing that makes a shared score worth comparing.
+
+const DAY_ZERO = Date.UTC(2026, 0, 1);
+
+/** Which puzzle number a date falls on, in the player's own timezone. */
+function dayNumber(date) {
+  const midnight = Date.UTC(date.getFullYear(), date.getMonth(), date.getDate());
+  return Math.floor((midnight - DAY_ZERO) / 86400000);
+}
+
+/**
+ * Seed for a given puzzle number. Hashed rather than used directly so that
+ * consecutive days are unrelated -- otherwise today's puzzle would be a near
+ * neighbour of yesterday's, and the catalog would feel smaller than it is.
+ */
+function dailySeed(day) {
+  let h = Math.imul(day + 1, 2654435761) >>> 0;
+  h ^= h >>> 15;
+  h = Math.imul(h, 2246822519);
+  h ^= h >>> 13;
+  h = Math.imul(h, 3266489917);
+  h ^= h >>> 16;
+  return h >>> 0;
+}
+
 /** Seeded PRNG (mulberry32) so a game can be replayed exactly. */
 function makeRng(seed) {
   let a = (seed >>> 0) + 0x6d2b79f5;
@@ -632,12 +662,15 @@ function quipFor(total, max) {
 /**
  * The emoji-square result string for the Share button.
  *
+ * `day` is the puzzle number when this was the daily, so two people can tell
+ * they were solving the same five rounds. Practice games omit it.
+ *
  * `url` is appended so whoever reads the score can go play it. It is passed in
  * rather than baked into the source because the page cannot know its own
  * address until it is published -- the caller reads it off `location` at run
  * time, which also keeps it right if the page ever moves.
  */
-function shareText(scores, url = '') {
+function shareText(scores, url = '', day = null) {
   const total = scores.reduce((a, b) => a + b, 0);
   const max = scores.length * MAX_ROUND_SCORE;
   // Ten squares, so each one is worth 10 points and a near-miss reads
@@ -646,7 +679,10 @@ function shareText(scores, url = '') {
     const filled = Math.round((s / MAX_ROUND_SCORE) * SHARE_BAR_WIDTH);
     return '\u{1F7E5}'.repeat(filled) + '⬜'.repeat(SHARE_BAR_WIDTH - filled);
   };
-  const lines = [`Size It Up - ${total}/${max}`, ...scores.map(bar)];
+  const title = day == null
+    ? `Size It Up - ${total}/${max}`
+    : `Size It Up #${day} - ${total}/${max}`;
+  const lines = [title, ...scores.map(bar)];
   if (url) lines.push('', url);
   return lines.join('\n');
 }
@@ -752,20 +788,45 @@ function bracket(item, x, box, text, color) {
   return g;
 }
 
+// ------------------------------------------------------------- the daily ----
+
+// Today's puzzle is kept so returning to the page shows your result rather
+// than silently dealing the same five rounds again.
+const STORE = 'size-it-up.day.';
+
+function loadDaily(day) {
+  try {
+    const raw = localStorage.getItem(STORE + day);
+    return raw ? JSON.parse(raw) : null;
+  } catch {
+    return null;  // private browsing, disabled storage, file:// on some browsers
+  }
+}
+
+function saveDaily(day, scores) {
+  try {
+    localStorage.setItem(STORE + day, JSON.stringify(scores));
+  } catch {
+    /* not being able to remember is survivable; refusing to play is not */
+  }
+}
+
 // ----------------------------------------------------------------- state ----
 
 let S = null;
 
 const currentRound = () => S.rounds[S.index];
 
-function newGame() {
-  const seed = (Math.random() * 2 ** 32) >>> 0;
+function newGame(mode = 'practice', day = null) {
+  const seed = mode === 'daily' ? dailySeed(day) : (Math.random() * 2 ** 32) >>> 0;
   S = {
+    mode, day,
     rounds: pickRounds(ITEMS, ROUNDS_PER_GAME, makeRng(seed)),
     index: 0, scores: [], phase: 'guess',
     ppm: 1, guessM: 1, pan: { x: 0, y: 0 }, targetX: 0,
   };
   $('m-score').textContent = '0';
+  $('m-mode').textContent = mode === 'daily' ? `Daily #${day}` : 'Practice';
   startRound();
 }
 
@@ -1033,10 +1094,17 @@ function lockIn() {
     `<div class="off">Off by ${percentOff(S.guessM, item.trueSize)}%</div>`;
   $('action').textContent =
     S.index === ROUNDS_PER_GAME - 1 ? 'See Final Score' : 'Next Round';
+
+  // Record the daily as soon as the last guess is in, not when the card is
+  // opened -- otherwise closing the tab first loses the result.
+  if (S.mode === 'daily' && S.index === ROUNDS_PER_GAME - 1) saveDaily(S.day, S.scores);
 }
 
 function advance() {
-  if (S.index === ROUNDS_PER_GAME - 1) { showFinal(); return; }
+  if (S.index === ROUNDS_PER_GAME - 1) {
+    showResult(S.scores, S.mode === 'daily' ? S.day : null);
+    return;
+  }
   S.index += 1;
   startRound();
 }
@@ -1047,11 +1115,19 @@ $('action').onclick = () => (S.phase === 'guess' ? lockIn() : advance());
 
 const open = (id) => $(id).classList.add('on');
 
-function showFinal() {
-  const total = S.scores.reduce((a, b) => a + b, 0);
+// What the result card is currently displaying. Kept separate from S because
+// a restored daily result is shown over a fresh practice game.
+let shown = null;
+
+function showResult(scores, day, title = 'Game Over', sub = 'Your final score') {
+  shown = { scores, day };
+  const total = scores.reduce((a, b) => a + b, 0);
+  $('final-title').textContent = title;
+  $('final-sub').textContent = sub;
   $('final-score').textContent = total;
   $('final-quip').textContent = quipFor(total, ROUNDS_PER_GAME * MAX_ROUND_SCORE);
-  $('final-bars').innerHTML = S.scores.map((s, i) => `
+  $('btn-again').textContent = day == null ? 'Play Again' : 'Practice';
+  $('final-bars').innerHTML = scores.map((s, i) => `
     <div class="row">
       <span class="lbl">Round ${i + 1}</span>
       <span class="track"><span class="fill" data-w="${s}"></span></span>
@@ -1078,7 +1154,7 @@ function playableUrl() {
 $('btn-share').onclick = async (e) => {
   const button = e.currentTarget;
   try {
-    await navigator.clipboard.writeText(shareText(S.scores, playableUrl()));
+    await navigator.clipboard.writeText(shareText(shown.scores, playableUrl(), shown.day));
     button.textContent = 'Copied';
   } catch {
     button.textContent = 'Copy failed';
@@ -1091,7 +1167,9 @@ $('btn-credits').onclick = () => open('scrim-credits');
 
 function dismiss(scrim) {
   scrim.classList.remove('on');
-  if (scrim.id === 'scrim-over') newGame();
+  // Leaving the result card always drops you into unlimited practice; the
+  // daily is once a day by definition.
+  if (scrim.id === 'scrim-over' && S.mode !== 'practice') newGame('practice');
 }
 
 document.querySelectorAll('.scrim').forEach((s) => {
@@ -1131,7 +1209,26 @@ document.addEventListener('keydown', (e) => {
     .join('<br>');
 })();
 
-newGame();
+/**
+ * Deal today's puzzle, unless it is already played (show that result instead)
+ * or ?practice was asked for, which the browser checks use to sample freely.
+ */
+function boot() {
+  const wantsPractice = new URLSearchParams(location.search).has('practice');
+  const today = dayNumber(new Date());
+  const played = wantsPractice ? null : loadDaily(today);
+
+  if (played) {
+    newGame('practice');
+    showResult(played, today, "Today's Puzzle", 'You have already played it');
+  } else if (wantsPractice) {
+    newGame('practice');
+  } else {
+    newGame('daily', today);
+  }
+}
+
+boot();
 
 </script>
 </body>
