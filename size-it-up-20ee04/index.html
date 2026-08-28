@@ -555,7 +555,8 @@ function tierOf(metres) {
 // Everyone playing on the same calendar day gets the same five rounds, which
 // is the only thing that makes a shared score worth comparing.
 
-const DAY_ZERO = Date.UTC(2026, 0, 1);
+// The day before launch, so the first puzzle anyone can play is #1.
+const DAY_ZERO = Date.UTC(2026, 7, 27);
 
 /** Which puzzle number a date falls on, in the player's own timezone. */
 function dayNumber(date) {
@@ -636,11 +637,20 @@ function pickRounds(items, n, rng) {
     .sort((a, b) => a.tier - b.tier || a.trueSize - b.trueSize);
 
   const [lo, hi] = START_RATIO_RANGE.map(Math.log);
+  // Don't reuse a yardstick inside one game. It happened in about 5% of games
+  // and reads as a mistake -- two rounds running against the same chicken egg
+  // makes the catalog look threadbare. Falls back rather than failing if an
+  // item has no unused reference left.
+  const spent = new Set();
   return chosen.map((item) => {
     const refs = referencesFor(items, item);
+    const fresh = refs.filter((r) => !spent.has(r.id));
+    const pool = fresh.length ? fresh : refs;
+    const reference = pool[Math.floor(rng() * pool.length)];
+    spent.add(reference.id);
     return {
       item,
-      reference: refs[Math.floor(rng() * refs.length)],
+      reference,
       startRatio: Math.exp(lo + rng() * (hi - lo)),
     };
   });
