@@ -700,12 +700,41 @@ function shareText(scores, url = '', day = null) {
 
 
 
-// Fixed world canvas; CSS scales the SVG, so every measurement below is in
-// these units regardless of screen size.
-const W = 1200, H = 600;
-const GROUND = H - 76;
+// The world canvas. Width is fixed; height follows the shape of the screen,
+// because a 2:1 canvas on a phone is a 360x180 letterbox strip with the whole
+// page empty beneath it.
+const W = 1200;
+let H = 600;
+let GROUND = H - 76;
+let U = 1;  // world units per CSS pixel -- see uiScale()
+
 const REF_X = 76;
 const GAP = 56;
+
+/**
+ * How many world units make one CSS pixel right now.
+ *
+ * Everything drawn in world units shrinks with the viewport, which is correct
+ * for the silhouettes -- they are the thing being compared -- and wrong for
+ * the furniture. A drag handle that scales down to 14 px cannot be hit with a
+ * thumb, and 3 px labels cannot be read. Chrome elements are therefore sized
+ * as `n * U`, which renders them at a constant n pixels on any screen.
+ */
+function uiScale() {
+  const width = svg.getBoundingClientRect().width;
+  return width > 0 ? W / width : 1.2;
+}
+
+/** Re-shape the canvas to the screen and redraw. */
+function layout() {
+  const width = svg.getBoundingClientRect().width || 1000;
+  U = W / width;
+  // Portrait-ish on phones so the canvas uses the space the strip was wasting.
+  H = Math.round(W / (width < 620 ? 1.25 : 2));
+  GROUND = H - Math.round(62 * U);
+  svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+  if (S) render();
+}
 
 // The view is scaled so the silhouette you are dragging fills this much of the
 // canvas, and re-fits after every drag. Scaling off the guess rather than off a
@@ -715,7 +744,7 @@ const GAP = 56;
 // your own silhouette, which is exactly the judgement the game is asking for.
 const FIT = 0.46;
 const REVEAL_FIT = 0.62;
-const MARGIN = 44;
+const MARGIN = 44;  // scaled by U where used
 
 const C = {
   grid: 'rgba(34,27,22,.07)', rule: 'rgba(34,27,22,.16)', ground: 'rgba(180,18,47,.3)',
@@ -733,21 +762,35 @@ function el(tag, attrs = {}, text) {
   return n;
 }
 
+/** Half the drawn width of a caption, near enough for keeping it on canvas. */
+const halfWidth = (text) => text.length * 4.4 * U;
+
+/**
+ * Keep a centred caption inside the canvas. A reference sitting near the left
+ * edge is often tiny -- a honey bee is a few pixels wide -- so a label centred
+ * on it runs off the edge and reads as "ONEY BEE".
+ */
+function clampX(x, text) {
+  const half = halfWidth(text) + 6 * U;
+  return Math.min(Math.max(x, half), W - half);
+}
+
 /** A caption backed by paper, so it stays readable over a filled silhouette. */
 function labelOnPaper(x, y, text, fill) {
+  const cx = clampX(x, text);
   const g = el('g');
   g.appendChild(el('rect', {
-    x: x - text.length * 4.4, y: y - 12, width: text.length * 8.8, height: 16,
-    fill: '#fbf8f2', rx: 2,
+    x: cx - halfWidth(text), y: y - 12 * U,
+    width: halfWidth(text) * 2, height: 16 * U, fill: '#fbf8f2', rx: 2 * U,
   }));
-  g.appendChild(label(x, y, text, fill));
+  g.appendChild(label(cx, y, text, fill));
   return g;
 }
 
 function label(x, y, text, fill) {
   return el('text', {
-    x, y, fill, 'text-anchor': 'middle', 'font-size': 11, 'letter-spacing': '.14em',
-    'font-family': 'DM Mono, ui-monospace, monospace',
+    x: clampX(x, text), y, fill, 'text-anchor': 'middle', 'font-size': 11 * U,
+    'letter-spacing': '.14em', 'font-family': 'DM Mono, ui-monospace, monospace',
   }, text.toUpperCase());
 }
 
@@ -780,20 +823,21 @@ function silhouette(item, metres, ppm, x, fill, opacity = 1) {
 function bracket(item, x, box, text, color) {
   const g = el('g', { opacity: '.85' });
   const line = (a, b, c, d) => el('line', {
-    x1: a, y1: b, x2: c, y2: d, stroke: color, 'stroke-width': 1,
+    x1: a, y1: b, x2: c, y2: d, stroke: color, 'stroke-width': U,
   });
+  const tick = 5 * U;
   if (item.dimension === 'length') {
-    const y = GROUND + 24;
+    const y = GROUND + 24 * U;
     g.appendChild(line(x, y, x + box.w, y));
-    g.appendChild(line(x, y - 5, x, y + 5));
-    g.appendChild(line(x + box.w, y - 5, x + box.w, y + 5));
-    if (text) g.appendChild(labelOnPaper(x + box.w / 2, y + 8, text, color));
+    g.appendChild(line(x, y - tick, x, y + tick));
+    g.appendChild(line(x + box.w, y - tick, x + box.w, y + tick));
+    if (text) g.appendChild(labelOnPaper(x + box.w / 2, y + 8 * U, text, color));
   } else {
-    const xl = x - 18;
+    const xl = x - 18 * U;
     g.appendChild(line(xl, GROUND, xl, GROUND - box.h));
-    g.appendChild(line(xl - 5, GROUND, xl + 5, GROUND));
-    g.appendChild(line(xl - 5, GROUND - box.h, xl + 5, GROUND - box.h));
-    if (text) g.appendChild(label(x + box.w / 2, GROUND - box.h - 12, text, color));
+    g.appendChild(line(xl - tick, GROUND, xl + tick, GROUND));
+    g.appendChild(line(xl - tick, GROUND - box.h, xl + tick, GROUND - box.h));
+    if (text) g.appendChild(label(x + box.w / 2, GROUND - box.h - 12 * U, text, color));
   }
   return g;
 }
@@ -864,7 +908,8 @@ function startRound() {
 function available(ppm) {
   const refH = geometry(currentRound().reference, currentRound().reference.trueSize, ppm).h;
   const refW = geometry(currentRound().reference, currentRound().reference.trueSize, ppm).w;
-  return { w: W - (REF_X + refW + GAP) - MARGIN, h: GROUND - MARGIN, refH };
+  const margin = MARGIN * U;
+  return { w: W - (REF_X + refW + GAP) - margin, h: GROUND - margin, refH };
 }
 
 /**
@@ -925,8 +970,11 @@ function render() {
   svg.dataset.guess = S.guessM;
 
   const defs = el('defs');
-  const pat = el('pattern', { id: 'grid', width: 40, height: 40, patternUnits: 'userSpaceOnUse' });
-  pat.appendChild(el('path', { d: 'M40 0 H0 V40', fill: 'none', stroke: C.grid, 'stroke-width': 1 }));
+  const cell = 40 * U;
+  const pat = el('pattern', { id: 'grid', width: cell, height: cell, patternUnits: 'userSpaceOnUse' });
+  pat.appendChild(el('path', {
+    d: `M${cell} 0 H0 V${cell}`, fill: 'none', stroke: C.grid, 'stroke-width': U,
+  }));
   defs.appendChild(pat);
   svg.appendChild(defs);
 
@@ -934,7 +982,7 @@ function render() {
   svg.appendChild(root);
   root.appendChild(el('rect', { x: -2400, y: -2400, width: 6000, height: 5400, fill: 'url(#grid)' }));
   root.appendChild(el('line', {
-    x1: -2400, y1: GROUND, x2: 3600, y2: GROUND, stroke: C.ground, 'stroke-width': 1.25,
+    x1: -2400, y1: GROUND, x2: 3600, y2: GROUND, stroke: C.ground, 'stroke-width': 1.25 * U,
   }));
 
   const { item, reference } = currentRound();
@@ -953,11 +1001,11 @@ function render() {
     S.phase === 'reveal' ? formatLength(reference.trueSize) : '',
     C.reference,
   ));
-  const nameY = reference.dimension === 'length' ? GROUND + 46 : GROUND + 18;
+  const nameY = GROUND + (reference.dimension === 'length' ? 46 : 18) * U;
   root.appendChild(label(REF_X + ref.w / 2, nameY, reference.name, C.soft));
   root.appendChild(el('line', {
     x1: REF_X + ref.w + 20, y1: GROUND, x2: REF_X + ref.w + 20, y2: GROUND - ref.h,
-    stroke: C.rule, 'stroke-width': 1, 'stroke-dasharray': '3 4',
+    stroke: C.rule, 'stroke-width': U, 'stroke-dasharray': `${3 * U} ${4 * U}`,
   }));
 
   S.targetX = REF_X + ref.w + GAP;
@@ -971,7 +1019,7 @@ function render() {
     // Backed, because when the guess is smaller than the truth this caption
     // lands on top of the solid silhouette behind it.
     root.appendChild(labelOnPaper(
-      S.targetX + guess.w / 2, GROUND - guess.h - 8, 'Your guess', C.guess,
+      S.targetX + guess.w / 2, GROUND - guess.h - 8 * U, 'Your guess', C.guess,
     ));
   } else {
     const guess = silhouette(item, S.guessM, S.ppm, S.targetX, C.crimson);
@@ -982,10 +1030,12 @@ function render() {
 
 function handle(x, y) {
   const g = el('g', {
-    transform: `translate(${x},${y})`, class: 'handle', tabindex: '0',
+    // Scaling the group keeps the grab area ~44 CSS px across on any screen,
+    // which is the smallest target a thumb can reliably hit.
+    transform: `translate(${x},${y}) scale(${U})`, class: 'handle', tabindex: '0',
     role: 'slider', 'aria-label': 'Resize the silhouette', style: 'cursor:nwse-resize',
   });
-  g.appendChild(el('circle', { r: 18, fill: '#fbf8f2', 'fill-opacity': '.01' }));
+  g.appendChild(el('circle', { r: 22, fill: '#fbf8f2', 'fill-opacity': '.01' }));
   // Corner ticks along the silhouette's bounding box. Without them the arrow
   // reads as floating in space whenever the artwork does not fill its corner.
   g.appendChild(el('path', {
@@ -1223,7 +1273,14 @@ document.addEventListener('keydown', (e) => {
  * Deal today's puzzle, unless it is already played (show that result instead)
  * or ?practice was asked for, which the browser checks use to sample freely.
  */
+let resizeTimer = null;
+window.addEventListener('resize', () => {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(layout, 120);
+});
+
 function boot() {
+  layout();
   const wantsPractice = new URLSearchParams(location.search).has('practice');
   const today = dayNumber(new Date());
   const played = wantsPractice ? null : loadDaily(today);
