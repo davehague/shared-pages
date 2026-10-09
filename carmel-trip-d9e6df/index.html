@@ -562,20 +562,21 @@ function cardHTML(it){const v=S.votes[S.me][it.id]||'';
   <div class="detail">${it.body||''}${it.links&&it.links.length?`<div class="k">Sources &amp; links</div><div class="src">${it.links.map(l=>`<a href="${l.u}" target="_blank" rel="noopener">${esc(l.t)} ↗</a>`).join('')}</div>`:''}${it.map?`<div class="src"><a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(it.map)}" target="_blank" rel="noopener">📍 Map: ${esc(it.map)} ↗</a></div>`:''}</div>
 </article>`}
 
-function picksIn(b){return ['D','A'].map(p=>{const y=ITEMS.filter(x=>(x.block===b.id||(x.also||[]).includes(b.id))&&S.votes[p][x.id]==='y').map(x=>x.title.split(' · ')[0].split(':')[0]);return `<span class="fp ${p}"><b>${p}</b> ${y.length?esc(y.join(', ')):'<i>nothing yet</i>'}</span>`}).join('')}
+function picksIn(b){return ['D','A'].map(p=>{const its=ITEMS.filter(x=>(x.block===b.id||(x.also||[]).includes(b.id)));const y=its.filter(x=>S.votes[p][x.id]==='y').map(x=>x.title.split(' · ')[0].split(':')[0]);const m=its.filter(x=>S.votes[p][x.id]==='m').map(x=>x.title.split(' · ')[0].split(':')[0]);return `<span class="fp ${p}"><b>${p}</b> ${y.length||m.length?esc(y.join(', '))+(m.length?(y.length?' · ':'')+'<i>by ear: '+esc(m.join(', '))+'</i>':''):'<i>nothing yet</i>'}</span>`}).join('')}
 function renderChapters(){$('#chapters').innerHTML=BLOCKS.map((b,i)=>{const f=!!S.fold[b.id];return `<section class="chapter ${f?'folded':''}" id="b-${b.id}">
   <button class="chead" data-fold="${b.id}" aria-expanded="${!f}"><div><div class="num">${['Chapter one','Chapter two','Chapter three','Chapter four','Chapter five','Chapter six','Chapter seven','Chapter eight','Chapter nine','Chapter ten'][i]||'Chapter'} · ${b.day||''}</div><h2>${esc(b.title)}</h2></div><span class="chev">${f?'▸':'▾'}</span></button>
   ${f?`<div class="fsum">${picksIn(b)}</div>`:`${b.pickOne?'<span class="pickone">Pick one</span>':''}<p class="lede">${b.lede||''}</p><div class="cards">${ITEMS.filter(x=>x.block===b.id||(x.also||[]).includes(b.id)).map(cardHTML).join('')}</div>`}</section>`}).join('')}
 function status(id){const d=S.votes.D[id],a=S.votes.A[id];
   if(d==='y'&&a==='y')return['agree','Agreed ✓'];
-  if((d==='y'&&a==='n')||(d==='n'&&a==='y'))return['split','Split'];
+  if((d==='y'&&a==='n')||(d==='n'&&a==='y')||(d==='m'&&a==='n')||(d==='n'&&a==='m'))return['split','Split'];
   if(d==='y'&&!a)return['wait','Waiting on Amanda'];if(a==='y'&&!d)return['wait','Waiting on David'];
-  if((d==='y'&&a==='m')||(a==='y'&&d==='m')||(d==='m'&&a==='m'))return['maybe','Leaning yes'];
+  if((d==='y'&&a==='m')||(a==='y'&&d==='m'))return['maybe','Leaning yes'];
+  if(d==='m'||a==='m')return['maybe','Play it by ear'];
   return null}
 function renderPlan(){const rows=BLOCKS.map(b=>{const its=ITEMS.filter(x=>x.block===b.id).map(it=>({it,st:status(it.id)})).filter(x=>x.st);
     return its.length?`<div class="planblock"><h4>${esc(b.title)}</h4>${its.map(({it,st})=>`<div class="planrow"><span class="t">${esc(it.title)}</span><span class="st ${st[0]}">${st[1]}</span><span class="marks">${mark('D',it.id)}${mark('A',it.id)}</span></div>`).join('')}</div>`:''}).join('');
   const yes=p=>Object.values(S.votes[p]).filter(v=>v==='y').length;
-  $('#plan').innerHTML=`<h2>Our plan so far</h2><p class="sub">David: ${yes('D')} yes · Amanda: ${yes('A')} yes. Only cards with at least one Yes show here.</p>${rows||'<p class="empty">Nothing picked yet. Vote on a few cards above.</p>'}
+  $('#plan').innerHTML=`<h2>Our plan so far</h2><p class="sub">David: ${yes('D')} yes · Amanda: ${yes('A')} yes. Anything with a Yes or a Maybe shows here. Maybe means “play it by ear” for that slot.</p>${rows||'<p class="empty">Nothing picked yet. Vote on a few cards above.</p>'}
   <div class="notes"><div><label for="noteMe">${PEOPLE[S.me]}'s note (travels with your link)</label><textarea id="noteMe" placeholder="Anything else? e.g. “Let’s skip the haunted stuff” or “I want a nap Saturday 1–2”">${esc(S.notes[S.me]||'')}</textarea></div><div><label>${PEOPLE[other(S.me)]}'s note</label><textarea readonly placeholder="Nothing imported yet">${esc(S.notes[other(S.me)]||'')}</textarea></div></div>`;
   $('#noteMe').addEventListener('input',e=>{S.notes[S.me]=e.target.value;save()});}
 function renderFacts(){$('#facts').innerHTML=FACTS.map(f=>`<span class="chip">${f}</span>`).join('')}
