@@ -79,6 +79,7 @@ kbd{font-family:'Bricolage Grotesque';font-size:.76rem;background:var(--paper2);
 .shead h3{margin:0;font-size:1.15rem;display:flex;align-items:center;gap:8px}
 .shead h3 .ic{font-size:1rem}
 .shead .sl{margin:2px 0 0;font-size:.84rem;color:var(--muted);font-family:'Literata';font-weight:400}
+.shead .sl .fp{display:inline-block;margin:2px 16px 0 0}
 .shead .cnt{display:flex;gap:4px;align-items:center}
 .shead .chev{width:28px;height:28px;font-size:1rem}
 .mapbtn{border:1.5px solid var(--line);background:var(--paper);border-radius:100px;padding:5px 10px;font-family:'Bricolage Grotesque';font-weight:700;font-size:.76rem;color:var(--teal);flex:none}
@@ -207,7 +208,7 @@ body.maplock{overflow:hidden}
   <div><b>3 · Share</b> “Copy my link” at the bottom, text it. Their phone imports your column. The map button shows what fits any slot.</div>
 </div>
 
-<div class="toolbar"><span>Everything starts folded. Tap a decision to open it; tap again to fold it once you’ve voted.</span><button class="btn ghost sm" id="foldDone">Fold slots I've voted in</button><button class="btn ghost sm" id="unfoldAll">Expand all</button></div>
+<div class="toolbar"><span>Slots start folded. Tap one to open it; tap again to fold it once you’ve voted.</span><button class="btn ghost sm" id="foldDone">Fold slots I've voted in</button><button class="btn ghost sm" id="unfoldAll">Expand all</button></div>
 <div id="decisions"></div>
 
 <section class="plan" id="plan"></section>
@@ -478,7 +479,7 @@ const DAYS=[
  {id:'sun',name:'Sunday',date:'Oct 18',lede:'Home by 5–6pm for bath and a school night, so leave Carmel by 2–2:30. Morning is real; the afternoon is the drive, with one stop.'}
 ];
 const SLOTS=[
- {id:'full',name:'Or give it the whole day',short:'Full day',kind:'full'},
+ {id:'full',name:'All day options',short:'All day',kind:'full'},
  {id:'am',name:'Morning',short:'AM',kind:'do'},
  {id:'pm',name:'Afternoon',short:'PM',kind:'do'},
  {id:'eve',name:'Evening',short:'Eve',kind:'eve'}
@@ -529,7 +530,7 @@ const ALL={};ITEMS.concat(EXTRA).forEach(i=>ALL[i.id]=i);
 const OPTS=[];ITEMS.filter(i=>i.block==='hotel').forEach(i=>OPTS.push({key:'hotel|'+i.id,slot:'hotel',it:i,kind:'hotel'}));
 AVAIL.forEach(a=>{const it=ALL[a.id];if(!it){console.error('missing',a.id);return}a.s.forEach(s=>OPTS.push({key:s+'|'+a.id,slot:s,it,kind:a.kind||(it.block==='eat'?'eat':'do'),note:a.note||''}))});
 const OPTK=Object.fromEntries(OPTS.map(o=>[o.key,o]));
-let S={me:'A',votes:{D:{},A:{}},notes:{D:'',A:''},open:{},fold:{hotel:true,fri:true,sat:true,sun:true}};
+let S={me:'A',votes:{D:{},A:{}},notes:{D:'',A:''},open:{},fold:{hotel:true,'fri-full':true,'fri-am':true,'fri-pm':true,'fri-eve':true,'sat-full':true,'sat-am':true,'sat-pm':true,'sat-eve':true,'sun-am':true,'sun-pm':true}};
 try{const s=JSON.parse(localStorage.getItem(KEY)||'null');if(s&&s.votes)S=Object.assign(S,s);}catch(e){}
 const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
 const $=(q,el=document)=>el.querySelector(q);
