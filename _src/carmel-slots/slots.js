@@ -4,7 +4,7 @@ const DAYS=[
  {id:'sun',name:'Sunday',date:'Oct 18',lede:'Home by 5–6pm for bath and a school night, so leave Carmel by 2–2:30. Morning is real; the afternoon is the drive, with one stop.'}
 ];
 const SLOTS=[
- {id:'full',name:'Or give it the whole day',short:'Full day',kind:'full'},
+ {id:'full',name:'All day options',short:'All day',kind:'full'},
  {id:'am',name:'Morning',short:'AM',kind:'do'},
  {id:'pm',name:'Afternoon',short:'PM',kind:'do'},
  {id:'eve',name:'Evening',short:'Eve',kind:'eve'}

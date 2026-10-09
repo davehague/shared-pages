@@ -1,6 +1,6 @@
 module.exports = async ({page, base, ok}) => {
   await page.evaluate(() => localStorage.clear()); await page.reload({waitUntil:'networkidle'});
-  ok('starts folded', (await page.locator('.day.folded').count()) === 4 && (await page.locator('.opt').count()) === 0);
+  ok('starts with hotel + slots folded', (await page.locator('.day.folded').count()) === 1 && (await page.locator('.slot.folded').count()) === 10 && (await page.locator('.opt:visible').count()) === 0);
   await page.locator('#unfoldAll').click();
   await page.locator('#who button[data-p="D"]').click();
   const n = await page.locator('.opt').count(); ok('options rendered', n > 80, `(${n})`);
