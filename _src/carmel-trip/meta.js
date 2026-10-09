@@ -8,6 +8,7 @@ const BLOCKS=[
  {id:'sat-pm',day:'Saturday evening (or any slot)',title:'Halloween-ish and other fillers',lede:'The gentler Halloween options, a pumpkin patch, and a rain plan.'},
  {id:'parks',day:'Any open hour',title:'Parks and play, Carmel & Hamilton County',lede:'Free outdoor spots within 20 minutes of the hotel. Good for the gap between breakfast and an event, or a Sunday-morning run-around before the drive home.'},
  {id:'eat',day:'Any meal',title:'Where to eat',lede:'Kid-tolerant, near Midtown or on the way to things. Hotel breakfast covers mornings.'},
+ {id:'sun-am',day:'Sunday morning to early afternoon',title:'Sunday before the drive',lede:'Hotel breakfast, then roughly 9:30 to 2:00 before you have to point east. Everything here is open Sunday and sits within 30 minutes of the hotel; the museum 10–2 option lives in its own chapter above. Cards marked “also in” are the same card (and the same votes) as elsewhere.'},
  {id:'sun-drive',day:'Sunday',title:'The drive home',lede:'Target: home by 5–6pm so Valerie’s 7pm bath and a school-night bedtime hold. Three hours of driving plus any stops, so leave Carmel (or the museum) by 2–2:30. Uranus is right at the Ohio line and costs only the time you spend inside.'}
 ];
 const FACTS=[

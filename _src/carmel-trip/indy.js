@@ -22,7 +22,7 @@
  links:[{t:'Special events calendar',u:'https://www.childrensmuseum.org/visit/experiences/special-events'},{t:'Haunted House',u:'https://www.childrensmuseum.org/haunted-house'},{t:'Haunted House guide (Indy Event Guide)',u:'https://indyeventguide.com/guides/childrens-museum-haunted-house-guide/'}]},
 
 // ---- Friday afternoon/evening ----
-{id:'fri-hp',block:'fri-pm',title:'Holliday Park: rebuilt playground + the Ruins',when:'Fri · dawn–dusk; nature center 9–5',where:'6363 Spring Mill Rd, Indianapolis',
+{id:'fri-hp',also:['sun-am'],block:'fri-pm',title:'Holliday Park: rebuilt playground + the Ruins',when:'Fri · dawn–dusk; nature center 9–5',where:'6363 Spring Mill Rd, Indianapolis',
  why:'Free, 15 minutes south of Carmel, playground rebuilt in fall 2025 with a $3M grant. The Ruins are a photogenic restored façade. Easy first stop after check-in to burn off car energy.',
  tags:['free:Free','kid:New playground','Outdoor'],
  body:'<p>Splash pad is closed for the season. Nature Center Mon–Sat 9am–5pm. Trails down to the White River if she wants to walk.</p>',
@@ -61,16 +61,16 @@
  links:[{t:'State Fairgrounds event page',u:'https://www.indianastatefair.com/events/2026/world-food-championships'}],map:'Indiana State Fairgrounds'},
 
 // ---- Saturday evening / anytime Indy ----
-{id:'zooboo',block:'sat-pm',title:'Indianapolis Zoo: ZooBoo',when:'Fri/Sat from 2pm (to 9pm), Sun to 7pm',where:'1200 W Washington St, Indianapolis',
+{id:'zooboo',also:['sun-am'],block:'sat-pm',title:'Indianapolis Zoo: ZooBoo',when:'Fri/Sat from 2pm (to 9pm), Sun to 7pm',where:'1200 W Washington St, Indianapolis',
  why:'Light on scares: trick-or-treat trail with 8 candy stations, potions show, Pirates Cove games, backwards carousel, costumes welcome. Included with zoo admission. Arrive before 2 to see animals first.',
  tags:['cost:$15–35 adult, kids $15–32, parking $10','kid:Safest Halloween pick','Outdoor'],
  body:'<p>Zoo open 9am–9pm Fri/Sat, 9–7 Sun; rides close 7pm. Up to 50% off buying online in advance. 35 min from Carmel. Best as the Saturday-evening alternative to Conner Prairie if you want the gentler option, or a Friday-afternoon arrival activity.</p>',
  links:[{t:'ZooBoo official',u:'https://www.indianapoliszoo.com/zoo-events/zooboo/'},{t:'Indy’s Child on ZooBoo',u:'https://indyschild.com/ndianapolis-zoo-boo/'},{t:'Visit Indy pricing',u:'https://www.visitindy.com/directory/indianapolis-zoo-located-in-white-river-state-park/'}],map:'Indianapolis Zoo'},
-{id:'pumpkin-russell',block:'sat-pm',title:'Pumpkin patch: Russell Farms (Noblesville)',when:'Sat/Sun · 10am–6pm',where:'Noblesville, ~20 min from Carmel',
- why:'Closest proper pumpkin patch to Carmel. $17 per person (2 and under free). Waterman’s on the south side of Indy is the bigger farm ($17.95 weekends) but 25–30 min the wrong direction.',
- tags:['cost:$17 pp','Outdoor','kid:Classic'],
- body:'<p>Open Sept 26–Oct 31. Weekend hours came from a search summary; confirm on the site. Tuttle Orchards (Greenfield, on I-70) is closed Sundays, so it doesn’t work for the drive home.</p>',
- links:[{t:'Russell Farms',u:'https://www.russell-farms.com/'},{t:'Waterman’s hours & prices',u:'https://watermansfamilyfarm.com/price-hours/'}],map:'Russell Farms Noblesville'},
+{id:'pumpkin-russell',block:'sun-am',also:['sat-pm'],rec:true,title:'Russell Farms pumpkin patch (Noblesville)',when:'Sat & Sun Oct 17–18 · 10am–6pm',where:'12290 E 191st St, Noblesville · ~25 min',
+ why:'Confirmed open Sunday and built for a 5-year-old: petting zoo, small corn maze, train ride, jumping pillow, playgrounds, pedal tractors, mini golf, all included in the $17 admission (2 and under free). Arrive at 10, leave by 12:30, and the drive-home clock is untouched.',
+ tags:['cost:$17 pp, kids 2- free','kid:Made for this age','Outdoor','Sunday-proof'],
+ body:'<p>Pumpkins and paint-a-pumpkin cost extra; no pets. The $17 figure is from the farm’s admission page, which doesn’t show a year, so confirm at the gate. Midweek hours are 1–5, weekend 10–6. Phone 317-773-9078.</p><div class="tip">Sunday plan: hotel breakfast, farm 10–12:30, lunch on the way (Portillo’s Fishers is 15 min south), I-69 → I-465 → I-70, Uranus at ~3:45, home by 6.</div><p>Other patches: Waterman’s (south Indy, $17.95 weekends) is the wrong direction; Stuckey Farm (Sheridan) doesn’t open until 1pm Sunday; Tuttle Orchards (Greenfield, on I-70) is closed Sundays; Stonycreek Farm status for 2026 unconfirmed (317-773-3344).</p>',
+ links:[{t:'Russell Farms',u:'https://www.russell-farms.com/'},{t:'Admission',u:'https://www.russell-farms.com/admission.html'},{t:'Indy With Kids review',u:'https://indywithkids.com/locations/russell-farms-pumpkin-patch/'}],map:'Russell Farms Pumpkin Patch Noblesville'},
 {id:'rain-statemuseum',block:'sat-pm',title:'Rain plan: Indiana State Museum',when:'Wed–Sun · 10am–5pm',where:'650 W Washington St, downtown',
  why:'Backup only. $23 adult / $17 youth, $4 parking validation, $1 off online. Nothing dated for the weekend. Eiteljorg next door has a free Día de Muertos altar exhibit (Oct 10–Nov 2) but no verified fall-break drop-in on Friday.',
  tags:['cost:$23 / $17','in:Indoor'],
