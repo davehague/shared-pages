@@ -76,6 +76,17 @@ button{font-family:inherit;cursor:pointer}
 .chapter p.lede{margin:0 0 14px;color:var(--muted);max-width:66ch}
 .chapter .pickone{display:inline-block;font-size:.78rem;background:var(--gold-soft);color:#6e4f08;padding:3px 10px;border-radius:100px;font-family:'Bricolage Grotesque';font-weight:600;margin-bottom:10px}
 
+.chead{display:flex;width:100%;align-items:center;justify-content:space-between;gap:10px;border:0;background:transparent;padding:0;text-align:left;color:inherit;cursor:pointer}
+.chead h2{margin:4px 0 6px}
+.chead .chev{font-size:1.4rem;color:var(--muted);flex:none;width:34px;height:34px;display:grid;place-items:center;border:1.5px solid var(--line);border-radius:50%;background:var(--card)}
+.chapter.folded{padding:16px 0 10px;border-bottom:1px dashed var(--line)}
+.chapter.folded .chead h2{font-size:1.25rem;color:var(--muted)}
+.fsum{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:.88rem;margin-top:2px}
+.fp b{font-family:'Bricolage Grotesque';display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;font-size:.7rem;color:#fff;margin-right:4px}
+.fp.D b{background:var(--teal)}.fp.A b{background:var(--plum)}
+.fp i{color:var(--muted)}
+.foldbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:26px 0 -6px;font-size:.86rem;color:var(--muted)}
+.foldbar span{flex:1;min-width:200px}
 /* cards */
 .cards{display:grid;gap:12px}
 .card{background:var(--card);border:1px solid var(--line);border-left:6px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:14px 16px 12px;position:relative;transition:border-color .15s,transform .15s}
@@ -166,23 +177,30 @@ button{font-family:inherit;cursor:pointer}
 .toast.on{opacity:1;transform:translateX(-50%)}
 footer{padding:30px 0 50px;color:var(--muted);font-size:.84rem}
 kbd{font-family:'Bricolage Grotesque';font-size:.76rem;background:var(--paper2);border:1px solid var(--line);border-bottom-width:2px;border-radius:5px;padding:1px 6px}
-/* map */
-.mapsec{margin:30px 0 0}
-.mapsec h2{font-size:1.5rem;margin:0 0 4px}
-.mapsec p{margin:0 0 10px;color:var(--muted)}
-.filters{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+/* map: floating button + modal */
+.fab{position:fixed;right:16px;bottom:76px;z-index:7;display:inline-flex;align-items:center;gap:7px;border:0;border-radius:100px;padding:12px 16px 12px 13px;background:var(--pumpkin);color:#fff;font-family:'Bricolage Grotesque';font-weight:800;font-size:.92rem;box-shadow:0 10px 30px rgba(216,95,28,.38),0 2px 6px rgba(60,40,10,.2);transition:transform .15s}
+.fab:hover{transform:translateY(-2px) scale(1.03)}
+.modal{position:fixed;inset:0;z-index:20;background:var(--paper);display:flex;flex-direction:column;padding:14px 16px 12px;animation:pop .18s ease-out}
+.modal[hidden]{display:none}
+@keyframes pop{from{opacity:0;transform:scale(.985)}to{opacity:1;transform:none}}
+.mhead{display:flex;gap:12px;align-items:flex-start;justify-content:space-between;margin-bottom:8px}
+.mhead h2{font-size:1.35rem;margin:0}
+.mhead p{margin:3px 0 0;color:var(--muted);font-size:.86rem;max-width:62ch}
+.mclose{border:1.5px solid var(--line);background:var(--card);width:40px;height:40px;border-radius:50%;font-size:1.1rem;font-weight:700;flex:none}
+.filters{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
 .filters button{border:1.5px solid var(--line);background:var(--card);border-radius:100px;padding:6px 12px;font-family:'Bricolage Grotesque';font-weight:700;font-size:.82rem;color:var(--muted);display:inline-flex;align-items:center;gap:6px}
 .filters button .sw{width:10px;height:10px;border-radius:50%;background:var(--c)}
 .filters button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
-#map{height:460px;border-radius:var(--r);border:1px solid var(--line);box-shadow:var(--shadow);z-index:1}
+#map{flex:1;min-height:200px;border-radius:var(--r);border:1px solid var(--line);box-shadow:var(--shadow);z-index:1}
 .leaflet-popup-content{font-family:'Literata',Georgia,serif;font-size:.88rem;line-height:1.4;margin:10px 12px}
 .leaflet-popup-content b{font-family:'Bricolage Grotesque';font-size:.95rem}
 .leaflet-popup-content .pw{color:var(--maple);font-family:'Bricolage Grotesque';font-weight:600;font-size:.78rem}
 .leaflet-popup-content a.go{display:inline-block;margin-top:6px;font-family:'Bricolage Grotesque';font-weight:700}
 .leaflet-popup-content-wrapper{border-radius:12px}
-.mapsec .legend{font-size:.8rem;color:var(--muted);margin-top:8px}
-@media (max-width:560px){#map{height:380px}}
-@media print{#map,.filters{display:none!important}.bar,.share,.vote,.more,.who,.howto,.paths{display:none!important}.card{break-inside:avoid}body::before{display:none}}
+.modal .legend{font-size:.78rem;color:var(--muted);margin-top:6px}
+body.maplock{overflow:hidden}
+@media (max-width:560px){.fab{bottom:86px;right:12px;padding:11px 13px}.fab span{display:none}.mhead p{display:none}}
+@media print{#map,.filters,.fab,.modal{display:none!important}.bar,.share,.vote,.more,.who,.howto,.paths{display:none!important}.card{break-inside:avoid}body::before{display:none}}
 @media (max-width:560px){.card{padding:12px 12px 10px}.marks{margin-left:0}.card .ctl{gap:6px}.vote button{padding:6px 10px}}
 </style>
 </head>
@@ -207,20 +225,7 @@ kbd{font-family:'Bricolage Grotesque';font-size:.76rem;background:var(--paper2);
   <div><b>3 · Agree</b> “Our plan so far” at the bottom shows what's agreed, split, or still waiting on the other person.</div>
 </div>
 
-<section class="paths">
-  <h2>Shortcut: pick a path, then tweak</h2>
-  <p>Each one adds a set of “Yes” votes for whoever is picking right now. Nothing else is touched.</p>
-  <div class="pathgrid" id="paths"></div>
-</section>
-
-<section class="mapsec" id="mapsec">
-  <h2>Where everything is</h2>
-  <p>Hotels and every option, by day. Tap a pin for the card. A green ring means one of you already said Yes.</p>
-  <div class="filters" id="mapf"></div>
-  <div id="map"></div>
-  <div class="legend">Road-trip stops (Dayton, Richmond) sit off to the east; zoom out or pick Friday / Sunday to see them.</div>
-</section>
-
+<div class="foldbar"><span>Tap a chapter title to fold it once you’ve decided.</span><button class="btn ghost sm" id="foldDone">Fold chapters I’ve voted in</button><button class="btn ghost sm" id="unfoldAll">Expand all</button></div>
 <div id="chapters"></div>
 
 <section class="plan" id="plan"></section>
@@ -238,12 +243,22 @@ kbd{font-family:'Bricolage Grotesque';font-size:.76rem;background:var(--paper2);
     <input id="pasteCode" placeholder="Paste a link or code from the other person…">
     <button class="btn ghost" id="importBtn">Import</button>
   </div>
-  <div class="mini">Keyboard on desktop: <kbd>j</kbd>/<kbd>k</kbd> move, <kbd>y</kbd> <kbd>m</kbd> <kbd>n</kbd> vote, <kbd>e</kbd> details, <kbd>1</kbd>/<kbd>2</kbd> switch person.</div>
+  <div class="mini">Keyboard on desktop: <kbd>j</kbd>/<kbd>k</kbd> move, <kbd>y</kbd> <kbd>m</kbd> <kbd>n</kbd> vote, <kbd>e</kbd> details, <kbd>1</kbd>/<kbd>2</kbd> switch person, <kbd>m</kbd> map.</div>
 </section>
 
 <div class="bar" id="bar"><span class="dot"></span><span id="barWho">David</span><span class="cnt" id="barCnt"></span><button class="btn sm" id="barShare">Share</button></div>
 
 <footer>Researched Oct 9, 2026. Every card links its sources; recheck organizer pages the day before, especially for outdoor events. Built for Amanda and David by David's assistant.</footer>
+</div>
+<button class="fab" id="fab" title="Map (m)" aria-label="Open the map"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span>Map</span></button>
+<div class="modal" id="mapModal" hidden>
+  <div class="mhead">
+    <div><h2>Where everything is</h2><p>Hotels and every option, by day. Tap a pin, then “Open the card.” A green ring means one of you already said Yes.</p></div>
+    <button class="mclose" id="mapClose" aria-label="Close map">✕</button>
+  </div>
+  <div class="filters" id="mapf"></div>
+  <div id="map"></div>
+  <div class="legend">Road-trip stops (Dayton, Richmond) sit off to the east; pick Friday or Sunday, or zoom out, to see them.</div>
 </div>
 <div class="toast" id="toast"></div>
 
@@ -252,7 +267,7 @@ kbd{font-family:'Bricolage Grotesque';font-size:.76rem;background:var(--paper2);
 const KEY='carmel-2026-v1';
 const PEOPLE={D:'David',A:'Amanda'};
 const VL={y:'Yes',m:'Maybe',n:'Pass'};
-let S={me:'D',votes:{D:{},A:{}},notes:{D:'',A:''},open:{}};
+let S={me:'D',votes:{D:{},A:{}},notes:{D:'',A:''},open:{},fold:{}};
 try{const s=JSON.parse(localStorage.getItem(KEY)||'null');if(s&&s.votes)S=Object.assign(S,s);}catch(e){}
 const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
 const $=(q,el=document)=>el.querySelector(q);
@@ -287,12 +302,10 @@ function cardHTML(it){const v=S.votes[S.me][it.id]||'';
   <div class="detail">${it.body||''}${it.links&&it.links.length?`<div class="k">Sources &amp; links</div><div class="src">${it.links.map(l=>`<a href="${l.u}" target="_blank" rel="noopener">${esc(l.t)} ↗</a>`).join('')}</div>`:''}${it.map?`<div class="src"><a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(it.map)}" target="_blank" rel="noopener">📍 Map: ${esc(it.map)} ↗</a></div>`:''}</div>
 </article>`}
 
-function renderChapters(){$('#chapters').innerHTML=BLOCKS.map((b,i)=>`<section class="chapter" id="b-${b.id}">
-  <div class="num">${['Chapter one','Chapter two','Chapter three','Chapter four','Chapter five','Chapter six','Chapter seven','Chapter eight','Chapter nine','Chapter ten'][i]||'Chapter'} · ${b.day||''}</div>
-  <h2>${esc(b.title)}</h2>${b.pickOne?'<span class="pickone">Pick one</span>':''}
-  <p class="lede">${b.lede||''}</p>
-  <div class="cards">${ITEMS.filter(x=>x.block===b.id).map(cardHTML).join('')}</div></section>`).join('')}
-
+function picksIn(b){return ['D','A'].map(p=>{const y=ITEMS.filter(x=>x.block===b.id&&S.votes[p][x.id]==='y').map(x=>x.title.split(' · ')[0].split(':')[0]);return `<span class="fp ${p}"><b>${p}</b> ${y.length?esc(y.join(', ')):'<i>nothing yet</i>'}</span>`}).join('')}
+function renderChapters(){$('#chapters').innerHTML=BLOCKS.map((b,i)=>{const f=!!S.fold[b.id];return `<section class="chapter ${f?'folded':''}" id="b-${b.id}">
+  <button class="chead" data-fold="${b.id}" aria-expanded="${!f}"><div><div class="num">${['Chapter one','Chapter two','Chapter three','Chapter four','Chapter five','Chapter six','Chapter seven','Chapter eight','Chapter nine','Chapter ten'][i]||'Chapter'} · ${b.day||''}</div><h2>${esc(b.title)}</h2></div><span class="chev">${f?'▸':'▾'}</span></button>
+  ${f?`<div class="fsum">${picksIn(b)}</div>`:`${b.pickOne?'<span class="pickone">Pick one</span>':''}<p class="lede">${b.lede||''}</p><div class="cards">${ITEMS.filter(x=>x.block===b.id).map(cardHTML).join('')}</div>`}</section>`}).join('')}
 function status(id){const d=S.votes.D[id],a=S.votes.A[id];
   if(d==='y'&&a==='y')return['agree','Agreed ✓'];
   if((d==='y'&&a==='n')||(d==='n'&&a==='y'))return['split','Split'];
@@ -302,10 +315,9 @@ function status(id){const d=S.votes.D[id],a=S.votes.A[id];
 function renderPlan(){const rows=BLOCKS.map(b=>{const its=ITEMS.filter(x=>x.block===b.id).map(it=>({it,st:status(it.id)})).filter(x=>x.st);
     return its.length?`<div class="planblock"><h4>${esc(b.title)}</h4>${its.map(({it,st})=>`<div class="planrow"><span class="t">${esc(it.title)}</span><span class="st ${st[0]}">${st[1]}</span><span class="marks">${mark('D',it.id)}${mark('A',it.id)}</span></div>`).join('')}</div>`:''}).join('');
   const yes=p=>Object.values(S.votes[p]).filter(v=>v==='y').length;
-  $('#plan').innerHTML=`<h2>Our plan so far</h2><p class="sub">David: ${yes('D')} yes · Amanda: ${yes('A')} yes. Only cards with at least one Yes show here.</p>${rows||'<p class="empty">Nothing picked yet. Vote on a few cards above, or load a path.</p>'}
+  $('#plan').innerHTML=`<h2>Our plan so far</h2><p class="sub">David: ${yes('D')} yes · Amanda: ${yes('A')} yes. Only cards with at least one Yes show here.</p>${rows||'<p class="empty">Nothing picked yet. Vote on a few cards above.</p>'}
   <div class="notes"><div><label for="noteMe">${PEOPLE[S.me]}'s note (travels with your link)</label><textarea id="noteMe" placeholder="Anything else? e.g. “Let’s skip the haunted stuff” or “I want a nap Saturday 1–2”">${esc(S.notes[S.me]||'')}</textarea></div><div><label>${PEOPLE[other(S.me)]}'s note</label><textarea readonly placeholder="Nothing imported yet">${esc(S.notes[other(S.me)]||'')}</textarea></div></div>`;
   $('#noteMe').addEventListener('input',e=>{S.notes[S.me]=e.target.value;save()});}
-function renderPaths(){$('#paths').innerHTML=PATHS.map(p=>`<div class="path"><h3>${esc(p.title)}</h3><p>${p.desc}</p><button class="btn sm" data-path="${p.id}">Add these as my Yes votes</button></div>`).join('')}
 function renderFacts(){$('#facts').innerHTML=FACTS.map(f=>`<span class="chip">${f}</span>`).join('')}
 function renderBar(){const y=Object.values(S.votes[S.me]).filter(v=>v==='y').length,m=Object.values(S.votes[S.me]).filter(v=>v==='m').length;$('#barWho').textContent=PEOPLE[S.me];$('#barCnt').textContent=`${y} yes · ${m} maybe`;$('#bar').className='bar '+S.me;document.querySelectorAll('#who button').forEach(b=>b.classList.toggle('on',b.dataset.p===S.me))}
 function render(onlyId){if(onlyId){const old=$(`.card[data-id="${onlyId}"]`);if(old){const it=ITEMS.find(x=>x.id===onlyId);const tmp=document.createElement('div');tmp.innerHTML=cardHTML(it);const nw=tmp.firstElementChild;if(old.classList.contains('focus'))nw.classList.add('focus');old.replaceWith(nw)}}else{renderChapters()}renderPlan();renderBar();updateMap(false)}
@@ -314,14 +326,16 @@ document.addEventListener('click',e=>{
   const c=e.target.closest('.card');
   if(c&&e.target.matches('.vote button')){vote(c.dataset.id,e.target.dataset.v);return}
   if(c&&e.target.matches('.more')){S.open[c.dataset.id]=!S.open[c.dataset.id];save();render(c.dataset.id);return}
+  const fb=e.target.closest('[data-fold]');if(fb){const id=fb.dataset.fold;S.fold[id]=!S.fold[id];save();render();if(!S.fold[id])document.getElementById('b-'+id).scrollIntoView({block:'start',behavior:'smooth'});return}
   if(e.target.matches('#who button')){S.me=e.target.dataset.p;save();render();toast(`Now picking as ${PEOPLE[S.me]}`);return}
-  if(e.target.matches('[data-path]')){const p=PATHS.find(x=>x.id===e.target.dataset.path);p.items.forEach(id=>{if(ITEMS.find(x=>x.id===id))S.votes[S.me][id]='y'});save();render();toast(`Added ${p.items.length} Yes votes for ${PEOPLE[S.me]}`);return}
   if(e.target.matches('#copyLink,#barShare')){const u=link();(navigator.clipboard?navigator.clipboard.writeText(u):Promise.reject()).then(()=>toast(`Link copied — text it to ${PEOPLE[other(S.me)]}`)).catch(()=>{$('#code').style.display='block';$('#code').textContent=u;toast('Copy the link below')});if(navigator.share&&e.target.id==='barShare'){navigator.share({title:'Carmel weekend picks',url:u}).catch(()=>{})}return}
+  if(e.target.matches('#foldDone')){BLOCKS.forEach(b=>{if(ITEMS.some(x=>x.block===b.id&&S.votes[S.me][x.id]==='y'))S.fold[b.id]=true});save();render();return}
+  if(e.target.matches('#unfoldAll')){S.fold={};save();render();return}
   if(e.target.matches('#showCode')){const c=$('#code');c.style.display=c.style.display==='none'?'block':'none';c.textContent=link();return}
   if(e.target.matches('#importBtn')){doImport($('#pasteCode').value);$('#pasteCode').value='';return}
   if(e.target.matches('#resetMe')){if(confirm(`Clear all of ${PEOPLE[S.me]}'s votes and note on this device?`)){S.votes[S.me]={};S.notes[S.me]='';save();render();toast('Cleared')}return}
 });
-document.addEventListener('keydown',e=>{if(e.target.matches('input,textarea'))return;const cards=[...document.querySelectorAll('.card')];let i=cards.findIndex(c=>c.classList.contains('focus'));
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeMap();return}if(e.target.matches('input,textarea'))return;if(e.key==='m'){openMap();return}const cards=[...document.querySelectorAll('.card')];let i=cards.findIndex(c=>c.classList.contains('focus'));
   const go=n=>{cards.forEach(c=>c.classList.remove('focus'));i=Math.max(0,Math.min(cards.length-1,n));cards[i].classList.add('focus');cards[i].scrollIntoView({block:'center',behavior:'smooth'})};
   if(e.key==='j')go(i+1);else if(e.key==='k')go(i-1);else if('ymn'.includes(e.key)&&i>=0){vote(cards[i].dataset.id,e.key);document.querySelector(`.card[data-id="${cards[i].dataset.id}"]`).classList.add('focus')}
   else if(e.key==='e'&&i>=0){const id=cards[i].dataset.id;S.open[id]=!S.open[id];save();render(id);document.querySelector(`.card[data-id="${id}"]`).classList.add('focus')}
@@ -333,7 +347,9 @@ const FILT=[['all','Everything','#5a5248'],['hotel','Hotels','#d85f1c'],['fri','
 const COL=Object.fromEntries(FILT.map(f=>[f[0],f[2]]));
 const dayOf=it=>it.day||DAYOF[it.block]||'any';
 let MAP=null,LAYER=null,MF='all';
-function initMap(){if(!window.L||!document.getElementById('map'))return;MAP=L.map('map',{scrollWheelZoom:false});L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap'}).addTo(MAP);LAYER=L.layerGroup().addTo(MAP);
+function openMap(){const m=document.getElementById('mapModal');m.hidden=false;document.body.classList.add('maplock');if(!MAP)initMap();else{MAP.invalidateSize();updateMap(true)}}
+function closeMap(){document.getElementById('mapModal').hidden=true;document.body.classList.remove('maplock')}
+function initMap(){if(!window.L||!document.getElementById('map'))return;MAP=L.map('map',{scrollWheelZoom:true});L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap'}).addTo(MAP);LAYER=L.layerGroup().addTo(MAP);
   document.getElementById('mapf').innerHTML=FILT.map(f=>`<button data-f="${f[0]}" style="--c:${f[2]}" class="${f[0]===MF?'on':''}"><span class="sw"></span>${f[1]}</button>`).join('');
   document.getElementById('mapf').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;MF=b.dataset.f;document.querySelectorAll('#mapf button').forEach(x=>x.classList.toggle('on',x===b));updateMap(true)});
   updateMap(true)}
@@ -343,8 +359,8 @@ function updateMap(fit){if(!MAP)return;LAYER.clearLayers();const pts=[],near=[];
     m.bindPopup(`<b>${esc(it.title)}</b><br><span class="pw">${it.when||''}</span><br>${it.where?esc(it.where)+'<br>':''}<a class="go" href="#" data-go="${it.id}">Open the card ↓</a>`);
     pts.push(ll);if(!it.far)near.push(ll)});
   if(fit&&pts.length){const use=(MF==='sun'||MF==='fri'||!near.length)?pts:near;MAP.fitBounds(L.latLngBounds(use).pad(.12),{maxZoom:13})}}
-document.addEventListener('click',e=>{const a=e.target.closest('[data-go]');if(!a)return;e.preventDefault();const id=a.dataset.go;S.open[id]=true;save();render(id);const c=document.querySelector(`.card[data-id="${id}"]`);if(c){c.scrollIntoView({block:'center',behavior:'smooth'});c.classList.add('focus')}});
-renderFacts();renderPaths();render();initMap();if(location.hash.startsWith('#b-')){const el=document.getElementById(location.hash.slice(1));if(el)el.scrollIntoView()}
+document.addEventListener('click',e=>{const a=e.target.closest('[data-go]');if(!a)return;e.preventDefault();closeMap();const id=a.dataset.go;S.open[id]=true;save();render(id);const c=document.querySelector(`.card[data-id="${id}"]`);if(c){c.scrollIntoView({block:'center',behavior:'smooth'});c.classList.add('focus')}});
+renderFacts();render();document.getElementById('fab').addEventListener('click',openMap);document.getElementById('mapClose').addEventListener('click',closeMap);if(location.hash.startsWith('#b-')){const el=document.getElementById(location.hash.slice(1));if(el)el.scrollIntoView()}
 </script>
 </body>
 </html>

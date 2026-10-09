@@ -8,9 +8,15 @@ module.exports = async ({page, base, ok}) => {
   ok('details open', await page.locator('.card').first().evaluate(c => c.classList.contains('open')));
   await page.locator('#who button[data-p="A"]').click();
   ok('switch person', (await page.locator('#barWho').textContent()) === 'Amanda');
-  await page.locator('[data-path="easy"]').click();
+  for (const id of ['h-drury','cm-fri','fri-foodtrucks','sat-market','aia','eat-bubs','home-uranus']) await page.locator(`.card[data-id="${id}"] .vote button.y`).click();
   const y = await page.evaluate(() => Object.values(JSON.parse(localStorage.getItem('carmel-2026-v1')).votes.A).filter(v=>v==='y').length);
-  ok('path adds yes votes', y >= 7, `(${y})`);
+  ok('yes votes recorded', y >= 7, `(${y})`);
+  await page.locator('[data-fold="hotel"]').click();
+  ok('chapter folds with summary', (await page.locator('#b-hotel.folded .fsum').count()) === 1 && (await page.locator('#b-hotel .card').count()) === 0);
+  await page.locator('#foldDone').click();
+  ok('fold-voted folds several', (await page.locator('.chapter.folded').count()) >= 5);
+  await page.locator('#unfoldAll').click();
+  ok('expand all', (await page.locator('.chapter.folded').count()) === 0);
   const code = await page.evaluate(() => encode('A'));
   ok('encode produces code', /^A\.[ymn.]+\./.test(code), code.slice(0,40));
   // import as David's link onto a fresh device
@@ -21,11 +27,14 @@ module.exports = async ({page, base, ok}) => {
   ok('import via hash restores A votes', Object.values(st.votes.A).filter(v=>v==='y').length === y);
   ok('hash cleared after import', (await page.evaluate(()=>location.hash)) === '');
   ok('plan shows waiting rows', (await page.locator('.planrow .st.wait').count()) > 0);
+  await page.locator('#fab').click();
   await page.waitForFunction(() => document.querySelectorAll('#map path.leaflet-interactive').length > 0, null, {timeout: 15000});
   const pins = await page.locator('#map path.leaflet-interactive').count(); ok('map pins rendered', pins >= 40, `(${pins})`);
   await page.locator('#mapf button[data-f="hotel"]').click();
   const hp = await page.locator('#map path.leaflet-interactive').count(); ok('hotel filter shows 7 pins', hp === 7, `(${hp})`);
   await page.locator('#mapf button[data-f="all"]').click();
+  await page.locator('#mapClose').click();
+  ok('modal closes', await page.locator('#mapModal').evaluate(m => m.hidden));
   await page.setViewportSize({width:390,height:844});
   await page.screenshot({path: require('path').join(__dirname,'.shots','mobile.png'), fullPage:false});
   const sw = await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1);
