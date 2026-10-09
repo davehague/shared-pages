@@ -13,11 +13,13 @@ git push -q origin main
 SHA=$(git rev-parse HEAD)
 gh api -X POST repos/davehague/shared-pages/pages/builds >/dev/null 2>&1 || true
 URL="https://davehague.github.io/shared-pages/$SLUG/"
-for i in $(seq 1 40); do
+WANT=$(md5 -q "$SRC")
+for i in $(seq 1 60); do
   sleep 8
-  if curl -fsSL "$URL" 2>/dev/null | grep -c "carmel-slots-v1" >/dev/null; then
-    B=$(gh api repos/davehague/shared-pages/pages/builds/latest --jq .commit 2>/dev/null || echo ?)
-    if [ "$B" = "$SHA" ] || [ "$i" -gt 6 ]; then echo "PUBLISHED $URL (build $B)"; exit 0; fi
+  B=$(gh api repos/davehague/shared-pages/pages/builds/latest --jq '.status + " " + .commit' 2>/dev/null || echo "? ?")
+  if [ "$B" = "built $SHA" ]; then
+    GOT=$(curl -fsSL -H "Cache-Control: no-cache" "$URL?v=$SHA" 2>/dev/null | md5 -q)
+    if [ "$GOT" = "$WANT" ]; then echo "PUBLISHED $URL (build $SHA, live content verified)"; exit 0; fi
   fi
 done
 echo "TIMEOUT waiting for $URL (pushed $SHA)"; exit 1
