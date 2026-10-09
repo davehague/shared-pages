@@ -1,5 +1,7 @@
 module.exports = async ({page, base, ok}) => {
   await page.evaluate(() => localStorage.clear()); await page.reload({waitUntil:'networkidle'});
+  ok('starts folded', (await page.locator('.day.folded').count()) === 4 && (await page.locator('.opt').count()) === 0);
+  await page.locator('#unfoldAll').click();
   await page.locator('#who button[data-p="D"]').click();
   const n = await page.locator('.opt').count(); ok('options rendered', n > 80, `(${n})`);
   const missing = await page.evaluate(() => AVAIL.filter(a => !ALL[a.id]).map(a => a.id)); ok('no missing option ids', missing.length === 0, missing.join(','));

@@ -207,7 +207,7 @@ body.maplock{overflow:hidden}
   <div><b>3 · Share</b> “Copy my link” at the bottom, text it. Their phone imports your column. The map button shows what fits any slot.</div>
 </div>
 
-<div class="toolbar"><span>Tap a day or slot title to fold it.</span><button class="btn ghost sm" id="foldDone">Fold slots I've voted in</button><button class="btn ghost sm" id="unfoldAll">Expand all</button></div>
+<div class="toolbar"><span>Everything starts folded. Tap a decision to open it; tap again to fold it once you’ve voted.</span><button class="btn ghost sm" id="foldDone">Fold slots I've voted in</button><button class="btn ghost sm" id="unfoldAll">Expand all</button></div>
 <div id="decisions"></div>
 
 <section class="plan" id="plan"></section>
@@ -244,7 +244,7 @@ const ALL={};ITEMS.concat(EXTRA).forEach(i=>ALL[i.id]=i);
 const OPTS=[];ITEMS.filter(i=>i.block==='hotel').forEach(i=>OPTS.push({key:'hotel|'+i.id,slot:'hotel',it:i,kind:'hotel'}));
 AVAIL.forEach(a=>{const it=ALL[a.id];if(!it){console.error('missing',a.id);return}a.s.forEach(s=>OPTS.push({key:s+'|'+a.id,slot:s,it,kind:a.kind||(it.block==='eat'?'eat':'do'),note:a.note||''}))});
 const OPTK=Object.fromEntries(OPTS.map(o=>[o.key,o]));
-let S={me:'A',votes:{D:{},A:{}},notes:{D:'',A:''},open:{},fold:{}};
+let S={me:'A',votes:{D:{},A:{}},notes:{D:'',A:''},open:{},fold:{hotel:true,fri:true,sat:true,sun:true}};
 try{const s=JSON.parse(localStorage.getItem(KEY)||'null');if(s&&s.votes)S=Object.assign(S,s);}catch(e){}
 const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
 const $=(q,el=document)=>el.querySelector(q);
