@@ -283,7 +283,8 @@ function slotHTML(d,sl){const sid=d.id+'-'+sl.id,os=OPTS.filter(o=>o.slot===sid)
   const yD=keys.filter(k=>S.votes.D[k]==='y').length,yA=keys.filter(k=>S.votes.A[k]==='y').length;
   const ic={full:'☀️',am:'🌅',pm:'🕑',eve:'🌙'}[sl.id];
   let body='';
-  if(sl.kind==='eve'||sid==='sun-pm'){const g={do:'Do',eat:'Eat',wind:'Wind down'};body=['do','eat','wind'].map(k=>{const xs=os.filter(o=>o.kind===k);return xs.length?`<div class="kind">${g[k]}</div>`+xs.map(optHTML).join(''):''}).join('')}
+  const kinds=new Set(os.map(o=>o.kind));
+  if(kinds.size>1){const g={do:'Do',eat:'Eat',wind:'Wind down'};const order=(sl.id==='am')?['eat','do','wind']:['do','eat','wind'];body=order.map(k=>{const xs=os.filter(o=>o.kind===k);return xs.length?`<div class="kind">${g[k]}</div>`+xs.map(optHTML).join(''):''}).join('')}
   else body=os.map(optHTML).join('');
   return `<div class="slot ${sl.id} ${f?'folded':''}" id="s-${sid}"><button class="shead" data-fold="${sid}" aria-expanded="${!f}"><div class="t"><h3><span class="ic">${ic}</span>${sl.name}</h3><div class="sl">${f?picks(keys):(SLOTLEDE[sid]||'')}</div></div><span class="cnt">${mark('D','')}</span><span class="mapbtn" data-map="${sid}">Map ${os.length}</span><span class="chev">${f?'▸':'▾'}</span></button><div class="opts">${body}</div></div>`.replace(`<span class="cnt">${mark('D','')}</span>`,`<span class="cnt" title="Yes votes: David ${yD}, Amanda ${yA}"><span class="mark D ${yD?'y':''}" data-v="${yD||''}">D</span><span class="mark A ${yA?'y':''}" data-v="${yA||''}">A</span></span>`)}
 function renderDecisions(){const hotels=OPTS.filter(o=>o.slot==='hotel');const hf=!!S.fold.hotel;
