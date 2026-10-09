@@ -14,17 +14,17 @@
 {id:'sat-market',block:'sat-am',rec:true,title:'Carmel Winter Farmers Market opening day + steel drums',when:'Sat Oct 17 · 9am–noon',where:'The Six Eleven, 611 3rd Ave SW, Carmel',
  why:'Opening day of the indoor winter market: ~60 vendors, breakfast items, a café seating area, and the Island Breeze steel-drum band. Free, five minutes from Midtown, and it leaves the whole morning loose.',
  tags:['free:Free','in:Indoor','kid:Music + snacks'],
- body:'<p>The summer market at Carter Green ended in September. The site still has a stale “510 3rd Ave SW” line; 611 is the current address. Crowded indoors on opening day, so go at 9.</p><div class="tip">Hotel breakfast first, market at 9:30 for a second snack, then a park (Westermeier Commons or West Park) until lunch.</div>',
+ body:'<p>The summer market at Carter Green ended in September. The site still has a stale “510 3rd Ave SW” line; 611 is the current address. Crowded indoors on opening day, so go at 9.</p><div class="tip">Hotel breakfast first, market at 9:30 for a second snack, then a park (Westermeier Commons or West Park) until lunch. Leaves the afternoon fully open.</div>',
  links:[{t:'Winter market page',u:'https://www.carmelfarmersmarket.com/wm-home'}],map:'611 3rd Ave SW Carmel IN'},
 {id:'sat-train',block:'sat-am',title:'Nickel Plate Express “Fall Foliage Express” (Noblesville)',when:'Sat Oct 17 or Sun Oct 18 · times not posted',where:'825 Forest Park Dr, Noblesville · 20 min',
- why:'A 65-minute real-train ride with cider and a fall treat. Adult $28, child 3–12 $26, so about $82 for the three of you. Not offered Friday. Best as the Saturday-morning “big thing” or a Sunday add before the drive.',
+ why:'A 65-minute real-train ride with cider and a fall treat. Adult $28, child 3–12 $26, so about $82 for the three of you. Not offered Friday. Works as the Saturday “big thing” (morning or afternoon, depending on departure times) or a Sunday add before the drive.',
  tags:['cost:~$82 family','kid:All ages','Train'],
  body:'<p>Departure times are not on the calendar page; book to see them. “Pumpkin Express” no longer runs. Caboose seats $20, Diamond Class $35.</p>',
  links:[{t:'Fall Foliage Express',u:'https://nickelplateexpress.com/fall-foliage-express/'},{t:'All train rides',u:'https://nickelplateexpress.com/train-rides/'}],map:'Nickel Plate Express Noblesville'},
 
 // ---- Carmel Saturday afternoon ----
 {id:'aia',block:'carmel',rec:true,title:'Arts in Autumn at Midtown Plaza',when:'Sat Oct 17 · 2–5pm',where:'Midtown Plaza, 365 Monon Blvd, Carmel',
- why:'The event you flagged, and it holds up: free craft stations, face painting, balloon artists, seasonal photo spots, vendors, Touch-a-Truck with Carmel fire and police vehicles, and an outdoor showing of Encanto on the Midtown screen.',
+ why:'Free craft stations, face painting, balloon artists, seasonal photo spots, vendors, Touch-a-Truck with Carmel fire and police vehicles, and an outdoor showing of Encanto on the Midtown screen.',
  tags:['free:Free','kid:Crafts, trucks, Encanto','Outdoor'],
  body:'<div class="grid2"><div><b>Movie</b>Encanto, per the city news release. Showtime not published (2025 was 3pm). Check @midtowncarmel or call 317-571-2400.</div><div><b>Parking</b>Free garages: Midtown West / Railyard garage at 350 Monon Blvd (370 spaces), or the garage on Elm St next to Java House, across from the plaza (public restrooms inside). Street parking also free.</div></div>
  <div class="k">Midtown Plaza for families (Indy’s Child)</div><ul><li>Big climbing playground with a rock-climbing hill on turf</li><li>Two splash pads (almost certainly off in mid-October)</li><li>Ping pong, shuffleboard, cornhole, bocce; shaded tables</li><li>“Sail,” a 29-ft sculpture you can stand inside</li><li>Sun King Spirits food hall (pizza, tacos), Fork + Ale House, Java House, Penn &amp; Beech pour-your-own candles</li></ul>
