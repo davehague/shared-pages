@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Carmel Weekend — Choose Our Adventure (Oct 16–18, 2026)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Literata:opsz,wght@7..72,400;7..72,500;7..72,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f6efe2; --paper2:#efe5d2; --card:#fffaf0; --ink:#241d14; --muted:#766b5a; --line:#e3d7c1;
+  --pumpkin:#d85f1c; --pumpkin-soft:#fbe4d3; --teal:#1f6f72; --teal-soft:#d9ecea; --gold:#c8931d; --gold-soft:#f6e8c2;
+  --maple:#a8392a; --maple-soft:#f4d8d1; --plum:#7a3f7c; --plum-soft:#ecdcec; --moss:#4f7a3a; --moss-soft:#dfead6;
+  --shadow:0 1px 2px rgba(60,40,10,.06),0 10px 30px rgba(60,40,10,.08);
+  --r:16px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:'Literata',Georgia,serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;position:relative}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.5;mix-blend-mode:multiply;z-index:0;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.35 0 0 0 0 0.25 0 0 0 0 0.1 0 0 0 .06 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+.wrap{max-width:980px;margin:0 auto;padding:0 16px;position:relative;z-index:1}
+h1,h2,h3,.disp{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:800;line-height:1.05;letter-spacing:-.02em}
+a{color:var(--teal);text-decoration:underline;text-decoration-color:rgba(31,111,114,.35);text-underline-offset:2px}
+a:hover{text-decoration-color:var(--teal)}
+button{font-family:inherit;cursor:pointer}
+
+/* hero */
+.hero{padding:40px 0 22px;position:relative;overflow:hidden}
+.hero .eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:'Bricolage Grotesque';font-weight:600;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--pumpkin);background:var(--pumpkin-soft);padding:6px 12px;border-radius:100px}
+.hero h1{font-size:clamp(2.3rem,7vw,4.2rem);margin:14px 0 8px;max-width:14ch}
+.hero h1 em{font-style:normal;color:var(--pumpkin);position:relative}
+.hero p.sub{font-size:1.05rem;color:var(--muted);max-width:60ch;margin:0 0 18px}
+.leaf{position:absolute;right:-30px;top:10px;width:220px;opacity:.14;pointer-events:none;transform:rotate(12deg)}
+.facts{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:.8rem;background:var(--card);border:1px solid var(--line);border-radius:100px;padding:6px 12px;box-shadow:var(--shadow);font-family:'Bricolage Grotesque';font-weight:600}
+.chip b{color:var(--pumpkin)}
+
+/* who am I */
+.who{margin:22px 0 0;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;box-shadow:var(--shadow);display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between}
+.who .lbl{font-family:'Bricolage Grotesque';font-weight:600;font-size:.95rem}
+.who .lbl small{display:block;font-family:'Literata';font-weight:400;color:var(--muted);font-size:.84rem}
+.seg{display:inline-flex;background:var(--paper2);border-radius:100px;padding:4px;gap:4px}
+.seg button{border:0;background:transparent;border-radius:100px;padding:8px 18px;font-family:'Bricolage Grotesque';font-weight:700;font-size:.95rem;color:var(--muted)}
+.seg button.on{background:var(--ink);color:#fff;box-shadow:var(--shadow)}
+.seg button[data-p="A"].on{background:var(--plum)}
+.seg button[data-p="D"].on{background:var(--teal)}
+
+/* how it works */
+.howto{margin:18px 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+.howto div{background:var(--paper2);border-radius:12px;padding:12px 14px;font-size:.9rem}
+.howto b{font-family:'Bricolage Grotesque';display:block;margin-bottom:2px}
+
+/* paths */
+.paths{margin:30px 0 0}
+.paths h2{font-size:1.5rem;margin:0 0 4px}
+.paths p{margin:0 0 12px;color:var(--muted)}
+.pathgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.path{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:8px}
+.path h3{margin:0;font-size:1.15rem}
+.path p{font-size:.9rem;color:var(--ink);margin:0;flex:1}
+.path .btn{align-self:flex-start}
+.btn{border:1.5px solid var(--ink);background:var(--ink);color:#fff;border-radius:100px;padding:8px 14px;font-family:'Bricolage Grotesque';font-weight:700;font-size:.88rem;transition:transform .12s}
+.btn:hover{transform:translateY(-1px)}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.sm{padding:6px 11px;font-size:.8rem}
+
+/* chapters */
+.chapter{padding:34px 0 10px}
+.chapter .num{font-family:'Bricolage Grotesque';font-weight:800;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.chapter h2{font-size:clamp(1.6rem,4vw,2.2rem);margin:4px 0 4px}
+.chapter p.lede{margin:0 0 14px;color:var(--muted);max-width:66ch}
+.chapter .pickone{display:inline-block;font-size:.78rem;background:var(--gold-soft);color:#6e4f08;padding:3px 10px;border-radius:100px;font-family:'Bricolage Grotesque';font-weight:600;margin-bottom:10px}
+
+/* cards */
+.cards{display:grid;gap:12px}
+.card{background:var(--card);border:1px solid var(--line);border-left:6px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:14px 16px 12px;position:relative;transition:border-color .15s,transform .15s}
+.card.focus{outline:2px solid var(--pumpkin);outline-offset:2px}
+.card.v-y{border-left-color:var(--moss)}
+.card.v-m{border-left-color:var(--gold)}
+.card.v-n{border-left-color:#c9bca5;opacity:.72}
+.card .top{display:flex;gap:10px;align-items:flex-start}
+.card h3{margin:0;font-size:1.18rem;flex:1}
+.card h3 .star{color:var(--pumpkin);font-size:.95rem;margin-left:4px;vertical-align:2px}
+.card .when{font-family:'Bricolage Grotesque';font-weight:600;font-size:.84rem;color:var(--maple);margin-top:3px}
+.card .why{margin:8px 0 0;font-size:.95rem}
+.card .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
+.tag{font-size:.74rem;padding:3px 9px;border-radius:100px;background:var(--paper2);color:var(--muted);font-family:'Bricolage Grotesque';font-weight:600}
+.tag.free{background:var(--moss-soft);color:#2f5a1e}
+.tag.cost{background:var(--gold-soft);color:#6e4f08}
+.tag.kid{background:var(--pumpkin-soft);color:#8a3a0c}
+.tag.in{background:var(--teal-soft);color:#174f52}
+.tag.pool{background:#d6e8f7;color:#1c4f7c}
+.card .ctl{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:12px}
+.vote{display:inline-flex;gap:4px;background:var(--paper2);padding:4px;border-radius:100px}
+.vote button{border:0;background:transparent;border-radius:100px;padding:6px 12px;font-family:'Bricolage Grotesque';font-weight:700;font-size:.84rem;color:var(--muted)}
+.vote button:hover{background:#fff}
+.vote button.on.y{background:var(--moss);color:#fff}
+.vote button.on.m{background:var(--gold);color:#fff}
+.vote button.on.n{background:#9b8f78;color:#fff}
+.marks{display:flex;gap:6px;margin-left:auto;align-items:center}
+.mark{width:28px;height:28px;border-radius:50%;display:inline-grid;place-items:center;font-family:'Bricolage Grotesque';font-weight:800;font-size:.78rem;border:2px solid var(--line);color:var(--muted);background:#fff;position:relative}
+.mark.D{border-color:var(--teal);color:var(--teal)}
+.mark.A{border-color:var(--plum);color:var(--plum)}
+.mark.y{background:var(--moss);border-color:var(--moss);color:#fff}
+.mark.m{background:var(--gold);border-color:var(--gold);color:#fff}
+.mark.n{background:#9b8f78;border-color:#9b8f78;color:#fff}
+.mark::after{content:attr(data-v);position:absolute;right:-5px;bottom:-5px;font-size:.6rem;background:#fff;border-radius:50%;width:14px;height:14px;display:grid;place-items:center;color:var(--ink);border:1px solid var(--line)}
+.mark[data-v=""]::after{display:none}
+.more{border:0;background:transparent;color:var(--teal);font-family:'Bricolage Grotesque';font-weight:700;font-size:.84rem;padding:6px 8px;border-radius:8px}
+.more:hover{background:var(--teal-soft)}
+.detail{display:none;margin-top:12px;padding-top:12px;border-top:1px dashed var(--line);font-size:.93rem}
+.card.open .detail{display:block}
+.detail p{margin:0 0 8px}
+.detail ul{margin:4px 0 8px;padding-left:20px}
+.detail li{margin:3px 0}
+.detail .k{font-family:'Bricolage Grotesque';font-weight:700;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:10px 0 3px}
+.detail .src a{display:inline-block;margin:2px 8px 2px 0;font-size:.84rem}
+.detail .tip{background:var(--gold-soft);border-radius:10px;padding:9px 12px;margin:8px 0}
+.detail .warn{background:var(--maple-soft);border-radius:10px;padding:9px 12px;margin:8px 0}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:6px 14px;margin:6px 0}
+.grid2 div{font-size:.88rem}
+.grid2 b{font-family:'Bricolage Grotesque';font-weight:700;color:var(--muted);font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;display:block}
+
+/* plan summary */
+.plan{margin:36px 0 0;background:linear-gradient(180deg,#fffaf0,#f9f0dc);border:1px solid var(--line);border-radius:22px;padding:22px 20px;box-shadow:var(--shadow)}
+.plan h2{font-size:1.8rem;margin:0 0 4px}
+.plan p.sub{margin:0 0 14px;color:var(--muted)}
+.planblock{margin:12px 0 0}
+.planblock h4{margin:0 0 4px;font-family:'Bricolage Grotesque';font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.planrow{display:flex;gap:8px;align-items:center;padding:6px 0;border-bottom:1px dotted var(--line);font-size:.93rem;flex-wrap:wrap}
+.planrow .t{flex:1;min-width:160px}
+.planrow .st{font-family:'Bricolage Grotesque';font-weight:700;font-size:.76rem;padding:3px 9px;border-radius:100px}
+.st.agree{background:var(--moss);color:#fff}
+.st.split{background:var(--maple);color:#fff}
+.st.wait{background:var(--gold-soft);color:#6e4f08}
+.st.maybe{background:var(--paper2);color:var(--muted)}
+.planrow .marks{margin-left:0}
+.empty{color:var(--muted);font-size:.9rem;font-style:italic}
+.notes{margin-top:16px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.notes label{font-family:'Bricolage Grotesque';font-weight:700;font-size:.84rem;display:block;margin-bottom:4px}
+.notes textarea{width:100%;min-height:72px;border:1px solid var(--line);border-radius:12px;padding:10px;font-family:inherit;font-size:.92rem;background:#fff;resize:vertical}
+.notes textarea[readonly]{background:var(--paper2);color:var(--muted)}
+
+/* share */
+.share{margin:16px 0 0;background:var(--ink);color:#fff;border-radius:22px;padding:22px 20px}
+.share h2{font-size:1.6rem;margin:0 0 4px}
+.share p{margin:0 0 12px;color:#d8cdb8;font-size:.94rem}
+.share .row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.share .btn{background:var(--pumpkin);border-color:var(--pumpkin)}
+.share .btn.ghost{background:transparent;border-color:#8a7d66;color:#fff}
+.share code{display:block;margin-top:12px;background:#0f0c08;border-radius:10px;padding:10px 12px;font-size:.78rem;word-break:break-all;color:#f0d8b8;max-height:90px;overflow:auto}
+.share input{flex:1;min-width:220px;border:1px solid #6d6150;background:#15110c;color:#fff;border-radius:100px;padding:9px 14px;font-family:inherit;font-size:.9rem}
+.share .mini{font-size:.8rem;color:#b4a890;margin-top:10px}
+
+/* sticky bar */
+.bar{position:sticky;bottom:12px;z-index:5;margin:26px 0 20px;background:var(--card);border:1px solid var(--line);border-radius:100px;box-shadow:0 10px 40px rgba(60,40,10,.18);padding:8px 10px 8px 16px;display:flex;gap:10px;align-items:center;font-family:'Bricolage Grotesque';font-weight:600;font-size:.88rem}
+.bar .dot{width:10px;height:10px;border-radius:50%;background:var(--teal)}
+.bar.A .dot{background:var(--plum)}
+.bar .cnt{color:var(--muted);flex:1}
+.toast{position:fixed;left:50%;bottom:80px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:10px 18px;border-radius:100px;font-family:'Bricolage Grotesque';font-weight:600;opacity:0;transition:.25s;z-index:9;max-width:92vw;text-align:center}
+.toast.on{opacity:1;transform:translateX(-50%)}
+footer{padding:30px 0 50px;color:var(--muted);font-size:.84rem}
+kbd{font-family:'Bricolage Grotesque';font-size:.76rem;background:var(--paper2);border:1px solid var(--line);border-bottom-width:2px;border-radius:5px;padding:1px 6px}
+@media print{.bar,.share,.vote,.more,.who,.howto,.paths{display:none!important}.card{break-inside:avoid}body::before{display:none}}
+@media (max-width:560px){.card{padding:12px 12px 10px}.marks{margin-left:0}.card .ctl{gap:6px}.vote button{padding:6px 10px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="hero">
+  <svg class="leaf" viewBox="0 0 100 100" aria-hidden="true"><path fill="#d85f1c" d="M50 4c20 18 42 30 42 56 0 20-18 34-42 36C26 94 8 80 8 60 8 34 30 22 50 4zm0 14v70c-2-20-10-36-24-48 10 4 18 12 24 22 6-10 14-18 24-22-14 12-22 28-24 48z"/></svg>
+  <span class="eyebrow">🍂 Family weekend · Carmel &amp; Indy</span>
+  <h1>Choose our <em>Carmel</em> adventure</h1>
+  <p class="sub">Friday Oct 16 → Sunday Oct 18, 2026. David, Amanda and Valerie (5). Tap <b>Yes / Maybe / Pass</b> on anything, open <b>Details</b> for the research and sources, then send your picks to each other with one link.</p>
+  <div class="facts" id="facts"></div>
+</header>
+
+<div class="who">
+  <div class="lbl">Who's picking right now? <small>Your picks are saved on this device. Switch to see or edit the other person's column.</small></div>
+  <div class="seg" id="who"><button data-p="D">David</button><button data-p="A">Amanda</button></div>
+</div>
+
+<div class="howto">
+  <div><b>1 · Vote</b> Yes / Maybe / Pass on each card. The little circles show both of your votes side by side (D and A).</div>
+  <div><b>2 · Share</b> Scroll to the bottom, tap <i>Copy my link</i>, text it. Opening the link imports your votes onto their phone. No account, no app.</div>
+  <div><b>3 · Agree</b> “Our plan so far” at the bottom shows what's agreed, split, or still waiting on the other person.</div>
+</div>
+
+<section class="paths">
+  <h2>Shortcut: pick a path, then tweak</h2>
+  <p>Each one adds a set of “Yes” votes for whoever is picking right now. Nothing else is touched.</p>
+  <div class="pathgrid" id="paths"></div>
+</section>
+
+<div id="chapters"></div>
+
+<section class="plan" id="plan"></section>
+
+<section class="share" id="share">
+  <h2>Send your picks</h2>
+  <p>Copy the link and text it. When the other person opens it, your votes and note appear next to theirs. Repeat whenever you change your mind.</p>
+  <div class="row">
+    <button class="btn" id="copyLink">Copy my link</button>
+    <button class="btn ghost" id="showCode">Show code instead</button>
+    <button class="btn ghost" id="resetMe">Reset my picks</button>
+  </div>
+  <code id="code" style="display:none"></code>
+  <div class="row" style="margin-top:14px">
+    <input id="pasteCode" placeholder="Paste a link or code from the other person…">
+    <button class="btn ghost" id="importBtn">Import</button>
+  </div>
+  <div class="mini">Keyboard on desktop: <kbd>j</kbd>/<kbd>k</kbd> move, <kbd>y</kbd> <kbd>m</kbd> <kbd>n</kbd> vote, <kbd>e</kbd> details, <kbd>1</kbd>/<kbd>2</kbd> switch person.</div>
+</section>
+
+<div class="bar" id="bar"><span class="dot"></span><span id="barWho">David</span><span class="cnt" id="barCnt"></span><button class="btn sm" id="barShare">Share</button></div>
+
+<footer>Researched Oct 9, 2026. Every card links its sources; recheck organizer pages the day before, especially for outdoor events. Built for Amanda and David by David's assistant.</footer>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+const BLOCKS=[
+ {id:'hotel',day:'Both nights',title:'Where we sleep',pickOne:true,lede:'Filtered for free hot breakfast first (Valerie’s non-negotiable), then free parking. Pool is called out on every card. Rates are indicative for Oct 16–18; click through to book.'},
+ {id:'fri-drive',day:'Friday morning',title:'The drive out',lede:'About three hours on I-70, same time zone. Leave as early as you like. The choice is really “straight to the museum” vs. “break the drive in Dayton.”'},
+ {id:'museum',day:'Fri, Sat or Sun',title:'The Children’s Museum: which window?',pickOne:true,lede:'Open 10–5 all three days, free garage, dated tickets (buy this week for the online discount). The Playscape under-5 area is closed until Nov 6. The only real question is when.'},
+ {id:'fri-pm',day:'Friday afternoon & evening',title:'First afternoon in Indy',lede:'Check-in is usually 3–4pm. Something outdoors to shake off the car, then a Halloween night if you want one.'},
+ {id:'sat-am',day:'Saturday morning',title:'Saturday before Arts in Autumn',lede:'Arts in Autumn is the Saturday anchor at 2pm in Carmel. Morning options range from a slow hotel breakfast and a Carmel park to a drive into downtown Indy.'},
+ {id:'carmel',day:'Saturday afternoon',title:'Carmel: Arts in Autumn and the neighborhood',lede:'Midtown Plaza, the Monon, the Arts & Design District. The cards here are the ones you asked about plus what Indy’s Child recommends for families in Midtown.'},
+ {id:'sat-pm',day:'Saturday evening (or any slot)',title:'Halloween-ish and other fillers',lede:'The gentler Halloween options, a pumpkin patch, and a rain plan.'},
+ {id:'parks',day:'Any open hour',title:'Parks and play, Carmel & Hamilton County',lede:'Free outdoor spots within 20 minutes of the hotel. Good for the gap between breakfast and an event, or a Sunday-morning run-around before the drive home.'},
+ {id:'eat',day:'Any meal',title:'Where to eat',lede:'Kid-tolerant, near Midtown or on the way to things. Hotel breakfast covers mornings.'},
+ {id:'sun-drive',day:'Sunday',title:'The drive home',lede:'Museum first if you picked Sunday, then I-70 east. Uranus is right at the Ohio line, so it costs nothing to stop.'}
+];
+const FACTS=[
+ '📅 <b>Fri Oct 16 → Sun Oct 18</b>','🚗 <b>~3h</b> Worthington → Carmel, I-70 W','🕐 Same time zone','🎃 <b>Arts in Autumn</b> Sat 2–5pm, Midtown Plaza','🦖 Museum <b>10–5</b> all three days, free garage','🌡️ Typical mid-Oct: highs mid-60s, lows mid-40s · sunset ~7:03pm'
+];
+const PATHS=[
+ {id:'easy',title:'🧸 Easy mode (David’s pick)',desc:'Food Truck Nights Friday, winter market + Westermeier Commons Saturday morning, Arts in Autumn at 2, Bub’s for dinner, Children’s Museum Sunday at opening, Uranus on the way home.',items:['h-drury','drive-early','fri-foodtrucks','park-westermeier','sat-market','aia','eat-bubs','cm-sun','home-uranus']},
+ {id:'halloween',title:'🎃 Max Halloween',desc:'Conner Prairie Headless Horseman Friday night (early hayride), Boo ’n Brew trick-or-treat Saturday afternoon, pumpkin patch, museum Sunday with the lights-on Haunted House.',items:['h-drury','drive-early','fri-hh','sat-market','boonbrew','pumpkin-russell','cm-sun','home-uranus']},
+ {id:'indy',title:'🏙️ More Indy, less Carmel',desc:'Museum Friday at opening, Holliday Park, ZooBoo Saturday after the Carmel festival, Portillo’s and Uranus on the way home.',items:['h-drury','drive-early','cm-fri','fri-hp','sat-market','aia','zooboo','home-portillos','home-uranus']},
+ {id:'rain',title:'🌧️ If it rains',desc:'Museum Friday, Monon Community Center pool + indoor playground, miniatures museum and Bub’s, Boonshoft on the way home.',items:['cm-fri','monon-center','minis','eat-bubs','home-boonshoft']}
+];
+
+const ITEMS=[
+{id:'h-drury',block:'hotel',rec:true,title:'Drury Plaza Hotel Indianapolis Carmel',when:'~$143–159/night',where:'9625 N Meridian St · 10 min to Midtown · 18 min to museum',
+ why:'Checks every box and then some: free hot breakfast (waffles, eggs, biscuits and gravy), free parking, a free 5:30pm “Kickback” with hot food and drinks that can be Friday dinner, free popcorn and soda, and a two-room suite with a real door between Valerie and you.',
+ tags:['free:Free hot breakfast','free:Free parking','pool:Indoor/outdoor pool + whirlpool','Two-room suite','4.7★ (2.6K reviews)'],
+ body:'<div class="grid2"><div><b>Breakfast</b>Free hot buffet, verified on Drury’s site</div><div><b>Parking</b>Free, verified</div><div><b>Pool</b>Indoor/outdoor pool and whirlpool; only closed Nov 1–5, so open your weekend</div><div><b>Rooms</b>King, 2 queens, or 2-room suite with separate bedroom + pull-out queen sofa</div><div><b>Rate</b>$143 (Kayak) to $159 (Expedia); official $155–159. Suite may run higher.</div><div><b>Drive</b>4.4 mi / 10 min to Midtown; 8.4 mi / 18 min to the Children’s Museum (closest of any option)</div></div><div class="tip">The 5:30 Kickback (free hot food, three drinks per adult) is the quiet weapon for a travel night with a 5-year-old: eat in, swim, bed.</div><div class="warn">Not walkable to Midtown; it sits on Meridian at I-465, which is also why it is closest to Indy.</div>',
+ links:[{t:'Drury official page (book)',u:'https://www.druryhotels.com/locations/indianapolis-in/drury-plaza-hotel-indianapolis-carmel'},{t:'Visit Indy listing',u:'https://www.visitindy.com/directory/drury-plaza-hotel-indianapolis-carmel/'}],map:'Drury Plaza Hotel Indianapolis Carmel'},
+{id:'h-residence',block:'hotel',title:'Residence Inn Indianapolis Carmel',when:'~$118–165/night (1BR suite ~$182)',where:'11895 N Meridian St · 5 min to Midtown · 23 min to museum',
+ why:'Closest free-breakfast suite hotel to Midtown. Studio and one-bedroom suites with kitchens and a sofa bed, indoor pool. The catch is a 3.8 rating; read recent reviews before booking.',
+ tags:['free:Free hot breakfast','free:Free parking','pool:Indoor pool','Kitchen suites','3.8★'],
+ body:'<div class="grid2"><div><b>Breakfast</b>Free “Full American” hot buffet, Sat–Sun 7–10am (verified on Marriott)</div><div><b>Parking</b>Free (Google tag; official page not checked)</div><div><b>Pool</b>Indoor</div><div><b>Rooms</b>Studio and 1-bedroom suites, sofa bed</div><div><b>Rate</b>$118 (Expedia/Booking) to $165 official; 1BR suite $182 official</div></div>',
+ links:[{t:'Marriott page (book)',u:'https://www.marriott.com/en-us/hotels/indcr-residence-inn-indianapolis-carmel/overview/'}],map:'Residence Inn Indianapolis Carmel'},
+{id:'h-fairfield',block:'hotel',title:'Fairfield Inn & Suites Indianapolis Carmel',when:'~$183–207/night',where:'1335 W Main St · 6 min to Midtown · 24 min to museum',
+ why:'Best breakfast hours of the group (6–10am daily), indoor pool, king suite with sofa bed, 4.5–4.6 rating, and on Main Street near Bub’s. Priciest of the free-breakfast set.',
+ tags:['free:Free hot breakfast','free:Free parking','pool:Indoor pool','King suite','4.5★'],
+ body:'<div class="grid2"><div><b>Breakfast</b>Free hot buffet daily 6–10am (verified)</div><div><b>Parking</b>Free (Google tag)</div><div><b>Pool</b>Indoor</div><div><b>Rooms</b>King suite with sofa bed</div><div><b>Rate</b>$183–207</div></div>',
+ links:[{t:'Marriott page (book)',u:'https://www.marriott.com/en-us/hotels/indml-fairfield-inn-and-suites-indianapolis-carmel/overview/'}],map:'Fairfield Inn Suites Indianapolis Carmel'},
+{id:'h-staybridge',block:'hotel',title:'Staybridge Suites Indianapolis-Carmel',when:'~$141–177/night',where:'10675 N Pennsylvania St · 7 min to Midtown · 21 min to museum',
+ why:'Kitchen studio suites, indoor pool plus hot tub, free hot breakfast (weekends 7:30–10:30), 4.5 rating from 798 reviews. Its free social hour is Mon–Wed only, so you miss it.',
+ tags:['free:Free hot breakfast','free:Free parking','pool:Indoor pool + hot tub','Kitchen suites','4.5★'],
+ body:'<div class="grid2"><div><b>Breakfast</b>Free hot buffet, weekends 7:30–10:30 (verified)</div><div><b>Parking</b>Free (Google tag)</div><div><b>Pool</b>Indoor, hot tub</div><div><b>Rooms</b>Studio suites with kitchen</div><div><b>Rate</b>$141 (Google) / $158 (Kayak) / $168–177 official</div></div>',
+ links:[{t:'IHG page (book)',u:'https://www.ihg.com/staybridge/hotels/us/en/indianapolis/indca/hoteldetail'}],map:'Staybridge Suites Indianapolis Carmel'},
+{id:'h-home2',block:'hotel',title:'Home2 Suites by Hilton Carmel',when:'~$188/night',where:'12845 Old Meridian St · 6 min to Midtown · 24 min to museum',
+ why:'All-suite with kitchen and sleeper sofa, indoor pool, free hot breakfast, 4.4 rating. Nothing wrong with it; just more money than Drury for less.',
+ tags:['free:Free hot breakfast','free:Free parking','pool:Indoor pool','All-suite','4.4★'],
+ body:'<div class="grid2"><div><b>Breakfast</b>Free hot buffet (verified on Hilton)</div><div><b>Parking</b>Free self-parking (verified)</div><div><b>Pool</b>Indoor</div><div><b>Rate</b>$188 (Google list)</div></div><p>Sibling option: Homewood Suites Carmel, 11355 N Meridian (9 min to Midtown, 20 to museum), free hot breakfast, free parking, indoor and outdoor pools, $166–188.</p>',
+ links:[{t:'Hilton Home2 (book)',u:'https://www.hilton.com/en/hotels/indcrht-home2-suites-carmel-indianapolis/'},{t:'Hilton Homewood Suites Carmel',u:'https://www.hilton.com/en/hotels/indnmhw-homewood-suites-indianapolis-carmel/'}],map:'Home2 Suites Carmel Indianapolis'},
+{id:'h-hiex',block:'hotel',title:'Budget: Holiday Inn Express North-Carmel (Michigan Rd)',when:'~$123–137/night',where:'9797 N Michigan Rd · 15 min to Midtown · 20 min to museum',
+ why:'Cheapest option that still has free breakfast, free parking, an indoor pool with whirlpool and a one-king suite. Farther from Midtown. Hampton Inn Westfield ($135–165) is the other budget fallback but 31 min from the museum.',
+ tags:['free:Free breakfast','free:Free parking','pool:Indoor pool + whirlpool','Budget'],
+ body:'<div class="grid2"><div><b>Rate</b>$123 official to $127; 1-king suite $137</div><div><b>Also</b>Holiday Inn Express Carmel North-Westfield, 15131 Thatcher Ln: 9 min to Midtown, $144–161, rated 3.7</div></div>',
+ links:[{t:'IHG page (book)',u:'https://www.ihg.com/holidayinnexpress/hotels/us/en/carmel/indnt/hoteldetail'},{t:'Hampton Inn Westfield',u:'https://www.hilton.com/en/hotels/indwehx-hampton-westfield-indianapolis/'}],map:'Holiday Inn Express Indianapolis North Carmel'},
+{id:'h-carmichael',block:'hotel',title:'Splurge that fails the brief: Hotel Carmichael',when:'$415–499/night + paid breakfast + ~$20 valet',where:'1 Carmichael Square · walkable to Midtown',
+ why:'The one truly walkable hotel to Midtown and the Arts & Design District, and three times the price with no free breakfast and valet parking. Here so nobody wonders.',
+ tags:['cost:$$$$','No free breakfast','Paid valet','Walkable'],
+ body:'<p>Continental breakfast ~$10–20 each. Expedia lists valet plus “free offsite parking,” so parking claims conflict.</p><div class="k">Also excluded</div><ul><li>SpringHill Suites Carmel ($102–110): Marriott FAQ says no free breakfast, marketing text says otherwise. Call if you want it.</li><li>Hilton Garden Inn, Courtyard, Element, The Tallison: paid breakfast.</li><li>Hyatt Place Carmel ($178–210): free breakfast but no suites and mixed reviews of the breakfast.</li></ul>',
+ links:[{t:'Expedia listing',u:'https://expedia.com/Indiana-hotels-Hotel-Carmichael,-Autograph-Collection.h41974006.Hotel-information'}],map:'Hotel Carmichael Carmel'},
+
+{id:'drive-early',block:'fri-drive',rec:true,title:'Leave at 7am, museum at the doors by 10',when:'Fri · depart 7:00am',where:'I-70 West',
+ why:'About 3 hours door to door, same time zone. One quick stop and you hit the Children’s Museum at opening, which is the best crowd window all weekend.',
+ tags:['kid:Best museum window','free:Free'],
+ body:'<p>Worthington → I-270/US-23 → I-70 W → I-465 N (east side) → US-31/Keystone into Carmel. Columbus to Indy is ~175 mi / 2h45m without stops; Worthington to Carmel is ~190 mi, 3h to 3h20m.</p><div class="tip">Indianapolis is on Eastern time. No clock change.</div><div class="k">Road work to know about</div><ul><li>Ohio: 2-year I-70 reconstruction west of Columbus (Madison Co. line → Hilliard-Rome Rd). Lane restrictions, check OHGO that morning.</li><li>Indiana: westbound left-lane closure I-70 between SR 109 and SR 9 (Knightstown / Greenfield) the week of Oct 12–19. Expect a slowdown, not a stop.</li><li>Nightly closures near the North Split are 9pm–6am only, so a daytime arrival is fine.</li></ul>',
+ links:[{t:'OHGO live Ohio traffic',u:'https://www.ohgo.com'},{t:'INDOT I-70 closure bulletin',u:'https://content.govdelivery.com/accounts/INDOT/bulletins/2870bfc'},{t:'Columbus→Indy guide',u:'https://blog.wayro.ai/columbus-indianapolis-ultimate-road-trip-guide'}]},
+{id:'drive-airforce',block:'fri-drive',title:'Break the drive at the Air Force Museum (Dayton)',when:'Fri · 9am–5pm',where:'Wright-Patterson AFB, Dayton',
+ why:'Free, enormous, and 70 miles in (about 1h10m from home). Walk up to real planes and the space gallery. Costs you the Friday museum visit, so it trades against the card above.',
+ tags:['free:Free admission + parking','in:Indoor','kid:Great for planes kids'],
+ body:'<p>1100 Spaatz St, Dayton OH 45433. Open 9am–5pm daily. Theatre and simulators cost extra. Roughly 30 minutes off I-70 round trip.</p><div class="tip">If you do this, leave ~8am, museum 9:30–11:30, arrive Carmel ~2pm, and move the Children’s Museum to Saturday or Sunday morning.</div>',
+ links:[{t:'Hours & admission',u:'https://www.nationalmuseum.af.mil/Visit/Hours-and-Admission/'}],map:'National Museum of the United States Air Force'},
+{id:'drive-hayes',block:'fri-drive',title:'Leg-stretch: Hayes Arboretum nature playscape (Richmond IN)',when:'Fri · east entrance dawn–dusk',where:'801 Elks Rd, Richmond IN',
+ why:'Free nature playscape and a sub-1-mile trail about 100 miles in (1h40m), right before the last hour into Indy. A 20-minute run-around, not a destination.',
+ tags:['free:Free','kid:Playground'],
+ body:'<p>Main entrance is Tue–Sat 9am–5pm; the east entrance is open daily dawn to dusk. Nature Playscape, scavenger hunt trail, 3-mile drive-through. Closed Sunday at the main gate, so this is a Friday-only stop.</p>',
+ links:[{t:'Hayes Arboretum',u:'https://www.hayesarboretum.org/about'},{t:'Visit Indiana: Richmond with kids',u:'https://visitindiana.in.gov/blog/post/richmond-for-adults-and-some-kids-too/'}],map:'Hayes Arboretum Richmond IN'},
+
+{id:'home-uranus',block:'sun-drive',rec:true,title:'Uranus Fudge Factory, Richmond IN (right on I-70)',when:'Sun · 9am–8pm',where:'6400 National Rd E, Richmond IN · I-70 exit 156B',
+ why:'This is the Uranus stop. It sits at the Ohio line on US-40 at the exit, so the detour is basically zero. Fudge, 32 ice creams, giant dinosaurs, a free “Vortex Tunnel,” an animatronic dinosaur park and a small playground.',
+ tags:['free:No admission','kid:Dinosaurs + ice cream','Food'],
+ body:'<p>Opened Jan 2025 as “Uranus #3.” Official page says 9am–8pm daily (Visit Richmond lists 8–9, so call (765) 962-1173 if it matters). Ice cream, 18 fudge flavors, vintage bi-plane hung from the ceiling, shooting gallery, dog park.</p><div class="warn">The sideshow museum lives at the Missouri original; not confirmed here. Restrooms and parking not stated on the site (almost certainly free lot).</div><div class="k">The other option: Anderson IN (Uranus #2)</div><p>1423 W 53rd St, Anderson, off I-69 exit 222. Adds Putt Pirates mini golf (11am–8pm), a hot-dog stand and a bigger playground, but it costs ~15–20 extra minutes of driving (Carmel → I-69 N → SR-109 S → I-70 at Knightstown) plus the stop. Only worth it for the mini golf.</p>',
+ links:[{t:'Uranus Richmond page',u:'https://www.uranusgeneralstore.com/richmond-indiana-uranus-3/'},{t:'Uranus Anderson page',u:'https://www.uranusgeneralstore.com/anderson-indiana-uranus-2/'},{t:'Opening story (Daily Advocate)',u:'https://www.dailyadvocate.com/2025/01/24/uranus-fudge-factory-opens-in-richmond/'}],map:'Uranus Fudge Factory Richmond IN'},
+{id:'home-portillos',block:'sun-drive',title:'Portillo’s on the way out (Fishers)',when:'Sun · ~10:30am–10pm',where:'9201 E 116th St, Fishers IN',
+ why:'Italian beef, Chicago dogs, chocolate cake shake. Fishers is just off I-69 heading to I-465/I-70, so it is the natural lunch-on-the-way-home stop. Westfield (870 E SR 32) is closer to Carmel if you want it Friday or Saturday instead.',
+ tags:['cost:$$','Food','kid:Kids’ meals'],
+ body:'<p>No Portillo’s in Carmel and none open in Ohio (a Cincinnati plan from 2022 never materialized; expansion slowed in 2025–26). Hours above are from a third-party listing; confirm on the locator.</p><div class="tip">Westfield location: 870 E State Road 32, at the Grand Park entrance, ~10–15 min from Carmel. Good Saturday-night option paired with Grand Park / Grand Junction Plaza.</div>',
+ links:[{t:'Portillo’s locations',u:'https://locations.portillos.com/'},{t:'Westfield opening (Portillo’s)',u:'https://www.portillos.com/portillos-opens-in-westfield-in/'},{t:'Fishers on Yelp',u:'https://www.yelp.com/biz/portillos-hot-dogs-fishers-2'}],map:'Portillo\'s Fishers IN'},
+{id:'home-boonshoft',block:'sun-drive',title:'Boonshoft Museum of Discovery (Dayton) on the way home',when:'Sun · noon–5pm',where:'2600 DeWeese Pkwy, Dayton OH',
+ why:'A young-kid science center about 1h40m from Carmel and 1h10m from home. Only works if you leave Indy by ~11 and want one more indoor stop; the Air Force Museum (free) is the bigger draw in the same city.',
+ tags:['cost:$16 adult / $13 child','in:Indoor, rain plan'],
+ body:'<p>Sunday hours noon–5pm. Prices vary by listing ($15–16 adult, $12–13 child). Address from memory, confirm before routing.</p>',
+ links:[{t:'Boonshoft',u:'https://boonshoft.org/'}],map:'Boonshoft Museum of Discovery'},
+
+{id:'fri-foodtrucks',block:'fri-pm',rec:true,title:'Carmel Food Truck Nights: season finale',when:'Fri Oct 16 · ~5–9pm (listings vary 5–8)',where:'Ginther Green, 930 N Range Line Rd, Carmel',
+ why:'Your arrival night is the last Food Truck Friday of the season. Free entry, pay per truck, casual, outdoors, lots of choice for a picky 5-year-old. Gets cold and dark after 7, so go at 5:30.',
+ tags:['free:Free entry','Food','Outdoor','kid:Easy'],
+ body:'<p>Not at Midtown; Ginther Green is a private lot on Range Line about a mile north. The weekly truck lineup posts on the Facebook page Sunday night. Organizers added shade this year. Parking: unstated, lot plus street.</p><div class="tip">Pairs with Holliday Park or Westermeier Commons on the way in, then an early bedtime. Keeps Saturday night free for Conner Prairie if you want both.</div>',
+ links:[{t:'Visit Hamilton County listing',u:'https://www.visithamiltoncounty.com/event/carmel-food-truck-fridays/77721/'},{t:'Current in Carmel: 2026 season',u:'https://www.youarecurrent.com/2026/04/23/carmel-food-truck-nights-gears-up-for-second-season/'},{t:'Facebook (weekly lineup)',u:'https://www.facebook.com/carmelfoodtrucklot/'}],map:'Ginther Green 930 N Range Line Rd Carmel'},
+{id:'fri-pumpkintown',block:'fri-pm',title:'Sullivan Express train to PumpkinTown (Fishers)',when:'Fri, Sat, Sun · times by reservation',where:'Allisonville Home & Garden, 11405 Allisonville Rd, Fishers',
+ why:'A little train through an “Enchanted Forest” to a pumpkin village with games and fall food. $75 per train car (up to 4 adults + 2 kids), so about $25 a head. Times sell out; call 317-255-9230.',
+ tags:['cost:$75 per car','kid:Built for this age','Outdoor'],
+ body:'<p>Dates listed include Oct 16, 17 and 18. Departure times and age rules are not published; the store says train times go quickly. 15 minutes from Carmel, near Conner Prairie.</p>',
+ links:[{t:'Visit Hamilton County listing',u:'https://www.visithamiltoncounty.com/event/sullivan-express-to-pumpkintown/78785/'},{t:'Sullivan Hardware events',u:'https://sullivanhardware.com/pages/events'}],map:'Allisonville Home and Garden by Sullivan Fishers'},
+
+{id:'sat-market',block:'sat-am',rec:true,title:'Carmel Winter Farmers Market opening day + steel drums',when:'Sat Oct 17 · 9am–noon',where:'The Six Eleven, 611 3rd Ave SW, Carmel',
+ why:'Opening day of the indoor winter market: ~60 vendors, breakfast items, a café seating area, and the Island Breeze steel-drum band. Free, five minutes from Midtown, and it leaves the whole morning loose.',
+ tags:['free:Free','in:Indoor','kid:Music + snacks'],
+ body:'<p>The summer market at Carter Green ended in September. The site still has a stale “510 3rd Ave SW” line; 611 is the current address. Crowded indoors on opening day, so go at 9.</p><div class="tip">Hotel breakfast first, market at 9:30 for a second snack, then a park (Westermeier Commons or West Park) until lunch.</div>',
+ links:[{t:'Winter market page',u:'https://www.carmelfarmersmarket.com/wm-home'}],map:'611 3rd Ave SW Carmel IN'},
+{id:'sat-train',block:'sat-am',title:'Nickel Plate Express “Fall Foliage Express” (Noblesville)',when:'Sat Oct 17 or Sun Oct 18 · times not posted',where:'825 Forest Park Dr, Noblesville · 20 min',
+ why:'A 65-minute real-train ride with cider and a fall treat. Adult $28, child 3–12 $26, so about $82 for the three of you. Not offered Friday. Best as the Saturday-morning “big thing” or a Sunday add before the drive.',
+ tags:['cost:~$82 family','kid:All ages','Train'],
+ body:'<p>Departure times are not on the calendar page; book to see them. “Pumpkin Express” no longer runs. Caboose seats $20, Diamond Class $35.</p>',
+ links:[{t:'Fall Foliage Express',u:'https://nickelplateexpress.com/fall-foliage-express/'},{t:'All train rides',u:'https://nickelplateexpress.com/train-rides/'}],map:'Nickel Plate Express Noblesville'},
+
+{id:'aia',block:'carmel',rec:true,title:'Arts in Autumn at Midtown Plaza',when:'Sat Oct 17 · 2–5pm',where:'Midtown Plaza, 365 Monon Blvd, Carmel',
+ why:'The event you flagged, and it holds up: free craft stations, face painting, balloon artists, seasonal photo spots, vendors, Touch-a-Truck with Carmel fire and police vehicles, and an outdoor showing of Encanto on the Midtown screen.',
+ tags:['free:Free','kid:Crafts, trucks, Encanto','Outdoor'],
+ body:'<div class="grid2"><div><b>Movie</b>Encanto, per the city news release. Showtime not published (2025 was 3pm). Check @midtowncarmel or call 317-571-2400.</div><div><b>Parking</b>Free garages: Midtown West / Railyard garage at 350 Monon Blvd (370 spaces), or the garage on Elm St next to Java House, across from the plaza (public restrooms inside). Street parking also free.</div></div>  <div class="k">Midtown Plaza for families (Indy’s Child)</div><ul><li>Big climbing playground with a rock-climbing hill on turf</li><li>Two splash pads (almost certainly off in mid-October)</li><li>Ping pong, shuffleboard, cornhole, bocce; shaded tables</li><li>“Sail,” a 29-ft sculpture you can stand inside</li><li>Sun King Spirits food hall (pizza, tacos), Fork + Ale House, Java House, Penn &amp; Beech pour-your-own candles</li></ul>  <div class="warn">Clay Terrace Boo ’n Brew runs 2–6pm the same afternoon, 6 miles away. Pick one, or do Boo ’n Brew 2–4 and come to Midtown for the movie if the showtime is late.</div><div class="tip">Bring a blanket and layers for the movie; sunset is about 7pm and it drops into the 40s.</div>',
+ links:[{t:'City event page',u:'https://www.carmel.in.gov/our-city/experience/events-and-festivals/the-arts-in-autumn'},{t:'City calendar entry',u:'https://www.carmel.in.gov/Calendar.aspx?EID=1123&month=10&year=2026&day=17&calType=0'},{t:'City news release (Encanto, Touch-a-Truck)',u:'https://www.carmel.in.gov/m/newsflash?cat=1'},{t:'Midtown Plaza events',u:'https://midtownplazacarmel.com/upcoming-events/'},{t:'Indy’s Child: Midtown for families',u:'https://indyschild.com/midtown-plaza-carmel-for-families/'},{t:'Indy With Kids: Midtown',u:'https://indywithkids.com/midtown-carmel/'}],map:'Midtown Plaza Carmel'},
+{id:'boonbrew',block:'carmel',rec:true,title:'Clay Terrace Boo ’n Brew Fall Festival',when:'Sat Oct 17 · 2–6pm',where:'14390 Clay Terrace Blvd, Carmel',
+ why:'Honestly more kid content than Arts in Autumn: trick-or-treating at stores with a pumpkin sign, free hayrides 2:30–5:30, Silly Safaris animal show at 2:30 and 4, bounce house, corn maze, pumpkin decorating, face painters, kids’ band at 4. Free. Bring a tote and a costume.',
+ tags:['free:Free','kid:Trick-or-treat + hayride','Outdoor','Costumes'],
+ body:'<div class="k">Schedule</div><ul><li>2:00 JAMBOX on the main stage</li><li>2:30 &amp; 4:00 Silly Safaris animal show</li><li>2:30–5:30 hayrides</li><li>3:00 Pet Zone costume contest</li><li>4:00 Toy Factory (kids’ band)</li><li>All day: live pumpkin carving, balloon twisters, face painting, bounce house, selfie station, corn maze, family-friendly beer garden (Upland, Bier, Field)</li></ul><p>Rules: no outside food or alcohol, no lawn chairs in the beer garden. Parking map PDF on the event page. No rain plan listed. Phone 317-818-0725.</p><div class="warn">Same afternoon as Arts in Autumn. A split (Boo ’n Brew 2–4:15, then Midtown for the movie) works only if Encanto starts after 4:30.</div>',
+ links:[{t:'Clay Terrace official event page',u:'https://www.clayterrace.com/events/boo-n-brew-2026'},{t:'Visit Hamilton County listing',u:'https://www.visithamiltoncounty.com/event/clay-terrace-boo-n-brew/78599/'}],map:'Clay Terrace Carmel'},
+{id:'minis',block:'carmel',title:'Suzie Moffett’s Caged Rooms at the Museum of Miniature Houses',when:'Fri/Sat 11am–4pm · Sun 1–4pm',where:'111 E Main St, Carmel (Arts & Design District)',
+ why:'Not a haunted thing: miniature rooms built inside antique birdcages, in a dollhouse museum. $10 adults, $5 kids 3–9. Look-don’t-touch, so 45 minutes tops. A good cold-or-rain filler, steps from Bub’s ice cream.',
+ tags:['cost:$25 family','in:Indoor','Rain plan'],
+ body:'<p>Exhibit runs Oct 7, 2026 to Oct 17, 2027. Closed Mon–Tue. Phone 317-575-9466.</p>',
+ links:[{t:'Visit Hamilton County listing',u:'https://www.visithamiltoncounty.com/event/suzie-moffetts-caged-rooms/78274/'},{t:'Museum of Miniature Houses',u:'https://museumofminiatures.org/'}],map:'Museum of Miniature Houses Carmel'},
+{id:'history',block:'carmel',title:'Carmel Clay History Museum play floor',when:'Wed–Sat 10–6 · Sun 12–5',where:'Monon Depot, one block south of Main St',
+ why:'Free admission through 2026; the third-floor kids’ area with themed playhouses is $1 per child. Twenty-minute stop on the Monon between Midtown and Main Street.',
+ tags:['free:Free ($1 play floor)','in:Indoor','kid:Playhouses'],
+ body:'',links:[{t:'Indy With Kids listing',u:'https://indywithkids.com/locations/carmel-clay-history-museum/'}],map:'Carmel Clay History Museum'},
+
+{id:'park-westermeier',block:'parks',rec:true,title:'Westermeier Commons (Central Park)',when:'Dawn–dusk',where:'920 Central Park Dr W, Carmel',
+ why:'25,000+ sq ft playground with climbing walls, next to the Monon Community Center. Closest big playground to Midtown, so the default “we have 45 minutes” stop.',
+ tags:['free:Free','kid:Huge playground','Outdoor'],
+ body:'',links:[{t:'Indy With Kids: Carmel playgrounds',u:'https://indywithkids.com/playgrounds-carmel-parks/'}],map:'Westermeier Commons Carmel'},
+{id:'park-west',block:'parks',title:'West Park: nature playground, zipline, pond',when:'Dawn–dusk',where:'2700 W 116th St, Carmel',
+ why:'Best all-round Carmel park: two-level playground, nature-adventure area, zipline, sledding hill, pond loop. 10 minutes west of Midtown.',
+ tags:['free:Free','kid:Zipline','Outdoor'],
+ body:'<p>Splash pad is seasonal (assume off).</p>',links:[{t:'Indy With Kids: Carmel playgrounds',u:'https://indywithkids.com/playgrounds-carmel-parks/'}],map:'West Park Carmel IN'},
+{id:'park-flatfork',block:'parks',title:'Flat Fork Creek Park treehouses (Fishers)',when:'Dawn–dusk',where:'16141 E 101st St, Fishers · 15–20 min',
+ why:'Three real treehouses (one fully accessible), a pond and a sledding hill. Not a swings-and-slides park; the treehouses are the whole point for a 5-year-old.',
+ tags:['free:Free','kid:Treehouses','Outdoor'],
+ body:'',links:[{t:'Indy With Kids listing',u:'https://indywithkids.com/locations/flat-fork-creek-park/'}],map:'Flat Fork Creek Park Fishers'},
+{id:'park-coxhall',block:'parks',title:'Coxhall Gardens Children’s Garden',when:'Dawn–dusk',where:'11677 Towne Rd, Carmel',
+ why:'Miniature village storefronts, a rainbow path and kite fields, with fall color. More wander than climb.',
+ tags:['free:Free','Outdoor','Photos'],
+ body:'',links:[{t:'Indy With Kids: Carmel playgrounds',u:'https://indywithkids.com/playgrounds-carmel-parks/'}],map:'Coxhall Gardens Carmel'},
+{id:'park-founders',block:'parks',title:'Founders Park giant sandbox',when:'Dawn–dusk',where:'11675 Hazel Dell Pkwy, Carmel',
+ why:'A giant sandbox and nature swings. Bring a change of clothes.',
+ tags:['free:Free','Outdoor'],
+ body:'',links:[{t:'Indy With Kids: Carmel playgrounds',u:'https://indywithkids.com/playgrounds-carmel-parks/'}],map:'Founders Park Carmel'},
+{id:'monon-center',block:'parks',title:'Rain or cold plan: Monon Community Center pool + indoor playground',when:'Sat 12–7 (pool), 1–6 (playground) · Sun 9am–7pm / 9–6',where:'1235 Central Park Dr E, Carmel',
+ why:'Indoor activity pool with slides (48″ for slides) plus the Monon Station indoor playground, all on a day pass: $15 for Valerie, $18 per adult, bought in person with a waiver. The outdoor waterpark is closed for the season.',
+ tags:['cost:~$51 family','in:Indoor','kid:Pool + playground','Pool'],
+ body:'<p>Children 5 and under must have a parent within arm’s reach in the water. If the hotel has a pool, this is redundant; if not, it is the swim.</p>',
+ links:[{t:'Monon Community Center',u:'https://www.carmelclayparks.com/monon-community-center/'},{t:'Monon Station indoor playground',u:'https://www.carmelclayparks.com/amenities/monon-station-indoor-playground/'}],map:'Monon Community Center Carmel'},
+
+{id:'eat-bubs',block:'eat',rec:true,title:'Bub’s Burgers & Ice Cream',when:'Lunch/dinner',where:'210 W Main St, Carmel (Arts & Design District)',
+ why:'The Carmel kid classic: “Little Bub’s” meal with a busy bag, ice cream counter inside. Walkable to the miniatures museum and Main Street.',
+ tags:['cost:$','Food','kid:Ice cream'],body:'',links:[{t:'Indy With Kids: Carmel family restaurants',u:'https://indywithkids.com/'}],map:'Bub\'s Burgers Carmel'},
+{id:'eat-sunking',block:'eat',title:'Sun King Spirits food hall at Midtown',when:'Lunch/dinner',where:'Midtown Plaza, Carmel',
+ why:'Pizza (Pi) and tacos (La Margarita) with a patio and rooftop, right at the Arts in Autumn site. Kid-friendly outside the bar area.',
+ tags:['cost:$$','Food'],body:'<p>Alternatives on the plaza: Fork + Ale House (350 Veterans Way, patio by the green) and Social Cantina (350 Monon Blvd, $5 kids’ meals).</p>',links:[{t:'Indy’s Child: Midtown for families',u:'https://indyschild.com/midtown-plaza-carmel-for-families/'}],map:'Sun King Spirits Carmel'},
+{id:'eat-rosies',block:'eat',title:'Rosie’s Place (breakfast all day)',when:'Breakfast/lunch',where:'1111 W Main St, Carmel',
+ why:'If the hotel breakfast disappoints or you want a Sunday send-off: pancakes and French toast all day.',
+ tags:['cost:$$','Food'],body:'<p>Other Main Street options with real kids’ menus: Muldoon’s (111 W Main, indoor family area), Woody’s Library (40 E Main), Papa Fattoush (15 E Main, kids’ gyro).</p>',links:[],map:'Rosie\'s Place Carmel'},
+{id:'eat-sweets',block:'eat',title:'Donuts and ice cream',when:'Any',where:'Carmel',
+ why:'Pana Donuts & Boba (2284 E 116th St, ~40 varieties, from 5am), Graeter’s (864 S Rangeline Rd), Handel’s, Rita’s Italian Ice downtown. Jack’s Donuts on Carmel Dr was announced but not confirmed open.',
+ tags:['cost:$','Food','kid:Obviously'],body:'',links:[],map:'Pana Donuts Carmel'},
+{id:'eat-tpc',block:'eat',title:'Sunday brunch at Traders Point Creamery (Zionsville)',when:'Sat–Sun 10am–2:30pm',where:'Zionsville · ~20 min',
+ why:'Organic dairy farm with The Loft restaurant; brunch and a walk past the cows. A gentler Sunday morning if you skip the museum. Farm-tour and hayride details for 2026 not confirmed.',
+ tags:['cost:$$$','Food','Outdoor'],body:'',links:[{t:'Traders Point Creamery',u:'https://www.traderspointcreamery.com/'}],map:'Traders Point Creamery'},
+
+{id:'cm-sun',block:'museum',rec:true,title:'Children’s Museum · Sunday at opening (10am)',when:'Sun Oct 18 · 10am–5pm',where:'3000 N Meridian St, Indianapolis',
+ why:'Best crowd window of the weekend: fall break is over, Sunday mornings are the quietest, and it sits on the way home. Museum 10–1:30, lunch, then I-70 east with Uranus at the Ohio line and home by ~6:30.',
+ tags:['cost:~$20–40/person, buy ahead','in:Indoor','kid:Dinosphere, carousel, ScienceWorks','free:Free garage'],
+ body:'<div class="grid2"><div><b>Hours</b>10am–5pm Fri, Sat and Sun (closed Mon)</div><div><b>Parking</b>Free garage at 3000 N Illinois St, entrance west side of Illinois just north of 30th; Skywalk into the museum. Overflow surface lots north on Illinois.</div><div><b>Tickets</b>Dated, prices vary by day (third-party ranges $19.50–$40). Indiana residents get $3 off. Buying online 2+ weeks ahead saves up to 25%, so buy this week.</div><div><b>Carousel</b>$2 per child, adults free</div></div>  <div class="warn"><b>Playscape (the under-5 area) is closed for updates through Nov 6, 2026.</b> Valerie is at the top of that age band anyway, but it removes the quiet fallback room.</div>  <div class="k">Best for a 5-year-old</div><ul><li>Dinosphere (there is a storm sound-and-light moment you can step out of if she’s sensitive)</li><li>Carousel, Mini Masterpieces, ScienceWorks</li><li>Sports Legends Experience outdoors: treehouse, pedal cars, mini golf, tee-ball. Season normally runs through October, but confirm on the day (317-334-4000). Hit it first thing before lines build.</li><li>Tiana’s Joyful Celebration (through Jan 3, 2027), Take Me There: Peru, Planetarium and Lilly Theater all included</li></ul>  <div class="k">Haunted House “Fright Academy” (extra $9)</div><p>Lights-on “Friendly Hours” are Sun noon–5pm and Tue–Sat 10am–3pm. Frightening hours (Thu–Sat 4–9pm) are not for her. Timed tickets, sold on the museum site; plan 30–45 min. Recommended for ages 4–8 in friendly mode.</p>  <div class="k">Sunday special: Friendly Feast with the Witches, noon</div><p>Ticketed character meal, price not listed. Could replace lunch if you want a themed moment.</p>  <div class="k">Food</div><p>Food Court stations open 11am–2pm only; Grab &amp; Go all day. Outside food is allowed. Nearby: Goose the Market (0.6 mi), Fat Dan’s Deli ($4 kids’ meals), Cafe Patachou.</p>  <div class="tip">Drive from Carmel Midtown: ~20–30 min via US-31/Meridian. Sunday return: museum → I-465 E → I-70 E → Uranus Richmond → home.</div>',
+ links:[{t:'Plan your visit (hours, Playscape notice)',u:'https://www.childrensmuseum.org/visit/plan-your-visit'},{t:'Parking',u:'https://www.childrensmuseum.org/visit/parking'},{t:'Haunted House',u:'https://www.childrensmuseum.org/haunted-house'},{t:'Special events calendar',u:'https://www.childrensmuseum.org/visit/experiences/special-events'},{t:'Indy With Kids guide',u:'https://indywithkids.com/locations/childrens-museum-of-indianapolis/'},{t:'Haunted House guide (Indy Event Guide)',u:'https://indyeventguide.com/guides/childrens-museum-haunted-house-guide/'}],map:'Children\'s Museum of Indianapolis parking garage'},
+{id:'cm-fri',block:'museum',title:'Children’s Museum · Friday on the way in',when:'Fri Oct 16 · 10am–5pm',where:'3000 N Meridian St, Indianapolis',
+ why:'Leave Worthington at 7 and you are at the doors at 10, with the whole weekend in Carmel after. The catch: Friday is the last day of fall break for Carmel and Indianapolis schools, so expect it busier than a normal Friday.',
+ tags:['cost:~$20–40/person','in:Indoor','kid:Same exhibits'],
+ body:'<p>Same hours, parking and exhibits as the Sunday card. Friendly (lights-on) Haunted House hours Friday are 10am–3pm. 10am event: Kid-Tested, Kid-Approved Voting (free with admission).</p><div class="warn">Carmel Clay and IPS fall break both end Fri Oct 16. Hamilton Southeastern’s break starts the following Monday, so Sunday is clear of both.</div><div class="tip">If you choose this, Sunday morning opens up for a Carmel park or a slow hotel breakfast and an earlier drive home.</div>',
+ links:[{t:'Carmel Clay calendar',u:'https://www.ccs.k12.in.us/chs/about/calendar/calendar-grid'},{t:'IPS calendar',u:'https://www.myips.org/student-family-references/school-year-calendar'},{t:'Plan your visit',u:'https://www.childrensmuseum.org/visit/plan-your-visit'}]},
+{id:'cm-sat',block:'museum',title:'Children’s Museum · Saturday morning before Arts in Autumn',when:'Sat Oct 17 · 10am–1pm',where:'3000 N Meridian St, Indianapolis',
+ why:'Doable but tight: three hours at the museum, 25 minutes back to Carmel, lunch, then Midtown Plaza at 2. Saturday is the busiest day and Haunted House afternoon slots sell out first.',
+ tags:['cost:~$20–40/person','in:Indoor'],
+ body:'<p>Saturday-only extras: 9am Friendly Feast with the Witches (ticketed), 9am Create-A-Saurus paleo art for ages 3–5 (ticketed, before opening), 2pm Cut Paper Collage (ages 5+, free). The 7pm “After Dark” event is 21+.</p><div class="tip">Only pick this if you want Sunday morning free for the drive home with no museum stop.</div>',
+ links:[{t:'Special events calendar',u:'https://www.childrensmuseum.org/visit/experiences/special-events'}]},
+
+{id:'fri-hp',block:'fri-pm',title:'Holliday Park: rebuilt playground + the Ruins',when:'Fri · dawn–dusk; nature center 9–5',where:'6363 Spring Mill Rd, Indianapolis',
+ why:'Free, 15 minutes south of Carmel, playground rebuilt in fall 2025 with a $3M grant. The Ruins are a photogenic restored façade. Easy first stop after check-in to burn off car energy.',
+ tags:['free:Free','kid:New playground','Outdoor'],
+ body:'<p>Splash pad is closed for the season. Nature Center Mon–Sat 9am–5pm. Trails down to the White River if she wants to walk.</p>',
+ links:[{t:'Holliday Park (Indy Parks)',u:'https://parks.indy.gov/parks/holliday-park/'},{t:'Playground rebuild',u:'https://parks.indy.gov/?p=1062'}],map:'Holliday Park Indianapolis'},
+{id:'fri-hh',block:'fri-pm',rec:true,title:'Conner Prairie Headless Horseman Festival',when:'Fri (also Sat, Sun) · 5–10pm, ticket sales end 9pm',where:'13400 Allisonville Rd, Fishers · 15 min from Carmel',
+ why:'The classic Indy October night. For a 5-year-old: barrel train, the short corn maze (~30 min), the Sleepy Hollow marionette show, Eerie Illusions magic show and midway games. Skip the Haunted Trail; the after-8pm hayride has jump scares.',
+ tags:['cost:$26 pp (2+), hayride +$10','kid:Good with the right picks','free:Free parking','Outdoor, dress warm'],
+ body:'<p>Runs Thu–Sun Oct 1–25; all three of your nights are festival nights. Limited capacity, sales opened Sept 3, so buy now. Plan 2+ hours. Hayrides are assigned times with a 15-minute grace window; arrive 45 min before your slot and book the earliest one if you do it at all.</p><div class="tip">Friday night fits best: no conflict with Arts in Autumn Saturday and it leaves Saturday night for an early bedtime.</div>',
+ links:[{t:'Conner Prairie official',u:'https://www.connerprairie.org/headless-horseman'},{t:'Indy’s Child guide',u:'https://indyschild.com/the-headless-horseman-festival-at-conner-prairie/'},{t:'Indy With Kids guide',u:'https://indywithkids.com/headless-horseman-festival-at-conner-prairie/'}],map:'Conner Prairie'},
+{id:'fri-newfields',block:'fri-pm',title:'Newfields Harvest Nights: “Art or Treat” family night',when:'Fri Oct 16 · 7–10pm',where:'Newfields, 4000 N Michigan Rd, Indianapolis',
+ why:'The lit-up garden walk, and Oct 15–16 are the “Art or Treat” family nights. Kids 5 and under are free, adults from $25 plus fee. Late start for a 5-year-old and pricier than Conner Prairie.',
+ tags:['cost:$25+ adult, kids free','Outdoor','Late night'],
+ body:'<p>1.5–2 hours. Past years had an earlier young-family slot (~6:30pm); not confirmed for 2026. Check the ticket page for Friday times.</p>',
+ links:[{t:'Harvest Nights',u:'https://discovernewfields.org/harvest'},{t:'Mirror Indy October roundup',u:'https://mirrorindy.org/things-to-do-in-october-fall-in-indianapolis-halloween-2026/'}],map:'Newfields Indianapolis'},
+
+{id:'sat-fallfest',block:'sat-am',title:'Downtown Fall Fest at Lugar Plaza',when:'Sat Oct 17 · 10am–1pm',where:'200 E Washington St, downtown Indianapolis',
+ why:'Free: yard games, vendor market, pumpkin decorating, face painting, balloon art in a Kids Corner. 35 min from Carmel, so it costs you the relaxed Saturday morning and you’d drive back for Arts in Autumn at 2.',
+ tags:['free:Free','Outdoor','kid:Kids Corner (listed 6+)'],
+ body:'<p>No registration. Indy With Kids lists it ages 6+, which likely reflects the yard games more than the kids’ corner. Pairs with the Indiana State Museum or Eiteljorg a few blocks west if it rains.</p>',
+ links:[{t:'Downtown Indy event page',u:'https://downtownindy.org/events/downtown-fall-fest'},{t:'Mirror Indy roundup',u:'https://mirrorindy.org/things-to-do-in-october-fall-in-indianapolis-halloween-2026/'}],map:'Lugar Plaza Indianapolis'},
+{id:'sat-locallymade',block:'sat-am',title:'Locally Made: Indy’s Fall Fest (Broad Ripple)',when:'Sat Oct 17 · noon–5pm',where:'Indianapolis Art Center, 820 E 67th St',
+ why:'Free pumpkin painting, art activities, food trucks and 50+ artists along the canal in ARTSPARK. 20 minutes from Carmel. Overlaps Arts in Autumn, so it is a swap, not an add.',
+ tags:['free:Free','Outdoor','kid:Pumpkin painting'],
+ body:'<p>Runs until 5, so a noon–1:30 visit before heading back to Carmel for 2pm is possible but rushed. The ARTSPARK “reopening” framing came from another source; the Art Center only says ARTSPARK comes alive for the event.</p>',
+ links:[{t:'Visit Indy listing',u:'https://www.visitindy.com/events/locally-made-indys-fall-fest'},{t:'Mirror Indy roundup',u:'https://mirrorindy.org/things-to-do-in-october-fall-in-indianapolis-halloween-2026/'}],map:'Indianapolis Art Center'},
+{id:'sat-pioneer',block:'sat-am',title:'Pioneer Fall Fest at Strawtown Koteewi Park',when:'Sat Oct 17 · 1–4pm',where:'Taylor Center, 12308 Strawtown Ave, Noblesville',
+ why:'Free, all ages: corn-husk dolls, butter making, quilting bee, barn tour. Conflicts head-on with Arts in Autumn and is 25 min north. Only one source lists it.',
+ tags:['free:Free','Outdoor'],
+ body:'<p>No registration. Found only on Indy With Kids; no Hamilton County Parks page confirmed it. Call the park before relying on it.</p>',
+ links:[{t:'Indy With Kids listing',u:'https://indywithkids.com/events/pioneer-fall-fest-free/'}],map:'Taylor Center Strawtown Koteewi Park'},
+{id:'sat-wfc',block:'sat-am',title:'World Food Championships at the State Fairgrounds',when:'Thu–Sun Oct 15–18',where:'Indiana State Fairgrounds, 1202 E 38th St',
+ why:'Big cooking competition with a kids’ program, chef meet-and-greets and a live-fire BBQ area. Kids 8 and under free, adults from ~$15, parking $10. Fun if food is the point; otherwise a lot of standing around for a 5-year-old.',
+ tags:['cost:~$15 adult, kids free, $10 parking','Food'],
+ body:'<p>Saturday includes the “Biscuits &amp; Jampionship.” Tastings are not all included; check what the ticket covers.</p>',
+ links:[{t:'State Fairgrounds event page',u:'https://www.indianastatefair.com/events/2026/world-food-championships'}],map:'Indiana State Fairgrounds'},
+
+{id:'zooboo',block:'sat-pm',title:'Indianapolis Zoo: ZooBoo',when:'Fri/Sat from 2pm (to 9pm), Sun to 7pm',where:'1200 W Washington St, Indianapolis',
+ why:'Light on scares: trick-or-treat trail with 8 candy stations, potions show, Pirates Cove games, backwards carousel, costumes welcome. Included with zoo admission. Arrive before 2 to see animals first.',
+ tags:['cost:$15–35 adult, kids $15–32, parking $10','kid:Safest Halloween pick','Outdoor'],
+ body:'<p>Zoo open 9am–9pm Fri/Sat, 9–7 Sun; rides close 7pm. Up to 50% off buying online in advance. 35 min from Carmel. Best as the Saturday-evening alternative to Conner Prairie if you want the gentler option, or a Friday-afternoon arrival activity.</p>',
+ links:[{t:'ZooBoo official',u:'https://www.indianapoliszoo.com/zoo-events/zooboo/'},{t:'Indy’s Child on ZooBoo',u:'https://indyschild.com/ndianapolis-zoo-boo/'},{t:'Visit Indy pricing',u:'https://www.visitindy.com/directory/indianapolis-zoo-located-in-white-river-state-park/'}],map:'Indianapolis Zoo'},
+{id:'pumpkin-russell',block:'sat-pm',title:'Pumpkin patch: Russell Farms (Noblesville)',when:'Sat/Sun · 10am–6pm',where:'Noblesville, ~20 min from Carmel',
+ why:'Closest proper pumpkin patch to Carmel. $17 per person (2 and under free). Waterman’s on the south side of Indy is the bigger farm ($17.95 weekends) but 25–30 min the wrong direction.',
+ tags:['cost:$17 pp','Outdoor','kid:Classic'],
+ body:'<p>Open Sept 26–Oct 31. Weekend hours came from a search summary; confirm on the site. Tuttle Orchards (Greenfield, on I-70) is closed Sundays, so it doesn’t work for the drive home.</p>',
+ links:[{t:'Russell Farms',u:'https://www.russell-farms.com/'},{t:'Waterman’s hours & prices',u:'https://watermansfamilyfarm.com/price-hours/'}],map:'Russell Farms Noblesville'},
+{id:'rain-statemuseum',block:'sat-pm',title:'Rain plan: Indiana State Museum',when:'Wed–Sun · 10am–5pm',where:'650 W Washington St, downtown',
+ why:'Backup only. $23 adult / $17 youth, $4 parking validation, $1 off online. Nothing dated for the weekend. Eiteljorg next door has a free Día de Muertos altar exhibit (Oct 10–Nov 2) but no verified fall-break drop-in on Friday.',
+ tags:['cost:$23 / $17','in:Indoor'],
+ body:'<p>The Eiteljorg drop-in art making another source mentioned for Fri Oct 16 could not be found on the museum’s events page; call 317-636-9378 if you want it.</p>',
+ links:[{t:'State Museum visit',u:'https://www.indianamuseum.org/visit'},{t:'Eiteljorg events',u:'https://eiteljorg.org/eiteljorg-events/'}]},
+
+];
+
+const KEY='carmel-2026-v1';
+const PEOPLE={D:'David',A:'Amanda'};
+const VL={y:'Yes',m:'Maybe',n:'Pass'};
+let S={me:'D',votes:{D:{},A:{}},notes:{D:'',A:''},open:{}};
+try{const s=JSON.parse(localStorage.getItem(KEY)||'null');if(s&&s.votes)S=Object.assign(S,s);}catch(e){}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
+const $=(q,el=document)=>el.querySelector(q);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const other=p=>p==='D'?'A':'D';
+let toastT;const toast=m=>{const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(toastT);toastT=setTimeout(()=>t.classList.remove('on'),2600)};
+
+/* share codes: <person>.<vote chars in ITEMS order>.<note> — only that person's column */
+const encode=p=>{const v=ITEMS.map(i=>S.votes[p][i.id]||'.').join('');return p+'.'+v+'.'+encodeURIComponent(S.notes[p]||'')};
+const decode=str=>{const m=/([DA])\.([ymn.]*)\.(.*)$/.exec(str.trim().replace(/^.*#s=/,''));if(!m)return null;const v={};m[2].split('').forEach((c,i)=>{if(c!=='.'&&ITEMS[i])v[ITEMS[i].id]=c});return{p:m[1],votes:v,note:decodeURIComponent(m[3]||'')}};
+const link=()=>location.origin+location.pathname+'#s='+encode(S.me);
+function doImport(str){const d=decode(str);if(!d){toast('That code didn’t parse. Try copying the whole link.');return}
+  if(d.p===S.me&&Object.keys(S.votes[S.me]).length&&!confirm(`This link holds ${PEOPLE[d.p]}'s picks and you're currently ${PEOPLE[S.me]}. Overwrite your own picks with it?`))return;
+  S.votes[d.p]=d.votes;S.notes[d.p]=d.note;save();render();toast(`Imported ${PEOPLE[d.p]}'s picks (${Object.values(d.votes).filter(x=>x==='y').length} yes)`)}
+const hashImport=()=>{if(location.hash.startsWith('#s=')){const h=location.hash;history.replaceState(null,'',location.pathname);setTimeout(()=>doImport(h),50)}};hashImport();window.addEventListener('hashchange',hashImport);
+
+function vote(id,v){const cur=S.votes[S.me][id];if(cur===v)delete S.votes[S.me][id];else S.votes[S.me][id]=v;save();render(id)}
+function mark(p,id){const v=S.votes[p][id]||'';return `<span class="mark ${p} ${v}" data-v="${v?({y:'✓',m:'?',n:'✕'})[v]:''}" title="${PEOPLE[p]}: ${v?VL[v]:'no vote yet'}">${p}</span>`}
+
+function cardHTML(it){const v=S.votes[S.me][it.id]||'';
+  const tags=(it.tags||[]).map(t=>{const [cls,txt]=t.includes(':')?t.split(':'):['',t];return `<span class="tag ${cls}">${esc(txt)}</span>`}).join('');
+  return `<article class="card v-${v} ${S.open[it.id]?'open':''}" data-id="${it.id}" tabindex="0">
+  <div class="top"><h3>${esc(it.title)}${it.rec?'<span class="star" title="Recommended">★</span>':''}</h3></div>
+  <div class="when">${it.when||''}${it.where?' · '+esc(it.where):''}</div>
+  <p class="why">${it.why||''}</p>
+  <div class="tags">${tags}</div>
+  <div class="ctl">
+    <div class="vote"><button class="y ${v==='y'?'on':''}" data-v="y">Yes</button><button class="m ${v==='m'?'on':''}" data-v="m">Maybe</button><button class="n ${v==='n'?'on':''}" data-v="n">Pass</button></div>
+    <button class="more">${S.open[it.id]?'Hide details':'Details ▾'}</button>
+    <div class="marks">${mark('D',it.id)}${mark('A',it.id)}</div>
+  </div>
+  <div class="detail">${it.body||''}${it.links&&it.links.length?`<div class="k">Sources &amp; links</div><div class="src">${it.links.map(l=>`<a href="${l.u}" target="_blank" rel="noopener">${esc(l.t)} ↗</a>`).join('')}</div>`:''}${it.map?`<div class="src"><a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(it.map)}" target="_blank" rel="noopener">📍 Map: ${esc(it.map)} ↗</a></div>`:''}</div>
+</article>`}
+
+function renderChapters(){$('#chapters').innerHTML=BLOCKS.map((b,i)=>`<section class="chapter" id="b-${b.id}">
+  <div class="num">${['Chapter one','Chapter two','Chapter three','Chapter four','Chapter five','Chapter six','Chapter seven','Chapter eight','Chapter nine','Chapter ten'][i]||'Chapter'} · ${b.day||''}</div>
+  <h2>${esc(b.title)}</h2>${b.pickOne?'<span class="pickone">Pick one</span>':''}
+  <p class="lede">${b.lede||''}</p>
+  <div class="cards">${ITEMS.filter(x=>x.block===b.id).map(cardHTML).join('')}</div></section>`).join('')}
+
+function status(id){const d=S.votes.D[id],a=S.votes.A[id];
+  if(d==='y'&&a==='y')return['agree','Agreed ✓'];
+  if((d==='y'&&a==='n')||(d==='n'&&a==='y'))return['split','Split'];
+  if(d==='y'&&!a)return['wait','Waiting on Amanda'];if(a==='y'&&!d)return['wait','Waiting on David'];
+  if((d==='y'&&a==='m')||(a==='y'&&d==='m')||(d==='m'&&a==='m'))return['maybe','Leaning yes'];
+  return null}
+function renderPlan(){const rows=BLOCKS.map(b=>{const its=ITEMS.filter(x=>x.block===b.id).map(it=>({it,st:status(it.id)})).filter(x=>x.st);
+    return its.length?`<div class="planblock"><h4>${esc(b.title)}</h4>${its.map(({it,st})=>`<div class="planrow"><span class="t">${esc(it.title)}</span><span class="st ${st[0]}">${st[1]}</span><span class="marks">${mark('D',it.id)}${mark('A',it.id)}</span></div>`).join('')}</div>`:''}).join('');
+  const yes=p=>Object.values(S.votes[p]).filter(v=>v==='y').length;
+  $('#plan').innerHTML=`<h2>Our plan so far</h2><p class="sub">David: ${yes('D')} yes · Amanda: ${yes('A')} yes. Only cards with at least one Yes show here.</p>${rows||'<p class="empty">Nothing picked yet. Vote on a few cards above, or load a path.</p>'}
+  <div class="notes"><div><label for="noteMe">${PEOPLE[S.me]}'s note (travels with your link)</label><textarea id="noteMe" placeholder="Anything else? e.g. “Let’s skip the haunted stuff” or “I want a nap Saturday 1–2”">${esc(S.notes[S.me]||'')}</textarea></div><div><label>${PEOPLE[other(S.me)]}'s note</label><textarea readonly placeholder="Nothing imported yet">${esc(S.notes[other(S.me)]||'')}</textarea></div></div>`;
+  $('#noteMe').addEventListener('input',e=>{S.notes[S.me]=e.target.value;save()});}
+function renderPaths(){$('#paths').innerHTML=PATHS.map(p=>`<div class="path"><h3>${esc(p.title)}</h3><p>${p.desc}</p><button class="btn sm" data-path="${p.id}">Add these as my Yes votes</button></div>`).join('')}
+function renderFacts(){$('#facts').innerHTML=FACTS.map(f=>`<span class="chip">${f}</span>`).join('')}
+function renderBar(){const y=Object.values(S.votes[S.me]).filter(v=>v==='y').length,m=Object.values(S.votes[S.me]).filter(v=>v==='m').length;$('#barWho').textContent=PEOPLE[S.me];$('#barCnt').textContent=`${y} yes · ${m} maybe`;$('#bar').className='bar '+S.me;document.querySelectorAll('#who button').forEach(b=>b.classList.toggle('on',b.dataset.p===S.me))}
+function render(onlyId){if(onlyId){const old=$(`.card[data-id="${onlyId}"]`);if(old){const it=ITEMS.find(x=>x.id===onlyId);const tmp=document.createElement('div');tmp.innerHTML=cardHTML(it);const nw=tmp.firstElementChild;if(old.classList.contains('focus'))nw.classList.add('focus');old.replaceWith(nw)}}else{renderChapters()}renderPlan();renderBar()}
+
+document.addEventListener('click',e=>{
+  const c=e.target.closest('.card');
+  if(c&&e.target.matches('.vote button')){vote(c.dataset.id,e.target.dataset.v);return}
+  if(c&&e.target.matches('.more')){S.open[c.dataset.id]=!S.open[c.dataset.id];save();render(c.dataset.id);return}
+  if(e.target.matches('#who button')){S.me=e.target.dataset.p;save();render();toast(`Now picking as ${PEOPLE[S.me]}`);return}
+  if(e.target.matches('[data-path]')){const p=PATHS.find(x=>x.id===e.target.dataset.path);p.items.forEach(id=>{if(ITEMS.find(x=>x.id===id))S.votes[S.me][id]='y'});save();render();toast(`Added ${p.items.length} Yes votes for ${PEOPLE[S.me]}`);return}
+  if(e.target.matches('#copyLink,#barShare')){const u=link();(navigator.clipboard?navigator.clipboard.writeText(u):Promise.reject()).then(()=>toast(`Link copied — text it to ${PEOPLE[other(S.me)]}`)).catch(()=>{$('#code').style.display='block';$('#code').textContent=u;toast('Copy the link below')});if(navigator.share&&e.target.id==='barShare'){navigator.share({title:'Carmel weekend picks',url:u}).catch(()=>{})}return}
+  if(e.target.matches('#showCode')){const c=$('#code');c.style.display=c.style.display==='none'?'block':'none';c.textContent=link();return}
+  if(e.target.matches('#importBtn')){doImport($('#pasteCode').value);$('#pasteCode').value='';return}
+  if(e.target.matches('#resetMe')){if(confirm(`Clear all of ${PEOPLE[S.me]}'s votes and note on this device?`)){S.votes[S.me]={};S.notes[S.me]='';save();render();toast('Cleared')}return}
+});
+document.addEventListener('keydown',e=>{if(e.target.matches('input,textarea'))return;const cards=[...document.querySelectorAll('.card')];let i=cards.findIndex(c=>c.classList.contains('focus'));
+  const go=n=>{cards.forEach(c=>c.classList.remove('focus'));i=Math.max(0,Math.min(cards.length-1,n));cards[i].classList.add('focus');cards[i].scrollIntoView({block:'center',behavior:'smooth'})};
+  if(e.key==='j')go(i+1);else if(e.key==='k')go(i-1);else if('ymn'.includes(e.key)&&i>=0){vote(cards[i].dataset.id,e.key);document.querySelector(`.card[data-id="${cards[i].dataset.id}"]`).classList.add('focus')}
+  else if(e.key==='e'&&i>=0){const id=cards[i].dataset.id;S.open[id]=!S.open[id];save();render(id);document.querySelector(`.card[data-id="${id}"]`).classList.add('focus')}
+  else if(e.key==='1'||e.key==='2'){S.me=e.key==='1'?'D':'A';save();render()}});
+renderFacts();renderPaths();render();if(location.hash.startsWith('#b-')){const el=document.getElementById(location.hash.slice(1));if(el)el.scrollIntoView()}
+</script>
+</body>
+</html>
