@@ -247,7 +247,7 @@ body.maplock{overflow:hidden}
   <div class="mini">Keyboard on desktop: <kbd>j</kbd>/<kbd>k</kbd> move, <kbd>y</kbd> <kbd>m</kbd> <kbd>n</kbd> vote, <kbd>e</kbd> details, <kbd>1</kbd>/<kbd>2</kbd> switch person, <kbd>m</kbd> map.</div>
 </section>
 
-<div class="bar" id="bar"><span class="dot"></span><span id="barWho">David</span><span class="cnt" id="barCnt"></span><button class="btn sm" id="barShare">Share</button></div>
+<div class="bar" id="bar"><span class="dot"></span><span id="barWho">Amanda</span><span class="cnt" id="barCnt"></span><button class="btn sm" id="barShare">Share</button></div>
 
 <footer>Researched Oct 9, 2026. Every card links its sources; recheck organizer pages the day before, especially for outdoor events. Built for Amanda and David by David's assistant.</footer>
 </div>
@@ -527,7 +527,7 @@ const ITEMS=[
 const KEY='carmel-2026-v1';
 const PEOPLE={D:'David',A:'Amanda'};
 const VL={y:'Yes',m:'Maybe',n:'Pass'};
-let S={me:'D',votes:{D:{},A:{}},notes:{D:'',A:''},open:{},fold:{}};
+let S={me:'A',votes:{D:{},A:{}},notes:{D:'',A:''},open:{},fold:{}};
 try{const s=JSON.parse(localStorage.getItem(KEY)||'null');if(s&&s.votes)S=Object.assign(S,s);}catch(e){}
 const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
 const $=(q,el=document)=>el.querySelector(q);
