@@ -221,7 +221,7 @@ body.maplock{overflow:hidden}
   <div class="mini">Desktop keys: <kbd>j</kbd>/<kbd>k</kbd> move, <kbd>y</kbd> <kbd>m</kbd> <kbd>n</kbd> vote, <kbd>e</kbd> details, <kbd>1</kbd>/<kbd>2</kbd> person, <kbd>g</kbd> map, <kbd>Esc</kbd> close.</div>
 </section>
 
-<div class="bar" id="bar"><span class="dot"></span><span id="barWho">David</span><span class="cnt" id="barCnt"></span><button class="btn sm" id="barShare">Share</button></div>
+<div class="bar" id="bar"><span class="dot"></span><span id="barWho">Amanda</span><span class="cnt" id="barCnt"></span><button class="btn sm" id="barShare">Share</button></div>
 <footer>Same research as the chapter version (Oct 9, 2026); every option links its sources inside Details. Recheck organizer pages the day before.</footer>
 </div>
 
@@ -529,7 +529,7 @@ const ALL={};ITEMS.concat(EXTRA).forEach(i=>ALL[i.id]=i);
 const OPTS=[];ITEMS.filter(i=>i.block==='hotel').forEach(i=>OPTS.push({key:'hotel|'+i.id,slot:'hotel',it:i,kind:'hotel'}));
 AVAIL.forEach(a=>{const it=ALL[a.id];if(!it){console.error('missing',a.id);return}a.s.forEach(s=>OPTS.push({key:s+'|'+a.id,slot:s,it,kind:a.kind||(it.block==='eat'?'eat':'do'),note:a.note||''}))});
 const OPTK=Object.fromEntries(OPTS.map(o=>[o.key,o]));
-let S={me:'D',votes:{D:{},A:{}},notes:{D:'',A:''},open:{},fold:{}};
+let S={me:'A',votes:{D:{},A:{}},notes:{D:'',A:''},open:{},fold:{}};
 try{const s=JSON.parse(localStorage.getItem(KEY)||'null');if(s&&s.votes)S=Object.assign(S,s);}catch(e){}
 const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
 const $=(q,el=document)=>el.querySelector(q);
