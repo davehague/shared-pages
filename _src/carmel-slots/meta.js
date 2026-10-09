@@ -1,0 +1,1 @@
+const FACTS=['📅 <b>Fri Oct 16 → Sun Oct 18</b>','🚗 <b>~3h</b> Worthington ↔ Carmel, I-70','🏠 Leave Carmel by <b>2–2:30 Sun</b>, home 5–6','🦖 Museum is a <b>full day</b>: 10–5 all three days','🎃 Two free Carmel festivals Sat 2–5 (pick one or neither)','🌡️ Highs mid-60s, lows mid-40s · sunset ~7:03pm'];
