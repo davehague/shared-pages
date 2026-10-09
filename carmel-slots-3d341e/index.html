@@ -203,7 +203,7 @@ body.maplock{overflow:hidden}
   <div class="seg" id="who"><button data-p="D">David</button><button data-p="A">Amanda</button></div>
 </div>
 <div class="howto">
-  <div><b>1 · Pick per slot</b> Yes / Maybe / Pass on the options inside each slot. More than one Yes in a slot is fine (a park and a dinner).</div>
+  <div><b>1 · Pick per slot</b> Yes / Maybe / Pass on the options inside each slot. More than one Yes in a slot is fine (a park and a dinner). Maybe means “play it by ear.”</div>
   <div><b>2 · Fold what's decided</b> Tap a day or slot title to fold it. Folded headers show what each of you chose.</div>
   <div><b>3 · Share</b> “Copy my link” at the bottom, text it. Their phone imports your column. The map button shows what fits any slot.</div>
 </div>
@@ -565,7 +565,7 @@ function optHTML(o){const it=o.it,v=S.votes[S.me][o.key]||'',open=!!S.open[o.key
   <button class="more">${open?'Hide details':'Details ▾'}</button><div class="marks">${mark('D',o.key)}${mark('A',o.key)}</div></div>
   <div class="detail">${it.body||''}${it.links&&it.links.length?`<div class="k">Sources &amp; links</div><div class="src">${it.links.map(l=>`<a href="${l.u}" target="_blank" rel="noopener">${esc(l.t)} ↗</a>`).join('')}</div>`:''}${it.map?`<div class="src"><a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(it.map)}" target="_blank" rel="noopener">📍 Map: ${esc(it.map)} ↗</a></div>`:''}</div></article>`}
 
-function picks(keys){return ['D','A'].map(p=>{const y=keys.filter(k=>S.votes[p][k]==='y').map(k=>short(OPTK[k].it.title));return `<span class="fp ${p}"><b>${p}</b> ${y.length?esc(y.join(', ')):'<i>nothing yet</i>'}</span>`}).join('')}
+function picks(keys){return ['D','A'].map(p=>{const y=keys.filter(k=>S.votes[p][k]==='y').map(k=>short(OPTK[k].it.title));const m=keys.filter(k=>S.votes[p][k]==='m').map(k=>short(OPTK[k].it.title));return `<span class="fp ${p}"><b>${p}</b> ${y.length||m.length?esc(y.join(', '))+(m.length?(y.length?' · ':'')+'<i>by ear: '+esc(m.join(', '))+'</i>':''):'<i>nothing yet</i>'}</span>`}).join('')}
 function slotHTML(d,sl){const sid=d.id+'-'+sl.id,os=OPTS.filter(o=>o.slot===sid),f=!!S.fold[sid];const keys=os.map(o=>o.key);
   const yD=keys.filter(k=>S.votes.D[k]==='y').length,yA=keys.filter(k=>S.votes.A[k]==='y').length;
   const ic={full:'☀️',am:'🌅',pm:'🕑',eve:'🌙'}[sl.id];
@@ -581,12 +581,15 @@ function renderDecisions(){const hotels=OPTS.filter(o=>o.slot==='hotel');const h
   $('#decisions').innerHTML=h}
 
 function status(k){const d=S.votes.D[k],a=S.votes.A[k];
-  if(d==='y'&&a==='y')return['agree','Agreed ✓'];if((d==='y'&&a==='n')||(d==='n'&&a==='y'))return['split','Split'];
+  if(d==='y'&&a==='y')return['agree','Agreed ✓'];
+  if((d==='y'&&a==='n')||(d==='n'&&a==='y')||(d==='m'&&a==='n')||(d==='n'&&a==='m'))return['split','Split'];
   if(d==='y'&&!a)return['wait','Waiting on Amanda'];if(a==='y'&&!d)return['wait','Waiting on David'];
-  if((d==='y'&&a==='m')||(a==='y'&&d==='m')||(d==='m'&&a==='m'))return['maybe','Leaning yes'];return null}
+  if((d==='y'&&a==='m')||(a==='y'&&d==='m'))return['maybe','Leaning yes'];
+  if(d==='m'||a==='m')return['maybe','Play it by ear'];
+  return null}
 function renderPlan(){const yes=p=>Object.values(S.votes[p]).filter(v=>v==='y').length;
   const col=(title,slots)=>{const rows=slots.map(sid=>{const its=OPTS.filter(o=>o.slot===sid).map(o=>({o,st:status(o.key)})).filter(x=>x.st);return its.length?`<div class="pslot"><h4>${sid==='hotel'?'Hotel':SLOTS.find(x=>x.id===sid.split('-')[1]).name}</h4>${its.map(({o,st})=>`<div class="prow"><span class="t">${esc(o.it.title)}</span><span class="st ${st[0]}">${st[1]}</span><span class="marks">${mark('D',o.key)}${mark('A',o.key)}</span></div>`).join('')}</div>`:''}).join('');return `<div class="pday"><h3>${title}</h3>${rows||'<p class="empty">Nothing yet</p>'}</div>`};
-  $('#plan').innerHTML=`<h2>Our weekend so far</h2><p class="sub">David: ${yes('D')} yes · Amanda: ${yes('A')} yes. Only options with at least one Yes show here.</p><div class="pgrid">${col('Hotel',['hotel'])}${DAYS.map(d=>col(d.name+' · '+d.date,DAYSLOTS[d.id].map(s=>d.id+'-'+s))).join('')}</div>
+  $('#plan').innerHTML=`<h2>Our weekend so far</h2><p class="sub">David: ${yes('D')} yes · Amanda: ${yes('A')} yes. Anything with a Yes or a Maybe shows here. Maybe means “play it by ear” for that slot.</p><div class="pgrid">${col('Hotel',['hotel'])}${DAYS.map(d=>col(d.name+' · '+d.date,DAYSLOTS[d.id].map(s=>d.id+'-'+s))).join('')}</div>
   <div class="notes"><div><label for="noteMe">${PEOPLE[S.me]}'s note (travels with your link)</label><textarea id="noteMe" placeholder="e.g. “No haunted stuff” or “I want Saturday afternoon unplanned”">${esc(S.notes[S.me]||'')}</textarea></div><div><label>${PEOPLE[other(S.me)]}'s note</label><textarea readonly placeholder="Nothing imported yet">${esc(S.notes[other(S.me)]||'')}</textarea></div></div>`;
   $('#noteMe').addEventListener('input',e=>{S.notes[S.me]=e.target.value;save()})}
 function renderFacts(){$('#facts').innerHTML=FACTS.map(f=>`<span class="chip">${f}</span>`).join('')}
