@@ -11,7 +11,7 @@ def fold(t):
         out.append(c); i+=1
     return ''.join(out)
 parts = [fold('\n'.join(l for l in (d/f).read_text().split('\n') if not l.startswith('//'))) for f in ['hotels.js','roadtrip.js','carmel.js','indy.js'] if (d/f).exists()]
-meta = (d/'meta.js').read_text()
+meta = (d/'meta.js').read_text() + '\nconst GEO=' + (d/'geo.json').read_text() + ';\n'
 data = meta + '\nconst ITEMS=[\n' + '\n'.join(parts) + '\n];\n'
 out = shell.replace('/*__DATA__*/', data)
 (d/'index.html').write_text(out)

@@ -21,6 +21,11 @@ module.exports = async ({page, base, ok}) => {
   ok('import via hash restores A votes', Object.values(st.votes.A).filter(v=>v==='y').length === y);
   ok('hash cleared after import', (await page.evaluate(()=>location.hash)) === '');
   ok('plan shows waiting rows', (await page.locator('.planrow .st.wait').count()) > 0);
+  await page.waitForFunction(() => document.querySelectorAll('#map path.leaflet-interactive').length > 0, null, {timeout: 15000});
+  const pins = await page.locator('#map path.leaflet-interactive').count(); ok('map pins rendered', pins >= 40, `(${pins})`);
+  await page.locator('#mapf button[data-f="hotel"]').click();
+  const hp = await page.locator('#map path.leaflet-interactive').count(); ok('hotel filter shows 7 pins', hp === 7, `(${hp})`);
+  await page.locator('#mapf button[data-f="all"]').click();
   await page.setViewportSize({width:390,height:844});
   await page.screenshot({path: require('path').join(__dirname,'.shots','mobile.png'), fullPage:false});
   const sw = await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1);
