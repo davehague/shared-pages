@@ -1,0 +1,29 @@
+module.exports = async ({page, base, ok}) => {
+  await page.evaluate(() => localStorage.clear());
+  await page.reload({waitUntil:'networkidle'});
+  const n = await page.locator('.card').count(); ok('cards rendered', n > 20, `(${n})`);
+  await page.locator('.card').first().locator('.vote button.y').click();
+  ok('vote marks card', await page.locator('.card').first().evaluate(c => c.classList.contains('v-y')));
+  await page.locator('.card').first().locator('.more').click();
+  ok('details open', await page.locator('.card').first().evaluate(c => c.classList.contains('open')));
+  await page.locator('#who button[data-p="A"]').click();
+  ok('switch person', (await page.locator('#barWho').textContent()) === 'Amanda');
+  await page.locator('[data-path="easy"]').click();
+  const y = await page.evaluate(() => Object.values(JSON.parse(localStorage.getItem('carmel-2026-v1')).votes.A).filter(v=>v==='y').length);
+  ok('path adds yes votes', y >= 7, `(${y})`);
+  const code = await page.evaluate(() => encode('A'));
+  ok('encode produces code', /^A\.[ymn.]+\./.test(code), code.slice(0,40));
+  // import as David's link onto a fresh device
+  await page.evaluate(() => localStorage.clear());
+  await page.goto('about:blank');await page.goto(base + '/#s=' + code, {waitUntil:'networkidle'});
+  await page.waitForTimeout(300);
+  const st = await page.evaluate(() => JSON.parse(localStorage.getItem('carmel-2026-v1')));
+  ok('import via hash restores A votes', Object.values(st.votes.A).filter(v=>v==='y').length === y);
+  ok('hash cleared after import', (await page.evaluate(()=>location.hash)) === '');
+  ok('plan shows waiting rows', (await page.locator('.planrow .st.wait').count()) > 0);
+  await page.setViewportSize({width:390,height:844});
+  await page.screenshot({path: require('path').join(__dirname,'.shots','mobile.png'), fullPage:false});
+  const sw = await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1);
+  ok('no horizontal scroll on mobile', sw);
+  await page.evaluate(() => { try{localStorage.clear()}catch(e){} });
+};

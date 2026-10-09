@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Carmel Weekend — Choose Our Adventure (Oct 16–18, 2026)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Literata:opsz,wght@7..72,400;7..72,500;7..72,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f6efe2; --paper2:#efe5d2; --card:#fffaf0; --ink:#241d14; --muted:#766b5a; --line:#e3d7c1;
+  --pumpkin:#d85f1c; --pumpkin-soft:#fbe4d3; --teal:#1f6f72; --teal-soft:#d9ecea; --gold:#c8931d; --gold-soft:#f6e8c2;
+  --maple:#a8392a; --maple-soft:#f4d8d1; --plum:#7a3f7c; --plum-soft:#ecdcec; --moss:#4f7a3a; --moss-soft:#dfead6;
+  --shadow:0 1px 2px rgba(60,40,10,.06),0 10px 30px rgba(60,40,10,.08);
+  --r:16px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:'Literata',Georgia,serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;position:relative}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.5;mix-blend-mode:multiply;z-index:0;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.35 0 0 0 0 0.25 0 0 0 0 0.1 0 0 0 .06 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+.wrap{max-width:980px;margin:0 auto;padding:0 16px;position:relative;z-index:1}
+h1,h2,h3,.disp{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:800;line-height:1.05;letter-spacing:-.02em}
+a{color:var(--teal);text-decoration:underline;text-decoration-color:rgba(31,111,114,.35);text-underline-offset:2px}
+a:hover{text-decoration-color:var(--teal)}
+button{font-family:inherit;cursor:pointer}
+
+/* hero */
+.hero{padding:40px 0 22px;position:relative;overflow:hidden}
+.hero .eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:'Bricolage Grotesque';font-weight:600;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--pumpkin);background:var(--pumpkin-soft);padding:6px 12px;border-radius:100px}
+.hero h1{font-size:clamp(2.3rem,7vw,4.2rem);margin:14px 0 8px;max-width:14ch}
+.hero h1 em{font-style:normal;color:var(--pumpkin);position:relative}
+.hero p.sub{font-size:1.05rem;color:var(--muted);max-width:60ch;margin:0 0 18px}
+.leaf{position:absolute;right:-30px;top:10px;width:220px;opacity:.14;pointer-events:none;transform:rotate(12deg)}
+.facts{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:.8rem;background:var(--card);border:1px solid var(--line);border-radius:100px;padding:6px 12px;box-shadow:var(--shadow);font-family:'Bricolage Grotesque';font-weight:600}
+.chip b{color:var(--pumpkin)}
+
+/* who am I */
+.who{margin:22px 0 0;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;box-shadow:var(--shadow);display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between}
+.who .lbl{font-family:'Bricolage Grotesque';font-weight:600;font-size:.95rem}
+.who .lbl small{display:block;font-family:'Literata';font-weight:400;color:var(--muted);font-size:.84rem}
+.seg{display:inline-flex;background:var(--paper2);border-radius:100px;padding:4px;gap:4px}
+.seg button{border:0;background:transparent;border-radius:100px;padding:8px 18px;font-family:'Bricolage Grotesque';font-weight:700;font-size:.95rem;color:var(--muted)}
+.seg button.on{background:var(--ink);color:#fff;box-shadow:var(--shadow)}
+.seg button[data-p="A"].on{background:var(--plum)}
+.seg button[data-p="D"].on{background:var(--teal)}
+
+/* how it works */
+.howto{margin:18px 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+.howto div{background:var(--paper2);border-radius:12px;padding:12px 14px;font-size:.9rem}
+.howto b{font-family:'Bricolage Grotesque';display:block;margin-bottom:2px}
+
+/* paths */
+.paths{margin:30px 0 0}
+.paths h2{font-size:1.5rem;margin:0 0 4px}
+.paths p{margin:0 0 12px;color:var(--muted)}
+.pathgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.path{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:8px}
+.path h3{margin:0;font-size:1.15rem}
+.path p{font-size:.9rem;color:var(--ink);margin:0;flex:1}
+.path .btn{align-self:flex-start}
+.btn{border:1.5px solid var(--ink);background:var(--ink);color:#fff;border-radius:100px;padding:8px 14px;font-family:'Bricolage Grotesque';font-weight:700;font-size:.88rem;transition:transform .12s}
+.btn:hover{transform:translateY(-1px)}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.sm{padding:6px 11px;font-size:.8rem}
+
+/* chapters */
+.chapter{padding:34px 0 10px}
+.chapter .num{font-family:'Bricolage Grotesque';font-weight:800;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.chapter h2{font-size:clamp(1.6rem,4vw,2.2rem);margin:4px 0 4px}
+.chapter p.lede{margin:0 0 14px;color:var(--muted);max-width:66ch}
+.chapter .pickone{display:inline-block;font-size:.78rem;background:var(--gold-soft);color:#6e4f08;padding:3px 10px;border-radius:100px;font-family:'Bricolage Grotesque';font-weight:600;margin-bottom:10px}
+
+/* cards */
+.cards{display:grid;gap:12px}
+.card{background:var(--card);border:1px solid var(--line);border-left:6px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:14px 16px 12px;position:relative;transition:border-color .15s,transform .15s}
+.card.focus{outline:2px solid var(--pumpkin);outline-offset:2px}
+.card.v-y{border-left-color:var(--moss)}
+.card.v-m{border-left-color:var(--gold)}
+.card.v-n{border-left-color:#c9bca5;opacity:.72}
+.card .top{display:flex;gap:10px;align-items:flex-start}
+.card h3{margin:0;font-size:1.18rem;flex:1}
+.card h3 .star{color:var(--pumpkin);font-size:.95rem;margin-left:4px;vertical-align:2px}
+.card .when{font-family:'Bricolage Grotesque';font-weight:600;font-size:.84rem;color:var(--maple);margin-top:3px}
+.card .why{margin:8px 0 0;font-size:.95rem}
+.card .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
+.tag{font-size:.74rem;padding:3px 9px;border-radius:100px;background:var(--paper2);color:var(--muted);font-family:'Bricolage Grotesque';font-weight:600}
+.tag.free{background:var(--moss-soft);color:#2f5a1e}
+.tag.cost{background:var(--gold-soft);color:#6e4f08}
+.tag.kid{background:var(--pumpkin-soft);color:#8a3a0c}
+.tag.in{background:var(--teal-soft);color:#174f52}
+.tag.pool{background:#d6e8f7;color:#1c4f7c}
+.card .ctl{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:12px}
+.vote{display:inline-flex;gap:4px;background:var(--paper2);padding:4px;border-radius:100px}
+.vote button{border:0;background:transparent;border-radius:100px;padding:6px 12px;font-family:'Bricolage Grotesque';font-weight:700;font-size:.84rem;color:var(--muted)}
+.vote button:hover{background:#fff}
+.vote button.on.y{background:var(--moss);color:#fff}
+.vote button.on.m{background:var(--gold);color:#fff}
+.vote button.on.n{background:#9b8f78;color:#fff}
+.marks{display:flex;gap:6px;margin-left:auto;align-items:center}
+.mark{width:28px;height:28px;border-radius:50%;display:inline-grid;place-items:center;font-family:'Bricolage Grotesque';font-weight:800;font-size:.78rem;border:2px solid var(--line);color:var(--muted);background:#fff;position:relative}
+.mark.D{border-color:var(--teal);color:var(--teal)}
+.mark.A{border-color:var(--plum);color:var(--plum)}
+.mark.y{background:var(--moss);border-color:var(--moss);color:#fff}
+.mark.m{background:var(--gold);border-color:var(--gold);color:#fff}
+.mark.n{background:#9b8f78;border-color:#9b8f78;color:#fff}
+.mark::after{content:attr(data-v);position:absolute;right:-5px;bottom:-5px;font-size:.6rem;background:#fff;border-radius:50%;width:14px;height:14px;display:grid;place-items:center;color:var(--ink);border:1px solid var(--line)}
+.mark[data-v=""]::after{display:none}
+.more{border:0;background:transparent;color:var(--teal);font-family:'Bricolage Grotesque';font-weight:700;font-size:.84rem;padding:6px 8px;border-radius:8px}
+.more:hover{background:var(--teal-soft)}
+.detail{display:none;margin-top:12px;padding-top:12px;border-top:1px dashed var(--line);font-size:.93rem}
+.card.open .detail{display:block}
+.detail p{margin:0 0 8px}
+.detail ul{margin:4px 0 8px;padding-left:20px}
+.detail li{margin:3px 0}
+.detail .k{font-family:'Bricolage Grotesque';font-weight:700;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:10px 0 3px}
+.detail .src a{display:inline-block;margin:2px 8px 2px 0;font-size:.84rem}
+.detail .tip{background:var(--gold-soft);border-radius:10px;padding:9px 12px;margin:8px 0}
+.detail .warn{background:var(--maple-soft);border-radius:10px;padding:9px 12px;margin:8px 0}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:6px 14px;margin:6px 0}
+.grid2 div{font-size:.88rem}
+.grid2 b{font-family:'Bricolage Grotesque';font-weight:700;color:var(--muted);font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;display:block}
+
+/* plan summary */
+.plan{margin:36px 0 0;background:linear-gradient(180deg,#fffaf0,#f9f0dc);border:1px solid var(--line);border-radius:22px;padding:22px 20px;box-shadow:var(--shadow)}
+.plan h2{font-size:1.8rem;margin:0 0 4px}
+.plan p.sub{margin:0 0 14px;color:var(--muted)}
+.planblock{margin:12px 0 0}
+.planblock h4{margin:0 0 4px;font-family:'Bricolage Grotesque';font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.planrow{display:flex;gap:8px;align-items:center;padding:6px 0;border-bottom:1px dotted var(--line);font-size:.93rem;flex-wrap:wrap}
+.planrow .t{flex:1;min-width:160px}
+.planrow .st{font-family:'Bricolage Grotesque';font-weight:700;font-size:.76rem;padding:3px 9px;border-radius:100px}
+.st.agree{background:var(--moss);color:#fff}
+.st.split{background:var(--maple);color:#fff}
+.st.wait{background:var(--gold-soft);color:#6e4f08}
+.st.maybe{background:var(--paper2);color:var(--muted)}
+.planrow .marks{margin-left:0}
+.empty{color:var(--muted);font-size:.9rem;font-style:italic}
+.notes{margin-top:16px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.notes label{font-family:'Bricolage Grotesque';font-weight:700;font-size:.84rem;display:block;margin-bottom:4px}
+.notes textarea{width:100%;min-height:72px;border:1px solid var(--line);border-radius:12px;padding:10px;font-family:inherit;font-size:.92rem;background:#fff;resize:vertical}
+.notes textarea[readonly]{background:var(--paper2);color:var(--muted)}
+
+/* share */
+.share{margin:16px 0 0;background:var(--ink);color:#fff;border-radius:22px;padding:22px 20px}
+.share h2{font-size:1.6rem;margin:0 0 4px}
+.share p{margin:0 0 12px;color:#d8cdb8;font-size:.94rem}
+.share .row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.share .btn{background:var(--pumpkin);border-color:var(--pumpkin)}
+.share .btn.ghost{background:transparent;border-color:#8a7d66;color:#fff}
+.share code{display:block;margin-top:12px;background:#0f0c08;border-radius:10px;padding:10px 12px;font-size:.78rem;word-break:break-all;color:#f0d8b8;max-height:90px;overflow:auto}
+.share input{flex:1;min-width:220px;border:1px solid #6d6150;background:#15110c;color:#fff;border-radius:100px;padding:9px 14px;font-family:inherit;font-size:.9rem}
+.share .mini{font-size:.8rem;color:#b4a890;margin-top:10px}
+
+/* sticky bar */
+.bar{position:sticky;bottom:12px;z-index:5;margin:26px 0 20px;background:var(--card);border:1px solid var(--line);border-radius:100px;box-shadow:0 10px 40px rgba(60,40,10,.18);padding:8px 10px 8px 16px;display:flex;gap:10px;align-items:center;font-family:'Bricolage Grotesque';font-weight:600;font-size:.88rem}
+.bar .dot{width:10px;height:10px;border-radius:50%;background:var(--teal)}
+.bar.A .dot{background:var(--plum)}
+.bar .cnt{color:var(--muted);flex:1}
+.toast{position:fixed;left:50%;bottom:80px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:10px 18px;border-radius:100px;font-family:'Bricolage Grotesque';font-weight:600;opacity:0;transition:.25s;z-index:9;max-width:92vw;text-align:center}
+.toast.on{opacity:1;transform:translateX(-50%)}
+footer{padding:30px 0 50px;color:var(--muted);font-size:.84rem}
+kbd{font-family:'Bricolage Grotesque';font-size:.76rem;background:var(--paper2);border:1px solid var(--line);border-bottom-width:2px;border-radius:5px;padding:1px 6px}
+@media print{.bar,.share,.vote,.more,.who,.howto,.paths{display:none!important}.card{break-inside:avoid}body::before{display:none}}
+@media (max-width:560px){.card{padding:12px 12px 10px}.marks{margin-left:0}.card .ctl{gap:6px}.vote button{padding:6px 10px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="hero">
+  <svg class="leaf" viewBox="0 0 100 100" aria-hidden="true"><path fill="#d85f1c" d="M50 4c20 18 42 30 42 56 0 20-18 34-42 36C26 94 8 80 8 60 8 34 30 22 50 4zm0 14v70c-2-20-10-36-24-48 10 4 18 12 24 22 6-10 14-18 24-22-14 12-22 28-24 48z"/></svg>
+  <span class="eyebrow">🍂 Family weekend · Carmel &amp; Indy</span>
+  <h1>Choose our <em>Carmel</em> adventure</h1>
+  <p class="sub">Friday Oct 16 → Sunday Oct 18, 2026. David, Amanda and Valerie (5). Tap <b>Yes / Maybe / Pass</b> on anything, open <b>Details</b> for the research and sources, then send your picks to each other with one link.</p>
+  <div class="facts" id="facts"></div>
+</header>
+
+<div class="who">
+  <div class="lbl">Who's picking right now? <small>Your picks are saved on this device. Switch to see or edit the other person's column.</small></div>
+  <div class="seg" id="who"><button data-p="D">David</button><button data-p="A">Amanda</button></div>
+</div>
+
+<div class="howto">
+  <div><b>1 · Vote</b> Yes / Maybe / Pass on each card. The little circles show both of your votes side by side (D and A).</div>
+  <div><b>2 · Share</b> Scroll to the bottom, tap <i>Copy my link</i>, text it. Opening the link imports your votes onto their phone. No account, no app.</div>
+  <div><b>3 · Agree</b> “Our plan so far” at the bottom shows what's agreed, split, or still waiting on the other person.</div>
+</div>
+
+<section class="paths">
+  <h2>Shortcut: pick a path, then tweak</h2>
+  <p>Each one adds a set of “Yes” votes for whoever is picking right now. Nothing else is touched.</p>
+  <div class="pathgrid" id="paths"></div>
+</section>
+
+<div id="chapters"></div>
+
+<section class="plan" id="plan"></section>
+
+<section class="share" id="share">
+  <h2>Send your picks</h2>
+  <p>Copy the link and text it. When the other person opens it, your votes and note appear next to theirs. Repeat whenever you change your mind.</p>
+  <div class="row">
+    <button class="btn" id="copyLink">Copy my link</button>
+    <button class="btn ghost" id="showCode">Show code instead</button>
+    <button class="btn ghost" id="resetMe">Reset my picks</button>
+  </div>
+  <code id="code" style="display:none"></code>
+  <div class="row" style="margin-top:14px">
+    <input id="pasteCode" placeholder="Paste a link or code from the other person…">
+    <button class="btn ghost" id="importBtn">Import</button>
+  </div>
+  <div class="mini">Keyboard on desktop: <kbd>j</kbd>/<kbd>k</kbd> move, <kbd>y</kbd> <kbd>m</kbd> <kbd>n</kbd> vote, <kbd>e</kbd> details, <kbd>1</kbd>/<kbd>2</kbd> switch person.</div>
+</section>
+
+<div class="bar" id="bar"><span class="dot"></span><span id="barWho">David</span><span class="cnt" id="barCnt"></span><button class="btn sm" id="barShare">Share</button></div>
+
+<footer>Researched Oct 9, 2026. Every card links its sources; recheck organizer pages the day before, especially for outdoor events. Built for Amanda and David by David's assistant.</footer>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+/*__DATA__*/
+const KEY='carmel-2026-v1';
+const PEOPLE={D:'David',A:'Amanda'};
+const VL={y:'Yes',m:'Maybe',n:'Pass'};
+let S={me:'D',votes:{D:{},A:{}},notes:{D:'',A:''},open:{}};
+try{const s=JSON.parse(localStorage.getItem(KEY)||'null');if(s&&s.votes)S=Object.assign(S,s);}catch(e){}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
+const $=(q,el=document)=>el.querySelector(q);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const other=p=>p==='D'?'A':'D';
+let toastT;const toast=m=>{const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(toastT);toastT=setTimeout(()=>t.classList.remove('on'),2600)};
+
+/* share codes: <person>.<vote chars in ITEMS order>.<note> — only that person's column */
+const encode=p=>{const v=ITEMS.map(i=>S.votes[p][i.id]||'.').join('');return p+'.'+v+'.'+encodeURIComponent(S.notes[p]||'')};
+const decode=str=>{const m=/([DA])\.([ymn.]*)\.(.*)$/.exec(str.trim().replace(/^.*#s=/,''));if(!m)return null;const v={};m[2].split('').forEach((c,i)=>{if(c!=='.'&&ITEMS[i])v[ITEMS[i].id]=c});return{p:m[1],votes:v,note:decodeURIComponent(m[3]||'')}};
+const link=()=>location.origin+location.pathname+'#s='+encode(S.me);
+function doImport(str){const d=decode(str);if(!d){toast('That code didn’t parse. Try copying the whole link.');return}
+  if(d.p===S.me&&Object.keys(S.votes[S.me]).length&&!confirm(`This link holds ${PEOPLE[d.p]}'s picks and you're currently ${PEOPLE[S.me]}. Overwrite your own picks with it?`))return;
+  S.votes[d.p]=d.votes;S.notes[d.p]=d.note;save();render();toast(`Imported ${PEOPLE[d.p]}'s picks (${Object.values(d.votes).filter(x=>x==='y').length} yes)`)}
+const hashImport=()=>{if(location.hash.startsWith('#s=')){const h=location.hash;history.replaceState(null,'',location.pathname);setTimeout(()=>doImport(h),50)}};hashImport();window.addEventListener('hashchange',hashImport);
+
+function vote(id,v){const cur=S.votes[S.me][id];if(cur===v)delete S.votes[S.me][id];else S.votes[S.me][id]=v;save();render(id)}
+function mark(p,id){const v=S.votes[p][id]||'';return `<span class="mark ${p} ${v}" data-v="${v?({y:'✓',m:'?',n:'✕'})[v]:''}" title="${PEOPLE[p]}: ${v?VL[v]:'no vote yet'}">${p}</span>`}
+
+function cardHTML(it){const v=S.votes[S.me][it.id]||'';
+  const tags=(it.tags||[]).map(t=>{const [cls,txt]=t.includes(':')?t.split(':'):['',t];return `<span class="tag ${cls}">${esc(txt)}</span>`}).join('');
+  return `<article class="card v-${v} ${S.open[it.id]?'open':''}" data-id="${it.id}" tabindex="0">
+  <div class="top"><h3>${esc(it.title)}${it.rec?'<span class="star" title="Recommended">★</span>':''}</h3></div>
+  <div class="when">${it.when||''}${it.where?' · '+esc(it.where):''}</div>
+  <p class="why">${it.why||''}</p>
+  <div class="tags">${tags}</div>
+  <div class="ctl">
+    <div class="vote"><button class="y ${v==='y'?'on':''}" data-v="y">Yes</button><button class="m ${v==='m'?'on':''}" data-v="m">Maybe</button><button class="n ${v==='n'?'on':''}" data-v="n">Pass</button></div>
+    <button class="more">${S.open[it.id]?'Hide details':'Details ▾'}</button>
+    <div class="marks">${mark('D',it.id)}${mark('A',it.id)}</div>
+  </div>
+  <div class="detail">${it.body||''}${it.links&&it.links.length?`<div class="k">Sources &amp; links</div><div class="src">${it.links.map(l=>`<a href="${l.u}" target="_blank" rel="noopener">${esc(l.t)} ↗</a>`).join('')}</div>`:''}${it.map?`<div class="src"><a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(it.map)}" target="_blank" rel="noopener">📍 Map: ${esc(it.map)} ↗</a></div>`:''}</div>
+</article>`}
+
+function renderChapters(){$('#chapters').innerHTML=BLOCKS.map((b,i)=>`<section class="chapter" id="b-${b.id}">
+  <div class="num">${['Chapter one','Chapter two','Chapter three','Chapter four','Chapter five','Chapter six','Chapter seven','Chapter eight','Chapter nine','Chapter ten'][i]||'Chapter'} · ${b.day||''}</div>
+  <h2>${esc(b.title)}</h2>${b.pickOne?'<span class="pickone">Pick one</span>':''}
+  <p class="lede">${b.lede||''}</p>
+  <div class="cards">${ITEMS.filter(x=>x.block===b.id).map(cardHTML).join('')}</div></section>`).join('')}
+
+function status(id){const d=S.votes.D[id],a=S.votes.A[id];
+  if(d==='y'&&a==='y')return['agree','Agreed ✓'];
+  if((d==='y'&&a==='n')||(d==='n'&&a==='y'))return['split','Split'];
+  if(d==='y'&&!a)return['wait','Waiting on Amanda'];if(a==='y'&&!d)return['wait','Waiting on David'];
+  if((d==='y'&&a==='m')||(a==='y'&&d==='m')||(d==='m'&&a==='m'))return['maybe','Leaning yes'];
+  return null}
+function renderPlan(){const rows=BLOCKS.map(b=>{const its=ITEMS.filter(x=>x.block===b.id).map(it=>({it,st:status(it.id)})).filter(x=>x.st);
+    return its.length?`<div class="planblock"><h4>${esc(b.title)}</h4>${its.map(({it,st})=>`<div class="planrow"><span class="t">${esc(it.title)}</span><span class="st ${st[0]}">${st[1]}</span><span class="marks">${mark('D',it.id)}${mark('A',it.id)}</span></div>`).join('')}</div>`:''}).join('');
+  const yes=p=>Object.values(S.votes[p]).filter(v=>v==='y').length;
+  $('#plan').innerHTML=`<h2>Our plan so far</h2><p class="sub">David: ${yes('D')} yes · Amanda: ${yes('A')} yes. Only cards with at least one Yes show here.</p>${rows||'<p class="empty">Nothing picked yet. Vote on a few cards above, or load a path.</p>'}
+  <div class="notes"><div><label for="noteMe">${PEOPLE[S.me]}'s note (travels with your link)</label><textarea id="noteMe" placeholder="Anything else? e.g. “Let’s skip the haunted stuff” or “I want a nap Saturday 1–2”">${esc(S.notes[S.me]||'')}</textarea></div><div><label>${PEOPLE[other(S.me)]}'s note</label><textarea readonly placeholder="Nothing imported yet">${esc(S.notes[other(S.me)]||'')}</textarea></div></div>`;
+  $('#noteMe').addEventListener('input',e=>{S.notes[S.me]=e.target.value;save()});}
+function renderPaths(){$('#paths').innerHTML=PATHS.map(p=>`<div class="path"><h3>${esc(p.title)}</h3><p>${p.desc}</p><button class="btn sm" data-path="${p.id}">Add these as my Yes votes</button></div>`).join('')}
+function renderFacts(){$('#facts').innerHTML=FACTS.map(f=>`<span class="chip">${f}</span>`).join('')}
+function renderBar(){const y=Object.values(S.votes[S.me]).filter(v=>v==='y').length,m=Object.values(S.votes[S.me]).filter(v=>v==='m').length;$('#barWho').textContent=PEOPLE[S.me];$('#barCnt').textContent=`${y} yes · ${m} maybe`;$('#bar').className='bar '+S.me;document.querySelectorAll('#who button').forEach(b=>b.classList.toggle('on',b.dataset.p===S.me))}
+function render(onlyId){if(onlyId){const old=$(`.card[data-id="${onlyId}"]`);if(old){const it=ITEMS.find(x=>x.id===onlyId);const tmp=document.createElement('div');tmp.innerHTML=cardHTML(it);const nw=tmp.firstElementChild;if(old.classList.contains('focus'))nw.classList.add('focus');old.replaceWith(nw)}}else{renderChapters()}renderPlan();renderBar()}
+
+document.addEventListener('click',e=>{
+  const c=e.target.closest('.card');
+  if(c&&e.target.matches('.vote button')){vote(c.dataset.id,e.target.dataset.v);return}
+  if(c&&e.target.matches('.more')){S.open[c.dataset.id]=!S.open[c.dataset.id];save();render(c.dataset.id);return}
+  if(e.target.matches('#who button')){S.me=e.target.dataset.p;save();render();toast(`Now picking as ${PEOPLE[S.me]}`);return}
+  if(e.target.matches('[data-path]')){const p=PATHS.find(x=>x.id===e.target.dataset.path);p.items.forEach(id=>{if(ITEMS.find(x=>x.id===id))S.votes[S.me][id]='y'});save();render();toast(`Added ${p.items.length} Yes votes for ${PEOPLE[S.me]}`);return}
+  if(e.target.matches('#copyLink,#barShare')){const u=link();(navigator.clipboard?navigator.clipboard.writeText(u):Promise.reject()).then(()=>toast(`Link copied — text it to ${PEOPLE[other(S.me)]}`)).catch(()=>{$('#code').style.display='block';$('#code').textContent=u;toast('Copy the link below')});if(navigator.share&&e.target.id==='barShare'){navigator.share({title:'Carmel weekend picks',url:u}).catch(()=>{})}return}
+  if(e.target.matches('#showCode')){const c=$('#code');c.style.display=c.style.display==='none'?'block':'none';c.textContent=link();return}
+  if(e.target.matches('#importBtn')){doImport($('#pasteCode').value);$('#pasteCode').value='';return}
+  if(e.target.matches('#resetMe')){if(confirm(`Clear all of ${PEOPLE[S.me]}'s votes and note on this device?`)){S.votes[S.me]={};S.notes[S.me]='';save();render();toast('Cleared')}return}
+});
+document.addEventListener('keydown',e=>{if(e.target.matches('input,textarea'))return;const cards=[...document.querySelectorAll('.card')];let i=cards.findIndex(c=>c.classList.contains('focus'));
+  const go=n=>{cards.forEach(c=>c.classList.remove('focus'));i=Math.max(0,Math.min(cards.length-1,n));cards[i].classList.add('focus');cards[i].scrollIntoView({block:'center',behavior:'smooth'})};
+  if(e.key==='j')go(i+1);else if(e.key==='k')go(i-1);else if('ymn'.includes(e.key)&&i>=0){vote(cards[i].dataset.id,e.key);document.querySelector(`.card[data-id="${cards[i].dataset.id}"]`).classList.add('focus')}
+  else if(e.key==='e'&&i>=0){const id=cards[i].dataset.id;S.open[id]=!S.open[id];save();render(id);document.querySelector(`.card[data-id="${id}"]`).classList.add('focus')}
+  else if(e.key==='1'||e.key==='2'){S.me=e.key==='1'?'D':'A';save();render()}});
+renderFacts();renderPaths();render();if(location.hash.startsWith('#b-')){const el=document.getElementById(location.hash.slice(1));if(el)el.scrollIntoView()}
+</script>
+</body>
+</html>
