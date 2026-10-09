@@ -1,7 +1,7 @@
 #!/bin/bash
 # Publish (or update in place) the Carmel page in davehague/shared-pages, bypassing the skill's suffix bug.
 set -euo pipefail
-SRC="$(dirname "$0")/index.html"
+SRC="$(cd "$(dirname "$0")" && pwd)/index.html"
 REPO=~/source/shared-pages
 SLUG="${1:-carmel-slots-$(openssl rand -hex 3)}"
 mkdir -p "$REPO/$SLUG"
