@@ -1,6 +1,7 @@
 module.exports = async ({page, base, ok}) => {
   await page.evaluate(() => localStorage.clear());
   await page.reload({waitUntil:'networkidle'});
+  await page.locator('#who button[data-p="D"]').click();
   const n = await page.locator('.card').count(); ok('cards rendered', n > 20, `(${n})`);
   await page.locator('.card').first().locator('.vote button.y').click();
   ok('vote marks card', await page.locator('.card').first().evaluate(c => c.classList.contains('v-y')));

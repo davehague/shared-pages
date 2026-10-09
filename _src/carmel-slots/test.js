@@ -1,5 +1,6 @@
 module.exports = async ({page, base, ok}) => {
   await page.evaluate(() => localStorage.clear()); await page.reload({waitUntil:'networkidle'});
+  await page.locator('#who button[data-p="D"]').click();
   const n = await page.locator('.opt').count(); ok('options rendered', n > 80, `(${n})`);
   const missing = await page.evaluate(() => AVAIL.filter(a => !ALL[a.id]).map(a => a.id)); ok('no missing option ids', missing.length === 0, missing.join(','));
   const slots = await page.locator('.slot').count(); ok('10 slots + hotel', slots === 11, `(${slots})`);
